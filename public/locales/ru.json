@@ -1,0 +1,30 @@
+{
+    "header": "basliq",
+    "home": {
+        "headSection": {
+            "button": "Keçid et"
+        },
+        "studyOfArea": {
+            "title": "Study of area",
+            "button": "More"
+        },
+        "statisticsValue": [
+            {
+                "title": "Total number of certificates received by our students",
+                "value": "certificates"
+            },
+            {
+                "title": "Total number of our students",
+                "value": "students"
+            },
+            {
+                "title": "Number of teachers in our academy",
+                "value": "teachers"
+            },
+            {
+                "title": "Number of our graduates who found jobs",
+                "value": "workers"
+            }
+        ]
+    }
+}

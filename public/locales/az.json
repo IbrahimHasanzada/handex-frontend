@@ -1,0 +1,40 @@
+{
+    "header": "basliq",
+    "home": {
+        "headSection": {
+            "button": "Keçid et"
+        },
+        "studyOfArea": {
+            "title": "Tədris sahələri",
+            "button": "Daha çox"
+        },
+        "testimonials": {
+            "heading": "Məmnun müştərilərimizin rəylərini oxuyun.",
+            "title": "Onların məmnuniyyəti bizim öhdəliyimizdir"
+        },
+        "statistics": {
+            "title": "Statistika sübut edir: Uğur təsadüf deyil, doğru qərarların nəticəsidir!",
+            "statisticsValue": [
+                {
+                    "title": "İndiyə qədərki tələbələrimizin aldıqları sertifikatların sayı",
+                    "value": "certificates"
+                },
+                {
+                    "title": "İndiyə qədərki tələbələrimizin ümumi sayı",
+                    "value": "students"
+                },
+                {
+                    "title": "Akademiyamızdakı müəllimlərin sayı",
+                    "value": "teachers"
+                },
+                {
+                    "title": "İş tapan məzunlarımızın sayı",
+                    "value": "workers"
+                }
+            ]
+        },
+        "graduates": {
+            "title": "Məzunlar"
+        }
+    }
+}

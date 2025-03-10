@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-bg: #F4F5F5;
+  --color-primary-corporate: #2A83AF;
+}
+
+@layer utilities {
+  .wrapper {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .wrapper {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .wrapper {
+      max-width: 1296px;
+    }
+  }
+
+  @media (min-width: 1460px) {
+    .wrapper {
+      max-width: 1400px;
+    }
+  }
+}
+
+.linear-slider .swiper-wrapper{
+  transition-timing-function: linear !important;
+}

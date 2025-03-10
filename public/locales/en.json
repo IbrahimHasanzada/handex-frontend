@@ -1,0 +1,40 @@
+{
+       "header": "heading",
+       "home": {
+              "headSection": {
+                     "button": "Keçid et"
+              },
+              "studyOfArea": {
+                     "title": "Study of area",
+                     "button": "More"
+              },
+              "testimonials": {
+                     "heading": "Məmnun müştərilərimizin rəylərini oxuyun.",
+                     "title": "Onların məmnuniyyəti bizim öhdəliyimizdir"
+              },
+              "statistics": {
+                     "title": "Statistics prove: Success is not a coincidence, but the result of the right decisions!",
+                     "statisticsValue": [
+                            {
+                                   "title": "Total number of certificates received by our students",
+                                   "value": "certificates"
+                            },
+                            {
+                                   "title": "Total number of our students",
+                                   "value": "students"
+                            },
+                            {
+                                   "title": "Number of teachers in our academy",
+                                   "value": "teachers"
+                            },
+                            {
+                                   "title": "Number of our graduates who found jobs",
+                                   "value": "workers"
+                            }
+                     ]
+              },
+              "graduates": {
+                     "title": "Graduates"
+              }
+       }
+}
