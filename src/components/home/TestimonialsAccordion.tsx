@@ -20,8 +20,6 @@ const TestimonialsAccordion = () => {
                 freeMode={true}
                 loop={true}
                 slidesPerView={4}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
                 autoplay={{
                     delay: 0,
                     disableOnInteraction: false,

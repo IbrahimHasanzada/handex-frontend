@@ -2,13 +2,14 @@ import HeadSection from '@/components/home/HeroSection'
 import Statistics from '@/components/home/Statistics'
 import StudyAreasSection from '@/components/home/StudyAreasSection'
 import TestimonialsAccordion from '@/components/home/TestimonialsAccordion'
+import TopCompanies from '@/components/home/TopCompanies'
 import UserSlider from '@/components/home/UserSlider'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 const page = () => {
   const t = useTranslations()
   return (
-    <div className='bg-primary-bg'>
+    <div>
       <div className='py-30'>
         <div className='wrapper'>
           <div className='py-15'>
@@ -31,10 +32,16 @@ const page = () => {
           <div className='py-15'>
             <Statistics />
           </div>
-          <div className='py-10'>
+          <div className='py-15'>
             <h2 className='font-bold text-4xl leading-12 mb-12'>{t("home.graduates.title")}</h2>
             <UserSlider />
           </div>
+        </div>
+        <div className='my-50'>
+          <div className='text-center'>
+            <h2 className='font-semibold text-3xl leading-11'>Məzunlarımızın işlədiyi top şirkətlər</h2>
+          </div>
+          <TopCompanies />
         </div>
       </div>
     </div>

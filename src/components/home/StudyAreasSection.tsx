@@ -21,7 +21,7 @@ const StudyAreasSection = () => {
   return (
     <div>
       <h2 className='font-bold leading-12 text-4xl'>{t("home.studyOfArea.title")}</h2>
-      <div className='mt-12 grid grid-cols-4 gap-6'>
+      <div className='mt-12 grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6'>
         {study.map((item, index) => (
           <StudyCards key={index} item={item} index={index} />
         ))}

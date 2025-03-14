@@ -17,7 +17,7 @@ const HeadSection = () => {
                 </div>
             </div>
             <div className='relative w-175 h-125'>
-                <Image src='/assets/img/hero.png' alt='Handex hero page icon' fill className='object-cover' />
+                <Image src='/assets/img/hero.png' alt='Handex hero page icon' fill className='object-cover' quality={80} priority={true} sizes="100%" />
             </div>
         </div>
     )
