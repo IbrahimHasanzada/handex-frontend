@@ -19,7 +19,22 @@ const TestimonialsAccordion = () => {
                 spaceBetween={32}
                 freeMode={true}
                 loop={true}
-                slidesPerView={4}
+                slidesPerView={1}
+                breakpoints={{
+                    520: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    },
+                    1280: {
+                        slidesPerView: 4,
+                        spaceBetween: 24
+                    }
+
+                }}
                 autoplay={{
                     delay: 0,
                     disableOnInteraction: false,
