@@ -28,8 +28,8 @@ const StudyAreasSection = () => {
       </div>
       <div className='mt-15 w-full flex justify-center'>
         <div className='w-35 h-12'>
-          <Button link=''>
-            <div className='flex items-center gap-2'>
+          <Button flag={true} link=''>
+            <div className='h-full flex items-center justify-center gap-2'>
               {t("home.studyOfArea.button")}
               <div className='pt-1'>
                 <Image src='/assets/img/angle-arrow.svg' alt='Handex study of area section arrow icon' width={24} height={24} className='' />

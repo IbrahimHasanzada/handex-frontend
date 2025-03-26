@@ -4,7 +4,7 @@ import React from 'react'
 
 const Button: React.FC<ButtonProps> = ({ children, link, flag }) => {
     return (
-        <div className={`overflow-hidden h-full w-full bg-gradient-to-l from-[#73CCD8] to-[#2B6B9F]  ${flag ? 'rounded-full' : 'rounded-[100px] flex justify-center items-center '}  text-white font-semibold`}>
+        <div className={`overflow-hidden h-full w-full   ${flag ? 'rounded-full bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)] text-black' : 'rounded-[100px] flex justify-center items-center bg-gradient-to-b from-[rgba(17,17,17,0.8)] to-[rgba(26,26,26,0.9)] text-white '}   font-semibold`}>
             <Link href={link}>
                 {children}
             </Link>

@@ -5,9 +5,9 @@ import React from 'react'
 const Statistics = () => {
     const t = useTranslations()
     return (
-        <div className='w-full bg-white rounded-[20px] border border-[#DDD] px-20 py-14'>
-            <div className='flex justify-between items-center gap-20'>
-                <div className='grid grid-cols-2 gap-20'>
+        <div className='w-full bg-white rounded-[20px] border border-[#DDD] px-10 py-6 md:px-20 md:py-14'>
+            <div className='flex flex-col-reverse md:flex-row justify-between items-center gap-10 md:gap-20'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20'>
                     {t.raw("home.statistics.statisticsValue").map((item: StatisticsDto, index: number) => (
                         <div key={index} className='text-center max-w-54'>
                             <p className='font-bold text-[5rem] text-[#141414]'>0</p>
@@ -16,7 +16,7 @@ const Statistics = () => {
                     ))}
                 </div>
                 <div className='max-w-120'>
-                    <p className='font-bold text-5xl leading-14'>{t("home.statistics.title")}</p>
+                    <p className='font-bold text-center md:text-start text-2xl md:text-3xl xl:text-5xl leading-8 md:leading-14'>{t("home.statistics.title")}</p>
                 </div>
             </div>
         </div>

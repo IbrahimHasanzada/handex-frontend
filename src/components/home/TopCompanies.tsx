@@ -9,14 +9,30 @@ const TopCompanies = () => {
     return (
         <div className='linear-slider'>
             <Swiper
+                breakpoints={{
+                    520: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 5,
+                        spaceBetween: 20
+                    },
+                    1280: {
+                        slidesPerView: 7,
+                        spaceBetween: 24
+                    }
+
+                }}
                 spaceBetween={16}
                 freeMode={true}
                 loop={true}
-                slidesPerView={7}
+                slidesPerView={2}
                 autoplay={{
                     delay: 0,
                     disableOnInteraction: false,
                 }}
+
                 centerInsufficientSlides={true}
                 speed={3000}
                 modules={[Autoplay]}>
