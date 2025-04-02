@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import '../../styles/globals.css'
+import '../../styles/globals.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -28,9 +28,9 @@ export default async function RootLayout({
   params
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: "az" | "en" | "ru" }
+  params: { locale: "az" | "en" | "ru"; };
 }>) {
-  const messagese = await getMessages()
+  const messagese = await getMessages();
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
