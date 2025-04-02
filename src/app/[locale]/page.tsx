@@ -1,13 +1,15 @@
-import HeadSection from '@/components/home/HeroSection'
-import Statistics from '@/components/home/Statistics'
-import StudyAreasSection from '@/components/home/StudyAreasSection'
-import TestimonialsAccordion from '@/components/home/TestimonialsAccordion'
-import TopCompanies from '@/components/home/TopCompanies'
-import UserSlider from '@/components/home/UserSlider'
-import { useTranslations } from 'next-intl'
-import React from 'react'
+import HeadSection from '@/components/home/HeroSection';
+import Statistics from '@/components/home/Statistics';
+import StudyAreasSection from '@/components/home/StudyAreasSection';
+import TestimonialsAccordion from '@/components/home/TestimonialsAccordion';
+import TopCompanies from '@/components/home/TopCompanies';
+import UserSlider from '@/components/home/UserSlider';
+import { useTranslations } from 'next-intl';
+import React from 'react';
+
 const page = () => {
-  const t = useTranslations()
+  const t = useTranslations('home');
+  
   return (
     <div>
       <div className='py-30'>
@@ -22,18 +24,18 @@ const page = () => {
         <div className='py-12.5 md:py-15'>
           <div className='w-full flex justify-center py-15'>
             <div className='max-w-126 text-center'>
-              <h2 className='text-2xl md:text-4xl leading-12 font-bold text-[#141414]'>{t("home.testimonials.heading")}</h2>
-              <p className='text-[#787878] text-sm md:text-2xl leading-8'>{t("home.testimonials.title")}</p>
+              <h2 className='text-2xl md:text-4xl leading-12 font-bold text-[#141414]'>{t("testimonials.heading")}</h2>
+              <p className='text-[#787878] text-sm md:text-2xl leading-8'>{t("testimonials.title")}</p>
             </div>
           </div>
-          <TestimonialsAccordion />
+          <TestimonialsAccordion  />
         </div>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
             <Statistics />
           </div>
           <div className='py-12.5 md:py-15'>
-            <h2 className='font-bold text-4xl leading-12 mb-12'>{t("home.graduates.title")}</h2>
+            <h2 className='font-bold text-4xl leading-12 mb-12'>{t("graduates.title")}</h2>
             <UserSlider />
           </div>
         </div>
@@ -45,7 +47,7 @@ const page = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

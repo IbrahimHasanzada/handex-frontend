@@ -1,22 +1,25 @@
-"use client"
-import Image from 'next/image'
-import React, { useRef, useState } from 'react'
-import { Autoplay, Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
+"use client";
+import { getProfiles } from '@/service';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const UserSlider = () => {
-  const userSlider = [
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" },
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" },
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" },
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" },
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" },
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" },
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" },
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" },
-    { img: "leyla.png", name: "Leyla Əfəndiyeva", course: "Oracle  SQL" }
-  ]
-  const [isBeginning, setIsBeginning] = useState(false)
+  const [students, setStudents] = useState<any>();
+  useEffect(() => {
+    async function getData() {
+      let result = await getProfiles('student');
+      
+      setStudents(result);
+    }
+    getData()
+  }, []);
+
+  console.log(students);
+  
+  
+  const [isBeginning, setIsBeginning] = useState(false);
   return (
     <div className='relative'>
       <div className="navigation-buttons absolute left-0 right-0 flex justify-center space-x-2 z-10 -bottom-30">
@@ -64,10 +67,10 @@ const UserSlider = () => {
         onReachEnd={() => setIsBeginning(true)}
         className='h-90 transition ease-linear duration-300 relative'
       >
-        {userSlider.map((item, index) => (
-          <SwiperSlide key={index} className='group relative !h-90 rounded-[20px] overflow-hidden'>
+        {students?.map((item: any, i: number) => (
+          <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
             <div className=' w-full h-full relative'>
-              <Image src={`/assets/img/${item.img}`} alt='Handex education slider images' fill className='object-cover group-hover:scale-120 duration-500' />
+              <img src={item.image?.url} alt='Handex education slider images' className='object-cover w-full group-hover:scale-120 duration-500' />
             </div>
             <div style={{
               background: 'linear-gradient(rgba(232, 232, 232, 0.2), rgba(231, 231, 231, 0.2))',
@@ -75,14 +78,29 @@ const UserSlider = () => {
               WebkitBackdropFilter: 'blur(50px)'
             }} className='h-14 px-6 pt-1 rounded-[50px] absolute left-6 bottom-6  w-[80%] text-white'>
               <p className='font-bold'>{item.name}</p>
-              <p className='text-sm'>{item.course}</p>
+              <p className='text-sm'>{item.speciality}</p>
+            </div>
+          </SwiperSlide>
+        ))}
+        {students?.map((item: any, i: number) => (
+          <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
+            <div className=' w-full h-full relative'>
+              <img src={item.image?.url} alt='Handex education slider images' className='object-cover w-full group-hover:scale-120 duration-500' />
+            </div>
+            <div style={{
+              background: 'linear-gradient(rgba(232, 232, 232, 0.2), rgba(231, 231, 231, 0.2))',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(50px)'
+            }} className='h-14 px-6 pt-1 rounded-[50px] absolute left-6 bottom-6  w-[80%] text-white'>
+              <p className='font-bold'>{item.name}</p>
+              <p className='text-sm'>{item.speciality}</p>
             </div>
           </SwiperSlide>
         ))}
 
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default UserSlider
+export default UserSlider;
