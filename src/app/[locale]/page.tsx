@@ -10,7 +10,7 @@ const page = () => {
   const t = useTranslations()
   return (
     <div>
-      <div className='py-30'>
+      <div className='pt-30'>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
             <HeadSection />
@@ -20,7 +20,7 @@ const page = () => {
           </div>
         </div>
         <div className='py-12.5 md:py-15'>
-          <div className='w-full flex justify-center py-15'>
+          <div className='w-full flex justify-center md:pb-15'>
             <div className='max-w-126 text-center'>
               <h2 className='text-2xl md:text-4xl leading-12 font-bold text-[#141414]'>{t("home.testimonials.heading")}</h2>
               <p className='text-[#787878] text-sm md:text-2xl leading-8'>{t("home.testimonials.title")}</p>
@@ -37,7 +37,7 @@ const page = () => {
             <UserSlider />
           </div>
         </div>
-        <div className='my-50'>
+        <div className='mt-30 md:mt-40 md:mb-10'>
           <div className='text-center'>
             <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>Məzunlarımızın işlədiyi top şirkətlər</h2>
           </div>
