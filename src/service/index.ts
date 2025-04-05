@@ -1,7 +1,7 @@
 
 export const getContent = async (slug: string) => {
     try {
-        const res = await fetch(`https://handex-backend.onrender.com/api/content/${slug}`);
+        const res = await fetch(`http://localhost:3000/api/content/${slug}`);
         const data = await res.json();
         return data;
     } catch (err) {
@@ -11,7 +11,7 @@ export const getContent = async (slug: string) => {
 
 export const getCustomers = async () => {
     try {
-        const res = await fetch('https://handex-backend.onrender.com/api/customers');
+        const res = await fetch('http://localhost:3000/api/customers');
         const data = await res.json();
         return data;
     } catch (err) {
@@ -21,7 +21,7 @@ export const getCustomers = async () => {
 
 export const getGeneral = async (field: string) => {
     try {
-        let res = await fetch('https://handex-backend.onrender.com/api/general');
+        let res = await fetch('http://localhost:3000/api/general');
         const data = await res.json();
         return data[0][field];
     } catch (err) {
@@ -31,7 +31,7 @@ export const getGeneral = async (field: string) => {
 
 export const getProfiles = async (model: string) => {
     try {
-        const res = await fetch(`https://handex-backend.onrender.com/api/profiles?model=${model}`);
+        const res = await fetch(`http://localhost:3000/api/profiles?model=${model}`);
         const data = await res.json();
         return data;
     } catch (err) {

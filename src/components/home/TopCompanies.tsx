@@ -49,14 +49,14 @@ const TopCompanies = () => {
                 speed={3000}
                 modules={[Autoplay]}>
                 {companies && companies?.map((item: any, index: number) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={index}>
                         <div className='relative h-38 w-38'>
                             <img src={item.url} alt='Handex mezunlar islediyi sirketler' className='object-cover size-38' />
                         </div>
                     </SwiperSlide>
                 ))}
                 {companies && companies?.map((item: any, index: number) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={index}>
                         <div className='relative h-38 w-38'>
                             <img src={item.url} alt='Handex mezunlar islediyi sirketler' className='object-cover size-38' />
                         </div>

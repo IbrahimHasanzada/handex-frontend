@@ -4,5 +4,6 @@ export interface ChildrenProps {
 
 export interface ButtonProps extends ChildrenProps {
     link: string | '#',
-    flag?: Boolean | false
+    flag?: Boolean | false,
+    theme: boolean
 }

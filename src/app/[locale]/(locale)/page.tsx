@@ -2,40 +2,36 @@ import HeadSection from '@/components/home/HeroSection';
 import Statistics from '@/components/home/Statistics';
 import StudyAreasSection from '@/components/home/StudyAreasSection';
 import TestimonialsAccordion from '@/components/home/TestimonialsAccordion';
+import TestimonialsHome from '@/components/home/TestimonialsHome';
 import TopCompanies from '@/components/home/TopCompanies';
 import UserSlider from '@/components/home/UserSlider';
+import { getCustomers } from '@/service';
 import { useTranslations } from 'next-intl';
-import React from 'react';
+import { getTranslations } from 'next-intl/server';
 
 const page = () => {
-  const t = useTranslations('home');
-  
+  const t = useTranslations();
+
   return (
     <div>
       <div className='pt-30'>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
-            <HeadSection />
+            <HeadSection page='home' />
           </div>
           <div className='py-12.5 md:py-15'>
-            <StudyAreasSection />
+            <StudyAreasSection page='home' />
           </div>
         </div>
         <div className='py-12.5 md:py-15'>
-          <div className='w-full flex justify-center md:pb-15'>
-            <div className='max-w-126 text-center'>
-              <h2 className='text-2xl md:text-4xl leading-12 font-bold text-[#141414]'>{t("testimonials.heading")}</h2>
-              <p className='text-[#787878] text-sm md:text-2xl leading-8'>{t("testimonials.title")}</p>
-            </div>
-          </div>
-          <TestimonialsAccordion  />
+          <TestimonialsHome />
         </div>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
             <Statistics />
           </div>
           <div className='py-12.5 md:py-15'>
-            <h2 className='font-bold text-4xl leading-12 mb-12'>{t("graduates.title")}</h2>
+            <h2 className='font-bold text-4xl leading-12 mb-12'>{t("home.graduates.title")}</h2>
             <UserSlider />
           </div>
         </div>
