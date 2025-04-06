@@ -17,7 +17,9 @@ const page = () => {
                 <div className=' bg-[#282828] rounded-[20px]'>
                     <TestimonialsCorporate />
                 </div>
-            </div>
+                {/* <div className=' bg-[#282828] rounded-[20px]'> */}
+                {/* </div> */}
+                </div>
         </div>
 
     )

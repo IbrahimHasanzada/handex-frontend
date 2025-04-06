@@ -17,26 +17,17 @@ const TestimonialsCorporate = async () => {
                     </div>
                 </div>
             </div>
-            <div className=" flex base:flex-3/4  xl:flex-1/2 gap-6">
-                <div className="grid grid-cols-2 gap-5 ">
-                    <div className="hidden relative base:block h-67 overflow-hidden">
+            <div className="flex base:flex-3/4  xl:flex-1/2 gap-6">
+                <div className="grid grid-cols-1 base:grid-cols-2 gap-5 h-full">
+                    <div className="hidden base:block  h-full">
+                        {/* <div className='absolute -bottom-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div> */}
                         <TestimonialsAccordion data={result} page="corporate" />
-                        <div className='absolute -bottom-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div>
-
+                        {/* <div className='absolute -top-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div> */}
                     </div>
-                    <div className="hidden relative base:block h-51 overflow-hidden">
+                    <div className="h-full">
+                        {/* <div className='absolute -top-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div> */}
                         <TestimonialsAccordion data={result} page="corporate" />
-                        <div className='absolute -bottom-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div>
-                    </div>
-                    <div className="hidden relative base:block h-51 overflow-hidden">
-                        <div className='absolute -bottom-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div>
-                        <TestimonialsAccordion data={result} page="corporate" />
-                        <div className='absolute -top-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div>
-                    </div>
-                    <div className="hidden relative base:block h-67 overflow-hidden">
-                    <div className='absolute -top-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div>
-                        <TestimonialsAccordion data={result} page="corporate" />
-                        <div className='absolute -bottom-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div>
+                        {/* <div className='absolute -bottom-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]'></div> */}
                     </div>
                 </div>
 
