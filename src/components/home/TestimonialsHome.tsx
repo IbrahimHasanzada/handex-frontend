@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import TestimonialsAccordion from "./TestimonialsAccordion";
 import { getCustomers } from "@/service";
+import TestimonialsAccordion from "../TestimonialsAccordion";
 
 const TestimonialsHome = async () => {
     const result = await getCustomers();

@@ -14,7 +14,7 @@ const page = () => {
                 <div className='py-12.5 md:py-15'>
                     <StudyAreasSection page="corporate" />
                 </div>
-                <div className='py-12.5 md:py-15 bg-[#282828] rounded-[20px]'>
+                <div className=' bg-[#282828] rounded-[20px]'>
                     <TestimonialsCorporate />
                 </div>
             </div>
