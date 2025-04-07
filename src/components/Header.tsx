@@ -1,7 +1,7 @@
 "use client"
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import Button from './ui/Button'
 import Link from 'next/link'
 
@@ -16,11 +16,11 @@ const Header = ({ theme = '' }) => {
 
   return (
     <header className="relative">
-      <div className={`wrapper base:bg-transparent ${theme === 'dark' ? 'bg-[#2b2b2b]' : 'bg-white' }  fixed left-0 right-0 z-50`}>
+      <div className={`wrapper base:bg-transparent ${theme === 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'}  fixed left-0 right-0 z-50`}>
         <div className={`base:px-6 w-full  rounded-b-[20px]  ${theme === 'dark' ? 'base:bg-[#2b2b2b]' : 'base:bg-white base:border border-[#DDD]'} h-25 flex items-center justify-between base:shadow-md`}>
-          <div className='relative flex items-center'>
+          <Link href='/' className='relative flex items-center'>
             <Image src='/assets/img/handex_logo.png' alt='Handex Logo' quality={100} sizes='100%' width={128} height={40} className='w-32 h-10' />
-          </div>
+          </Link>
           <div className='hidden base:block'>
             <div className='flex items-center gap-18'>
               <ul className='flex gap-6'>

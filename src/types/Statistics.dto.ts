@@ -1,4 +1,3 @@
 export interface StatisticsDto {
-    title: string,
-    value: string
+    page: string
 }

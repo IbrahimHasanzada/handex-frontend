@@ -1,5 +1,5 @@
 import HeadSection from '@/components/home/HeroSection';
-import Statistics from '@/components/home/Statistics';
+import Statistics from '@/components/Statistics';
 import StudyAreasSection from '@/components/home/StudyAreasSection';
 import TestimonialsAccordion from '@/components/home/TestimonialsAccordion';
 import TestimonialsHome from '@/components/home/TestimonialsHome';

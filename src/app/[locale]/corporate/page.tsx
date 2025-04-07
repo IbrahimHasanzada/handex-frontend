@@ -1,10 +1,9 @@
 import TestimonialsCorporate from "@/components/corporate/TestimonialsCorporate";
 import HeadSection from "@/components/home/HeroSection";
+import Statistics from "@/components/Statistics";
 import StudyAreasSection from "@/components/home/StudyAreasSection";
-import { getCustomers } from "@/service";
-// import TestimonialsAccordion from "@/components/home/TestimonialsAccordion";
 
-const page = () => {
+const page = async () => {
     return (
         <div className='pt-30 '>
             <div className="wrapper">
@@ -17,9 +16,10 @@ const page = () => {
                 <div className=' bg-[#282828] rounded-[20px]'>
                     <TestimonialsCorporate />
                 </div>
-                {/* <div className=' bg-[#282828] rounded-[20px]'> */}
-                {/* </div> */}
+                <div className='py-12.5 md:py-15'>
+                    <Statistics page='corporate' />
                 </div>
+            </div>
         </div>
 
     )

@@ -31,37 +31,6 @@
 
 
 
-/* 
-body {
-  position: relative;
-}
-
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../../public/assets/img/background.png');
-  background-size: 100%;
-  opacity: 1;
-  z-index: -1;
-}
-
-body::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(244, 245, 245, .7);
-  z-index: -2;
-} */
-
-/* 
----break--- */
 
 :root {
   --radius: 0.625rem;
@@ -186,46 +155,4 @@ body::after {
   body {
     @apply bg-background text-foreground;
   }
-}
-
-/* globals.css or app/globals.css */
-/* Add these keyframes to your global CSS file */
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-100% - var(--gap))); }
-}
-
-@keyframes marquee-reverse {
-  from { transform: translateX(calc(-100% - var(--gap))); }
-  to { transform: translateX(0); }
-}
-
-/* Add vertical marquee animations */
-@keyframes marquee-vertical {
-  from { transform: translateY(0); }
-  to { transform: translateY(calc(-100% - var(--gap))); }
-}
-
-@keyframes marquee-vertical-reverse {
-  from { transform: translateY(calc(-100% - var(--gap))); }
-  to { transform: translateY(0); }
-}
-
-/* Add these custom utility classes */
-.animate-marquee {
-  animation: marquee var(--duration) linear infinite;
-}
-
-.animate-marquee-reverse {
-  animation: marquee-reverse var(--duration) linear infinite;
-}
-
-/* Override for vertical direction */
-.flex-col .animate-marquee {
-  animation: marquee-vertical var(--duration) linear infinite;
-}
-
-.flex-col .animate-marquee-reverse {
-  animation: marquee-vertical-reverse var(--duration) linear infinite;
 }
