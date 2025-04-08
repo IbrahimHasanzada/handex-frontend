@@ -12,7 +12,7 @@ const Statistics: React.FC<StatisticsDto> = async ({ page }) => {
                 <div className={`grid ${page === 'corporate' ? 'grid-cols-2 base:grid-cols-4' : 'grid-cols-1 md:grid-cols-2'} gap-10 md:gap-20`}>
                     {t.raw("home.statistics.statisticsValue").map((item: any, i: number) => (
                         <div key={i} className={`${page !== 'corporate' && 'max-w-54'} text-center`}>
-                            <p className={`${page ? 'bg-gradient-to-r from-[#F4F5F5] to-[#666] text-transparent bg-clip-text' : 'text-[#141414]'} font-bold text-[5rem] `}>{(i % 2 ? '+' : '') + data[item.value]}</p>
+                            <p className={`${page === 'corporate' ? 'bg-gradient-to-r from-[#F4F5F5] to-[#666] text-transparent bg-clip-text' : 'text-[#141414]'} font-bold text-[5rem] `}>{(i % 2 ? '+' : '') + data[item.value]}</p>
                             <p className={page === 'corporate' ? 'text-white/45 ' : 'text-[#60606080]'}>{item.title}</p>
                         </div>
                     ))}

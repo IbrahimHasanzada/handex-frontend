@@ -2,6 +2,7 @@ import TestimonialsCorporate from "@/components/corporate/TestimonialsCorporate"
 import HeadSection from "@/components/home/HeroSection";
 import Statistics from "@/components/Statistics";
 import StudyAreasSection from "@/components/home/StudyAreasSection";
+import Partners from "@/components/corporate/Partners";
 
 const page = async () => {
     return (
@@ -18,6 +19,9 @@ const page = async () => {
                 </div>
                 <div className='py-12.5 md:py-15'>
                     <Statistics page='corporate' />
+                </div>
+                <div className='py-12.5 md:py-15'>
+                    <Partners page='corporate' />
                 </div>
             </div>
         </div>

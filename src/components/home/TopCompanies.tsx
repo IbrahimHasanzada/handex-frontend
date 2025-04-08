@@ -1,21 +1,20 @@
 "use client";
 import { getGeneral } from '@/service';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const TopCompanies = () => {
+const TopCompanies: React.FC<{ page: string }> = ({ page }) => {
     const [companies, setCompanies] = useState<any>();
 
     useEffect(() => {
         async function fetchData() {
-            let result = await getGeneral('company');
+            let result = await getGeneral('company')
             setCompanies(result);
         }
         fetchData();
     }, []);
-    
+
     return (
         <div className='linear-slider'>
             <Swiper
@@ -49,16 +48,22 @@ const TopCompanies = () => {
                 speed={3000}
                 modules={[Autoplay]}>
                 {companies && companies?.map((item: any, index: number) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide className={page === 'corporate' ? 'bg-white' : 'bg-transparent'} key={index}>
                         <div className='relative h-38 w-38'>
-                            <img src={item.url} alt='Handex mezunlar islediyi sirketler' className='object-cover size-38' />
+                            <img src={item.url} alt='Handex mezunlar islediyi sirketler' className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
+                            {page === 'corporate' && (
+                                <p>Pasha Bank</p>
+                            )}
                         </div>
                     </SwiperSlide>
                 ))}
                 {companies && companies?.map((item: any, index: number) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide className={page === 'corporate' ? 'bg-white' : 'bg-transparent'} key={index}>
                         <div className='relative h-38 w-38'>
-                            <img src={item.url} alt='Handex mezunlar islediyi sirketler' className='object-cover size-38' />
+                            <img src={item.url} alt='Handex mezunlar islediyi sirketler' className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
+                            {page === 'corporate' && (
+                                <p>Pasha Bank</p>
+                            )}
                         </div>
                     </SwiperSlide>
                 ))}

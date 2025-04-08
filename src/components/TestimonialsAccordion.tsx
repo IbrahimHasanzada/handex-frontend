@@ -11,18 +11,18 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
 
     useEffect(() => {
         if (page !== 'corporate') {
-            const sliders = document.querySelectorAll('.linear-slider .swiper-wrapper');
+            const sliders = document.querySelectorAll('.swiper-wrapper');
             sliders.forEach(slider => {
                 slider.style.transitionTimingFunction = 'linear';
             });
         }
     }, [page]);
-    
+
     if (!data.length) return <div>Loading...</div>;
 
-    
+
     return (
-        <div className='linear-slider relative'>
+        <div className='relative'>
             <Swiper
                 key={data.length}
                 onAfterInit={() => setSwiperReady(true)}
