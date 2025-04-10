@@ -1,5 +1,4 @@
 "use client";
-import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -7,25 +6,14 @@ import { Autoplay, FreeMode, EffectFade } from 'swiper/modules';
 import { TestimonialsDto } from '@/types/Testimonials.dto';
 
 const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start }) => {
-    const [swiperReady, setSwiperReady] = useState(false);
-
-    useEffect(() => {
-        if (page !== 'corporate') {
-            const sliders = document.querySelectorAll('.swiper-wrapper');
-            sliders.forEach(slider => {
-                slider.style.transitionTimingFunction = 'linear';
-            });
-        }
-    }, [page]);
 
     if (!data.length) return <div>Loading...</div>;
 
 
     return (
-        <div className='relative'>
+        <div className={`relative ${page !== 'corporate' ? 'linear-slider' : ''}`}>
             <Swiper
                 key={data.length}
-                onAfterInit={() => setSwiperReady(true)}
                 spaceBetween={32}
                 freeMode={true}
                 initialSlide={start}

@@ -1,6 +1,5 @@
 import { getGeneral } from '@/service'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 const Footer = async ({ theme = '' }) => {
   const studyArea = ['Microsoft Excel', 'Data Analitika', 'Power BI', 'Oracle SQL', 'Mose (MO-211)', 'PL-300 (PBDAA)', 'Satış strategiyası (Data Əsaslı)', '1Z0 - 071']

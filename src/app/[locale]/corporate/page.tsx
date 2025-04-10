@@ -6,7 +6,7 @@ import Partners from "@/components/corporate/Partners";
 
 const page = async () => {
     return (
-        <div className='pt-30 '>
+        <div className='pt-30'>
             <div className="wrapper">
                 <div className='py-12.5 md:py-15'>
                     <HeadSection page='corporate' />
@@ -14,7 +14,7 @@ const page = async () => {
                 <div className='py-12.5 md:py-15'>
                     <StudyAreasSection page="corporate" />
                 </div>
-                <div className=' bg-[#282828] rounded-[20px]'>
+                <div className='my-12.5 md:my-15 bg-[#282828] rounded-[20px]'>
                     <TestimonialsCorporate />
                 </div>
                 <div className='py-12.5 md:py-15'>

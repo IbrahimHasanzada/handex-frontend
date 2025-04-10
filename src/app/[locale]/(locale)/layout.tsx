@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import BackgroundLayout from "@/components/BackgroundLayout";
 export default async function RootLayout({
   children,
-  params
 }: Readonly<{
   children: React.ReactNode;
   params: { locale: "az" | "en" | "ru"; };

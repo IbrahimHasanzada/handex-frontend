@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl'
 import React from 'react'
 import Button from '../ui/Button'
-import Image from 'next/image'
 import StudyCards from './StudyCards'
 import { StudyAreaSectionDto } from '@/types/StudyAreaSection.dto'
 

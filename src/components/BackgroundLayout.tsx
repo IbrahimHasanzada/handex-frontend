@@ -9,7 +9,6 @@ export default function BackgroundLayout({
 }) {
     const { isDarkBackground } = getBackgroundConfig(pathname);
 
-    console.log(isDarkBackground)
     return (
         <div className="relative min-h-screen">
             <div className={`absolute inset-0 ${isDarkBackground ? 'bg-[#181818]' : 'bg-[rgb(244,245,245,0.7)] '} z-[-1]`}></div>

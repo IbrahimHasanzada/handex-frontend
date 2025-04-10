@@ -4,10 +4,10 @@ import StudyAreasSection from '@/components/home/StudyAreasSection';
 import TestimonialsHome from '@/components/home/TestimonialsHome';
 import TopCompanies from '@/components/home/TopCompanies';
 import UserSlider from '@/components/home/UserSlider';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-const page = () => {
-  const t = useTranslations();
+const page = async () => {
+  const t = await getTranslations();
 
   return (
     <div>
@@ -35,7 +35,7 @@ const page = () => {
             <div className='text-center'>
               <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>Məzunlarımızın işlədiyi top şirkətlər</h2>
             </div>
-            <TopCompanies page='home' />
+            <TopCompanies index={0} page='home' />
           </div>
         </div>
       </div>

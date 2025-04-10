@@ -7,8 +7,25 @@ import Link from 'next/link'
 
 const Header = ({ theme = '' }) => {
   const headerLists = [
-    { title: 'Haqqımızda', subItems: ['Haqqımızda', 'Xidmətlərimiz', 'Layihələrimiz', 'Xəbərlər', 'Bloqlar'] },
-    { title: 'Tədris sahələri', subItems: ['Proqramlaşdırma', 'UX/UI Dizayn', 'Marketinq', 'Data Analitika', 'Süni İntellekt'] }
+    {
+      title: 'Haqqımızda',
+      subItems: [
+        { "text": 'Haqqımızda', "link": 'about' },
+        { "text": 'Xidmətlərimiz', "link": '' },
+        { "text": 'Layihələrimiz', "link": '' },
+        { "text": 'Xəbərlər', "link": '' },
+        { "text": 'Bloqlar', "link": '' }
+      ]
+    },
+    {
+      title: 'Tədris sahələri', subItems: [
+        { "text": 'Proqramlaşdırma', "link": '' },
+        { "text": 'UX/UI Dizayn', "link": '' },
+        { "text": 'Marketinq', "link": '' },
+        { "text": 'Data Analitika', "link": '' },
+        { "text": 'Süni İntellekt', "link": '' }
+      ]
+    }
   ]
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
@@ -36,10 +53,14 @@ const Header = ({ theme = '' }) => {
                       <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
 
-                    <div className={`absolute z-50 top-13 ${activeMenu === `menu${index}` ? 'block' : 'hidden'} pt-5`}>
+                    <div className={`absolute z-50 top-12 ${activeMenu === `menu${index}` ? 'block' : 'hidden'} pt-5`}>
                       <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
                         {subItems.map((item, idx) => (
-                          <li className='text-black' key={idx}>{item}</li>
+                          <li className='text-black' key={idx}>
+                            <Link href={item.link}>
+                              {item.text}
+                            </Link>
+                          </li>
                         ))}
                       </ul>
                     </div>

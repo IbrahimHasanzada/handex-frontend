@@ -1,9 +1,7 @@
 "use client";
 import { getProfiles } from '@/service';
-import { tree } from 'next/dist/build/templates/app-page';
-import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import React, { useEffect, useState } from 'react';
+import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const UserSlider = () => {
@@ -23,7 +21,7 @@ const UserSlider = () => {
   return (
     <div className='relative'>
       <div className="navigation-buttons absolute left-0 right-0 flex justify-center space-x-2 z-10 -bottom-30">
-        <button className={`overflow-hidden group swiper-button-prev-custom rounded-full w-20 h-20 flex items-center justify-center  ${isBeginning ? 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]' : 'bg-black rounded-full'}`}>
+        <button aria-label="prev button" className={`overflow-hidden group swiper-button-prev-custom rounded-full w-20 h-20 flex items-center justify-center  ${isBeginning ? 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]' : 'bg-black rounded-full'}`}>
           <svg className='group-hover:translate-x-4.5 duration-300 translate-x-24 rotate-90' width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? 'black' : 'white'}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -31,7 +29,7 @@ const UserSlider = () => {
             <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? 'black' : 'white'}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <button className={`overflow-hidden group swiper-button-next-custom rounded-full w-20 h-20 flex items-center justify-center ${isBeginning ? ' bg-black' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)] rounded-full'}`}>
+        <button aria-label="next button" className={`overflow-hidden group swiper-button-next-custom rounded-full w-20 h-20 flex items-center justify-center ${isBeginning ? ' bg-black' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)] rounded-full'}`}>
           <svg className='group-hover:translate-x-24 duration-300 translate-x-5 -rotate-90' width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? 'white' : 'black'}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -69,7 +67,7 @@ const UserSlider = () => {
       >
         {students && students?.map((item: any, i: number) => (
           <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
-            <div className=' w-full h-full relative'>
+            <div className='w-full h-full relative'>
               <img src={item.image?.url} alt='Handex education slider images' className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
             </div>
             <div style={{
@@ -81,22 +79,6 @@ const UserSlider = () => {
               <p className='text-sm'>{item.speciality}</p>
             </div>
           </SwiperSlide>
-          // ))}
-
-          // {students?.map((item: any, i: number) => (
-          //   <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
-          //     <div className=' w-full h-full relative'>
-          //       <img src={item.image?.url} alt='Handex education slider images' className='object-cover w-full group-hover:scale-120 duration-500' />
-          //     </div>
-          //     <div style={{
-          //       background: 'linear-gradient(rgba(232, 232, 232, 0.2), rgba(231, 231, 231, 0.2))',
-          //       backdropFilter: 'blur(10px)',
-          //       WebkitBackdropFilter: 'blur(50px)'
-          //     }} className='h-14 px-6 pt-1 rounded-[50px] absolute left-6 bottom-6  w-[80%] text-white'>
-          //       <p className='font-bold'>{item.name}</p>
-          //       <p className='text-sm'>{item.speciality}</p>
-          //     </div>
-          //   </SwiperSlide>
         ))}
 
       </Swiper>

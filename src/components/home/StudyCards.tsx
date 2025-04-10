@@ -3,7 +3,7 @@ import React from 'react'
 import Button from '../ui/Button'
 import { StudyCardsDto } from '@/types/StudyCards-prop.dto'
 
-const StudyCards: React.FC<StudyCardsDto> = ({ item, index, theme }) => {
+const StudyCards: React.FC<StudyCardsDto> = ({ item, theme }) => {
     return (
         <div className={`${theme ? 'bg-[#282828]' : 'bg-white'} group relative rounded-3xl w-full sm:h-65 sm:max-w-60 xl:h-76 xl:max-w-76 p-6 flex flex-col justify-between`}>
             <p className={`${theme ? 'text-white' : 'text-black'} font-medium text-xl xl:text-2xl max-w-47`}>{item.title}</p>
