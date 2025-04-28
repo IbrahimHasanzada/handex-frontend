@@ -41,11 +41,11 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
             >
                 {data.map((item: any, index: number) => (
                     <SwiperSlide
-                        className={`relative !flex justify-center items-center ${page !== 'corporate' ? (index % 2 ? 'rotate-5' : '-rotate-5') : index % 2 ? '' : '!h-[268px]'}`}
+                        className={`relative !flex justify-center items-center  ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '' : '!h-[268px]'}`}
                         key={item.id || index}
                     >
-                        <div className={`${page === 'corporate' && '!h-full'} border-1 bg-white border-[#DDD] rounded-[20px] p-6 h-auto`}>
-                            <div className='flex flex-col'>
+                        <div className={`${page === 'corporate' && '!h-full'} border-1 w-90 bg-white border-[#DDD] rounded-[20px] p-6 h-auto`}>
+                            <div className={`flex flex-col !px-6`}>
                                 <div className='flex justify-between pb-4 border-b border-b-[#DDD]'>
                                     <div className='flex items-center gap-4.5'>
                                         <img
@@ -69,7 +69,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                                     </div>
                                 </div>
                                 <div className='mt-2.5 flex-grow overflow-y-auto' style={{ minHeight: '120px' }}>
-                                    <p className='text-sm line-clamp-5'>{item.comment}</p>
+                                    <p className='text-sm line-clamp-5 break-words'>{item.comment}</p>
                                 </div>
                             </div>
                         </div>
