@@ -20,7 +20,7 @@ export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
-    params: { locale: "az" | "en" | "ru"; };
+    params: Promise<{ locale: "az" | "en" | "ru" }>;
 }>) {
     return (
         <html lang="en">
