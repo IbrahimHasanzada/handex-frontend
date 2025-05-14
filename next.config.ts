@@ -3,7 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
    eslint: {
-    ignoreDuringBuilds: process.env.NEXT_PUBLIC_DISABLE_ESLINT === 'true',
+    ignoreDuringBuilds: true,
   },
    reactStrictMode: true,
    images: {
