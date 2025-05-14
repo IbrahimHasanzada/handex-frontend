@@ -1,16 +1,15 @@
-import { ContactInputsDto } from '@/types/contact.dto';
+import ContactForm from '@/components/contact/ContactForm';
+import { getGeneral } from '@/service';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
 const page = async () => {
+    const data = await getGeneral();
     const t = await getTranslations('contact');
-    const inputs: ContactInputsDto[] = t.raw('inputs');
-    const textarea: ContactInputsDto = t.raw('textarea');
-
     return (
         <div className='wrapper pt-45'>
             <h1 className='text-[40px] font-bold'>{t('title')}</h1>
-            <div className='grid grid-cols-3 gap-8 mt-15'>
+            <div className='grid md:grid-cols-3 gap-8 mt-15'>
                 <div className='bg-white rounded-[20px] py-6 px-12 box-shadow flex gap-4 items-center'>
                     <svg className='size-12' xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd" d="M37.93 33.22L35.584 30.874C34.412 29.702 32.512 29.702 31.342 30.874L29.498 32.718C29.086 33.13 28.462 33.268 27.93 33.034C25.258 31.864 22.618 30.09 20.264 27.736C17.92 25.392 16.152 22.764 14.98 20.102C14.736 19.552 14.878 18.906 15.304 18.48L16.956 16.828C18.298 15.486 18.298 13.588 17.126 12.416L14.78 10.07C13.218 8.508 10.686 8.508 9.12405 10.07L7.82005 11.372C6.33805 12.854 5.72005 14.992 6.12005 17.112C7.10805 22.338 10.144 28.06 15.042 32.958C19.94 37.856 25.6621 40.892 30.8881 41.88C33.0081 42.28 35.146 41.662 36.628 40.18L37.93 38.878C39.492 37.316 39.492 34.784 37.93 33.22V33.22Z" stroke="url(#paint0_linear_5785_3974)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -42,8 +41,9 @@ const page = async () => {
                         </defs>
                     </svg>
                     <div>
-                        <p className='text-lg'>+994 50 837 58 54</p>
-                        <p className='text-lg'>+994 50 604 58 54</p>
+                        {data[0]?.phone?.map((item: string, i: number) => (
+                            <p key={i} className='text-base md:text-lg'>{item}</p>
+                        ))}
                     </div>
                 </div>
                 <div className='bg-white rounded-[20px] py-6 px-12 box-shadow flex gap-4 items-center'>
@@ -72,11 +72,11 @@ const page = async () => {
                         </defs>
                     </svg>
                     <div>
-                        <p className='text-lg'>contact@handex.az</p>
+                        <p className='text-base md:text-lg'>{data[0]?.email}</p>
                     </div>
                 </div>
                 <div className='bg-white rounded-[20px] py-6 px-12 box-shadow flex gap-4 items-center'>
-                    <svg className='size-12' xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <svg className='md:size-12 size-20' xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd" d="M24 26V26C20.686 26 18 23.314 18 20V20C18 16.686 20.686 14 24 14V14C27.314 14 30 16.686 30 20V20C30 23.314 27.314 26 24 26Z" stroke="url(#paint0_linear_5785_6836)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         <path fillRule="evenodd" clipRule="evenodd" d="M24 42C24 42 10 30.5 10 20C10 12.268 16.268 6 24 6C31.732 6 38 12.268 38 20C38 30.5 24 42 24 42Z" stroke="url(#paint1_linear_5785_6836)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         <defs>
@@ -91,32 +91,11 @@ const page = async () => {
                         </defs>
                     </svg>
                     <div>
-                        <p className='text-lg'>Nizami str. 203 AF Business House (4th floor)</p>
+                        <p className='text-base md:text-lg'>{data[0]?.location}</p>
                     </div>
                 </div>
             </div>
-            <div className='bg-white rounded-[20px] py-16 px-9 mt-9 box-shadow grid grid-cols-2'>
-                <div>
-                    <div className='grid grid-cols-2 gap-4 w-full'>
-                        {inputs?.map((item, i) => (
-                            <div key={i} className='w-full'>
-                                <label className='block mb-1'>{item.label}</label>
-                                {item.type !== 'textarea' && (
-                                    <input className='py-2.5 px-4 w-full rounded-[20px] border border-[#909090] outline-none' type={item.type} placeholder={item.placeholder} />
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                    <div className='mt-6'>
-                        <label className='block mb-1'>{textarea.label}</label>
-                        <textarea className='py-2.5 px-4 h-40 w-full rounded-[20px] border border-[#909090] outline-none' placeholder={textarea.placeholder}></textarea>
-                    </div>
-                    <button className='mt-19 px-8 rounded-full py-3 bg-[#1818181A]'>{t('send')}</button>
-                </div>
-                <div className='ml-30'>
-                    <iframe className='rounded-[20px] w-full h-full' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.41787074395!2d49.851465412187444!3d40.37743037132686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307df1224c72af%3A0xe8a74dd0d6a8cf13!2sHandex!5e0!3m2!1saz!2saz!4v1747217743032!5m2!1saz!2saz" loading="lazy"></iframe>
-                </div>
-            </div>
+            <ContactForm />
         </div>
     );
 };
