@@ -20,11 +20,13 @@ export default async function RootLayout({
     children,
     params,
 }: Readonly<{
-    children: React.ReactNode;
+    children: any;
     params: any;
 }>) {
     const resolvedParams = await params;
-
+    const { locale } = resolvedParams
+    console.log(locale);
+        
     return (
         <html lang={resolvedParams.locale}>
             <body className="antialiased">
