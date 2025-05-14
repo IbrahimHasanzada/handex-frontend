@@ -33,11 +33,11 @@ export const getCustomers = async () => {
     }
 };
 
-export const getGeneral = async (field: string) => {
+export const getGeneral = async (field?: string) => {
     try {
         const res = await fetch('https://api.drafts.az/api/general');
         const data = await res.json();
-        return data[0][field];
+        return field ? data[0][field] : data;
     } catch (err) {
         return err;
     }
