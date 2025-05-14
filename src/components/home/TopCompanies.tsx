@@ -22,26 +22,17 @@ const TopCompanies: React.FC<{ page: string, index: number }> = ({ page, index }
         <div className={`linear-slider ${page === 'corporate' && 'mt-6'}`}>
             <Swiper
                 breakpoints={{
-                    520: {
-                        slidesPerView: 3,
-                        spaceBetween: 20
-                    },
-                    992: {
-                        slidesPerView: 5,
-                        spaceBetween: 20
-                    },
-                    1280: {
-                        slidesPerView: 7,
-                        spaceBetween: 24
-                    }
+                    520: { slidesPerView: 4 },
+                    992: { slidesPerView: 5 },
+                    1280: { slidesPerView: 7 }
 
                 }}
-                spaceBetween={16}
+                spaceBetween={page === 'corporate' ? 24 : 62}
                 initialSlide={0}
                 key={companies ? 'loaded' : 'loading'}
                 freeMode={true}
                 loop={true}
-                slidesPerView={2}
+                slidesPerView={3}
                 autoplay={{
                     delay: 0,
                     disableOnInteraction: false,
@@ -65,7 +56,7 @@ const TopCompanies: React.FC<{ page: string, index: number }> = ({ page, index }
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
                             {page === 'corporate' && (
-                                <p>Azersun arena</p>
+                                <p>Pasha Bank</p>
                             )}
                             <img src={item.url} alt='Handex mezunlar islediyi sirketler' className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
                         </div>

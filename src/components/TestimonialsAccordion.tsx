@@ -24,9 +24,9 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 breakpoints={
                     page == 'corporate' ? undefined :
                         {
-                            520: { slidesPerView: 2, spaceBetween: 20 },
-                            992: { slidesPerView: 3, spaceBetween: 20 },
-                            1280: { slidesPerView: 4, spaceBetween: 24 }
+                            520: { slidesPerView: 2 },
+                            992: { slidesPerView: 3 },
+                            1280: { slidesPerView: 4 }
                         }
                 }
                 effect={page === 'corporate' ? "slide" : undefined}
@@ -35,7 +35,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                     disableOnInteraction: false,
                     waitForTransition: true,
                 }}
-                speed={page === 'corporate' ? 2000 : 3000}
+                speed={page === 'corporate' ? 2000 : 4000}
                 modules={[Autoplay, FreeMode, EffectFade]}
                 className={`${page === 'corporate' ? 'h-100' : 'h-75'} transition ease-linear duration-300`}
             >
