@@ -7,8 +7,8 @@ import BackgroundLayout from "@/components/BackgroundLayout";
 export default async function CorporateLayout({
     children,
 }: Readonly<{
-    children: React.ReactNode;
-    params: { locale: "az" | "en" | "ru"; };
+    children: any;
+    params: any;
 }>) {
     const messagese = await getMessages();
     return (
