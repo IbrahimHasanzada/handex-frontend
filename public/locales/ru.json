@@ -1,5 +1,61 @@
 {
-    "header": "basliq",
+    "header": {
+        "consultation": "Бесплатная консультация",
+        "contact": "Контакты",
+        "coorporate": "Корпоратив",
+        "headerLists": [
+            {
+                "title": "О нас",
+                "subItems": [
+                    {
+                        "text": "О нас",
+                        "link": "/about"
+                    },
+                    {
+                        "text": "Наши услуги",
+                        "link": "/service"
+                    },
+                    {
+                        "text": "Наши проекты",
+                        "link": "/project"
+                    },
+                    {
+                        "text": "Новости",
+                        "link": "/news"
+                    },
+                    {
+                        "text": "Блоги",
+                        "link": "/blog"
+                    }
+                ]
+            },
+            {
+                "title": "Образовательные направления",
+                "subItems": [
+                    {
+                        "text": "Программирование",
+                        "link": ""
+                    },
+                    {
+                        "text": "UX/UI Дизайн",
+                        "link": ""
+                    },
+                    {
+                        "text": "Маркетинг",
+                        "link": ""
+                    },
+                    {
+                        "text": "Аналитика данных",
+                        "link": ""
+                    },
+                    {
+                        "text": "Искусственный интеллект",
+                        "link": ""
+                    }
+                ]
+            }
+        ]
+    },
     "home": {
         "headSection": {
             "button": "Keçid et"
@@ -8,23 +64,103 @@
             "title": "Study of area",
             "button": "More"
         },
-        "statisticsValue": [
+        "testimonials": {
+            "heading": "Прочитайте отзывы наших довольных клиентов.",
+            "title": "Их удовлетворённость — наша обязанность"
+        },
+        "statistics": {
+            "title": "Статистика доказывает: успех — не случайность, а результат правильных решений!",
+            "statisticsValue": [
+                {
+                    "title": "Общее количество сертификатов, полученных нашими студентами",
+                    "value": "certificates"
+                },
+                {
+                    "title": "Общее количество наших студентов",
+                    "value": "students"
+                },
+                {
+                    "title": "Количество преподавателей в нашей академии",
+                    "value": "teachers"
+                },
+                {
+                    "title": "Количество наших выпускников, устроившихся на работу",
+                    "value": "workers"
+                }
+            ]
+        },
+        "graduates": {
+            "title": "Выпускники"
+        }
+    },
+    "contact": {
+        "title": "Свяжитесь с нами",
+        "inputs": [
             {
-                "title": "Total number of certificates received by our students",
-                "value": "certificates"
+                "label": "Имя и Фамилия",
+                "placeholder": "Введите имя и фамилию",
+                "type": "text"
             },
             {
-                "title": "Total number of our students",
-                "value": "students"
+                "label": "Электронная почта",
+                "placeholder": "Введите вашу почту",
+                "type": "email"
             },
             {
-                "title": "Number of teachers in our academy",
-                "value": "teachers"
+                "label": "Номер телефона",
+                "placeholder": "Введите номер телефона",
+                "type": "number"
             },
             {
-                "title": "Number of our graduates who found jobs",
-                "value": "workers"
+                "label": "Тема",
+                "placeholder": "Введите тему сообщения",
+                "type": "text"
             }
-        ]
-    }
+        ],
+        "textarea": {
+            "label": "Сообщение",
+            "placeholder": "Введите ваше сообщение",
+            "type": "textarea"
+        },
+        "send": "Oтправить сообщение"
+    },
+    "news": {
+        "search": {
+            "title": "Будь внимателен, готовься к изменениям!",
+            "placeholder": "Поиск новостей..."
+        },
+        "card": {
+            "more": "Более"
+        },
+        "details": {
+            "from": "От команды Handex",
+            "share": "Поделиться"
+        }
+    },
+    "blog": {
+        "search": {
+            "title": "Читай, думай, открывай",
+            "placeholder": "Искать в блоге..."
+        }
+    },
+    "project": {
+        "title": "Наши проекты"
+    },
+    "service": {
+        "title": "Наши услуги"
+    },
+    "months": [
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь"
+    ]
 }

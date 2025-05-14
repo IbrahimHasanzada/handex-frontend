@@ -1,9 +1,10 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { getCustomers } from "@/service";
 import TestimonialsAccordion from "../TestimonialsAccordion";
 
 const TestimonialsHome = async () => {
     const result = await getCustomers();
+    
     const testimonialsData = result || [];
     const t = await getTranslations();
     return (
@@ -17,7 +18,7 @@ const TestimonialsHome = async () => {
             <TestimonialsAccordion start={0} data={testimonialsData} page='home' />
 
         </div>
-    )
-}
+    );
+};
 
-export default TestimonialsHome
+export default TestimonialsHome;

@@ -46,9 +46,9 @@ const Footer = async ({ theme = '' }) => {
 </svg>`, link: "#"
     },
   ]
-  const phone = await getGeneral('phone');
-  const email = await getGeneral('email');
-  const location = await getGeneral('location');
+  // const phone = await getGeneral('phone');
+  // const email = await getGeneral('email');
+  // const location = await getGeneral('location');
 
 
   return (
@@ -93,16 +93,16 @@ const Footer = async ({ theme = '' }) => {
                 <div className='flex gap-11'>
                   <div>
                     <p className='text-[#909090] text-xs font-bold'>ƏLAQƏ NÖMRƏSİ</p>
-                    <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>{phone[0]}</p>
+                    {/* <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>{phone[0]}</p> */}
                   </div>
                   <div>
                     <p className='text-[#909090] text-xs font-bold'>E-POÇT</p>
-                    <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>{email}</p>
+                    {/* <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>{email}</p> */}
                   </div>
                 </div>
                 <div className='pt-4'>
                   <p className='text-[#909090] text-xs font-bold'>ÜNVAN</p>
-                  <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>{location}</p>
+                  {/* <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>{location}</p> */}
                 </div>
               </div>
             </div>

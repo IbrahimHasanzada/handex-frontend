@@ -1,5 +1,61 @@
 {
-    "header": "basliq",
+    "header": {
+        "consultation": "Ödənişsiz konsultasiya",
+        "contact": "Əlaqə",
+        "coorporate": "Korporativ",
+        "headerLists": [
+            {
+                "title": "Haqqımızda",
+                "subItems": [
+                    {
+                        "text": "Haqqımızda",
+                        "link": "/about"
+                    },
+                    {
+                        "text": "Xidmətlərimiz",
+                        "link": "/service"
+                    },
+                    {
+                        "text": "Layihələrimiz",
+                        "link": "/project"
+                    },
+                    {
+                        "text": "Xəbərlər",
+                        "link": "/news"
+                    },
+                    {
+                        "text": "Bloqlar",
+                        "link": "/blog"
+                    }
+                ]
+            },
+            {
+                "title": "Tədris sahələri",
+                "subItems": [
+                    {
+                        "text": "Proqramlaşdırma",
+                        "link": ""
+                    },
+                    {
+                        "text": "UX/UI Dizayn",
+                        "link": ""
+                    },
+                    {
+                        "text": "Marketinq",
+                        "link": ""
+                    },
+                    {
+                        "text": "Data Analitika",
+                        "link": ""
+                    },
+                    {
+                        "text": "Süni İntellekt",
+                        "link": ""
+                    }
+                ]
+            }
+        ]
+    },
     "home": {
         "headSection": {
             "button": "Keçid et"
@@ -36,5 +92,75 @@
         "graduates": {
             "title": "Məzunlar"
         }
-    }
+    },
+    "contact": {
+        "title": "Bizimlə əlaqə",
+        "inputs": [
+            {
+                "label": "Ad və Soyad",
+                "placeholder": "Ad və Soyadınızı daxil edin",
+                "type": "text"
+            },
+            {
+                "label": "Email",
+                "placeholder": "Emailinizi daxil edin",
+                "type": "email"
+            },
+            {
+                "label": "Telefon nömrəsi",
+                "placeholder": "Telefon nömrənizi daxil edin",
+                "type": "number"
+            },
+            {
+                "label": "Başlıq",
+                "placeholder": "Başlıq daxil edin",
+                "type": "text"
+            }
+        ],
+        "textarea": {
+            "label": "Mesaj",
+            "placeholder": "Mesaj daxil edin",
+            "type": "textarea"
+        },
+        "send": "Mesaj göndər"
+    },
+    "news": {
+        "search": {
+            "title": "Xəbərdar ol, dəyişikliklərə hazırlaş!",
+            "placeholder": "Xəbəri axtar..."
+        },
+        "card": {
+            "more": "Daha çox"
+        },
+        "details": {
+            "from": "Handex Komandası tərəfindən",
+            "share": "Paylaş"
+        }
+    },
+    "blog": {
+        "search": {
+            "title": "Oxu düşün, kəşf et",
+            "placeholder": "Blog axtar..."
+        }
+    },
+    "project": {
+        "title": "Layihələrimiz"
+    },
+    "service": {
+        "title": "Xidmətlərimiz"
+    },
+    "months": [
+        "Yanvar",
+        "Fevral",
+        "Mart",
+        "Aprel",
+        "May",
+        "İyun",
+        "İyul",
+        "Avqust",
+        "Sentyabr",
+        "Oktyabr",
+        "Noyabr",
+        "Dekabr"
+    ]
 }

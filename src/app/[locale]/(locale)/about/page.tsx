@@ -1,5 +1,5 @@
-import ImageCollage from '@/components/about/ImageCollage'
-import React from 'react'
+import ImageCollage from '@/components/about/ImageCollage';
+import React from 'react';
 
 const AboutPage = () => {
 
@@ -15,7 +15,7 @@ const AboutPage = () => {
             secondText: "Lorem ipsum dolor sit amet consectetur. Gravida pellentesque viverra posuere imperdiet. Eu varius interdum mi in."
         },
 
-    ]
+    ];
 
     const aboutWithImage = [
         {
@@ -28,7 +28,7 @@ const AboutPage = () => {
             text: "Lorem ipsum dolor sit amet consectetur. Ut amet in urna amet tincidunt gravida. Ut urna porttitor libero malesuada. Neque elit tellus laoreet risus hendrerit elit gravida vestibulum. Mi non et fusce congue amet gravida tincidunt. Leo auctor tellus consequat suspendisse diam. Urna dolor auctor neque suspendisse neque scelerisque.",
             img: "about5.png"
         },
-    ]
+    ];
     return (
         <div className="wrapper w-full  pt-30">
             <div className='relative'>
@@ -57,7 +57,7 @@ const AboutPage = () => {
                 ))}
             </div>
         </div >
-    )
-}
+    );
+};
 
-export default AboutPage
+export default AboutPage;

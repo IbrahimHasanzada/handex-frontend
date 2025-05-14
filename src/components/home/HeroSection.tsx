@@ -1,13 +1,16 @@
 import Button from '../ui/Button';
 import { getContent } from '@/service';
 import { HeroSectionDto } from '@/types/HeroSection.dto';
-import { getTranslations } from 'next-intl/server';
+import { useLocale } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import React from 'react';
 
 const HeadSection: React.FC<HeroSectionDto> = async ({ page }) => {
-    const t = await getTranslations()
+    const local = await getLocale();
+    const t = await getTranslations();
     const response = await getContent(page === 'corporate' ? 'corporateHero' : page === 'home' ? 'hero' : '');
     const data = response && response[0];
+
     return (
         <div className='flex flex-col-reverse md:flex-row'>
             <div className='flex-1/2 md:py-32'>
@@ -23,7 +26,7 @@ const HeadSection: React.FC<HeroSectionDto> = async ({ page }) => {
             </div>
             <div className='h-80 w- md:h-130 md:w-150 relative'>
                 <img
-                    src={data?.images[0].url}
+                    src={data?.images[0]?.url}
                     alt='Handex hero page icon'
                     className='object-cover md:object-contain'
                 />

@@ -1,5 +1,61 @@
 {
-       "header": "heading",
+       "header": {
+              "consultation": "Free Consultation",
+              "contact": "Contact",
+              "coorporate": "Corporate",
+              "headerLists": [
+                     {
+                            "title": "About Us",
+                            "subItems": [
+                                   {
+                                          "text": "About Us",
+                                          "link": "/about"
+                                   },
+                                   {
+                                          "text": "Our Services",
+                                          "link": "/service"
+                                   },
+                                   {
+                                          "text": "Our Projects",
+                                          "link": "/project"
+                                   },
+                                   {
+                                          "text": "News",
+                                          "link": "/news"
+                                   },
+                                   {
+                                          "text": "Blogs",
+                                          "link": "/blog"
+                                   }
+                            ]
+                     },
+                     {
+                            "title": "Fields of Education",
+                            "subItems": [
+                                   {
+                                          "text": "Programming",
+                                          "link": ""
+                                   },
+                                   {
+                                          "text": "UX/UI Design",
+                                          "link": ""
+                                   },
+                                   {
+                                          "text": "Marketing",
+                                          "link": ""
+                                   },
+                                   {
+                                          "text": "Data Analytics",
+                                          "link": ""
+                                   },
+                                   {
+                                          "text": "Artificial Intelligence",
+                                          "link": ""
+                                   }
+                            ]
+                     }
+              ]
+       },
        "home": {
               "headSection": {
                      "button": "Keçid et"
@@ -36,5 +92,75 @@
               "graduates": {
                      "title": "Graduates"
               }
-       }
+       },
+       "contact": {
+              "title": "Contact us",
+              "inputs": [
+                     {
+                            "label": "Full Name",
+                            "placeholder": "Enter your full name",
+                            "type": "text"
+                     },
+                     {
+                            "label": "Email",
+                            "placeholder": "Enter your email",
+                            "type": "email"
+                     },
+                     {
+                            "label": "Phone Number",
+                            "placeholder": "Enter your phone number",
+                            "type": "number"
+                     },
+                     {
+                            "label": "Subject",
+                            "placeholder": "Enter the subject",
+                            "type": "text"
+                     }
+              ],
+              "textarea": {
+                     "label": "Message",
+                     "placeholder": "Enter your message",
+                     "type": "textarea"
+              },
+              "send": "Send message"
+       },
+       "news": {
+              "search": {
+                     "title": "Be aware, prepare for changes!",
+                     "placeholder": "Search news..."
+              },
+              "card": {
+                     "more": "More"
+              },
+              "details": {
+                     "from": "By the Handex Team",
+                     "share": "Share"
+              }
+       },
+       "blog": {
+              "search": {
+                     "title": "Read, think, discover",
+                     "placeholder": "Search blog..."
+              }
+       },
+       "project": {
+              "title": "Our Projects"
+       },
+       "service": {
+              "title": "Our Services"
+       },
+       "months": [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December"
+       ]
 }

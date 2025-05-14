@@ -10,6 +10,14 @@
   --breakpoint-base: 968px;
 }
 
+.box-shadow {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.03), 0px 6px 10px 0px rgba(0, 0, 0, 0.07);
+}
+
+.border-b-l-5 {
+  border-bottom-left-radius: 20px;
+}
+
 @layer utilities {
   .wrapper {
     @apply mx-auto px-4 sm:px-10 base:px-8;
@@ -29,8 +37,12 @@
   }
 }
 
-.linear-slider .swiper-wrapper{
-    transition-timing-function: linear !important;
+.linear-slider .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.bg-handle-gray {
+  background: var(--Linear-Header, linear-gradient(90deg, rgba(24, 24, 24, 0.10) 0%, rgba(24, 24, 24, 0.10) 100%));
 }
 
 
@@ -154,6 +166,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -19,6 +19,6 @@ export interface Testimonial {
 
 export interface TestimonialsDto {
     page: string;
-    start: number
+    start: number;
     data: Testimonial[];
 }

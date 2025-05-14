@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import '../styles/globals.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
+import localFont from "next/font/local";
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
+const SFPro = localFont({
+    src: '../../public/font/sf-pro/SFPRODISPLAYMEDIUM.otf',
+    variable: '--font-sf-pro',
+    display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -27,7 +24,7 @@ export default async function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <body className={`${SFPro.variable} antialiased`}>
                 {children}
             </body>
         </html>
