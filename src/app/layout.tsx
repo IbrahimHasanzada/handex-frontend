@@ -18,13 +18,16 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
     children,
+    params,
 }: Readonly<{
     children: React.ReactNode;
     params: Promise<{ locale: "az" | "en" | "ru" }>;
 }>) {
+    const resolvedParams = await params;
+
     return (
-        <html lang="en">
-            <body className={`${SFPro.variable} antialiased`}>
+        <html lang={resolvedParams.locale}>
+            <body className="antialiased">
                 {children}
             </body>
         </html>
