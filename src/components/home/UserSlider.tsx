@@ -10,7 +10,8 @@ const UserSlider = () => {
     async function getData() {
       let result = await getProfiles('student');
 
-      setStudents(result);
+      console.log(result)
+      result && setStudents(result);
     }
     getData()
   }, []);
