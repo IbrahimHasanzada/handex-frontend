@@ -15,13 +15,10 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
             <Swiper
                 key={data.length}
                 spaceBetween={32}
-                freeMode={true}
                 initialSlide={start}
                 direction={page === "corporate" ? "vertical" : "horizontal"}
                 loop={page !== 'corporate' && true}
                 slidesPerView={page !== 'corporate' ? 1 : 2}
-                autoHeight={false}
-                watchSlidesProgress={true}
                 breakpoints={
                     page == 'corporate' ? undefined :
                         {
