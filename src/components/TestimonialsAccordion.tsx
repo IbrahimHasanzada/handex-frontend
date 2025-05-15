@@ -7,13 +7,6 @@ import { TestimonialsDto } from '@/types/Testimonials.dto';
 import { useEffect, useState } from 'react';
 
 const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start }) => {
-    const [isReady, setIsReady] = useState(false);
-
-    useEffect(() => {
-        // Small delay to ensure all slides are properly initialized
-        const timer = setTimeout(() => setIsReady(true), 100);
-        return () => clearTimeout(timer);
-    }, []);
 
     if (!data.length) return <div>Loading...</div>;
 
@@ -26,7 +19,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 initialSlide={start}
                 direction={page === "corporate" ? "vertical" : "horizontal"}
                 loop={page !== 'corporate' && true}
-                loopedSlides={page !== 'corporate' ? 5 : 2} 
+                loopedSlides={page !== 'corporate' ? 5 : 2}
                 slidesPerView={page !== 'corporate' ? 1 : 2}
                 autoHeight={false}
                 preloadImages={true}
@@ -57,7 +50,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 }}
                 speed={page === 'corporate' ? 2000 : 4000} // Faster transition
                 modules={[Autoplay, FreeMode, EffectFade]}
-                className={`${page === 'corporate' ? 'h-100' : 'h-75'} transition ease-linear duration-300 ${!isReady ? 'opacity-0' : 'opacity-100'}`}
+                className={`${page === 'corporate' ? 'h-100' : 'h-75'} transition ease-linear duration-300 `}
             >
                 {data.map((item: any, index: number) => (
                     <SwiperSlide
