@@ -4,10 +4,10 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import { Autoplay, FreeMode, EffectFade } from 'swiper/modules';
 import { TestimonialsDto } from '@/types/Testimonials.dto';
-import { useEffect, useState } from 'react';
+import { SwiperOptions } from 'swiper/types';
 
 const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start }) => {
-
+    let a: SwiperOptions
     if (!data.length) return <div>Loading...</div>;
 
     return (
@@ -19,25 +19,20 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 initialSlide={start}
                 direction={page === "corporate" ? "vertical" : "horizontal"}
                 loop={page !== 'corporate' && true}
-                loopedSlides={page !== 'corporate' ? 5 : 2}
                 slidesPerView={page !== 'corporate' ? 1 : 2}
                 autoHeight={false}
-                preloadImages={true}
                 watchSlidesProgress={true}
                 breakpoints={
                     page == 'corporate' ? undefined :
                         {
                             520: {
                                 slidesPerView: 2,
-                                loopedSlides: 5
                             },
                             992: {
                                 slidesPerView: 3,
-                                loopedSlides: 5
                             },
                             1280: {
                                 slidesPerView: 4,
-                                loopedSlides: 5
                             }
                         }
                 }
