@@ -53,7 +53,7 @@ const Footer = async ({ theme = '' }) => {
 
   return (
     <footer className='wrapper py-16'>
-      <div className={`${theme ? 'bg-[#2b2b2b]' : 'bg-white border border-[#DDD]'} rounded-[20px] overflow-hidden`}>
+      <div className={`${theme ? 'bg-[#2b2b2b]' : 'bg-white border border-[#DDD]'} box-shadow rounded-[20px] overflow-hidden`}>
         <div className='flex flex-col md:flex-row px-6 py-6 md:py-13'>
           <div className='flex-1/3 flex justify-center md:justify-baseline pb-7 md:pb-0'>
             <Image src='/assets/img/handex_logo.png' alt='Handex Logo' quality={100} sizes='100%' width={128} height={40} className='w-32 h-10' />
