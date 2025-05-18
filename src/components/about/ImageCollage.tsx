@@ -4,13 +4,12 @@ import Image from 'next/image';
 import { CSSProperties } from 'react';
 
 interface ImageData {
-    src: string;
     alt: string;
     desktopStyles: CSSProperties;
     mobileStyles: CSSProperties;
 }
 
-const ImageCollage = () => {
+const ImageCollage: React.FC<any> = ({ images }) => {
     const [isMobile, setIsMobile] = useState<boolean>(false);
 
     useEffect(() => {
@@ -27,7 +26,6 @@ const ImageCollage = () => {
 
     const imageArray: ImageData[] = [
         {
-            src: "/assets/img/about1.png",
             alt: "Index team members",
             desktopStyles: {
                 position: "absolute",
@@ -49,7 +47,6 @@ const ImageCollage = () => {
             }
         },
         {
-            src: "/assets/img/about2.png",
             alt: "Handex team members",
             desktopStyles: {
                 position: "absolute",
@@ -71,7 +68,6 @@ const ImageCollage = () => {
             }
         },
         {
-            src: "/assets/img/about3.png",
             alt: "Company presentation",
             desktopStyles: {
                 position: "absolute",
@@ -93,7 +89,6 @@ const ImageCollage = () => {
             }
         },
         {
-            src: "/assets/img/about4.png",
             alt: "Team group photo",
             desktopStyles: {
                 position: "absolute",
@@ -115,7 +110,6 @@ const ImageCollage = () => {
             }
         },
         {
-            src: "/assets/img/about5.png",
             alt: "Team members",
             desktopStyles: {
                 position: "absolute",
@@ -150,7 +144,7 @@ const ImageCollage = () => {
                                 style={isMobile ? image.mobileStyles : image.desktopStyles}
                             >
                                 <Image
-                                    src={image.src}
+                                    src={images[index].url as string}
                                     alt={image.alt}
                                     width={isMobile ?
                                         typeof image.mobileStyles.width === 'number' ? image.mobileStyles.width : 100 :

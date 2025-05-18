@@ -4,6 +4,7 @@ import Button from './ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { HeaderItem } from '@/types/Header.dto';
+import HeaderModal from './home/HeaderModal';
 
 const langArr = ['az', 'en', 'ru'];
 
@@ -69,9 +70,7 @@ const Header = async ({ theme = '' }: { theme?: string; }) => {
                   <LanguageSwitcher availableLocales={langArr} theme={theme} />
                 </div>
                 <div className='h-12 w-40 text-sm lg:text-base lg:w-60'>
-                  <Button theme={theme === 'dark'} flag={false} link=''>
-                    {t('consultation')}
-                  </Button>
+                  <HeaderModal theme={theme} />
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { useLocale } from 'next-intl';
 import { getLocale } from 'next-intl/server';
+import toast from 'react-hot-toast';
 
 export const getContent = async (slug: string) => {
     const lang = await getLocale();
@@ -159,5 +160,33 @@ export const getServices = async () => {
         return data;
     } catch (err) {
         return err;
+    }
+};
+
+export const addConsultation = async (params: any) => {
+    const token = localStorage.getItem('token');
+    try {
+        let res = await fetch('https://api.drafts.az/api/consultation', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(params)
+        });
+        let data = await res.json();
+        return data;
+    } catch (err: any) {
+        toast.error(err.message);
+    }
+};
+
+export const getAbout = async () => {
+    try {
+        let res = await fetch('https://api.drafts.az/api/about');
+        let data = await res.json();
+        return data[0];
+    } catch (err) {
+        throw err;
     }
 };

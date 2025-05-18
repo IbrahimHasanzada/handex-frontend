@@ -54,7 +54,30 @@
                     }
                 ]
             }
-        ]
+        ],
+        "modal": {
+            "title": "Ödənişsiz konsultasiya",
+            "button": "Müraciət et",
+            "form": [
+                {
+                    "placeholder": "Ad",
+                    "name": "name"
+                },
+                {
+                    "placeholder": "Soyad",
+                    "name": "surname"
+                },
+                {
+                    "placeholder": "Telefon",
+                    "name": "phone"
+                },
+                {
+                    "placeholder": "Tədris sahəsi",
+                    "name": "course"
+                }
+            ],
+            "success": "Mesaj uğurla göndərildi"
+        }
     },
     "home": {
         "headSection": {
