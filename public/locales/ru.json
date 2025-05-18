@@ -54,7 +54,30 @@
                     }
                 ]
             }
-        ]
+        ],
+        "modal": {
+            "title": "Бесплатная консультация",
+            "button": "Оставить заявку",
+            "form": [
+                {
+                    "placeholder": "Имя",
+                    "name": "name"
+                },
+                {
+                    "placeholder": "Фамилия",
+                    "name": "surname"
+                },
+                {
+                    "placeholder": "Телефон",
+                    "name": "phone"
+                },
+                {
+                    "placeholder": "Направление обучения",
+                    "name": "course"
+                }
+            ],
+            "success": "Сообщение успешно отправлено"
+        }
     },
     "home": {
         "headSection": {

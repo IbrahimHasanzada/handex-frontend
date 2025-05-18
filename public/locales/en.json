@@ -54,7 +54,30 @@
                                    }
                             ]
                      }
-              ]
+              ],
+              "modal": {
+                     "title": "Free Consultation",
+                     "button": "Apply Now",
+                     "form": [
+                            {
+                                   "placeholder": "Name",
+                                   "name": "name"
+                            },
+                            {
+                                   "placeholder": "Surname",
+                                   "name": "surname"
+                            },
+                            {
+                                   "placeholder": "Phone",
+                                   "name": "phone"
+                            },
+                            {
+                                   "placeholder": "Field of Study",
+                                   "name": "course"
+                            }
+                     ],
+                     "success": "Message sent successfully"
+              }
        },
        "home": {
               "headSection": {

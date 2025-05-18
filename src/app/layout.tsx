@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import localFont from "next/font/local";
-import { ReactNode } from "react";
+import { Toaster } from "react-hot-toast";
 
 const SFPro = localFont({
     src: '../../public/font/sf-pro/SFPRODISPLAYMEDIUM.otf',
@@ -31,6 +31,7 @@ export default function RootLayout({
     return (
         <html lang={params.locale}>
             <body className={`antialiased ${SFPro.variable}`}>
+                <Toaster position="top-center" />
                 {children}
             </body>
         </html>
