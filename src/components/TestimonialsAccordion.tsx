@@ -35,12 +35,12 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 }
                 effect={page === 'corporate' ? "slide" : undefined}
                 autoplay={{
-                    delay: page === 'corporate' ? 1500 : 0, // Adjusted delay
+                    delay: page === 'corporate' ? 1500 : 0,
                     disableOnInteraction: false,
                     waitForTransition: true,
                     pauseOnMouseEnter: true
                 }}
-                speed={page === 'corporate' ? 2000 : 4000} // Faster transition
+                speed={page === 'corporate' ? 2000 : 4000}
                 modules={[Autoplay, FreeMode, EffectFade]}
                 className={`${page === 'corporate' ? 'h-100' : 'h-75'} transition ease-linear duration-300 `}
             >
