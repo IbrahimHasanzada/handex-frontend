@@ -1,7 +1,20 @@
 import ContactForm from '@/components/contact/ContactForm';
 import { getGeneral } from '@/service';
-import { getTranslations } from 'next-intl/server';
+import { baseUrl } from '@/utils/url';
+import { Metadata } from 'next';
+import { getLocale, getTranslations } from 'next-intl/server';
 import React from 'react';
+
+export async function generateMetadata(): Promise<Metadata> {
+    let lang = await getLocale();
+    const canonicalUrl = `${baseUrl}/contact/${lang}`;
+    return {
+        title: 'Handex.az',
+        alternates: {
+            canonical: canonicalUrl,
+        },
+    };
+}
 
 const page = async () => {
     const data = await getGeneral();

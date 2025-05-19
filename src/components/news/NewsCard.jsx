@@ -1,21 +1,16 @@
-import { formatDate } from '@/utils/form-data';
 import Image from 'next/image';
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { formatDateClient } from '@/utils/form-data-client';
+import Link from 'next/link';
 
 const NewsCard = ({ item }) => {
   const local = useLocale()
   const t = useTranslations();
-  const router = useRouter();
 
   const title = item.translations.find(t => t.field === 'title')?.value;
   const description = item.translations.find(t => t.field === 'description')?.value;
 
-  const handleClick = () => {
-    router.push(`/${local}/news/${item.slug}`);
-  };
 
   return (
     <div className='bg-white pt-5 flex flex-col justify-between py-8 px-3 rounded-2xl'>
@@ -35,13 +30,12 @@ const NewsCard = ({ item }) => {
       />
       <div className='flex items-center justify-between'>
         <p>{formatDateClient(item.createdAt)}</p>
-        <button
-          onClick={handleClick}
+        <Link href={`/${local}/news/${item.slug}`}
           className='flex cursor-pointer items-end px-2 py-1.5 border border-primary-corporate rounded-[18px]'
         >
           <p className='text-primary-blue text-sm text-primary-corporate'>{t('news.card.more')}</p>
           <Image src='/assets/img/news-arrow.svg' width={16} alt='News arrow icon' height={16} />
-        </button>
+        </Link>
       </div>
     </div>
   );

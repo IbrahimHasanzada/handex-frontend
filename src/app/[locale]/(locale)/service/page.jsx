@@ -1,6 +1,18 @@
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import ServiceCard from '../../../../components/service/ServiceCard';
 import { getServices } from '@/service';
+import { baseUrl } from '@/utils/url';
+
+export async function generateMetadata() {
+    let lang = await getLocale();
+    const canonicalUrl = `${baseUrl}/service/${lang}`;
+    return {
+        title: 'Handex.az',
+        alternates: {
+            canonical: canonicalUrl,
+        },
+    };
+}
 
 const data = async () => {
     const t = await getTranslations('service');

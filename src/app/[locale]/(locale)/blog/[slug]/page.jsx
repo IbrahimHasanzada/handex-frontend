@@ -2,24 +2,36 @@ import { getBlogs, getNews } from '@/service';
 import { formatDate } from '@/utils/form-data';
 import React from 'react';
 import Share from '@/components/Share';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { baseUrl } from '@/utils/url';
 
 export async function generateMetadata({ params }) {
   const { slug } = params;
-  const test = await getBlogs(slug);
-  const meta = test?.meta;
 
-  let metadata = {};
-
-  meta.forEach(item => {
-    let t = item.translations;
-    let name = t.find(elm => elm.field === 'name');
-    let value = t.find(elm => elm.field === 'value');
-
-    metadata[name.value] = value.value;
+  const newsItem = await getNews(slug);
+  const metaArray = newsItem?.meta ?? [];
+  const metaMap = {};
+  metaArray.forEach(item => {
+    const nameField = item.translations.find(t => t.field === 'name')?.value;
+    const valueField = item.translations.find(t => t.field === 'value')?.value;
+    if (nameField && valueField) {
+      metaMap[nameField] = valueField;
+    }
   });
 
-  return metadata;
+  const title = metaMap['title'] || 'Handex.az';
+  const description = metaMap['description'] || '';
+
+  const lang = await getLocale(); 
+  const canonicalUrl = `${baseUrl}/corporate/${lang}/${slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl
+    }
+  };
 }
 
 const page = async ({ params }) => {

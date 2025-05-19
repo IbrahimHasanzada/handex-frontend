@@ -3,6 +3,20 @@ import HeadSection from "@/components/home/HeroSection";
 import Statistics from "@/components/Statistics";
 import StudyAreasSection from "@/components/home/StudyAreasSection";
 import Partners from "@/components/corporate/Partners";
+import { Metadata } from "next";
+import { getLocale } from "next-intl/server";
+import { baseUrl } from "@/utils/url";
+
+export async function generateMetadata(): Promise<Metadata> {
+    let lang = await getLocale();
+    const canonicalUrl = `${baseUrl}/corporate/${lang}`;
+    return {
+        title: 'Handex.az',
+        alternates: {
+            canonical: canonicalUrl,
+        },
+    };
+}
 
 const page = async () => {
     return (
@@ -26,7 +40,7 @@ const page = async () => {
             </div>
         </div>
 
-    )
-}
+    );
+};
 
 export default page;
