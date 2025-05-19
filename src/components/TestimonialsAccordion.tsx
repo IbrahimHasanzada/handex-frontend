@@ -8,7 +8,7 @@ import { SwiperOptions } from 'swiper/types';
 
 const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start }) => {
     let a: SwiperOptions
-    if (!data.length) return <div>Loading...</div>;
+    if (!data.length) return <div>Loading...</div>
 
     return (
         <div className={`relative ${page !== 'corporate' ? 'linear-slider' : ''}`}>
