@@ -1,4 +1,7 @@
 "use client";
+import { baseUrl } from '@/utils/url';
+import { Metadata } from 'next';
+import { getLocale } from 'next-intl/server';
 import React, { useState } from 'react';
 
 const arr = [
@@ -61,6 +64,16 @@ const handex = [
     },
 ];
 
+// export async function generateMetadata(): Promise<Metadata> {
+//     let lang = await getLocale();
+//     const canonicalUrl = `${baseUrl}/study-area/${lang}`;
+//     return {
+//         title: 'Handex.az',
+//         alternates: {
+//             canonical: canonicalUrl,
+//         },
+//     };
+// }
 
 const page = () => {
     const [count, setCount] = useState<number>(0);

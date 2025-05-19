@@ -144,7 +144,7 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                                 style={isMobile ? image.mobileStyles : image.desktopStyles}
                             >
                                 <Image
-                                    src={images[index].url as string}
+                                    src={images[index]?.url as string}
                                     alt={image.alt}
                                     width={isMobile ?
                                         typeof image.mobileStyles.width === 'number' ? image.mobileStyles.width : 100 :

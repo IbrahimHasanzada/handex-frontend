@@ -1,7 +1,19 @@
 import React, { Suspense } from 'react';
 import ProjectCard from '@/components/project/ProjectCard';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { getProjects } from '@/service';
+import { baseUrl } from '@/utils/url';
+
+export async function generateMetadata() {
+  let lang = await getLocale();
+  const canonicalUrl = `${baseUrl}/project/${lang}`;
+  return {
+    title: 'Handex.az',
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  };
+}
 
 const page = async () => {
   const t = await getTranslations('project');

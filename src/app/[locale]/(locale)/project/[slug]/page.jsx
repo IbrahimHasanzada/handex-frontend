@@ -1,24 +1,37 @@
 import { Suspense } from 'react';
 import Share from '@/components/Share';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { getProject } from '@/service';
+import { baseUrl } from '@/utils/url';
 
 export async function generateMetadata({ params }) {
-    const { slug } = params;
-    const test = await getProject(slug);
-    const meta = test?.meta;
+  const { slug } = params;
 
-    let metadata = {};
+  const projectItem = await getProject(slug);
+  const metaArray = projectItem?.meta ?? [];
+  const metaMap = {};
+  metaArray.forEach(item => {
+    const nameField = item.translations.find(t => t.field === 'name')?.value;
+    const valueField = item.translations.find(t => t.field === 'value')?.value;
+    if (nameField && valueField) {
+      metaMap[nameField] = valueField;
+    }
+  });
 
-    meta.forEach(item => {
-        let t = item.translations;
-        let name = t.find(elm => elm.field === 'name');
-        let value = t.find(elm => elm.field === 'value');
+  const title = metaMap['title'] || 'Handex.az';
+  const description = metaMap['description'] || '';
 
-        metadata[name.value] = value.value;
-    });
-
-    return metadata;
+  const lang = await getLocale(); 
+  const canonicalUrl = `${baseUrl}/project/${lang}/${slug}`;
+  console.log(canonicalUrl);
+  
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl
+    }
+  };
 }
 
 const page = async ({ params }) => {

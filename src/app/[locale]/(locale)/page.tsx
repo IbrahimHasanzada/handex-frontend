@@ -4,13 +4,31 @@ import StudyAreasSection from '@/components/home/StudyAreasSection';
 import TestimonialsHome from '@/components/home/TestimonialsHome';
 import TopCompanies from '@/components/home/TopCompanies';
 import UserSlider from '@/components/home/UserSlider';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
+import Head from 'next/head';
+import { baseUrl } from '@/utils/url';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  let lang = await getLocale();
+  const canonicalUrl = `${baseUrl}/${lang}`;
+  return {
+    title: 'Handex.az',
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  };
+}
 
 const page = async () => {
   const t = await getTranslations();
 
   return (
     <div>
+      {/* <Head>
+        <title>Handex.az</title>
+        <link rel="canonical" href={baseUrl + '/' + lang} key="canonical" />
+      </Head> */}
       <div className='pt-30'>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
