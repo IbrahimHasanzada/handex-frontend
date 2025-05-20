@@ -9,13 +9,13 @@ export async function generateMetadata({ params }) {
   const { slug } = params;
 
   const newsItem = await getNews(slug);
+  console.log(newsItem);
+  
   const metaArray = newsItem?.meta ?? [];
   const metaMap = {};
   metaArray.forEach(item => {
-    const nameField = item.translations.find(t => t.field === 'name')?.value;
-    const valueField = item.translations.find(t => t.field === 'value')?.value;
-    if (nameField && valueField) {
-      metaMap[nameField] = valueField;
+    if (item.value && item.name) {
+      metaMap[item.name] = item.value;
     }
   });
 
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   const description = metaMap['description'] || '';
 
   const lang = await getLocale(); 
-  const canonicalUrl = `${baseUrl}/corporate/${lang}/${slug}`;
+  const canonicalUrl = `${baseUrl}/news/${lang}/${slug}`;
 
   return {
     title,

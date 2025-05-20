@@ -3,15 +3,17 @@ import ServiceCard from '../../../../components/service/ServiceCard';
 import { getServices } from '@/service';
 import { baseUrl } from '@/utils/url';
 
-export async function generateMetadata() {
-    let lang = await getLocale();
-    const canonicalUrl = `${baseUrl}/service/${lang}`;
-    return {
-        title: 'Handex.az',
-        alternates: {
-            canonical: canonicalUrl,
-        },
-    };
+export async function generateMetadata({ params }) {
+    const { slug } = params;
+
+    const projectItem = await getProject(slug);
+    const metaArray = projectItem?.meta ?? [];
+    const metaMap = {};
+    metaArray.forEach(item => {
+        if (item.name && item.value) {
+            metaMap[item.name] = item.value;
+        }
+    });
 }
 
 const data = async () => {
