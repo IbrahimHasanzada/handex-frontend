@@ -1,4 +1,3 @@
-import { useLocale } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import toast from 'react-hot-toast';
 
@@ -121,12 +120,12 @@ export const getBlogs = async (slug: string) => {
 export const getProjects = async () => {
     const lang = await getLocale();
     try {
-        let res = await fetch('https://api.drafts.az/api/project', {
+        const res = await fetch('https://api.drafts.az/api/project', {
             headers: {
                 'accept-language': lang
             }
         });
-        let data = await res.json();
+        const data = await res.json();
         return data;
     } catch (err) {
         return err;
@@ -136,12 +135,14 @@ export const getProjects = async () => {
 export const getProject = async (slug: string) => {
     const lang = await getLocale();
     try {
-        let res = await fetch(`https://api.drafts.az/api/project/${slug}`, {
+        const res = await fetch(`https://api.drafts.az/api/project/${slug}`, {
+            next: { revalidate: 3600 },
+            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
         });
-        let data = await res.json();
+        const data = await res.json();
         return data;
     } catch (err) {
         return err;
@@ -151,12 +152,12 @@ export const getProject = async (slug: string) => {
 export const getServices = async () => {
     const lang = await getLocale();
     try {
-        let res = await fetch(`https://api.drafts.az/api/service`, {
+        const res = await fetch(`https://api.drafts.az/api/service`, {
             headers: {
                 'accept-language': lang
             }
         });
-        let data = await res.json();
+        const data = await res.json();
         return data;
     } catch (err) {
         return err;
@@ -166,7 +167,8 @@ export const getServices = async () => {
 export const addConsultation = async (params: any) => {
     const token = localStorage.getItem('token');
     try {
-        let res = await fetch('https://api.drafts.az/api/consultation', {
+        const res = await fetch('https://api.drafts.az/api/consultation', {
+            next: { revalidate: 3600 },
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -174,7 +176,7 @@ export const addConsultation = async (params: any) => {
             },
             body: JSON.stringify(params)
         });
-        let data = await res.json();
+        const data = await res.json();
         return data;
     } catch (err: any) {
         toast.error(err.message);
@@ -183,10 +185,14 @@ export const addConsultation = async (params: any) => {
 
 export const getAbout = async () => {
     try {
-        let res = await fetch('https://api.drafts.az/api/about');
-        let data = await res.json();
+        const res = await fetch('https://api.drafts.az/api/about');
+        const data = await res.json();
         return data[0];
     } catch (err) {
         throw err;
     }
+};
+
+export const getMeta = async () => {
+
 };

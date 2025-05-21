@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from './ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { HeaderItem } from '@/types/Header.dto';

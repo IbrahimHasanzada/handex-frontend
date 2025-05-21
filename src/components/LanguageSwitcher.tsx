@@ -23,7 +23,6 @@ export default function LanguageSwitcher({
     setFlag(false);
 
 
-    // Remove all locale segments from pathname
     const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '');
     const newPath = pathWithoutLocale || '/';
     router.replace(newPath, { locale: lang });

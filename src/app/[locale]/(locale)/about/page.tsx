@@ -7,7 +7,7 @@ import { getLocale } from 'next-intl/server';
 import React from 'react';
 
 export async function generateMetadata(): Promise<Metadata> {
-    let lang = await getLocale();
+    const lang = await getLocale();
     const canonicalUrl = `${baseUrl}/about/${lang}`;
     return {
         title: 'Handex.az',
@@ -19,6 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const AboutPage = async () => {
     const about: any = await getAbout();
+    console.log(about);
+    
     const features = await getContent('corporate-features');
     return (
         <div className="wrapper w-full pt-30">

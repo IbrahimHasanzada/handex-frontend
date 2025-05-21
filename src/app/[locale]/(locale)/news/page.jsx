@@ -17,6 +17,7 @@ const NewsClient = dynamic(() => import('@/components/news/NewsClient'), {
   ssr: true,
 });
 
+
 const NewsPage = ({ params }) => {
   return <NewsClient locale={params.locale} />;
 };

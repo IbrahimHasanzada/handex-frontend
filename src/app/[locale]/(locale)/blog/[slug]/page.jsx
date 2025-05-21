@@ -12,17 +12,15 @@ export async function generateMetadata({ params }) {
   const metaArray = newsItem?.meta ?? [];
   const metaMap = {};
   metaArray.forEach(item => {
-    const nameField = item.translations.find(t => t.field === 'name')?.value;
-    const valueField = item.translations.find(t => t.field === 'value')?.value;
-    if (nameField && valueField) {
-      metaMap[nameField] = valueField;
+    if (item.name && item.value) {
+      metaMap[item.name] = item.value;
     }
   });
 
   const title = metaMap['title'] || 'Handex.az';
   const description = metaMap['description'] || '';
 
-  const lang = await getLocale(); 
+  const lang = await getLocale();
   const canonicalUrl = `${baseUrl}/corporate/${lang}/${slug}`;
 
   return {
