@@ -8,7 +8,7 @@ import { getLocale } from "next-intl/server";
 import { baseUrl } from "@/utils/url";
 
 export async function generateMetadata(): Promise<Metadata> {
-    let lang = await getLocale();
+    const lang = await getLocale();
     const canonicalUrl = `${baseUrl}/corporate/${lang}`;
     return {
         title: 'Handex.az',

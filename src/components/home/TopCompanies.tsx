@@ -8,7 +8,7 @@ const TopCompanies: React.FC<{ page: string, index: number }> = ({ page, index }
     const [companies, setCompanies] = useState<any>();
     useEffect(() => {
         async function fetchData() {
-            let result = await getGeneral('company')
+            const result = await getGeneral('company')
             setCompanies(result);
         }
         fetchData();

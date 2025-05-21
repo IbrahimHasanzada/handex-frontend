@@ -7,7 +7,6 @@ import { TestimonialsDto } from '@/types/Testimonials.dto';
 import { SwiperOptions } from 'swiper/types';
 
 const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start }) => {
-    let a: SwiperOptions
     if (!data.length) return <div>Loading...</div>;
 
     return (

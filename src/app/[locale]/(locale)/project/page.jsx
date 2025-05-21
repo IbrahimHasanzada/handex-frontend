@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import ProjectCard from '@/components/project/ProjectCard';
 import { getLocale, getTranslations } from 'next-intl/server';
-import { getProjects } from '@/service';
 import { baseUrl } from '@/utils/url';
+import { getProjects } from '@/service';
 
 export async function generateMetadata() {
   let lang = await getLocale();
@@ -18,7 +18,6 @@ export async function generateMetadata() {
 const page = async () => {
   const t = await getTranslations('project');
   const project = await getProjects();
-  console.log(project);
 
   return (
     <Suspense>

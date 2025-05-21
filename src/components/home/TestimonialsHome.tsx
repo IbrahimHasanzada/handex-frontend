@@ -1,4 +1,4 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { getCustomers } from "@/service";
 import TestimonialsAccordion from "../TestimonialsAccordion";
 

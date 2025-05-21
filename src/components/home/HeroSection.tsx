@@ -1,12 +1,10 @@
 import Button from '../ui/Button';
 import { getContent } from '@/service';
 import { HeroSectionDto } from '@/types/HeroSection.dto';
-import { useLocale } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
 import React from 'react';
 
 const HeadSection: React.FC<HeroSectionDto> = async ({ page }) => {
-    const local = await getLocale();
     const t = await getTranslations();
     const response = await getContent(page === 'corporate' ? 'corporate' : page === 'home' ? 'hero' : '');
     const data = response && response[0];
