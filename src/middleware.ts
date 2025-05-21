@@ -28,7 +28,6 @@ async function fetchRedirects() {
 
 export default async function middleware(request: NextRequest) {
     const { pathname, search } = request.nextUrl;
-
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
