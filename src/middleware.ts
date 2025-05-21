@@ -11,7 +11,7 @@ async function fetchRedirects() {
     const redirectMap: Record<string, { to: string; permanent: boolean; }> = {};
 
     try {
-        const res = await fetch('http://api.drafts.az/api/redirect');
+        const res = await fetch('https://api.drafts.az/api/redirect');
         if (!res.ok) throw new Error('Redirect data fetch failed');
 
         const data: Array<{ from: string; to: string; permanent: boolean; }> = await res.json();
