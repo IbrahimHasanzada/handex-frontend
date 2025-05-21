@@ -52,7 +52,6 @@ const Header = async ({ theme = '' }: { theme?: string; }) => {
                     </div>
                   </li>
                 ))}
-
                 <li className='group cursor-pointer py-3'>
                   <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
                     <Link href={ '/' + local + '/corporate'}>{t('coorporate')}</Link>
