@@ -11,7 +11,6 @@ const Header = async ({ theme = '' }: { theme?: string; }) => {
   const local = await getLocale();
   const t = await getTranslations('header');
   const headerLists = t.raw('headerLists') as HeaderItem[];
-
   return (
     <header className="relative">
       <div className={`wrapper base:bg-transparent ${theme === 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'} fixed left-0 right-0 z-50`}>

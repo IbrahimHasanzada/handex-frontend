@@ -7,60 +7,52 @@ const locales = ['az', 'en', 'ru'];
 const defaultLocale = routing.defaultLocale || 'az';
 const intlMiddleware = createMiddleware(routing);
 
-let redirectMap: Record<string, { to: string; permanent: boolean; }> | null = null;
-
 async function fetchRedirects() {
-    console.log(redirectMap);
-    
-    if (redirectMap) return redirectMap;
+    const redirectMap: Record<string, { to: string; permanent: boolean; }> = {};
 
     try {
-        const res = await fetch('http://localhost:3000/api/redirect');
+        const res = await fetch('https://api.drafts.az/api/redirect');
         if (!res.ok) throw new Error('Redirect data fetch failed');
 
-        const data = await res.json();
-        console.log(data);
-        
-        redirectMap = {};
+        const data: Array<{ from: string; to: string; permanent: boolean; }> = await res.json();
 
-        for (const item of data) {
-            redirectMap[item.from] = { to: item.to, permanent: item.permanent };
+        for (const { from, to, permanent } of data) {
+            redirectMap[from] = { to, permanent };
         }
     } catch (error) {
         console.error('Failed to load redirect data:', error);
-        redirectMap = {};
     }
 
     return redirectMap;
 }
 
 export default async function middleware(request: NextRequest) {
-    const pathname = request.nextUrl.pathname;
-
+    const { pathname, search } = request.nextUrl;
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
-        pathname.match(/\.(png|jpg|jpeg|svg|gif|webp)$/)
+        /\.(png|jpe?g|svg|gif|webp)$/.test(pathname)
     ) {
         return NextResponse.next();
     }
 
     const redirects = await fetchRedirects();
-    console.log(redirects);
-    
+
     const match = redirects[request.url];
 
+
     if (match) {
-        return NextResponse.redirect(new URL(match.to, request.url), {
-            status: match.permanent ? 308 : 307,
-        });
+        const destination = new URL(match.to, request.url);
+        return NextResponse.redirect(destination, match.permanent ? 308 : 307);
     }
 
-    const pathnameHasValidLocale = locales.some(locale => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
+    const hasLocale = locales.some(
+        (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale} /`)
+    );
 
-    if (!pathnameHasValidLocale && pathname !== '/') {
+    if (!hasLocale && pathname !== '/') {
         const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
-        newUrl.search = request.nextUrl.search;
+        newUrl.search = search;
         return NextResponse.redirect(newUrl);
     }
 
@@ -68,5 +60,5 @@ export default async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/(.*)', '/']
+    matcher: ['/(.*)', '/'],
 };
