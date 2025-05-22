@@ -1,38 +1,41 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 import ServiceCard from '../../../../components/service/ServiceCard';
-import { getServices } from '@/service';
+import { getServices, getMeta } from '@/service';
 import { baseUrl } from '@/utils/url';
+import ServiceClient from '../../../../components/service/ServiceClient';
 
-// export async function generateMetadata({ params }) {
-//     const { slug } = params;
+export async function generateMetadata() {
+    const locale = await getLocale();
+    let data = await getMeta('project');
 
-//     const serviceItem = await getServices();
-    
-//     const metaArray = projectItem?.meta ?? [];
-//     const metaMap = {};
-//     metaArray.forEach(item => {
-//         if (item.name && item.value) {
-//             metaMap[item.name] = item.value;
-//         }
-//     });
-// }
+    const canonicalUrl = `${baseUrl}/service/${locale}`;
+    if (data.error) {
+        return {
+            alternates: {
+                canonical: canonicalUrl,
+            },
+        };
+    }
 
-const data = async () => {
-    const t = await getTranslations('service');
-    const service = await getServices();
-    console.log(service);
-    
+    let meta = {};
+    data.forEach(item => {
+        meta[item.name] = item.value;
+    });
 
-    return (
-        <div className='wrapper pt-30'>
-            <h1 className='text-[38px] mt-15 text-[#141414] font-bold mb-12'>{t('title')}</h1>
-            <div className='grid lg:grid-cols-2 gap-6'>
-                {service?.data?.map((item, i) => (
-                    <ServiceCard key={i} item={item}  />
-                ))}
-            </div>
-        </div>
-    );
+    return {
+        title: meta.title || undefined,
+        description: meta.description || undefined,
+        alternates: {
+            canonical: canonicalUrl,
+        },
+    };
+}
+
+const data = async ({ params }) => {
+    const { locale } = await params;
+    const service = await getServices(locale);
+
+    return <ServiceClient service={service} />;
 };
 
 export default data;

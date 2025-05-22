@@ -2,9 +2,11 @@
 import BlogCard from '@/components/blog/BlogCard';
 import { getAllBlogs } from '@/service';
 import { useLocale, useTranslations } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import React, { useEffect, useState } from 'react';
 
 const page = () => {
+  const lang = useLocale();
   let t = useTranslations();
   const local = useLocale();
 
@@ -27,7 +29,7 @@ const page = () => {
   const handlePagination = async () => {
     setLoading(true);
     let nextPage = count + 1;
-    let extraBlog = await getAllBlogs(nextPage);
+    let extraBlog = await getAllBlogs(lang, nextPage);
     setBlog(prev => [...prev, ...extraBlog.data]);
     setCount(nextPage);
     setLoading(false);
@@ -54,7 +56,7 @@ const page = () => {
           <BlogCard item={item} key={i} />
         ))}
       </div>
-      {total > (count + 1) * 12 && (
+      {blog?.length > (count + 1) * 12 && (
         <button onClick={() => handlePagination()} className='flex bg-handle-gray mx-auto rounded-full items-center px-6 gap-2 h-12 my-15'>
           <p className='text-base'>{loading ? 'Loading' : 'Daha çox'}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">

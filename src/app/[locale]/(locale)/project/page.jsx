@@ -1,36 +1,45 @@
-import React, { Suspense } from 'react';
-import ProjectCard from '@/components/project/ProjectCard';
-import { getLocale, getTranslations } from 'next-intl/server';
+import dynamic from 'next/dynamic';
 import { baseUrl } from '@/utils/url';
-import { getProjects } from '@/service';
+import { getLocale } from 'next-intl/server';
+import { getMeta, getProjects } from '@/service';
+import { useLocale } from 'next-intl';
 
 export async function generateMetadata() {
-  let lang = await getLocale();
-  const canonicalUrl = `${baseUrl}/project/${lang}`;
+  const locale = await getLocale();
+  let data = await getMeta('project');
+
+  const canonicalUrl = `${baseUrl}/project/${locale}`;
+  if (data.error) {
+    return {
+      alternates: {
+        canonical: canonicalUrl,
+      },
+    };
+  }
+
+  let meta = {};
+  data.forEach(item => {
+    meta[item.name] = item.value;
+  });
+
   return {
-    title: 'Handex.az',
+    title: meta.title || undefined,
+    description: meta.description || undefined,
     alternates: {
       canonical: canonicalUrl,
     },
   };
 }
 
-const page = async () => {
-  const t = await getTranslations('project');
-  const project = await getProjects();
+const ProjectClient = dynamic(() => import('@/components/project/ProjectClient'), {
+  ssr: true,
+});
 
+
+const NewsPage = ({ params }) => {
   return (
-    <Suspense>
-      <div className='wrapper pt-30'>
-        <h1 className='mt-20 mb-12 text-[38px] text-[#141414] font-bold'>{t('title')}</h1>
-        <div className='grid gap-y-6 lg:grid-cols-2 justify-between'>
-          {project?.data?.map((item, i) => (
-            <ProjectCard key={i} item={item} />
-          ))}
-        </div>
-      </div>
-    </Suspense>
+    <ProjectClient />
   );
 };
 
-export default page;
+export default NewsPage;

@@ -53,7 +53,7 @@ const page = () => {
           <NewsCard item={item} key={i} />
         ))}
       </div>
-      {total > (count + 1) * 12 && (
+      {news?.length > (count + 1) * 12 && (
         <button onClick={() => handlePagination()} className='flex bg-handle-gray mx-auto rounded-full items-center px-6 gap-2 h-12 my-15'>
           <p className='text-base'>{loading ? 'Loading' : 'Daha çox'}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
