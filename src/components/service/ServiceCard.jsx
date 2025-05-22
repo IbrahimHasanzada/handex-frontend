@@ -1,13 +1,12 @@
-import { getTranslations } from 'next-intl/server';
-import React from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
 
-const ServiceCard = async (params) => {
+const ServiceCard = (params) => {
+    const locale = useLocale();
     const { item } = params;
-    console.log(item);
-
-    const t = await getTranslations();
+    const t = useTranslations();
     return (
-        <div className='flex items-end bg-white box-shadow rounded-[20px] w-full'>
+        <Link href={'/' + locale + '/service/' + item.slug} className='flex items-end md:h-[316px] bg-white box-shadow rounded-[20px] w-full'>
             <div className='md:w-1/2 w-2/3 h-full'>
                 <img className='rounded-l-[20px] w-full h-full object-cover' src={item?.image?.url} alt={item?.image?.alt} />
             </div>
@@ -21,7 +20,7 @@ const ServiceCard = async (params) => {
                     </svg>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 

@@ -117,10 +117,9 @@ export const getBlogs = async (slug: string) => {
     }
 };
 
-export const getProjects = async () => {
-    const lang = await getLocale();
+export const getProjects = async (lang: string, page: number = 0) => {
     try {
-        const res = await fetch('https://api.drafts.az/api/project', {
+        const res = await fetch(`https://api.drafts.az/api/project?page=${page}`, {
             headers: {
                 'accept-language': lang
             }
@@ -149,10 +148,24 @@ export const getProject = async (slug: string) => {
     }
 };
 
-export const getServices = async () => {
-    const lang = await getLocale();
+export const getServices = async (lang: string, page: number = 0) => {
     try {
         const res = await fetch(`https://api.drafts.az/api/service`, {
+            headers: {
+                'accept-language': lang
+            }
+        });
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
+export const getService = async (slug: string) => {
+    const lang = await getLocale();
+    try {
+        const res = await fetch(`https://api.drafts.az/api/service/${slug}`, {
             headers: {
                 'accept-language': lang
             }
@@ -193,6 +206,17 @@ export const getAbout = async () => {
     }
 };
 
-export const getMeta = async () => {
-
+export const getMeta = async (field: string) => {
+    const lang = await getLocale();
+    try {
+        let res = await fetch(`https://api.drafts.az/api/meta/${field}`, {
+            headers: {
+                'accept-language': lang
+            }
+        });
+        let data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
 };

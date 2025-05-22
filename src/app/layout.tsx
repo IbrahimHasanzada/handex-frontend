@@ -25,7 +25,6 @@ export default function RootLayout({
     children: any;
     params: any;
 }) {
-    console.log(params.locale);
 
     return (
         <html lang={params.locale}>
