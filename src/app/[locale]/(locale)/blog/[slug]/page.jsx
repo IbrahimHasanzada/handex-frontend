@@ -1,4 +1,4 @@
-import { getBlogs, getNews } from '@/service';
+import { getBlogs } from '@/service';
 import { formatDate } from '@/utils/form-data';
 import React from 'react';
 import Share from '@/components/Share';
@@ -6,9 +6,10 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { baseUrl } from '@/utils/url';
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
 
-  const newsItem = await getNews(slug);
+  const newsItem = await getBlogs(slug);
+  
   const metaArray = newsItem?.meta ?? [];
   const metaMap = {};
   metaArray.forEach(item => {
