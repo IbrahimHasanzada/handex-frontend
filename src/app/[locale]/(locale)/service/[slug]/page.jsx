@@ -36,7 +36,6 @@ const page = async ({ params }) => {
     const { slug } = params;
 
     let item = await getService(slug);
-    console.log(item);
 
     const t = await getTranslations();
 
