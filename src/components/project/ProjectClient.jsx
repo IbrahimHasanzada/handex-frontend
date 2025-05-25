@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 const ProjectClient = ({ locale }) => {
 
   let [project, setProject] = useState();
+  let [total, setTotal] = useState();
   let [count, setCount] = useState(0);
   let [loading, setLoading] = useState(false);
   const t = useTranslations('project');
@@ -16,7 +17,8 @@ const ProjectClient = ({ locale }) => {
       const data = await getProjects(locale);
 
       setProject(data?.data);
-      console.log(project);
+      console.log(data);
+      setTotal(data?.totalItems)
     }
     getData();
   }, []);
@@ -38,7 +40,7 @@ const ProjectClient = ({ locale }) => {
           <ProjectCard key={i} item={item} />
         ))}
       </div>
-      {project?.length > (count + 1) * 12 && (
+      {total > (count + 1) * 12 && (
         <button onClick={() => handlePagination()} className='flex bg-handle-gray mx-auto rounded-full items-center px-6 gap-2 h-12 my-15'>
           <p className='text-base'>{loading ? 'Loading' : 'Daha çox'}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">

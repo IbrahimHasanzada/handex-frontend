@@ -11,10 +11,13 @@ const page = () => {
   const local = useLocale();
 
   let [blog, setBlog] = useState();
+  
 
   let [count, setCount] = useState(0);
 
   let [total, setTotal] = useState(0);
+  console.log(total);
+  
   let [loading, setLoading] = useState(false);
   useEffect(() => {
     async function getData() {
@@ -56,7 +59,7 @@ const page = () => {
           <BlogCard item={item} key={i} />
         ))}
       </div>
-      {blog?.length > (count + 1) * 12 && (
+      {total > (count + 1) * 12 && (  
         <button onClick={() => handlePagination()} className='flex bg-handle-gray mx-auto rounded-full items-center px-6 gap-2 h-12 my-15'>
           <p className='text-base'>{loading ? 'Loading' : 'Daha çox'}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
