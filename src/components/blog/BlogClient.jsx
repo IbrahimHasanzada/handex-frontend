@@ -16,7 +16,6 @@ const page = () => {
   let [count, setCount] = useState(0);
 
   let [total, setTotal] = useState(0);
-  console.log(total);
   
   let [loading, setLoading] = useState(false);
   useEffect(() => {

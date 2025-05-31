@@ -1,5 +1,4 @@
 import { useLocale, useTranslations } from 'next-intl';
-import { getLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import React from 'react';
 

@@ -172,6 +172,14 @@
     "service": {
         "title": "Xidmətlərimiz"
     },
+    "study-area": {
+        "instructors": "İnstrukturlarımız",
+        "faq": "Tez-tez verilən suallar",
+        "why": {
+            "title": "Niyə Handex ?",
+            "desc": "Müasir təhsil metodları və peşəkar dəstəklə karyeranızda yeni səhifə açın!"
+        }
+    },
     "months": [
         "Yanvar",
         "Fevral",

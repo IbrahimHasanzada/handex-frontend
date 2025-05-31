@@ -1,14 +1,14 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 const Footer = async ({ theme = '' }) => {
-  const studyArea = ['Microsoft Excel', 'Data Analitika', 'Power BI', 'Oracle SQL', 'Mose (MO-211)', 'PL-300 (PBDAA)', 'Satış strategiyası (Data Əsaslı)', '1Z0 - 071']
+  const studyArea = ['Microsoft Excel', 'Data Analitika', 'Power BI', 'Oracle SQL', 'Mose (MO-211)', 'PL-300 (PBDAA)', 'Satış strategiyası (Data Əsaslı)', '1Z0 - 071'];
   const about = [
     { "name": "Haqqımızda", "link": "#" },
     { "name": "Xidmətlərimiz", "link": "#" },
     { "name": "Layihələrimiz", "link": "#" },
     { "name": "Bloq", "link": "#" },
     { "name": "Xəbərlər", "link": "#" },
-  ]
+  ];
 
 
   const socialSection = [
@@ -44,7 +44,7 @@ const Footer = async ({ theme = '' }) => {
   <path d="M13.998 20L24 9.99805L34.002 20" stroke="#141414" strokeWidth="2.125" strokeLinecap="round" strokeLinejoin="round"/>
 </svg>`, link: "#"
     },
-  ]
+  ];
   // const phone = await getGeneral('phone');
   // const email = await getGeneral('email');
   // const location = await getGeneral('location');
@@ -114,7 +114,7 @@ const Footer = async ({ theme = '' }) => {
         </div>
       </div>
     </footer >
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

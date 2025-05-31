@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 
-
 export const formatDate = async (isoDate: string) => {
     const t =  await getTranslations();
 

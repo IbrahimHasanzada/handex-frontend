@@ -5,7 +5,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
-import { withRedirect } from "@/libs/redirect";
 
 const SFPro = localFont({
     src: '../../public/font/sf-pro/SFPRODISPLAYMEDIUM.otf',
