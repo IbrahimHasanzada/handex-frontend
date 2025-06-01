@@ -1,7 +1,7 @@
 import React from 'react'
 import TopCompanies from '../home/TopCompanies'
 
-const Partners: React.FC<{ page: string }> = ({ page }) => {
+const Partners: React.FC<{ page: string, data: any }> = ({ page, data }) => {
     return (
         <div className='py-6 md:pt-11 md:pb-16 bg-[#282828] rounded-[20px]'>
             <div className='px-6'>
@@ -10,7 +10,7 @@ const Partners: React.FC<{ page: string }> = ({ page }) => {
             </div>
             <div className='flex flex-col'>
                 {Array.from({ length: 3 }).map((item, index) => (
-                    <div key={index} className='flex flex-col gap-6'> <TopCompanies index={index} page={page} /></div>
+                    <div key={index} className='flex flex-col gap-6'> <TopCompanies data={data} index={index} page={page} /></div>
                 ))}
             </div>
         </div >

@@ -5,11 +5,11 @@ export const getContent = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://api.drafts.az/api/content/${slug}`, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
         });
-
         const data = await res.json();
         return data;
     } catch (err) {
@@ -21,12 +21,12 @@ export const getCustomers = async () => {
     const lang = await getLocale();
     try {
         const res = await fetch('https://api.drafts.az/api/customers', {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
         });
         const data = await res.json();
-
         return data;
     } catch (err) {
         return err;
@@ -35,9 +35,11 @@ export const getCustomers = async () => {
 
 export const getGeneral = async () => {
     try {
-        const res = await fetch('https://api.drafts.az/api/general');
+        const res = await fetch('https://api.drafts.az/api/general', {
+            next: { revalidate: 3600 },
+        });
         const data = await res.json();
-        return data
+        return data;
     } catch (err) {
         return err;
     }
@@ -45,7 +47,9 @@ export const getGeneral = async () => {
 
 export const getProfiles = async (model: string) => {
     try {
-        const res = await fetch(`https://api.drafts.az/api/profiles?model=${model}`);
+        const res = await fetch(`https://api.drafts.az/api/profiles?model=${model}`, {
+            next: { revalidate: 3600 },
+        });
         const data = await res.json();
         return data;
     } catch (err) {
@@ -59,6 +63,7 @@ export const getAllNews = async (lang: string, page: number = 0, query?: string)
         const url = query ? `${baseUrl}&q=${encodeURIComponent(query)}` : baseUrl;
 
         const res = await fetch(url, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -74,6 +79,7 @@ export const getNews = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://api.drafts.az/api/news/${slug}`, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -91,6 +97,7 @@ export const getAllBlogs = async (lang: string, page: number = 0, query?: string
         const url = query ? `${baseUrl}&query=${encodeURIComponent(query)}` : baseUrl;
 
         const res = await fetch(url, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -106,6 +113,7 @@ export const getBlogs = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://api.drafts.az/api/blogs/${slug}`, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -120,6 +128,7 @@ export const getBlogs = async (slug: string) => {
 export const getProjects = async (lang: string, page: number = 0) => {
     try {
         const res = await fetch(`https://api.drafts.az/api/project?page=${page}`, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -135,8 +144,8 @@ export const getProject = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://api.drafts.az/api/project/${slug}`, {
-            next: { revalidate: 3600 },
             cache: 'no-store',
+            next: { revalidate: 3600 },
             headers: {
                 'accept-language': lang
             }
@@ -151,6 +160,7 @@ export const getProject = async (slug: string) => {
 export const getServices = async (lang: string, page: number = 0) => {
     try {
         const res = await fetch(`https://api.drafts.az/api/service`, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -166,6 +176,7 @@ export const getService = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://api.drafts.az/api/service/${slug}`, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -178,14 +189,12 @@ export const getService = async (slug: string) => {
 };
 
 export const addConsultation = async (params: any) => {
-    const token = localStorage.getItem('token');
     try {
         const res = await fetch('https://api.drafts.az/api/consultation', {
             next: { revalidate: 3600 },
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'authorization': `Bearer ${token}`
             },
             body: JSON.stringify(params)
         });
@@ -197,8 +206,14 @@ export const addConsultation = async (params: any) => {
 };
 
 export const getAbout = async () => {
+    const lang = await getLocale();
     try {
-        const res = await fetch('https://api.drafts.az/api/about');
+        const res = await fetch('https://api.drafts.az/api/about', {
+            next: { revalidate: 3600 },
+            headers: {
+                'accespt-language': lang
+            }
+        });
         const data = await res.json();
         return data[0];
     } catch (err) {
@@ -209,12 +224,13 @@ export const getAbout = async () => {
 export const getMeta = async (field: string) => {
     const lang = await getLocale();
     try {
-        let res = await fetch(`https://api.drafts.az/api/meta/${field}`, {
+        const res = await fetch(`https://api.drafts.az/api/meta/${field}`, {
+            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
         });
-        let data = await res.json();
+        const data = await res.json();
         return data;
     } catch (err) {
         return err;
@@ -225,6 +241,7 @@ export const getStudyAreas = async () => {
     const locale = await getLocale();
     try {
         const res = await fetch('https://api.drafts.az/api/study-area', {
+            cache: 'no-store',
             headers: {
                 'accept-language': locale
             }
@@ -240,9 +257,26 @@ export const getStudyArea = async (slug: string) => {
     const locale = await getLocale();
     try {
         const res = await fetch(`https://api.drafts.az/api/study-area/${slug}`, {
+            cache: 'no-store',
             headers: {
                 'accept-language': locale
             }
+        });
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
+export const addContact = async (params: any) => {
+    try {
+        const res = await fetch('https://api.drafts.az/api/contact', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(params)
         });
         const data = await res.json();
         return data;

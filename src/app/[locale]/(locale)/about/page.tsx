@@ -3,7 +3,7 @@ import ImageCollage from '@/components/about/ImageCollage';
 import { getAbout, getContent } from '@/service';
 import { baseUrl } from '@/utils/url';
 import { Metadata } from 'next';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import React from 'react';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const AboutPage = async () => {
     const about: any = await getAbout();
-    
+    const t = await getTranslations('home');
     const features = await getContent('corporate-features');
     return (
         <div className="wrapper w-full pt-30">
@@ -46,7 +46,7 @@ const AboutPage = async () => {
                     </div>
                 ))}
             </div>
-            <h2 className='md:text-center text-2xl md:text-[38px] mt-25 md:mt-30 mb-7 md:mb-12 font-bold'>Handexin üstünlükləri</h2>
+            <h2 className='md:text-center text-2xl md:text-[38px] mt-25 md:mt-30 mb-7 md:mb-12 font-bold'>{t('preference')}</h2>
             <div className=' lg:grid hidden gap-11 grid-cols-3'>
                 {features?.map((item: any, i: number) => (
                     <div style={{ marginTop: (i >= 3) ? (i * -52) : (i * 52) + 'px' }} key={i} className={`h-54 my-72 bg-white box-shadow p-6 rounded-[20px]`}>

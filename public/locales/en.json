@@ -57,8 +57,9 @@
               }
        },
        "home": {
+              "preference": "Handex’s Preferences",
               "headSection": {
-                     "button": "Keçid et"
+                     "button": "Switch"
               },
               "studyOfArea": {
                      "title": "Study of area",
@@ -98,27 +99,32 @@
               "inputs": [
                      {
                             "label": "Full Name",
+                            "name": "name",
                             "placeholder": "Enter your full name",
                             "type": "text"
                      },
                      {
                             "label": "Email",
+                            "name": "email",
                             "placeholder": "Enter your email",
                             "type": "email"
                      },
                      {
                             "label": "Phone Number",
+                            "name": "phone",
                             "placeholder": "Enter your phone number",
-                            "type": "number"
+                            "type": "text"
                      },
                      {
                             "label": "Subject",
+                            "name": "title",
                             "placeholder": "Enter the subject",
                             "type": "text"
                      }
               ],
               "textarea": {
                      "label": "Message",
+                     "name": "message",
                      "placeholder": "Enter your message",
                      "type": "textarea"
               },
@@ -157,6 +163,7 @@
                      "about": "About the program"
               },
               "groups": {
+                     "apply": "Apply",
                      "title": "Our upcoming groups",
                      "desc": "Get acquainted with our groups that will start soon from the section below and reserve your place before classes begin.",
                      "hour": "hour",
@@ -202,6 +209,8 @@
        ],
        "footer": {
               "discover": "Discover and be inspired",
+              "policy": "Privacy",
+              "privacy": "All rights reserved.",
               "title": [
                      "Website",
                      "About Us",

@@ -1,18 +1,10 @@
 "use client";
-import { getGeneral } from '@/service';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const TopCompanies: React.FC<{ page: string, index: number }> = ({ page, index }) => {
-    const [companies, setCompanies] = useState<any>();
-    useEffect(() => {
-        async function fetchData() {
-            const result = await getGeneral()
-            setCompanies(result[0]?.company);
-        }
-        fetchData();
-    }, []);
+const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ page, index, data }) => {
+    const companies = data[0]?.company;
 
     const createSlides = (data: any[]) => {
         if (!data) return [];

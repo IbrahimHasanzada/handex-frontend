@@ -19,7 +19,7 @@ const Program: React.FC<any> = ({ program, color }) => {
             </div>
             <div className='md:mt-0 mt-6 md:w-3/5'>
                 <h2 className='text-[#111827] text-[30px] font-bold mb-6'>{t('about')}</h2>
-                <div dangerouslySetInnerHTML={{ __html: program[count]?.description }} />
+                <div dangerouslySetInnerHTML={{ __html: program && program[count]?.description }} />
             </div>
         </div>
     );

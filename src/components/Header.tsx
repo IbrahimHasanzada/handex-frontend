@@ -20,7 +20,6 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
   const router = useRouter();
   const pathname = usePathname();
   const currentLocale = useLocale();
-  console.log(currentLocale);
 
   const [flag, setFlag] = useState<boolean>(false);
   const [count, setCount] = useState<number>(0);
@@ -38,7 +37,6 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
     Cookies.set('lang', lang, { path: '' });
     setFlag(false);
 
-
     const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '');
     const newPath = pathWithoutLocale || '/';
     router.replace(newPath, { locale: lang });
@@ -49,7 +47,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
   };
   return (
     <header className="relative">
-      <div className={`wrapper !z-9999 max-md:box-shadow base:bg-transparent ${theme === 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'} fixed left-0 right-0`}>
+      <div className={`wrapper z-99 max-md:box-shadow base:bg-transparent ${theme === 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'} fixed left-0 right-0`}>
         <div className={`base:px-6 w-full rounded-b-[20px] ${theme === 'dark' ? 'base:bg-[#2b2b2b]' : 'base:bg-white base:border border-[#DDD]'} h-25 flex items-center justify-between base:shadow-md`}>
           <Link href={'/' + local} className='relative flex items-center'>
             <Image
@@ -159,7 +157,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                   </div>
                 </div>
                 <div className='h-12 w-40 text-sm lg:text-base lg:w-60'>
-                  <HeaderModal theme={theme} />
+                  <HeaderModal study={study} theme={theme} />
                 </div>
               </div>
             </div>
@@ -178,12 +176,15 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           </div>
         </div>
       </div>
-      <div onClick={() => setFlag(!flag)} className={`top-0 left-0 ${flag ? 'fixed' : 'hidden'} z-100 w-screen h-screen bg-black opacity-50`}></div>
-      <div className={`fixed ${flag ? 'translate-x-0' : 'translate-x-full'} overflow-y-auto duration-300 right-0 h-screen w-4/5 sm:w-1/2 z-9000 bg-white pt-35 list-none p-7`}>
-        <li onClick={() => handleClose()} className='cursor-pointer font-medium text-xl pb-1 text-[#141414]'>{t('home')}</li>
+      {/*  H A M B U R G ER  */}
+      <div onClick={() => setFlag(!flag)} className={`top-0 left-0 ${flag ? 'fixed' : 'hidden'} z-80 w-screen h-screen bg-black opacity-50`}></div>
+      <div className={`fixed ${flag ? 'translate-x-0' : 'translate-x-full'} overflow-y-auto duration-300 right-0 h-screen w-4/5 sm:w-1/2 z-80 ${theme ? 'bg-[#181818]' : 'bg-white'} pt-35 list-none p-7`}>
+        <li onClick={() => handleClose()} className={`${theme ? 'text-white' : 'text-[#141414]'} cursor-pointer font-medium text-xl pb-1`}>
+          <Link href={'/' + local}>{t('home')}</Link>
+        </li>
         {headerLists.map(({ title, subItems }, index) => (
-          <>
-            <li key={index} onClick={() => setCount(count === 1 ? 0 : 1)} className={`relative group cursor-pointer flex justify-between items-center z-50 pt-4 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
+          <div key={index}>
+            <li onClick={() => setCount(count === 1 ? 0 : 1)} className={`relative group cursor-pointer flex justify-between items-center z-50 pt-4 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
               <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{title}</p>
               <svg className={`${count === 1 && 'rotate-180'} duration-300`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -200,12 +201,12 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                 ))}
               </ul>
             </div>
-          </>
+          </div>
         ))}
         <li onClick={() => setCount(count === 2 ? 0 : 2)} className={`relative group cursor-pointer flex justify-between items-center z-50 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
           <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{t('study-area')}</p>
           <svg className={`${count === 2 && 'rotate-180'} duration-500`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path stroke={theme ? 'white' : 'black'} d="M8 10L12 14L16 10" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </li>
         <div className={`${count === 2 ? 'max-h-[500px]' : 'max-h-0'} overflow-hidden duration-500 z-50 top-12`}>
@@ -219,31 +220,31 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             ))}
           </ul>
         </div>
-        <li onClick={() => handleClose()} className='cursor-pointer font-medium text-xl pb-1 my-2.5 text-[#141414]'>
+        <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
           <Link href={'/' + local + '/corporate'}>{t('coorporate')}</Link>
         </li>
-        <li onClick={() => handleClose()} className='cursor-pointer font-medium text-xl pb-1 my-2.5 text-[#141414]'>
+        <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
           <Link href={'/' + local + '/contact'}>{t('contact')}</Link>
         </li>
         <div className='w-full h-[1px] bg-[#ABABAB] mt-10 mb-5'></div>
         <div className='flex items-center gap-2 mb-4'>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M7.5 4V7" stroke="#222222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M20.5 20L16.5 11L12.5 20" stroke="#222222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M13.3906 18H19.6106" stroke="#222222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M3.5 15C7.595 14.676 11.176 11.095 11.501 7H3.501" stroke="#222222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M11.5 15C8.941 14.798 6.702 12.559 6.5 10" stroke="#222222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path stroke={theme ? 'white' : '#222222'} d="M7.5 4V7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path stroke={theme ? 'white' : '#222222'} d="M20.5 20L16.5 11L12.5 20" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path stroke={theme ? 'white' : '#222222'} d="M13.3906 18H19.6106" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path stroke={theme ? 'white' : '#222222'} d="M3.5 15C7.595 14.676 11.176 11.095 11.501 7H3.501" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path stroke={theme ? 'white' : '#222222'} d="M11.5 15C8.941 14.798 6.702 12.559 6.5 10" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <p className='text-[#141414] text-base font-medium'>Language</p>
+          <p className={`text-[#141414] text-base ${theme ? 'text-white' : 'text-[#141414]'} font-medium`}>Language</p>
         </div>
         <div className='grid grid-cols-3 gap-3 justify-between px-1'>
-          <div onClick={() => handleChange('az')} className={`flex ${currentLocale === 'az' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center items-center rounded-2xl px-3 py-1.5 `}>
+          <div onClick={() => handleChange('az')} className={`flex ${currentLocale === 'az' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white' } items-center rounded-2xl px-3 py-1.5 `}>
             <p>AZ</p>
           </div>
-          <div onClick={() => handleChange('en')} className={`flex ${currentLocale === 'en' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center items-center rounded-2xl px-3 py-1.5 `}>
+          <div onClick={() => handleChange('en')} className={`flex ${currentLocale === 'en' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white' } items-center rounded-2xl px-3 py-1.5 `}>
             <p>EN</p>
           </div>
-          <div onClick={() => handleChange('ru')} className={`flex ${currentLocale === 'ru' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center items-center rounded-2xl px-3 py-1.5 `}>
+          <div onClick={() => handleChange('ru')} className={`flex ${currentLocale === 'ru' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white' } items-center rounded-2xl px-3 py-1.5 `}>
             <p>RU</p>
           </div>
         </div>
