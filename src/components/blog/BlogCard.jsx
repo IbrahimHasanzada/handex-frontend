@@ -10,8 +10,7 @@ const BlogCard = ({ item }) => {
     const locale = useLocale();
     const handleClick = () => {
         router.push(`/${locale}/blog/${item.slug}`);
-    };
-    console.log(item?.image);
+    }
     
     return (
         <div onClick={() => handleClick()} className='rounded-2xl cursor-pointer box-shadow bg-white py-5 px-3'>
