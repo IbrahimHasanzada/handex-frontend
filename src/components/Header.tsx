@@ -41,7 +41,6 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
     const newPath = pathWithoutLocale || '/';
     router.replace(newPath, { locale: lang });
   };
-
   const handleClose = () => {
     setFlag(false);
   };
