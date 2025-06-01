@@ -1,20 +1,21 @@
-import { getGeneral, getStudyAreas } from '@/service';
+import { getGeneral } from '@/service';
 import Image from 'next/image';
 import React from 'react';
 import FooterSlider from './FooterSlider';
 import Link from 'next/link';
 import Top from './Top';
 import { getLocale, getTranslations } from 'next-intl/server';
+
+
 const Footer = async ({ theme = '', study }: any) => {
   const t = await getTranslations();
   const header = t.raw('header.headerLists');
   const about = header[0].subItems;
   const title = t.raw('footer.title');
   const site = t.raw('footer.site');
-  console.log(study);
-  
+
   const general = await getGeneral();
-  
+
 
   const locale = await getLocale();
 

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
 import Button from '../ui/Button';
-import { StudyCardsDto } from '@/types/StudyCards-prop.dto';
 import Link from 'next/link';
 import { getLocale } from 'next-intl/server';
 

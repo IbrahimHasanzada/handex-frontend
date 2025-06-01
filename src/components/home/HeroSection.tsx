@@ -1,7 +1,7 @@
 import Button from '../ui/Button';
 import { getContent } from '@/service';
 import { HeroSectionDto } from '@/types/HeroSection.dto';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
 const HeadSection: React.FC<HeroSectionDto> = async ({ page }) => {

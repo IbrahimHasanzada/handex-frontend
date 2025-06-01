@@ -19,7 +19,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const AboutPage = async () => {
     const about: any = await getAbout();
-    console.log(about);
     
     const features = await getContent('corporate-features');
     return (

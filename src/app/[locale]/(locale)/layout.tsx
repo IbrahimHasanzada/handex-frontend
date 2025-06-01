@@ -7,21 +7,23 @@ import BackgroundLayout from "@/components/BackgroundLayout";
 import { getStudyAreas } from "@/service";
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
-  children: any;
-  params: any;
+  children: React.ReactNode;
+  params: { locale: string; };
 }>) {
-  const messagese = await getMessages();
+  const { locale } = await params;
+  const messages = await getMessages({ locale });
   const study = await getStudyAreas();
+
   return (
-    <>
-      <BackgroundLayout pathname={''}>
-        <NextIntlClientProvider messages={messagese} >
-          <Header study={study} />
-          {children}
-          <Footer study={study} />
-        </NextIntlClientProvider>
-      </BackgroundLayout>
-    </ >
+    <BackgroundLayout pathname="">
+      <NextIntlClientProvider messages={messages}>
+        <Header study={study} />
+        {children}
+        <Footer study={study} />
+      </NextIntlClientProvider>
+    </BackgroundLayout>
   );
 }
+
