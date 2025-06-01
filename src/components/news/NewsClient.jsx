@@ -16,8 +16,6 @@ const page = () => {
   useEffect(() => {
     async function getData() {
       let data = await getAllNews(local);
-      console.log(data);
-      
       setNews(data.data);
       setTotal(data.totalItems);
     }

@@ -95,7 +95,6 @@ const Instructors = () => {
     const [isBeginning, setIsBeginning] = useState(true);
 
     const [flag, setFlag] = useState<number>(0);
-    console.log(flag);
     
     const [student, setStudent] = useState<any>();
 
@@ -104,7 +103,7 @@ const Instructors = () => {
             let item = students.find(t => t.id === flag);
             item && setStudent(item);
         }
-    });
+    }, [flag]);
 
     return (
         <div className='relative'>

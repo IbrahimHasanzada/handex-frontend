@@ -33,11 +33,11 @@ export const getCustomers = async () => {
     }
 };
 
-export const getGeneral = async (field?: string) => {
+export const getGeneral = async () => {
     try {
         const res = await fetch('https://api.drafts.az/api/general');
         const data = await res.json();
-        return field ? data[0][field] : data;
+        return data
     } catch (err) {
         return err;
     }
@@ -215,6 +215,36 @@ export const getMeta = async (field: string) => {
             }
         });
         let data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
+export const getStudyAreas = async () => {
+    const locale = await getLocale();
+    try {
+        const res = await fetch('https://api.drafts.az/api/study-area', {
+            headers: {
+                'accept-language': locale
+            }
+        });
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
+export const getStudyArea = async (slug: string) => {
+    const locale = await getLocale();
+    try {
+        const res = await fetch(`https://api.drafts.az/api/study-area/${slug}`, {
+            headers: {
+                'accept-language': locale
+            }
+        });
+        const data = await res.json();
         return data;
     } catch (err) {
         return err;

@@ -9,7 +9,6 @@ export async function generateMetadata({ params }) {
   const { slug } = params;
 
   const newsItem = await getNews(slug);
-  console.log(newsItem);
   
   const metaArray = newsItem?.meta ?? [];
   const metaMap = {};

@@ -18,6 +18,10 @@
   --breakpoint-base: 968px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .border-b-l-5 {
   border-bottom-left-radius: 20px;
 }

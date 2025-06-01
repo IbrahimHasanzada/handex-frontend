@@ -2,6 +2,7 @@
     "header": {
         "consultation": "Ödənişsiz konsultasiya",
         "contact": "Əlaqə",
+        "study-area": "Tədris sahələri",
         "coorporate": "Korporativ",
         "headerLists": [
             {
@@ -26,31 +27,6 @@
                     {
                         "text": "Bloqlar",
                         "link": "/blog"
-                    }
-                ]
-            },
-            {
-                "title": "Tədris sahələri",
-                "subItems": [
-                    {
-                        "text": "Proqramlaşdırma",
-                        "link": "/study-area"
-                    },
-                    {
-                        "text": "UX/UI Dizayn",
-                        "link": ""
-                    },
-                    {
-                        "text": "Marketinq",
-                        "link": ""
-                    },
-                    {
-                        "text": "Data Analitika",
-                        "link": ""
-                    },
-                    {
-                        "text": "Süni İntellekt",
-                        "link": ""
                     }
                 ]
             }
@@ -173,8 +149,37 @@
         "title": "Xidmətlərimiz"
     },
     "study-area": {
+        "apply": "İndi müraciət et",
         "instructors": "İnstrukturlarımız",
         "faq": "Tez-tez verilən suallar",
+        "program": {
+            "about": "Program haqqında"
+        },
+        "groups": {
+            "title": "Növbəti qruplarımız",
+            "desc": "Aşağıdakı bölmədən tezliklə başlayacaq qruplarımızla tanış ol və tədris başlamadan yerini tut.",
+            "hour": "saat",
+            "day": "gün",
+            "minute": "dəqiqə",
+            "months": [
+                "Yanvar",
+                "Fevral",
+                "Mart",
+                "Aprel",
+                "May",
+                "İyun",
+                "İyul",
+                "Avqust",
+                "Sentyabr",
+                "Oktyabr",
+                "Noyabr",
+                "Dekabr"
+            ]
+        },
+        "ads": {
+            "title": "Birkart ilə sərfəli fürsət",
+            "desc": "İstədiyiniz kursa qeydiyyatdan keçərək birkart və daxili kredit imkanlarından yararlana bilersiniz"
+        },
         "why": {
             "title": "Niyə Handex ?",
             "desc": "Müasir təhsil metodları və peşəkar dəstəklə karyeranızda yeni səhifə açın!"
@@ -193,5 +198,30 @@
         "Oktyabr",
         "Noyabr",
         "Dekabr"
-    ]
+    ],
+    "footer": {
+        "discover": "Kəşf edin və ilham alın",
+        "title": [
+            "Sayt",
+            "Haqqımızda",
+            "Tədris sahələri"
+        ],
+        "number": "ƏLAQƏ NÖMRƏSİ",
+        "mail": "E-POÇT",
+        "location": "ÜNVAN",
+        "site": [
+            {
+                "text": "Haqqımızda",
+                "link": "/about"
+            },
+            {
+                "text": "Korporativ",
+                "link": "/corporate"
+            },
+            {
+                "text": "Əlaqə",
+                "link": "/contact"
+            }
+        ]
+    }
 }

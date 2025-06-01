@@ -2,6 +2,7 @@
        "header": {
               "consultation": "Free Consultation",
               "contact": "Contact",
+              "study-area": "Fields of Study",
               "coorporate": "Corporate",
               "headerLists": [
                      {
@@ -26,31 +27,6 @@
                                    {
                                           "text": "Blogs",
                                           "link": "/blog"
-                                   }
-                            ]
-                     },
-                     {
-                            "title": "Fields of Education",
-                            "subItems": [
-                                   {
-                                          "text": "Programming",
-                                          "link": ""
-                                   },
-                                   {
-                                          "text": "UX/UI Design",
-                                          "link": ""
-                                   },
-                                   {
-                                          "text": "Marketing",
-                                          "link": ""
-                                   },
-                                   {
-                                          "text": "Data Analytics",
-                                          "link": ""
-                                   },
-                                   {
-                                          "text": "Artificial Intelligence",
-                                          "link": ""
                                    }
                             ]
                      }
@@ -172,6 +148,43 @@
        "service": {
               "title": "Our Services"
        },
+       "study-area": {
+              "apply": "Apply now",
+              "instructors": "Our instructors",
+              "faq": "Frequently asked questions",
+              "program": {
+                     "about": "About the program"
+              },
+              "groups": {
+                     "title": "Our upcoming groups",
+                     "desc": "Get acquainted with our groups that will start soon from the section below and reserve your place before classes begin.",
+                     "hour": "hour",
+                     "day": "day",
+                     "minute": "minute",
+                     "months": [
+                            "January",
+                            "February",
+                            "March",
+                            "April",
+                            "May",
+                            "June",
+                            "July",
+                            "August",
+                            "September",
+                            "October",
+                            "November",
+                            "December"
+                     ]
+              },
+              "ads": {
+                     "title": "Affordable opportunity with Birkart",
+                     "desc": "By registering for the course you want, you can benefit from Birkart and internal credit opportunities."
+              },
+              "why": {
+                     "title": "Why Handex?",
+                     "desc": "Open a new chapter in your career with modern teaching methods and professional support!"
+              }
+       },
        "months": [
               "January",
               "February",
@@ -185,5 +198,30 @@
               "October",
               "November",
               "December"
-       ]
+       ],
+       "footer": {
+              "discover": "Discover and be inspired",
+              "title": [
+                     "Website",
+                     "About Us",
+                     "Fields of Study"
+              ],
+              "number": "CONTACT NUMBER",
+              "mail": "E-MAIL",
+              "location": "ADDRESS",
+              "site": [
+                     {
+                            "text": "About Us",
+                            "link": "/about"
+                     },
+                     {
+                            "text": "Corporate",
+                            "link": "/corporate"
+                     },
+                     {
+                            "text": "Contact",
+                            "link": "/contact"
+                     }
+              ]
+       }
 }

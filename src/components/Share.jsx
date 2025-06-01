@@ -1,10 +1,16 @@
-import { getTranslations } from 'next-intl/server';
+"use client"
+import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
 import { FacebookShareButton, InstapaperShareButton, LinkedinShareButton, TelegramShareButton } from 'react-share';
 
-const Share = async () => {
-    const shareUrl = location.href
+const Share = () => {
+    const [shareUrl, setShareUrl] = useState();
 
-    const t = await getTranslations();
+    useEffect(() => {
+        setShareUrl(location.href);
+    }, []);
+
+    const t = useTranslations();
 
     return (
         <div className='w-max rounded-[48px] flex gap-4 items-center justify-center bg-white py-2 px-6'>

@@ -4,16 +4,30 @@ import StudyAreasSection from '@/components/home/StudyAreasSection';
 import TestimonialsHome from '@/components/home/TestimonialsHome';
 import TopCompanies from '@/components/home/TopCompanies';
 import UserSlider from '@/components/home/UserSlider';
-import { getLocale, getTranslations } from 'next-intl/server';
-import Head from 'next/head';
+import { getTranslations } from 'next-intl/server';
 import { baseUrl } from '@/utils/url';
-import { Metadata } from 'next';
+import { getMeta } from '@/service';
 
-export async function generateMetadata(): Promise<Metadata> {
-  let lang = await getLocale();
-  const canonicalUrl = `${baseUrl}/${lang}`;
+export async function generateMetadata({ params }: any) {
+  const { locale } = await params;
+  let data: any = await getMeta('news');
+
+  const canonicalUrl = `${baseUrl}/${locale}`;
+  if (data.error) {
+    return {
+      alternates: {
+        canonical: canonicalUrl,
+      },
+    };
+  }
+  let meta: any = {};
+  data.forEach((item: any) => {
+    meta[item.name] = item.value;
+  });
+
   return {
-    title: 'Handex.az',
+    title: meta.title || undefined,
+    description: meta.description || undefined,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -25,10 +39,6 @@ const page = async () => {
 
   return (
     <div>
-      {/* <Head>
-        <title>Handex.az</title>
-        <link rel="canonical" href={baseUrl + '/' + lang} key="canonical" />
-      </Head> */}
       <div className='pt-30'>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
