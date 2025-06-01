@@ -19,7 +19,7 @@ export default async function CorporateLayout({
                 <NextIntlClientProvider messages={messagese} >
                     <Header theme="dark" study={study} />
                     {children}
-                    <Footer theme="dark" />
+                    <Footer study={study} theme="dark" />
                 </NextIntlClientProvider>
             </BackgroundLayout>
         </ >

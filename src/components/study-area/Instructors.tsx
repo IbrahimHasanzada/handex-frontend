@@ -1,106 +1,20 @@
 "use client";
-import { getProfiles } from '@/service';
 import React, { useEffect, useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const Instructors = () => {
-    // const [students, setStudents] = useState<any>();
-    // useEffect(() => {
-    //     async function getData() {
-    //         let result = await getProfiles('student');
-
-    //         result && setStudents(result);
-    //     }
-    //     getData();
-    // }, []);
-
-    const students = [
-        {
-            name: 'Leyla Əfəndiyeva',
-            id: 1,
-            image: {
-                url: '/assets/profile.svg'
-            },
-            speciality: 'Oracle  SQL',
-            description: 'Lorem ipsum dolor sit amet consectetur. Elit a in ultricies enim magnis consectetur suspendisse. Nisl cursus imperdiet egestas sapien. Adipiscing gravida nisl mauris tellus tellus non risus sem. Egestas id vel ipsum luctus. At tincidunt suscipit iaculis sagittis lorem pellentesque non nulla. Eget morbi tellus euismod duis tellus consectetur eu praesent lorem. Pretium commodo diam libero odio tristique tellus. Nibh magna et faucibus turpis mollis. Venenatis bibendum leo lacus sit sit odio elementum urna. Lorem ipsum dolor sit amet consectetur. Eu lorem senectus massa molestie egestas lobortis sit. Sit vel sed quam in sagittis aliquam felis orci. Vel massa a purus eu id eget ut odio sem. Phasellus nibh eu tincidunt nunc tristique. At mattis faucibus quis etiam viverra pretium enim dictumst. Quam mauris praesent tortor congue ac pulvinar magna a nibh. Sit sed vel et lectus. Quis sed viverra nunc et morbi. Eget urna ut vel rhoncus turpis sit eleifend. Lorem ipsum dolor sit amet consectetur. Faucibus est gravida bibendum lorem lorem lacus tincidunt consectetur. Ut libero ac scelerisque enim pellentesque vel pretium varius massa. Posuere purus volutpat at lobortis duis. Molestie ut mauris sollicitudin at. Cras vel facilisi volutpat maecenas. Ac nibh egestas blandit scelerisque morbi. Laoreet vitae eu tortor eu. In risus donec quis eget ut non maecenas lorem. Purus quam accumsan neque faucibus sollicitudin semper.'
-        },
-        {
-            name: 'Leyla Əfəndiyeva',
-            id: 2,
-            image: {
-                url: '/assets/profile.svg'
-            },
-            speciality: 'Oracle  SQL',
-            description: 'Lorem ipsum dolor sit amet consectetur. Elit a in ultricies enim magnis consectetur suspendisse. Nisl cursus imperdiet egestas sapien. Adipiscing gravida nisl mauris tellus tellus non risus sem. Egestas id vel ipsum luctus. At tincidunt suscipit iaculis sagittis lorem pellentesque non nulla. Eget morbi tellus euismod duis tellus consectetur eu praesent lorem. Pretium commodo diam libero odio tristique tellus. Nibh magna et faucibus turpis mollis. Venenatis bibendum leo lacus sit sit odio elementum urna. Lorem ipsum dolor sit amet consectetur. Eu lorem senectus massa molestie egestas lobortis sit. Sit vel sed quam in sagittis aliquam felis orci. Vel massa a purus eu id eget ut odio sem. Phasellus nibh eu tincidunt nunc tristique. At mattis faucibus quis etiam viverra pretium enim dictumst. Quam mauris praesent tortor congue ac pulvinar magna a nibh. Sit sed vel et lectus. Quis sed viverra nunc et morbi. Eget urna ut vel rhoncus turpis sit eleifend. Lorem ipsum dolor sit amet consectetur. Faucibus est gravida bibendum lorem lorem lacus tincidunt consectetur. Ut libero ac scelerisque enim pellentesque vel pretium varius massa. Posuere purus volutpat at lobortis duis. Molestie ut mauris sollicitudin at. Cras vel facilisi volutpat maecenas. Ac nibh egestas blandit scelerisque morbi. Laoreet vitae eu tortor eu. In risus donec quis eget ut non maecenas lorem. Purus quam accumsan neque faucibus sollicitudin semper.'
-        },
-        {
-            name: 'Leyla Əfəndiyeva',
-            id: 3,
-            image: {
-                url: '/assets/profile.svg'
-            },
-            speciality: 'Oracle  SQL',
-            description: 'Lorem ipsum dolor sit amet consectetur. Elit a in ultricies enim magnis consectetur suspendisse. Nisl cursus imperdiet egestas sapien. Adipiscing gravida nisl mauris tellus tellus non risus sem. Egestas id vel ipsum luctus. At tincidunt suscipit iaculis sagittis lorem pellentesque non nulla. Eget morbi tellus euismod duis tellus consectetur eu praesent lorem. Pretium commodo diam libero odio tristique tellus. Nibh magna et faucibus turpis mollis. Venenatis bibendum leo lacus sit sit odio elementum urna. Lorem ipsum dolor sit amet consectetur. Eu lorem senectus massa molestie egestas lobortis sit. Sit vel sed quam in sagittis aliquam felis orci. Vel massa a purus eu id eget ut odio sem. Phasellus nibh eu tincidunt nunc tristique. At mattis faucibus quis etiam viverra pretium enim dictumst. Quam mauris praesent tortor congue ac pulvinar magna a nibh. Sit sed vel et lectus. Quis sed viverra nunc et morbi. Eget urna ut vel rhoncus turpis sit eleifend. Lorem ipsum dolor sit amet consectetur. Faucibus est gravida bibendum lorem lorem lacus tincidunt consectetur. Ut libero ac scelerisque enim pellentesque vel pretium varius massa. Posuere purus volutpat at lobortis duis. Molestie ut mauris sollicitudin at. Cras vel facilisi volutpat maecenas. Ac nibh egestas blandit scelerisque morbi. Laoreet vitae eu tortor eu. In risus donec quis eget ut non maecenas lorem. Purus quam accumsan neque faucibus sollicitudin semper.'
-        },
-        {
-            name: 'Leyla Əfəndiyeva',
-            id: 4,
-            image: {
-                url: '/assets/profile.svg'
-            },
-            speciality: 'Oracle  SQL',
-            description: 'Lorem ipsum dolor sit amet consectetur. Elit a in ultricies enim magnis consectetur suspendisse. Nisl cursus imperdiet egestas sapien. Adipiscing gravida nisl mauris tellus tellus non risus sem. Egestas id vel ipsum luctus. At tincidunt suscipit iaculis sagittis lorem pellentesque non nulla. Eget morbi tellus euismod duis tellus consectetur eu praesent lorem. Pretium commodo diam libero odio tristique tellus. Nibh magna et faucibus turpis mollis. Venenatis bibendum leo lacus sit sit odio elementum urna. Lorem ipsum dolor sit amet consectetur. Eu lorem senectus massa molestie egestas lobortis sit. Sit vel sed quam in sagittis aliquam felis orci. Vel massa a purus eu id eget ut odio sem. Phasellus nibh eu tincidunt nunc tristique. At mattis faucibus quis etiam viverra pretium enim dictumst. Quam mauris praesent tortor congue ac pulvinar magna a nibh. Sit sed vel et lectus. Quis sed viverra nunc et morbi. Eget urna ut vel rhoncus turpis sit eleifend. Lorem ipsum dolor sit amet consectetur. Faucibus est gravida bibendum lorem lorem lacus tincidunt consectetur. Ut libero ac scelerisque enim pellentesque vel pretium varius massa. Posuere purus volutpat at lobortis duis. Molestie ut mauris sollicitudin at. Cras vel facilisi volutpat maecenas. Ac nibh egestas blandit scelerisque morbi. Laoreet vitae eu tortor eu. In risus donec quis eget ut non maecenas lorem. Purus quam accumsan neque faucibus sollicitudin semper.'
-        },
-        {
-            name: 'Leyla Əfəndiyeva',
-            id: 5,
-            image: {
-                url: '/assets/profile.svg'
-            },
-            speciality: 'Oracle  SQL',
-            description: 'Lorem ipsum dolor sit amet consectetur. Elit a in ultricies enim magnis consectetur suspendisse. Nisl cursus imperdiet egestas sapien. Adipiscing gravida nisl mauris tellus tellus non risus sem. Egestas id vel ipsum luctus. At tincidunt suscipit iaculis sagittis lorem pellentesque non nulla. Eget morbi tellus euismod duis tellus consectetur eu praesent lorem. Pretium commodo diam libero odio tristique tellus. Nibh magna et faucibus turpis mollis. Venenatis bibendum leo lacus sit sit odio elementum urna. Lorem ipsum dolor sit amet consectetur. Eu lorem senectus massa molestie egestas lobortis sit. Sit vel sed quam in sagittis aliquam felis orci. Vel massa a purus eu id eget ut odio sem. Phasellus nibh eu tincidunt nunc tristique. At mattis faucibus quis etiam viverra pretium enim dictumst. Quam mauris praesent tortor congue ac pulvinar magna a nibh. Sit sed vel et lectus. Quis sed viverra nunc et morbi. Eget urna ut vel rhoncus turpis sit eleifend. Lorem ipsum dolor sit amet consectetur. Faucibus est gravida bibendum lorem lorem lacus tincidunt consectetur. Ut libero ac scelerisque enim pellentesque vel pretium varius massa. Posuere purus volutpat at lobortis duis. Molestie ut mauris sollicitudin at. Cras vel facilisi volutpat maecenas. Ac nibh egestas blandit scelerisque morbi. Laoreet vitae eu tortor eu. In risus donec quis eget ut non maecenas lorem. Purus quam accumsan neque faucibus sollicitudin semper.'
-        },
-        {
-            name: 'Leyla Əfəndiyeva',
-            id: 6,
-            image: {
-                url: '/assets/profile.svg'
-            },
-            speciality: 'Oracle  SQL',
-            description: 'Lorem ipsum dolor sit amet consectetur. Elit a in ultricies enim magnis consectetur suspendisse. Nisl cursus imperdiet egestas sapien. Adipiscing gravida nisl mauris tellus tellus non risus sem. Egestas id vel ipsum luctus. At tincidunt suscipit iaculis sagittis lorem pellentesque non nulla. Eget morbi tellus euismod duis tellus consectetur eu praesent lorem. Pretium commodo diam libero odio tristique tellus. Nibh magna et faucibus turpis mollis. Venenatis bibendum leo lacus sit sit odio elementum urna. Lorem ipsum dolor sit amet consectetur. Eu lorem senectus massa molestie egestas lobortis sit. Sit vel sed quam in sagittis aliquam felis orci. Vel massa a purus eu id eget ut odio sem. Phasellus nibh eu tincidunt nunc tristique. At mattis faucibus quis etiam viverra pretium enim dictumst. Quam mauris praesent tortor congue ac pulvinar magna a nibh. Sit sed vel et lectus. Quis sed viverra nunc et morbi. Eget urna ut vel rhoncus turpis sit eleifend. Lorem ipsum dolor sit amet consectetur. Faucibus est gravida bibendum lorem lorem lacus tincidunt consectetur. Ut libero ac scelerisque enim pellentesque vel pretium varius massa. Posuere purus volutpat at lobortis duis. Molestie ut mauris sollicitudin at. Cras vel facilisi volutpat maecenas. Ac nibh egestas blandit scelerisque morbi. Laoreet vitae eu tortor eu. In risus donec quis eget ut non maecenas lorem. Purus quam accumsan neque faucibus sollicitudin semper.'
-        },
-        {
-            name: 'Leyla Əfəndiyeva',
-            id: 7,
-            image: {
-                url: '/assets/profile.svg'
-            },
-            speciality: 'Oracle  SQL',
-            description: 'Lorem ipsum dolor sit amet consectetur. Elit a in ultricies enim magnis consectetur suspendisse. Nisl cursus imperdiet egestas sapien. Adipiscing gravida nisl mauris tellus tellus non risus sem. Egestas id vel ipsum luctus. At tincidunt suscipit iaculis sagittis lorem pellentesque non nulla. Eget morbi tellus euismod duis tellus consectetur eu praesent lorem. Pretium commodo diam libero odio tristique tellus. Nibh magna et faucibus turpis mollis. Venenatis bibendum leo lacus sit sit odio elementum urna. Lorem ipsum dolor sit amet consectetur. Eu lorem senectus massa molestie egestas lobortis sit. Sit vel sed quam in sagittis aliquam felis orci. Vel massa a purus eu id eget ut odio sem. Phasellus nibh eu tincidunt nunc tristique. At mattis faucibus quis etiam viverra pretium enim dictumst. Quam mauris praesent tortor congue ac pulvinar magna a nibh. Sit sed vel et lectus. Quis sed viverra nunc et morbi. Eget urna ut vel rhoncus turpis sit eleifend. Lorem ipsum dolor sit amet consectetur. Faucibus est gravida bibendum lorem lorem lacus tincidunt consectetur. Ut libero ac scelerisque enim pellentesque vel pretium varius massa. Posuere purus volutpat at lobortis duis. Molestie ut mauris sollicitudin at. Cras vel facilisi volutpat maecenas. Ac nibh egestas blandit scelerisque morbi. Laoreet vitae eu tortor eu. In risus donec quis eget ut non maecenas lorem. Purus quam accumsan neque faucibus sollicitudin semper.'
-        },
-        {
-            name: 'Leyla Əfəndiyeva',
-            id: 8,
-            image: {
-                url: '/assets/profile.svg'
-            },
-            speciality: 'Oracle  SQL',
-            description: 'Lorem ipsum dolor sit amet consectetur. Elit a in ultricies enim magnis consectetur suspendisse. Nisl cursus imperdiet egestas sapien. Adipiscing gravida nisl mauris tellus tellus non risus sem. Egestas id vel ipsum luctus. At tincidunt suscipit iaculis sagittis lorem pellentesque non nulla. Eget morbi tellus euismod duis tellus consectetur eu praesent lorem. Pretium commodo diam libero odio tristique tellus. Nibh magna et faucibus turpis mollis. Venenatis bibendum leo lacus sit sit odio elementum urna. Lorem ipsum dolor sit amet consectetur. Eu lorem senectus massa molestie egestas lobortis sit. Sit vel sed quam in sagittis aliquam felis orci. Vel massa a purus eu id eget ut odio sem. Phasellus nibh eu tincidunt nunc tristique. At mattis faucibus quis etiam viverra pretium enim dictumst. Quam mauris praesent tortor congue ac pulvinar magna a nibh. Sit sed vel et lectus. Quis sed viverra nunc et morbi. Eget urna ut vel rhoncus turpis sit eleifend. Lorem ipsum dolor sit amet consectetur. Faucibus est gravida bibendum lorem lorem lacus tincidunt consectetur. Ut libero ac scelerisque enim pellentesque vel pretium varius massa. Posuere purus volutpat at lobortis duis. Molestie ut mauris sollicitudin at. Cras vel facilisi volutpat maecenas. Ac nibh egestas blandit scelerisque morbi. Laoreet vitae eu tortor eu. In risus donec quis eget ut non maecenas lorem. Purus quam accumsan neque faucibus sollicitudin semper.'
-        }
-    ];
-
-
-
+const Instructors = ({ students }: any) => {
+    console.log(students);
+    
     const [isBeginning, setIsBeginning] = useState(true);
 
     const [flag, setFlag] = useState<number>(0);
-    
+
     const [student, setStudent] = useState<any>();
 
     useEffect(() => {
         if (flag) {
-            let item = students.find(t => t.id === flag);
+            let item = students.find((t: any) => t.id === flag);
             item && setStudent(item);
         }
     }, [flag]);
@@ -172,8 +86,8 @@ const Instructors = () => {
 
             </Swiper>
             {/*  M O D A L  */}
-            <div onClick={() => setFlag(0)} className={`fixed inset-0 bg-black opacity-50 w-screen h-screen z-[60] ${flag ? '!block' : '!hidden'}`}></div>
-            <div className={`fixed lg:w-[70vw] w-[95vw] justify-between rounded-[20px] gap-15 bg-white z-[70] p-12 top-1/2 left-1/2 ${flag !== 0 ? 'block lg:flex' : 'hidden'} -translate-x-1/2 -translate-y-1/2 `}>
+            <div onClick={() => setFlag(0)} className={`fixed inset-0 bg-black opacity-50 w-screen h-screen z-101 ${flag ? '!block' : '!hidden'}`}></div>
+            <div className={`fixed lg:w-[70vw] w-[95vw] justify-between rounded-[20px] gap-15 bg-white z-102 p-12 top-1/2 left-1/2 ${flag !== 0 ? 'block lg:flex' : 'hidden'} -translate-x-1/2 -translate-y-1/2 `}>
                 <svg onClick={() => setFlag(0)} className='absolute cursor-pointer top-5 right-5' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M1 18.9985L19 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M19 18.9985L1 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

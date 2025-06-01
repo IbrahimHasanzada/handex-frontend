@@ -57,8 +57,9 @@
         }
     },
     "home": {
+        "preference": "Преимущества Handex",
         "headSection": {
-            "button": "Keçid et"
+            "button": "Выключатель"
         },
         "studyOfArea": {
             "title": "Study of area",
@@ -98,27 +99,32 @@
         "inputs": [
             {
                 "label": "Имя и Фамилия",
+                "name": "name",
                 "placeholder": "Введите имя и фамилию",
                 "type": "text"
             },
             {
                 "label": "Электронная почта",
+                "name": "email",
                 "placeholder": "Введите вашу почту",
                 "type": "email"
             },
             {
                 "label": "Номер телефона",
+                "name": "phone",
                 "placeholder": "Введите номер телефона",
-                "type": "number"
+                "type": "text"
             },
             {
                 "label": "Тема",
+                "name": "title",
                 "placeholder": "Введите тему сообщения",
                 "type": "text"
             }
         ],
         "textarea": {
             "label": "Сообщение",
+            "name": "message",
             "placeholder": "Введите ваше сообщение",
             "type": "textarea"
         },
@@ -158,6 +164,7 @@
         },
         "groups": {
             "title": "Наши ближайшие группы",
+            "apply": "Подать заявку",
             "desc": "Познакомьтесь с нашими группами, которые скоро начнутся, в разделе ниже и забронируйте место до начала обучения.",
             "hour": "час",
             "day": "день",
@@ -202,6 +209,8 @@
     ],
     "footer": {
         "discover": "Откройте для себя и вдохновитесь",
+        "privacy": "Все права защищены.",
+        "policy": "Конфиденциальность",
         "title": [
             "Сайт",
             "О нас",

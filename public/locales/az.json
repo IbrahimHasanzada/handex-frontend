@@ -57,6 +57,7 @@
         }
     },
     "home": {
+        "preference": "Handex’in üstünlükləri",
         "headSection": {
             "button": "Keçid et"
         },
@@ -99,26 +100,31 @@
             {
                 "label": "Ad və Soyad",
                 "placeholder": "Ad və Soyadınızı daxil edin",
+                "name": "name",
                 "type": "text"
             },
             {
                 "label": "Email",
+                "name": "email",
                 "placeholder": "Emailinizi daxil edin",
                 "type": "email"
             },
             {
                 "label": "Telefon nömrəsi",
+                "name": "phone",
                 "placeholder": "Telefon nömrənizi daxil edin",
-                "type": "number"
+                "type": "text"
             },
             {
                 "label": "Başlıq",
+                "name": "title",
                 "placeholder": "Başlıq daxil edin",
                 "type": "text"
             }
         ],
         "textarea": {
             "label": "Mesaj",
+            "name": "message",
             "placeholder": "Mesaj daxil edin",
             "type": "textarea"
         },
@@ -158,6 +164,7 @@
         },
         "groups": {
             "title": "Növbəti qruplarımız",
+            "apply": "Müraciət et",
             "desc": "Aşağıdakı bölmədən tezliklə başlayacaq qruplarımızla tanış ol və tədris başlamadan yerini tut.",
             "hour": "saat",
             "day": "gün",
@@ -202,6 +209,8 @@
     ],
     "footer": {
         "discover": "Kəşf edin və ilham alın",
+        "privacy": "Bütün hüquqlar qorunur.",
+        "policy": "Məxfilik",
         "title": [
             "Sayt",
             "Haqqımızda",

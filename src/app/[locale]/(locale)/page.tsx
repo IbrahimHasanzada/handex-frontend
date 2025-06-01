@@ -6,7 +6,7 @@ import TopCompanies from '@/components/home/TopCompanies';
 import UserSlider from '@/components/home/UserSlider';
 import { getTranslations } from 'next-intl/server';
 import { baseUrl } from '@/utils/url';
-import { getMeta } from '@/service';
+import { getGeneral, getMeta } from '@/service';
 
 export async function generateMetadata({ params }: any) {
   const { locale } = await params;
@@ -35,35 +35,35 @@ export async function generateMetadata({ params }: any) {
 }
 
 const page = async () => {
-  const t = await getTranslations();
-
+  const t = await getTranslations('home');
+  const general = await getGeneral();
   return (
     <div>
       <div className='pt-30'>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
-            <HeadSection page='home' />
+            <HeadSection t={t} page='home' />
           </div>
           <div className='py-12.5 md:py-15'>
-            <StudyAreasSection page='home' />
+            <StudyAreasSection t={t} page='home' />
           </div>
         </div>
         <div className='py-12.5 md:py-15'>
-          <TestimonialsHome />
+          <TestimonialsHome t={t} />
         </div>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
-            <Statistics page='home' />
+            <Statistics page='home' data={general} />
           </div>
           <div className='py-12.5 md:py-15'>
-            <h2 className='font-bold text-4xl leading-12 mb-12'>{t("home.graduates.title")}</h2>
+            <h2 className='font-bold text-4xl leading-12 mb-12'>{t("graduates.title")}</h2>
             <UserSlider />
           </div>
           <div className='mt-30 md:mt-40 md:mb-10 py-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.07),_0px_0px_10px_0px_rgba(0,0,0,0.03)] bg-white rounded-[20px]'>
             <div className='text-center'>
               <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>Məzunlarımızın işlədiyi top şirkətlər</h2>
             </div>
-            <TopCompanies index={0} page='home' />
+            <TopCompanies data={general} index={0} page='home' />
           </div>
         </div>
       </div>

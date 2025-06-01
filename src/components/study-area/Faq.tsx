@@ -1,34 +1,11 @@
 "use client";
 import React, { useState } from 'react';
 
-const faq = [
-    {
-        id: 1,
-        title: 'Təlim zamanı nə tədris olunur?'
-    },
-    {
-        id: 2,
-        title: 'Təlim zamanı nə tədris olunur?'
-    },
-    {
-        id: 3,
-        title: 'Təlim zamanı nə tədris olunur?'
-    },
-    {
-        id: 4,
-        title: 'Təlim zamanı nə tədris olunur?'
-    },
-    {
-        id: 5,
-        title: 'Təlim zamanı nə tədris olunur?'
-    },
-];
-
 const Faq: React.FC<any> = ({ faq }) => {
     const [flag, setFlag] = useState<number>(0);
     return (
         <div>
-            {faq.map((item: any, i: number) => (
+            {faq?.map((item: any, i: number) => (
                 <div key={i} onClick={() => setFlag(flag === item.id ? 0 : item.id)} className={`mt-4 py-4 px-6 bg-white overflow-y-hidden  ${flag === item.id ? 'h-40' : 'h-14'} duration-500 box-shadow rounded-[20px]`}>
                     <div className='flex items-center justify-between cursor-pointer'>
                         <p className='text-base select-none text-[#141414]'>{item.title}</p>

@@ -1,11 +1,14 @@
 "use client";
 import { useTranslations } from 'next-intl';
 import React, { useState, useEffect } from 'react';
+import Modal from '../Modal';
 
-const Groups: React.FC<any> = ({ groups, color }) => {
+const Groups: React.FC<any> = ({ study, groups, color }) => {
+    
     const t = useTranslations('study-area.groups');
     const months = t.raw('months');
-    
+    const [flag, setFlag] = useState<boolean>(false);
+
     const useCountdown = (targetDate: string) => {
         const [timeLeft, setTimeLeft] = useState({
             days: 0,
@@ -53,19 +56,19 @@ const Groups: React.FC<any> = ({ groups, color }) => {
                     const month = parseInt(item?.startDate.split('-')[1], 10);
                     const day = item?.startDate.split('-')[2];
                     const { days, hours, minutes, seconds } = useCountdown(item.startDate);
-                    
+
                     return (
-                        <div 
+                        <div
                             key={i}
-                            style={{ backgroundColor: i % 2 ? 'white' : color }} 
+                            style={{ backgroundColor: i % 2 ? 'white' : color }}
                             className='box-shadow p-6 lg:p-12 rounded-[20px] text-white'
                         >
                             <div className='lg:flex justify-between'>
                                 <div className='text-center md:mb-0 mb-6'>
                                     <p>{item?.table[0]?.value}</p>
                                 </div>
-                                <div 
-                                    style={{ backgroundColor: i % 2 ? '#E8E8E8' : 'white' }} 
+                                <div
+                                    style={{ backgroundColor: i % 2 ? '#E8E8E8' : 'white' }}
                                     className='rounded-[20px] text-[#141414] flex items-center lg:w-auto w-full justify-between py-2 px-6'
                                 >
                                     <div className='text-center'>
@@ -84,31 +87,32 @@ const Groups: React.FC<any> = ({ groups, color }) => {
                                     </div>
                                 </div>
                             </div>
-                            <h3 
-                                style={{ color: i % 2 ? '#141414' : 'white' }} 
+                            <h3
+                                style={{ color: i % 2 ? '#141414' : 'white' }}
                                 className='lg:text-[58px] text-[34px] font-bold text-center my-8'
                             >
                                 {day} {months[month - 1]}
                             </h3>
-                            <p 
-                                style={{ color: i % 2 ? '#141414' : 'white' }} 
+                            <p
+                                style={{ color: i % 2 ? '#141414' : 'white' }}
                                 className='text-center lg:text-xl font-normal'
                             >
                                 {item?.table[0]?.value}
                             </p>
-                            <button 
-                                style={{ 
-                                    backgroundColor: i % 2 ? '#383838' : 'white', 
-                                    color: i % 2 ? 'white' : '#141414' 
-                                }} 
+                            <button onClick={() => setFlag(!flag)}
+                                style={{
+                                    backgroundColor: i % 2 ? '#383838' : 'white',
+                                    color: i % 2 ? 'white' : '#141414'
+                                }}
                                 className='cursor-pointer bg-white w-full h-12 rounded-full mt-10 text-[#141414]'
                             >
-                                Müraciət et
+                                {t('apply')}
                             </button>
                         </div>
                     );
                 })}
             </div>
+            <Modal study={study} flag={flag} setFlag={setFlag} />
         </div>
     );
 };
