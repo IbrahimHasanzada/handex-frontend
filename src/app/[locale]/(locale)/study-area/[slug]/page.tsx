@@ -18,7 +18,7 @@ import React from 'react';
 //     };
 // }
 
-const page = async ({ params }: { params: { slug: string; }; }) => {
+const page = async ({ params }: any) => {
     const { slug } = await params;
     const t = await getTranslations('study-area');
 
