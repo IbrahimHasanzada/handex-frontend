@@ -1,19 +1,21 @@
-import Image from 'next/image'
-import React from 'react'
-import Button from '../ui/Button'
-import { StudyCardsDto } from '@/types/StudyCards-prop.dto'
+import Image from 'next/image';
+import React from 'react';
+import Button from '../ui/Button';
+import Link from 'next/link';
+import { getLocale } from 'next-intl/server';
 
-const StudyCards: React.FC<StudyCardsDto> = ({ item, theme }) => {
+const StudyCards: React.FC<any> = async ({ item, theme }) => {
+    const locale = await getLocale();
+    
     return (
-        <div className={`${theme ? 'bg-[#282828]' : 'bg-[#fff]'} group relative rounded-3xl w-full sm:h-65  xl:h-76 max-w-76 p-6 flex flex-col justify-between`}>
-            <p className={`${theme ? 'text-white' : 'text-black'} font-medium text-xl xl:text-2xl md:max-w-20 lg:max-w-47`}>{item.title}</p>
+        <Link href={'/' + locale + `/study-area/${item.slug}`} className={`${theme ? 'bg-[#282828]' : 'bg-[#fff]'} block group relative rounded-3xl w-full sm:h-65  xl:h-76 max-w-76 p-6 flex flex-col justify-between`}>
+            <p className={`${theme ? 'text-white' : 'text-black'} font-medium text-xl xl:text-2xl md:max-w-20 lg:max-w-47`}>{item.name}</p>
             <div className='relative flex justify-center items-center'>
-                <Image src={`${item.img}`} alt='Handex study area icons' width={240} height={140} className='object-cover duration-500 group-hover:scale-110 h-35 w-50 xl:h-45 xl:w-60' quality={80} priority={true} sizes='100%' />
+                <Image src={item?.image?.url} alt='Handex study area icons' width={240} height={140} className='object-cover duration-500 group-hover:scale-110 h-35 w-50 xl:h-45 xl:w-60' quality={80} priority={true} sizes='100%' />
             </div>
             <div className={` ${theme ? 'bg-[#181818]' : 'bg-primary-bg'} absolute -top-2 -right-4 md:-top-3 md:-right-8 xl:-top-5 xl:-right-7  w-20 h-20 md:w-25 md:h-25 xl:w-28 xl:h-28 p-2 md:p-3 xl:p-5 rounded-full flex items-center justify-center`}>
                 <Button theme={theme ? true : false} flag={true} link=''>
                     <div className='w-full h-full relative'>
-                        {/* First Arrow */}
                         <Image
                             src='/assets/img/Arrow.png'
                             alt='Handex study area arrow icon'
@@ -62,8 +64,8 @@ const StudyCards: React.FC<StudyCardsDto> = ({ item, theme }) => {
             <svg className='absolute size-[50px] md:size-[60px] top-16 -right-3 md:top-21 md:-right-4 xl:-right-3 -rotate-85 xl:-rotate-95' width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                 <path className={`absoulte ${theme ? 'fill-[#181818]' : 'fill-primary-bg'}`} d="M -30 75 Q 90 95, 100 -7 L 150 100 Z" stroke={theme ? '#181818' : '#F4F5F5'} fill="none" strokeWidth="2" />
             </svg>
-        </div>
-    )
-}
+        </Link>
+    );
+};
 
-export default StudyCards
+export default StudyCards;

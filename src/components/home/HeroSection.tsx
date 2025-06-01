@@ -1,7 +1,7 @@
 import Button from '../ui/Button';
 import { getContent } from '@/service';
 import { HeroSectionDto } from '@/types/HeroSection.dto';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
 const HeadSection: React.FC<HeroSectionDto> = async ({ page }) => {
@@ -15,7 +15,7 @@ const HeadSection: React.FC<HeroSectionDto> = async ({ page }) => {
                 <p className='mb-10 max-w-150 md:text-sm base:text-base text-[#909090]'>{data?.desc}</p>
                 <div className='w-35 h-12 '>
                     <Button theme={page === 'corporate' ? true : false} flag={true} link='' >
-                        <div className='flex items-center justify-center h-full'>
+                        <div className='flex items-center justify-center mt-2.5 h-full'>
                             {t("home.headSection.button")}
                         </div>
                     </Button>

@@ -1,12 +1,13 @@
-"use client";
+"use client"
 import { useTranslations } from 'next-intl';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FacebookShareButton, InstapaperShareButton, LinkedinShareButton, TelegramShareButton } from 'react-share';
 
 const Share = () => {
-    const [shareUrl, setShareUrl] = useState('');
+    const [shareUrl, setShareUrl] = useState();
+
     useEffect(() => {
-        setShareUrl(window.location.href);
+        setShareUrl(location.href);
     }, []);
 
     const t = useTranslations();

@@ -8,8 +8,8 @@ const TopCompanies: React.FC<{ page: string, index: number }> = ({ page, index }
     const [companies, setCompanies] = useState<any>();
     useEffect(() => {
         async function fetchData() {
-            const result = await getGeneral('company')
-            setCompanies(result);
+            const result = await getGeneral()
+            setCompanies(result[0]?.company);
         }
         fetchData();
     }, []);
@@ -42,7 +42,7 @@ const TopCompanies: React.FC<{ page: string, index: number }> = ({ page, index }
                 centerInsufficientSlides={true}
                 speed={index % 2 ? 3000 : 4000}
                 modules={[Autoplay]}>
-                {companies && createSlides(companies).map((item: any, index: number) => (
+                {companies && companies.length && createSlides(companies).map((item: any, index: number) => (
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
                             {page === 'corporate' && (
@@ -52,7 +52,7 @@ const TopCompanies: React.FC<{ page: string, index: number }> = ({ page, index }
                         </div>
                     </SwiperSlide>
                 ))}
-                {companies && createSlides(companies).map((item: any, index: number) => (
+                {companies && companies.length && createSlides(companies).map((item: any, index: number) => (
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
                             {page === 'corporate' && (

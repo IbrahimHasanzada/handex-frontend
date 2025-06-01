@@ -1,25 +1,9 @@
 "use client";
-import { getProfiles } from '@/service';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const FeaturesSlider: React.FC<any> = ({ features }) => {
-    console.log(features);
-    
-    //   const [features, setStudents] = useState<any>();
-    //   useEffect(() => {
-    //     async function getData() {
-    //       let result = await getProfiles('student');
-
-    //       console.log(result)
-    //       result && setStudents(result);
-    //     }
-    //     getData()
-    //   }, []);
-
-
-
     const [isBeginning, setIsBeginning] = useState<boolean>(true);
     return (
         <div className='relative'>

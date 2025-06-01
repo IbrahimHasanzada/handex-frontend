@@ -1,5 +1,4 @@
 "use client";
-import { getTranslations } from 'next-intl/server';
 import React, { useEffect, useState } from 'react';
 import Button from '../ui/Button';
 import { useTranslations } from 'next-intl';

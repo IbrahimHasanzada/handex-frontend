@@ -65,7 +65,7 @@ const UserSlider = () => {
         onReachEnd={() => students && setIsBeginning(false)}
         className='h-90 transition ease-linear duration-300 relative'
       >
-        {students && students?.map((item: any, i: number) => (
+        {students && students.length && students?.map((item: any, i: number) => (
           <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
             <div className='w-full h-full relative'>
               <img src={item.image?.url} alt='Handex education slider images' className='object-cover w-full group-hover:scale-120 duration-500 h-full' />

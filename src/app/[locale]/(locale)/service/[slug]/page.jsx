@@ -4,7 +4,7 @@ import { baseUrl } from '@/utils/url';
 import Share from '@/components/Share';
 
 export async function generateMetadata({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
 
     const serviceItem = await getService(slug);
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
 }
 
 const page = async ({ params }) => {
-    const { slug } = params;
+    const { slug } = await params;
 
     let item = await getService(slug);
 

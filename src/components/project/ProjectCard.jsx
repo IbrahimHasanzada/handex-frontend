@@ -1,5 +1,4 @@
 import { useLocale, useTranslations } from 'next-intl';
-import { getLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import React from 'react';
 
@@ -20,7 +19,7 @@ const ProjectCard = ({ item }) => {
                         </svg>
                     </div>
                 </div>
-                <div className='absolute -right-1/5 md:w-58 w-35.5 md:h-61 h-44 top-1/2 -translate-y-1/2'>
+                <div className='absolute -right-1/5 md:w-58 w-35.5 md:h-61 h-4/5 top-1/2 -translate-y-1/2'>
                     <img className='w-full h-full object-cover rounded-[14px]' src={item?.image?.url} alt={item?.image?.alt} />
                 </div>
             </div>

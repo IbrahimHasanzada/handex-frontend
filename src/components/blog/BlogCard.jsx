@@ -1,6 +1,5 @@
 import { formatDateClient } from '@/utils/form-data-client';
-import { useTranslations } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -8,13 +7,15 @@ import React from 'react';
 const BlogCard = ({ item }) => {
     const t = useTranslations();
     const router = useRouter();
+    const locale = useLocale();
     const handleClick = () => {
-        router.push(`/blog/${item.slug}`);
+        router.push(`/${locale}/blog/${item.slug}`);
     };
-
+    console.log(item?.image);
+    
     return (
         <div onClick={() => handleClick()} className='rounded-2xl cursor-pointer box-shadow bg-white py-5 px-3'>
-            <h2 className='text-[#141414] font-bold'>{item.title}</h2>
+            <h2 className='text-[#141414] font-bold line-clamp-2'>{item.title}</h2>
             <button className='my-3 p-2 rounded-[12px] flex items-center gap-2 bg-[#DDD] text-xs'>
                 <Image src='/assets/img/calendar.svg' alt='Blogs calendar' width={16} height={16} />
                 <p>{formatDateClient(item.createdAt)}</p>
