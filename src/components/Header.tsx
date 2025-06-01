@@ -38,7 +38,6 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
     Cookies.set('lang', lang, { path: '' });
     setFlag(false);
 
-
     const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '');
     const newPath = pathWithoutLocale || '/';
     router.replace(newPath, { locale: lang });
