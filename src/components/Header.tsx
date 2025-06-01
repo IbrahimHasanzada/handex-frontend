@@ -47,7 +47,6 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
   const handleClose = () => {
     setFlag(false);
   };
-
   return (
     <header className="relative">
       <div className={`wrapper !z-9999 max-md:box-shadow base:bg-transparent ${theme === 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'} fixed left-0 right-0`}>
@@ -107,7 +106,6 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                     </ul>
                   </div>
                 </li>
-
                 <li className='group cursor-pointer py-3'>
                   <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
                     <Link href={'/' + local + '/corporate'}>{t('coorporate')}</Link>
