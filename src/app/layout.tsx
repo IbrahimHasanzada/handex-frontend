@@ -23,7 +23,6 @@ export default function RootLayout({
     children: any;
     params: any;
 }) {
-
     return (
         <html lang={params.locale}>
             <body className={`antialiased ${SFPro.variable}`}>
