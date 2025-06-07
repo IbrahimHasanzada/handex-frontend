@@ -38,7 +38,7 @@ const Footer = async ({ theme = '', study }: any) => {
           </div>
 
           <div className='flex flex-col justify-between md:w-2/3'>
-            <div className='flex justify-between md:justify-baseline pb-12'>
+            <div className='flex justify-between pr-15 md:justify-baseline pb-12'>
               <div className='md:order-3'>
                 <h2 className='text-[#909090] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
                   {title[2]}
@@ -112,7 +112,6 @@ const Footer = async ({ theme = '', study }: any) => {
                   target='_blank'
                   className='size-10 rounded-full bg-[#E8E8E8] flex justify-center items-center'
                 >
-                  {/* Instagram SVG */}
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     width='24'
@@ -151,7 +150,6 @@ const Footer = async ({ theme = '', study }: any) => {
                   target='_blank'
                   className='size-10 rounded-full bg-[#E8E8E8] flex justify-center items-center'
                 >
-                  {/* Facebook SVG */}
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     width='14'
@@ -222,7 +220,6 @@ const Footer = async ({ theme = '', study }: any) => {
                   target='_blank'
                   className='size-10 rounded-full bg-[#E8E8E8] flex justify-center items-center'
                 >
-                  {/* YouTube SVG */}
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
                     width='24'
@@ -257,12 +254,12 @@ const Footer = async ({ theme = '', study }: any) => {
           </div>
         </div>
 
-        <div className='w-full bg-gray-900/10 flex justify-between py-4 px-6'>
+        {/* <div className='w-full bg-gray-900/10 flex justify-between py-4 px-6'>
           <p className={`text-xs ${theme ? 'text-white' : 'text-black'}`}>
             © 2025 {t('footer.privacy')}
           </p>
           <p className={`text-xs ${theme ? 'text-white' : 'text-black'}`}>{t('footer.policy')}</p>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

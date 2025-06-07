@@ -51,7 +51,7 @@ const Groups: React.FC<any> = ({ study, groups, color }) => {
         <div className='mt-30'>
             <h2 className='text-[38px] font-bold'>{t('title')}</h2>
             <p className='mt-4 text-xl'>{t('desc')}</p>
-            <div className='grid lg:grid-cols-2 gap-6 mt-12'>
+            <div className='flex items-center justify-center gap-6 mt-12'>
                 {groups?.map((item: any, i: number) => {
                     const month = parseInt(item?.startDate.split('-')[1], 10);
                     const day = item?.startDate.split('-')[2];
@@ -61,7 +61,7 @@ const Groups: React.FC<any> = ({ study, groups, color }) => {
                         <div
                             key={i}
                             style={{ backgroundColor: i % 2 ? 'white' : color }}
-                            className='box-shadow p-6 lg:p-12 rounded-[20px] text-white'
+                            className='box-shadow md:w-1/2 p-6 lg:p-12 rounded-[20px] text-white'
                         >
                             <div className='lg:flex justify-between'>
                                 <div className='text-center md:mb-0 mb-6'>

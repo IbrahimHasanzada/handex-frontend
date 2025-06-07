@@ -23,6 +23,17 @@ html {
   border-bottom-left-radius: 20px;
 }
 
+.custom-html h1,
+.custom-html h2,
+.custom-html h3,
+.custom-html h4,
+.custom-html h5,
+.custom-html h6 {
+  font-size: 12px !important;
+  margin: 0;
+  font-weight: normal;
+}
+
 @layer base {
   h1 {
     @apply text-4xl font-bold my-4;
@@ -48,6 +59,7 @@ html {
     @apply text-base font-normal my-1;
   }
 }
+
 @layer utilities {
   .wrapper {
     @apply mx-auto px-4 sm:px-10 base:px-8;

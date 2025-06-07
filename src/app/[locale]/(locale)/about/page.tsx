@@ -20,7 +20,10 @@ export async function generateMetadata(): Promise<Metadata> {
 const AboutPage = async () => {
     const about: any = await getAbout();
     const t = await getTranslations('home');
+    const startDate = Date.now();
     const features = await getContent('corporate-features');
+    const endDate = Date.now();
+    console.log("About api:", endDate - startDate);
     return (
         <div className="wrapper w-full pt-30">
             <div className='relative'>
@@ -47,9 +50,9 @@ const AboutPage = async () => {
                 ))}
             </div>
             <h2 className='md:text-center text-2xl md:text-[38px] mt-25 md:mt-30 mb-7 md:mb-12 font-bold'>{t('preference')}</h2>
-            <div className=' lg:grid hidden gap-11 grid-cols-3'>
+            <div className='mb-20 lg:grid hidden gap-11 grid-cols-3'>
                 {features?.map((item: any, i: number) => (
-                    <div style={{ marginTop: (i >= 3) ? (i * -52) : (i * 52) + 'px' }} key={i} className={`h-54 my-72 bg-white box-shadow p-6 rounded-[20px]`}>
+                    <div style={{ marginTop: (i >= 3) ? (i * -52) : (i * 52) + 'px' }} key={i} className={`h-54 ${i < 3 && 'my-72'} bg-white box-shadow p-6 rounded-[20px]`}>
                         <img className='mb-3 size-16' src={item?.images[0]?.url} alt={item?.title} />
                         <h3 className='text-base text-[#141414] font-bold mb-2'>{item?.title}</h3>
                         <div className='text-[#909090] text-sm line-clamp-4' dangerouslySetInnerHTML={{ __html: item.desc }}></div>

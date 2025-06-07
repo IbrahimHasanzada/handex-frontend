@@ -16,7 +16,7 @@ const HeroModal = ({ page, study }: any) => {
                     </div>
                 </Button>
             </div>
-            <Modal flag={flag} setFlag={setFlag} study={study} />
+            <Modal flag={flag} setFlag={setFlag} study={study} page={page} />
         </>
     );
 };
