@@ -105,7 +105,6 @@ const Footer = async ({ theme = '', study }: any) => {
                   </p>
                 </div>
               </div>
-
               <div className='flex justify-end items-end gap-2 lg:mt-0 mt-6'>
                 <Link
                   href='https://www.instagram.com/handex.edu.az/'
