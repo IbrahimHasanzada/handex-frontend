@@ -1,4 +1,5 @@
 export interface StudyAreaSectionDto {
     page: string,
-    t: any
+    t: any,
+    model: string
 }

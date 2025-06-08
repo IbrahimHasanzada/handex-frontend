@@ -87,13 +87,13 @@ const Footer = async ({ theme = '', study }: any) => {
                   <div>
                     <p className='text-[#909090] text-xs font-bold'>{t('footer.number')}</p>
                     <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                      {general[0]?.phone[0]}
+                      {general.length && general[0].phone && general[0]?.phone[0]}
                     </p>
                   </div>
                   <div>
                     <p className='text-[#909090] text-xs font-bold'>{t('footer.mail')}</p>
                     <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                      {general[0]?.email}
+                      {general.length && general[0]?.email}
                     </p>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 <div className='pt-4'>
                   <p className='text-[#909090] text-xs font-bold'>{t('footer.location')}</p>
                   <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                    {general[0]?.location}
+                    {general.length && general[0]?.location}
                   </p>
                 </div>
               </div>

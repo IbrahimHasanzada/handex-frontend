@@ -25,7 +25,7 @@ const ServiceClient = ({ service }) => {
     };
 
     return (
-        <div className='wrapper pt-30'>
+        <div className='wrapper pt-25'>
             <h1 className='text-[38px] mt-15 text-[#141414] font-bold mb-12'>{t('title')}</h1>
             <div className='grid lg:grid-cols-2 gap-6'>
                 {service?.data?.map((item, i) => (

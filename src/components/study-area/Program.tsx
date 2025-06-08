@@ -13,6 +13,7 @@ const Program: React.FC<any> = ({ program, color }) => {
                         <div className='bg-white overflow-hidden rounded-full p-1.5'>
                             <img className='size-9' src={item?.image?.url} alt={item?.image?.alt} />
                         </div>
+                        <p className={`${count === i ? 'text-white' : 'text-[#141414]'}`}>{item.name}</p>
                         <h3 className={`${count === i ? 'text-white' : 'text-[#141414]'} text-base font-medium `}>{item.title}</h3>
                     </div>
                 ))}

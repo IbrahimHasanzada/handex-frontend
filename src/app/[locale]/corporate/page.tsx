@@ -30,7 +30,7 @@ const page = async () => {
                     <HeadSection t={t} page='corporate' />
                 </div>
                 <div className='py-12.5 md:py-15'>
-                    <StudyAreasSection t={t} page="corporate" />
+                    <StudyAreasSection model='corporate' t={t} page="corporate" />
                 </div>
                 <div className="mb-30 mt-17.5">
                     <h3 className="text-center text-white text-2xl md:text-[38px] font-bold">{t('preference')}</h3>

@@ -33,7 +33,7 @@ const ProjectClient = ({ locale }) => {
   };
 
   return (
-    <div className='wrapper pt-30'>
+    <div className='wrapper pt-25'>
       <h1 className='mt-20 mb-12 text-[38px] text-[#141414] font-bold'>{t('title')}</h1>
       <div className='grid gap-y-6 lg:grid-cols-2 justify-between'>
         {project?.map((item, i) => (

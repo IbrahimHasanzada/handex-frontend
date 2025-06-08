@@ -5,8 +5,6 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
-    console.log(page);
-
     const t = useTranslations('header');
     const locale = useLocale();
 
@@ -48,7 +46,6 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
             });
         }
 
-        console.log(messages);
     };
 
     useEffect(() => {

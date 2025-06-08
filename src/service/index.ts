@@ -239,15 +239,20 @@ export const getMeta = async (field: string) => {
     }
 };
 
-export const getStudyAreas = async () => {
+export const getStudyAreas = async (model?: string) => {
     const locale = await getLocale();
     try {
-        const res = await fetch('https://api.drafts.az/api/study-area', {
+        const url = model
+            ? `https://api.drafts.az/api/study-area?model=${model}`
+            : 'https://api.drafts.az/api/study-area';
+
+        const res = await fetch(url, {
             cache: 'no-store',
             headers: {
-                'accept-language': locale
-            }
+                'accept-language': locale,
+            },
         });
+
         const data = await res.json();
         return data;
     } catch (err) {
