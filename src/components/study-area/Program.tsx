@@ -10,9 +10,10 @@ const Program: React.FC<any> = ({ program, color }) => {
             <div className='md:w-2/5'>
                 {program?.map((item: any, i: number) => (
                     <div style={{ backgroundColor: count === i ? color : '#1818181A' }} onClick={() => setCount(i)} key={i} className={`cursor-pointer w-full flex gap-3 items-center rounded-[20px] px-5 py-2.5 my-3`}>
-                        <div className='bg-white rounded-full p-1.5'>
+                        <div className='bg-white overflow-hidden rounded-full p-1.5'>
                             <img className='size-9' src={item?.image?.url} alt={item?.image?.alt} />
                         </div>
+                        <p className={`${count === i ? 'text-white' : 'text-[#141414]'}`}>{item.name}</p>
                         <h3 className={`${count === i ? 'text-white' : 'text-[#141414]'} text-base font-medium `}>{item.title}</h3>
                     </div>
                 ))}

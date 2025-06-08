@@ -8,10 +8,12 @@ import Modal from '../Modal';
 
 interface HeaderModalProps {
     theme?: string;
-    study: any
+    study: any;
 }
 
-const HeaderModal: React.FC<HeaderModalProps> = ({ theme, study }) => {
+const HeaderModal: React.FC<HeaderModalProps> = ({ theme = 'home', study }) => {
+    console.log(theme);
+
     const t = useTranslations('header');
     const [flag, setFlag] = useState<boolean>(false);
     return (
@@ -21,7 +23,7 @@ const HeaderModal: React.FC<HeaderModalProps> = ({ theme, study }) => {
                     {t('consultation')}
                 </Button>
             </div>
-            <Modal study={study} flag={flag} setFlag={setFlag} />
+            <Modal page={theme} study={study} flag={flag} setFlag={setFlag} />
         </>
     );
 };

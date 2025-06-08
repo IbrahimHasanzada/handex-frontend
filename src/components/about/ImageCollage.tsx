@@ -143,7 +143,7 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                                 className="shadow-lg rounded-lg overflow-hidden transition-all duration-300"
                                 style={isMobile ? image.mobileStyles : image.desktopStyles}
                             >
-                                <Image
+                                {images && images.length >= 5 && <Image
                                     src={images[index]?.url as string}
                                     alt={image.alt}
                                     width={isMobile ?
@@ -155,7 +155,7 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                                         typeof image.desktopStyles.height === 'number' ? image.desktopStyles.height : 200
                                     }
                                     className="w-full h-full object-cover"
-                                />
+                                />}
                             </div>
                         ))}
                     </div>

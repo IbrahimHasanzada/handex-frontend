@@ -4,11 +4,8 @@ import StudyCards from './StudyCards';
 import { StudyAreaSectionDto } from '@/types/StudyAreaSection.dto';
 import { getStudyAreas } from '@/service';
 
-const StudyAreasSection: React.FC<StudyAreaSectionDto> = async ({ page, t }) => {
-
-  const start = Date.now();
-  const study: any = await getStudyAreas();
-  console.log("study time:", Date.now() - start, "ms");
+const StudyAreasSection: React.FC<StudyAreaSectionDto> = async ({ model, page, t }) => {
+  const study: any = await getStudyAreas(model);
 
   return (
     <div>

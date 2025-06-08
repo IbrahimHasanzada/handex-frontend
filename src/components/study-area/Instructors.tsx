@@ -4,8 +4,6 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const Instructors = ({ students }: any) => {
-    console.log(students);
-    
     const [isBeginning, setIsBeginning] = useState(true);
 
     const [flag, setFlag] = useState<number>(0);

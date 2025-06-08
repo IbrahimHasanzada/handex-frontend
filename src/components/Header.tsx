@@ -15,7 +15,6 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
   const local = useLocale();
   const t = useTranslations('header');
   const headerLists = t.raw('headerLists') as HeaderItem[];
-
   const [langSwitch, setLangSwitch] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -54,7 +53,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
               sizes='100%'
               width={128}
               height={40}
-              className='w-32 h-10'
+              className='w-38 h-10'
             />
           </Link>
           <div className='hidden base:block'>
@@ -154,7 +153,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                   </div>
                 </div>
                 <div className='h-12 w-40 text-sm lg:text-base lg:w-60'>
-                  <HeaderModal study={study} theme={theme} />
+                  <HeaderModal study={study} theme={theme ? theme : 'home'} />
                 </div>
               </div>
             </div>

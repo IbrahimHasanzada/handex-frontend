@@ -45,7 +45,7 @@ const page = async () => {
             <HeadSection t={t} page='home' />
           </div>
           <div className='py-12.5 md:py-15'>
-            <StudyAreasSection t={t} page='home' />
+            <StudyAreasSection model='home' t={t} page='home' />
           </div>
         </div>
         <div className='py-12.5 md:py-15'>

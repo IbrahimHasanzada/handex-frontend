@@ -1,3 +1,4 @@
+import { useLocale } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import toast from 'react-hot-toast';
 
@@ -145,7 +146,6 @@ export const getProject = async (slug: string) => {
     try {
         const res = await fetch(`https://api.drafts.az/api/project/${slug}`, {
             cache: 'no-store',
-            next: { revalidate: 3600 },
             headers: {
                 'accept-language': lang
             }
@@ -188,18 +188,20 @@ export const getService = async (slug: string) => {
     }
 };
 
-export const addConsultation = async (params: any) => {
+export const addConsultation = async (params: any, locale: string) => {
     try {
         const res = await fetch('https://api.drafts.az/api/consultation', {
-            next: { revalidate: 3600 },
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
+                'accept-language': locale
             },
             body: JSON.stringify(params)
         });
         const data = await res.json();
+        console.log(data);
         return data;
+
     } catch (err: any) {
         toast.error(err.message);
     }
@@ -209,7 +211,6 @@ export const getAbout = async () => {
     const lang = await getLocale();
     try {
         const res = await fetch('https://api.drafts.az/api/about', {
-            next: { revalidate: 3600 },
             headers: {
                 'accespt-language': lang
             }
@@ -225,6 +226,7 @@ export const getMeta = async (field: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://api.drafts.az/api/meta/${field}`, {
+            next: { revalidate: 3600 },
             cache: 'no-store',
             headers: {
                 'accept-language': lang
@@ -237,15 +239,20 @@ export const getMeta = async (field: string) => {
     }
 };
 
-export const getStudyAreas = async () => {
+export const getStudyAreas = async (model?: string) => {
     const locale = await getLocale();
     try {
-        const res = await fetch('https://api.drafts.az/api/study-area', {
+        const url = model
+            ? `https://api.drafts.az/api/study-area?model=${model}`
+            : 'https://api.drafts.az/api/study-area';
+
+        const res = await fetch(url, {
             cache: 'no-store',
             headers: {
-                'accept-language': locale
-            }
+                'accept-language': locale,
+            },
         });
+
         const data = await res.json();
         return data;
     } catch (err) {
@@ -269,12 +276,13 @@ export const getStudyArea = async (slug: string) => {
     }
 };
 
-export const addContact = async (params: any) => {
+export const addContact = async (params: any, locale: string) => {
     try {
         const res = await fetch('https://api.drafts.az/api/contact', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'accept-language': locale
             },
             body: JSON.stringify(params)
         });

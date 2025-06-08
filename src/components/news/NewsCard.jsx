@@ -22,7 +22,7 @@ const NewsCard = ({ item }) => {
         />
       </div>
       <h2 className='font-bold text-base mt-4 mb-2 w-3/5 line-clamp-2'>{item.title}</h2>
-      <div className='line-clamp-2 text-[#909090] text-sm mb-6'
+      <div className='line-clamp-2 text-[#909090] custom-html !text-sm mb-6'
         dangerouslySetInnerHTML={{ __html: item.description || '' }}
       />
       <div className='flex items-center justify-between'>

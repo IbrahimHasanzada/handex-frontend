@@ -1,7 +1,7 @@
 "use client";
 import { addContact } from '@/service';
 import { ContactInputsDto } from '@/types/contact.dto';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -9,6 +9,10 @@ const ContactForm = () => {
     const t = useTranslations();
     const inputs: ContactInputsDto[] = t.raw('contact.inputs');
     const textarea: ContactInputsDto = t.raw('contact.textarea');
+    const locale = useLocale();
+
+    const regEx = /^[\d+]*$/;
+
     const [form, setForm] = useState<any>({
         name: '',
         email: '',
@@ -19,7 +23,12 @@ const ContactForm = () => {
 
 
     const handleChange = (e: any, name: string) => {
-        setForm({ ...form, [name]: e });
+        if (name === 'phone') {
+            regEx.test(e) && setForm({
+                ...form,
+                phone: e
+            });
+        } else setForm({ ...form, [name]: e });
     };
 
     const handleClick = async () => {
@@ -29,7 +38,7 @@ const ContactForm = () => {
             phone: form.phone,
             title: form.title,
             message: form.message
-        });
+        }, locale);
 
         if (!result.error) toast.success(t('header.modal.success'));
         else toast.error(Array.isArray(result.message) ? result.message[0] : result.message);
@@ -42,7 +51,7 @@ const ContactForm = () => {
                         <div key={i} className='w-full'>
                             <label className='block mb-1'>{item.label}</label>
                             {item.type !== 'textarea' && (
-                                <input onChange={(e: any) => handleChange(e.target.value, item.name)} className='py-2.5 px-4 w-full rounded-[20px] border border-[#909090] outline-none' type={item.type} placeholder={item.placeholder} />
+                                <input value={form[item.name as keyof typeof form] || ''} onChange={(e: any) => handleChange(e.target.value, item.name)} className='py-2.5 px-4 w-full rounded-[20px] border border-[#909090] outline-none' type={item.type} placeholder={item.placeholder} />
                             )}
                         </div>
                     ))}

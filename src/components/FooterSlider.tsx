@@ -1,20 +1,24 @@
 "use client";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 const FooterSlider: React.FC<any> = ({ study }) => {
-    const t = useTranslations('footer')
+    const locale = useLocale();
+    const t = useTranslations('footer');
     return (
         <div className='h-9/10 rounded-[20px] bg-[#E8E8E8] mt-8 px-8 pb-15'>
             <p className='text-center text-2xl font-normal text-[#141414] select-none pt-6'>{t('discover')}</p>
-            <Swiper pagination={true} modules={[Pagination]} className="mySwiper h-full">
+            <Swiper pagination={true} modules={[Pagination, Autoplay]} autoplay={true} className="mySwiper h-full">
                 {study?.map((item: any) => {
                     return (
                         <SwiperSlide className='w-full h-full mt-10'>
-                            <img className='w-69 object-cover mx-auto' src={item?.image?.url} alt={item?.image?.alt} />
+                            <Link href={locale + '/study-area/' + item.slug}>
+                                <img className='w-69 object-cover mx-auto' src={item?.image?.url} alt={item?.image?.alt} />
+                            </Link>
                         </SwiperSlide>
                     );
                 })}
