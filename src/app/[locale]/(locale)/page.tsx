@@ -6,7 +6,7 @@ import TopCompanies from '@/components/home/TopCompanies';
 import UserSlider from '@/components/home/UserSlider';
 import { getTranslations } from 'next-intl/server';
 import { baseUrl } from '@/utils/url';
-import { getGeneral, getMeta } from '@/service';
+import { getContent, getGeneral, getMeta } from '@/service';
 
 export async function generateMetadata({ params }: any) {
   const { locale } = await params;
@@ -37,6 +37,8 @@ export async function generateMetadata({ params }: any) {
 const page = async () => {
   const t = await getTranslations('home');
   const general = await getGeneral();
+  console.log(general);
+  
   return (
     <div>
       <div className='pt-30'>
@@ -63,7 +65,7 @@ const page = async () => {
             <div className='text-center'>
               <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>Məzunlarımızın işlədiyi top şirkətlər</h2>
             </div>
-            <TopCompanies data={general} index={0} page='home' />
+            <TopCompanies data={ general && general[0]?.company} index={0} page='home' />
           </div>
         </div>
       </div>

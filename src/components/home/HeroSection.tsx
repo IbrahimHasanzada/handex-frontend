@@ -20,7 +20,7 @@ const HeadSection: React.FC<HeroSectionDto> = async ({ page, t }) => {
             <div className=' md:h-130 md:w-150 relative'>
                 <img
                     src={data?.images?.[0]?.url}
-                    alt='Handex hero page icon'
+                    alt={data?.images?.[0]?.alt}
                     className='object-cover md:object-contain'
                 />
             </div>

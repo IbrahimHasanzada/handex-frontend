@@ -43,7 +43,7 @@ const page = async () => {
                     <Statistics data={general} page='corporate' />
                 </div>
                 <div className='py-12.5 md:py-15'>
-                    <Partners data={general} page='corporate' />
+                    <Partners page='corporate' />
                 </div>
             </div>
         </div>

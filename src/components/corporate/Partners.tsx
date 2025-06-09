@@ -1,7 +1,11 @@
 import React from 'react'
 import TopCompanies from '../home/TopCompanies'
+import { getContent } from '@/service';
 
-const Partners: React.FC<{ page: string, data: any }> = ({ page, data }) => {
+const Partners: React.FC<{ page: string }>  = async ({ page }) => {
+    const data = await getContent('partners')
+    console.log(data);
+    
     return (
         <div className='py-6 md:pt-11 md:pb-16 bg-[#282828] rounded-[20px]'>
             <div className='px-6'>

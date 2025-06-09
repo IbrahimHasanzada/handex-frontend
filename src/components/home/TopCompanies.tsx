@@ -4,7 +4,7 @@ import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ page, index, data }) => {
-    const companies = data[0]?.company;
+    console.log(page);
 
     const createSlides = (data: any[]) => {
         if (!data) return [];
@@ -21,7 +21,7 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ p
                 }}
                 spaceBetween={page === 'corporate' ? 24 : 62}
                 initialSlide={0}
-                key={companies ? 'loaded' : 'loading'}
+                key={data ? 'loaded' : 'loading'}
                 freeMode={true}
                 loop={true}
                 slidesPerView={3}
@@ -34,23 +34,23 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ p
                 centerInsufficientSlides={true}
                 speed={index % 2 ? 3000 : 4000}
                 modules={[Autoplay]}>
-                {companies && companies.length && createSlides(companies).map((item: any, index: number) => (
+                {data && data.length && createSlides(data).map((item: any, index: number) => (
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
                             {page === 'corporate' && (
-                                <p>Pasha Bank</p>
+                                <p>{item?.title}</p>
                             )}
-                            <img src={item.url} alt='Handex mezunlar islediyi sirketler' className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
+                            <img src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
                         </div>
                     </SwiperSlide>
                 ))}
-                {companies && companies.length && createSlides(companies).map((item: any, index: number) => (
+                {data && data.length && createSlides(data).map((item: any, index: number) => (
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
                             {page === 'corporate' && (
-                                <p>Pasha Bank</p>
+                                <p>{item?.title}</p>
                             )}
-                            <img src={item.url} alt='Handex mezunlar islediyi sirketler' className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
+                            <img src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
                         </div>
                     </SwiperSlide>
                 ))}
