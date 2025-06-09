@@ -15,8 +15,6 @@ const UserSlider = () => {
     getData()
   }, []);
 
-
-
   const [isBeginning, setIsBeginning] = useState(true);
   return (
     <div className='relative'>
@@ -68,7 +66,7 @@ const UserSlider = () => {
         {students && students.length && students?.map((item: any, i: number) => (
           <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
             <div className='w-full h-full relative'>
-              <img src={item.image?.url} alt='Handex education slider images' className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
+              <img src={item.image?.url} alt={item.image?.alt} className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
             </div>
             <div style={{
               background: 'linear-gradient(rgba(232, 232, 232, 0.2), rgba(231, 231, 231, 0.2))',
