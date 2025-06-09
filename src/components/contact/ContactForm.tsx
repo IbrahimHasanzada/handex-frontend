@@ -10,7 +10,6 @@ const ContactForm = () => {
     const inputs: ContactInputsDto[] = t.raw('contact.inputs');
     const textarea: ContactInputsDto = t.raw('contact.textarea');
     const locale = useLocale();
-
     const regEx = /^[\d+]*$/;
 
     const [form, setForm] = useState<any>({
