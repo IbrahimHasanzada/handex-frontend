@@ -12,7 +12,6 @@ const Footer = async ({ theme = '', study }: any) => {
     getGeneral(),
     getLocale(),
   ]);
-
   const header = t.raw('header.headerLists');
   const about = header[0].subItems;
   const title = t.raw('footer.title');
