@@ -6,11 +6,11 @@ import TopCompanies from '@/components/home/TopCompanies';
 import UserSlider from '@/components/home/UserSlider';
 import { getTranslations } from 'next-intl/server';
 import { baseUrl } from '@/utils/url';
-import { getContent, getGeneral, getMeta } from '@/service';
+import { getContent, getGeneral, getMeta, getStatistic } from '@/service';
 
 export async function generateMetadata({ params }: any) {
   const { locale } = await params;
-  let data: any = await getMeta('news');
+  let data: any = await getMeta('home');
 
   const canonicalUrl = `${baseUrl}/${locale}`;
   if (data.error) {
@@ -37,8 +37,7 @@ export async function generateMetadata({ params }: any) {
 const page = async () => {
   const t = await getTranslations('home');
   const general = await getGeneral();
-  console.log(general);
-  
+  const statistic = await getStatistic('home');
   return (
     <div>
       <div className='pt-30'>
@@ -47,7 +46,7 @@ const page = async () => {
             <HeadSection t={t} page='home' />
           </div>
           <div className='py-12.5 md:py-15'>
-            <StudyAreasSection model='home' t={t} page='home' />
+            <StudyAreasSection model='home' page='home' />
           </div>
         </div>
         <div className='py-12.5 md:py-15'>
@@ -55,7 +54,7 @@ const page = async () => {
         </div>
         <div className='wrapper'>
           <div className='py-12.5 md:py-15'>
-            <Statistics page='home' data={general} />
+            <Statistics page='home' data={statistic} />
           </div>
           <div className='py-12.5 md:py-15'>
             <h2 className='font-bold text-4xl leading-12 mb-12'>{t("graduates.title")}</h2>
@@ -65,7 +64,7 @@ const page = async () => {
             <div className='text-center'>
               <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>Məzunlarımızın işlədiyi top şirkətlər</h2>
             </div>
-            <TopCompanies data={ general && general[0]?.company} index={0} page='home' />
+            <TopCompanies data={general && general[0]?.company} index={0} page='home' />
           </div>
         </div>
       </div>

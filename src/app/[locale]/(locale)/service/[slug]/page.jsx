@@ -20,8 +20,7 @@ export async function generateMetadata({ params }) {
     const description = metaMap['description'] || '';
 
     const lang = await getLocale();
-    const canonicalUrl = `${baseUrl}/service/${lang}/${slug}`;
-    console.log(canonicalUrl);
+    const canonicalUrl = `${baseUrl}/${lang}/service/${slug}`;
 
     return {
         title,
@@ -53,7 +52,7 @@ const page = async ({ params }) => {
                 <div className='md:w-1/2'>
                     <h2 className='text-base text-[#909090] md:block hidden'>{t('service.title')}</h2>
                     <h1 className='md:block hidden text-[30px] font-bold'>{item.title}</h1>
-                    <div className='text-base' dangerouslySetInnerHTML={{ __html: item.description }} />
+                    <div className='text-base break-words' dangerouslySetInnerHTML={{ __html: item.description }} />
                 </div>
                 <div className='md:hidden block w-max mx-auto mt-10'>
                     <Share />

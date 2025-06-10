@@ -90,7 +90,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                   </svg>
                   <div className='absolute z-50 top-12 hidden group-hover:block pt-5'>
                     <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
-                      {study.map((item: any, idx: number) => (
+                      {study?.map((item: any, idx: number) => (
                         <li className='text-black' key={idx}>
                           <Link className='whitespace-nowrap' href={'/' + local + `/study-area/${item.slug}`}>
                             {item.name}
@@ -207,7 +207,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
         </li>
         <div className={`${count === 2 ? 'max-h-[500px]' : 'max-h-0'} overflow-hidden duration-500 z-50 top-12`}>
           <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
-            {study.map((item: any, idx: number) => (
+            {study?.map((item: any, idx: number) => (
               <li onClick={() => handleClose()} className='text-[#909090]' key={idx}>
                 <Link className='whitespace-nowrap' href={'/' + local + `/study-area/${item.slug}`}>
                   {item.name}

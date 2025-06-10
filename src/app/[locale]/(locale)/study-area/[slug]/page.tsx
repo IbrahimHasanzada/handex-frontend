@@ -5,30 +5,29 @@ import Groups from '@/components/study-area/Groups';
 import Instructors from '@/components/study-area/Instructors';
 import Program from '@/components/study-area/Program';
 import StudyAreaModal from '@/components/study-area/StudyAreaModal';
-import { getContent, getGeneral, getMeta, getProfiles, getStudyArea, getStudyAreas } from '@/service';
+import { getProfiles, getStudyArea, getStudyAreas } from '@/service';
 import { baseUrl } from '@/utils/url';
 import { getTranslations } from 'next-intl/server';
-import { log } from 'node:console';
 import React from 'react';
 
 export async function generateMetadata({ params }: any) {
     const { locale, slug } = await params;
-    let data = await getMeta('news');
-
+    const item = await getStudyArea(slug);
+    
     const canonicalUrl = `${baseUrl}/${locale}/study-area/${slug}`;
-    if (data.error) {
+    if (item.error) {
         return {
             alternates: {
                 canonical: canonicalUrl,
             },
         };
     }
+    const data = item.meta
 
     let meta: any = {};
     data.forEach((item: any) => {
         meta[item.name] = item.value;
     });
-
     return {
         title: meta.title || undefined,
         description: meta.description || undefined,
@@ -41,10 +40,8 @@ export async function generateMetadata({ params }: any) {
 const page = async ({ params }: any) => {
     const { slug } = await params;
     const t = await getTranslations('study-area');
-
-    const general = await getGeneral();
     const item = await getStudyArea(slug);
-    const students = await getProfiles('instructor');
+    
     const study = await getStudyAreas();
 
 
@@ -75,11 +72,11 @@ const page = async ({ params }: any) => {
             <div className='mt-30 mb-40'>
                 <h2 className='text-[38px] font-bold'>{t('instructors')}</h2>
                 <div className='mt-12'>
-                    <Instructors students={students} />
+                    <Instructors students={item?.profile} />
                 </div>
             </div>
             <div className='py-20'>
-                <Statistics data={general} page='studyArea' />
+                <Statistics data={item.statistic} page='studyArea' />
             </div>
             <div className='mt-30'>
                 <h2 className='font-bold mb-6'>{t('faq')}</h2>
