@@ -8,7 +8,7 @@ export async function generateMetadata() {
   const locale = await getLocale();
   let data = await getMeta('project');
 
-  const canonicalUrl = `${baseUrl}/project/${locale}`;
+  const canonicalUrl = `${baseUrl}/${locale}/project`;
   if (data.error) {
     return {
       alternates: {

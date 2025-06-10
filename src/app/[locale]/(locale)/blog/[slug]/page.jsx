@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
   const description = metaMap['description'] || '';
 
   const lang = await getLocale();
-  const canonicalUrl = `${baseUrl}/blog/${lang}/${slug}`;
+  const canonicalUrl = `${baseUrl}/${lang}/blog/${slug}`;
 
   return {
     title,

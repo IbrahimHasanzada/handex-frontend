@@ -16,7 +16,7 @@ const FooterSlider: React.FC<any> = ({ study }) => {
                 {study?.map((item: any) => {
                     return (
                         <SwiperSlide className='w-full h-full mt-10'>
-                            <Link href={locale + '/study-area/' + item.slug}>
+                            <Link href={'/' + locale + '/study-area/' + item.slug}>
                                 <img className='w-69 object-cover mx-auto' src={item?.image?.url} alt={item?.image?.alt} />
                             </Link>
                         </SwiperSlide>

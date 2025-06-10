@@ -1,20 +1,34 @@
 import FeaturesSlider from '@/components/about/FeaturesSlider';
 import ImageCollage from '@/components/about/ImageCollage';
-import { getAbout, getContent } from '@/service';
+import { getAbout, getContent, getMeta } from '@/service';
 import { baseUrl } from '@/utils/url';
-import { Metadata } from 'next';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
-export async function generateMetadata(): Promise<Metadata> {
-    const lang = await getLocale();
-    const canonicalUrl = `${baseUrl}/about/${lang}`;
+export async function generateMetadata({ params }: any) {
+  const { locale } = await params;
+  let data: any = await getMeta('about');
+
+  const canonicalUrl = `${baseUrl}/${locale}/about`;
+  if (data.error) {
     return {
-        title: 'Handex.az',
-        alternates: {
-            canonical: canonicalUrl,
-        },
+      alternates: {
+        canonical: canonicalUrl,
+      },
     };
+  }
+  let meta: any = {};
+  data.forEach((item: any) => {
+    meta[item.name] = item.value;
+  });
+
+  return {
+    title: meta.title || undefined,
+    description: meta.description || undefined,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  };
 }
 
 const AboutPage = async () => {

@@ -1,11 +1,12 @@
+"use client"
 import Image from 'next/image';
 import React from 'react';
 import Button from '../ui/Button';
 import Link from 'next/link';
-import { getLocale } from 'next-intl/server';
+import { useLocale } from 'next-intl';
 
-const StudyCards: React.FC<any> = async ({ item, theme }) => {
-    const locale = await getLocale();
+const StudyCards: React.FC<any> = ({ item, theme }) => {
+    const locale = useLocale();
     
     return (
         <Link href={'/' + locale + `/study-area/${item.slug}`} className={`${theme ? 'bg-[#282828]' : 'bg-[#fff]'} block group relative rounded-3xl w-full sm:h-65  xl:h-76 max-w-76 p-6 flex flex-col justify-between`}>
