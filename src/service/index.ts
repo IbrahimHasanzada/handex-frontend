@@ -260,8 +260,30 @@ export const getStudyAreas = async (model?: string) => {
     }
 };
 
+export const getStudyAreasClient = async (locale: string, model?: string) => {
+    try {
+        const url = model
+            ? `https://api.drafts.az/api/study-area?model=${model}`
+            : 'https://api.drafts.az/api/study-area';
+
+        const res = await fetch(url, {
+            cache: 'no-store',
+            headers: {
+                'accept-language': locale,
+            },
+        });
+
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
 export const getStudyArea = async (slug: string) => {
     const locale = await getLocale();
+    console.log(locale);
+    
     try {
         const res = await fetch(`https://api.drafts.az/api/study-area/${slug}`, {
             cache: 'no-store',
@@ -287,6 +309,21 @@ export const addContact = async (params: any, locale: string) => {
             body: JSON.stringify(params)
         });
         const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
+export const getStatistic = async (field: string) => {
+    const locale = await getLocale();
+    try {
+        const res = await fetch(`https://api.drafts.az/api/statistic?field=${field}`, {
+            headers: {
+                'accept-language': locale
+            }
+        });
+        const data = res.json();
         return data;
     } catch (err) {
         return err;

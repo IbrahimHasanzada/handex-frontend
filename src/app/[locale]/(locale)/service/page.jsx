@@ -6,9 +6,9 @@ import ServiceClient from '../../../../components/service/ServiceClient';
 
 export async function generateMetadata() {
     const locale = await getLocale();
-    let data = await getMeta('project');
+    let data = await getMeta('service');
 
-    const canonicalUrl = `${baseUrl}/service/${locale}`;
+    const canonicalUrl = `${baseUrl}/${locale}/service`;
     if (data.error) {
         return {
             alternates: {
@@ -21,7 +21,7 @@ export async function generateMetadata() {
     data.forEach(item => {
         meta[item.name] = item.value;
     });
-
+    
     return {
         title: meta.title || undefined,
         description: meta.description || undefined,
