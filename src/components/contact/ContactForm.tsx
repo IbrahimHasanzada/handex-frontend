@@ -39,7 +39,16 @@ const ContactForm = () => {
             message: form.message
         }, locale);
 
-        if (!result.error) toast.success(t('header.modal.success'));
+        if (!result.error) {
+            toast.success(t('header.modal.success'));
+            setForm({
+                name: '',
+                email: '',
+                phone: '',
+                title: '',
+                message: ''
+            });
+        }
         else toast.error(Array.isArray(result.message) ? result.message[0] : result.message);
     };
     return (
@@ -57,7 +66,7 @@ const ContactForm = () => {
                 </div>
                 <div className='mt-6'>
                     <label className='block mb-1'>{textarea.label}</label>
-                    <textarea onChange={(e) => handleChange(e.target.value, 'message')} className='py-2.5 px-4 h-40 w-full rounded-[20px] border border-[#909090] outline-none' placeholder={textarea.placeholder}></textarea>
+                    <textarea value={form[textarea.name as keyof typeof form] || ''} onChange={(e) => handleChange(e.target.value, 'message')} className='py-2.5 px-4 h-40 w-full rounded-[20px] border border-[#909090] outline-none' placeholder={textarea.placeholder}></textarea>
                 </div>
                 <button onClick={() => handleClick()} className='mt-19 md:w-auto w-full px-8 rounded-full py-3 bg-[#1818181A]'>{t('contact.send')}</button>
             </div>

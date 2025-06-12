@@ -49,7 +49,7 @@ const page = async ({ params }: any) => {
 
     return (
         <div className='wrapper pt-45'>
-            <div className='lg:bg-white lg:text-start text-center lg:shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_6px_10px_0px_rgba(0,0,0,0.07)] flex lg:flex-row flex-col justify-center lg:justify-between lg:px-6 py-8 rounded-[20px] items-center'>
+            <div className='lg:bg-white lg:text-start text-center lg:shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_6px_10px_0px_rgba(0,0,0,0.07)] flex lg:flex-row flex-col justify-center lg:justify-between lg:px-9 py-8 rounded-[20px] items-center'>
                 <div className='lg:w-1/2'>
                     <h1 className='lg:text-[72px] text-[30px] text-start font-bold lg:whitespace-nowrap'>{item?.name}</h1>
                     <p className='mt-2 my-7 text-start'>{item?.course_detail}</p>

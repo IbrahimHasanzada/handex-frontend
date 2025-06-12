@@ -1,8 +1,7 @@
 import ContactForm from '@/components/contact/ContactForm';
 import { getGeneral, getMeta } from '@/service';
 import { baseUrl } from '@/utils/url';
-import { Metadata } from 'next';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
 export async function generateMetadata({ params }: any) {
@@ -33,6 +32,7 @@ export async function generateMetadata({ params }: any) {
 
 const page = async () => {
     const data = await getGeneral();
+    
     const t = await getTranslations('contact');
     return (
         <div className='wrapper pt-45'>

@@ -199,7 +199,6 @@ export const addConsultation = async (params: any, locale: string) => {
             body: JSON.stringify(params)
         });
         const data = await res.json();
-        console.log(data);
         return data;
 
     } catch (err: any) {
@@ -282,8 +281,6 @@ export const getStudyAreasClient = async (locale: string, model?: string) => {
 
 export const getStudyArea = async (slug: string) => {
     const locale = await getLocale();
-    console.log(locale);
-    
     try {
         const res = await fetch(`https://api.drafts.az/api/study-area/${slug}`, {
             cache: 'no-store',
