@@ -57,6 +57,7 @@
         }
     },
     "home": {
+        "topCompanies": "Məzunlarımızın işlədiyi top şirkətlər",
         "preference": "Handex’in üstünlükləri",
         "headSection": {
             "button": "Keçid et"
@@ -233,5 +234,9 @@
                 "link": "/contact"
             }
         ]
+    },
+    "corporate": {
+        "corporatePartnersTitle": "Korporativ Tərəfdaşlar",
+        "corporatePartnersDescription": "Güvənə əsaslanan korporativ tərəfdaşlıqlarımızla, dəyərləri birləşdirərək gələcəyin həllərini formalaşdırırıq."
     }
 }

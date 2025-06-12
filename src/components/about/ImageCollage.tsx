@@ -9,9 +9,8 @@ interface ImageData {
 }
 
 const ImageCollage: React.FC<any> = ({ images }) => {
-    console.log(images);
-
     const [isMobile, setIsMobile] = useState<boolean>(false);
+    const [animateIn, setAnimateIn] = useState<boolean>(false);
 
     useEffect(() => {
         const checkIfMobile = () => {
@@ -19,16 +18,21 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         };
 
         checkIfMobile();
-
         window.addEventListener('resize', checkIfMobile);
-
         return () => window.removeEventListener('resize', checkIfMobile);
+    }, []);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setAnimateIn(true);
+        }, 100);
+
+        return () => clearTimeout(timeout);
     }, []);
 
     const imageArray: ImageData[] = [
         {
             desktopStyles: {
-                position: "absolute",
                 top: 30,
                 left: 56,
                 width: 270,
@@ -37,7 +41,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                 zIndex: 2
             },
             mobileStyles: {
-                position: "absolute",
                 top: 0,
                 left: 0,
                 width: 106,
@@ -48,7 +51,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         },
         {
             desktopStyles: {
-                position: "absolute",
                 left: 62,
                 top: 150,
                 width: 400,
@@ -57,7 +59,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                 zIndex: 1
             },
             mobileStyles: {
-                position: "absolute",
                 left: 0,
                 top: 60,
                 width: 160,
@@ -68,7 +69,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         },
         {
             desktopStyles: {
-                position: "absolute",
                 top: 300,
                 left: "50%",
                 transform: "translateX(-50%) rotate(2deg)",
@@ -77,7 +77,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                 zIndex: 0
             },
             mobileStyles: {
-                position: "absolute",
                 top: 150,
                 left: "50%",
                 transform: "translateX(-50%) rotate(2deg)",
@@ -88,7 +87,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         },
         {
             desktopStyles: {
-                position: "absolute",
                 top: 8,
                 right: 250,
                 width: 400,
@@ -97,7 +95,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                 zIndex: 3
             },
             mobileStyles: {
-                position: "absolute",
                 top: 0,
                 right: "5%",
                 width: 160,
@@ -108,7 +105,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         },
         {
             desktopStyles: {
-                position: "absolute",
                 top: 216,
                 right: 12,
                 width: 320,
@@ -117,7 +113,6 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                 zIndex: 2
             },
             mobileStyles: {
-                position: "absolute",
                 top: 82,
                 right: 0,
                 width: 125,
@@ -129,31 +124,48 @@ const ImageCollage: React.FC<any> = ({ images }) => {
     ];
 
     return (
-        <div className="w-full bg-gray-50 min-h-[300px] md:min-h-[600px] py-8 md:py-12">
+        <div className="w-full min-h-[300px] md:min-h-[600px] py-8 md:py-12">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="relative w-full h-full">
                     <div className="relative w-full h-full flex items-center justify-center">
-                        {imageArray.map((image, index) => (
-                            <div
-                                key={index}
-                                className="shadow-lg rounded-lg overflow-hidden transition-all duration-300"
-                                style={isMobile ? image.mobileStyles : image.desktopStyles}
-                            >
-                                {images && images.length >= 5 && <Image
-                                    src={images[index]?.url as string}
-                                    alt={images[index].alt}
-                                    width={isMobile ?
-                                        typeof image.mobileStyles.width === 'number' ? image.mobileStyles.width : 100 :
-                                        typeof image.desktopStyles.width === 'number' ? image.desktopStyles.width : 200
-                                    }
-                                    height={isMobile ?
-                                        typeof image.mobileStyles.height === 'number' ? image.mobileStyles.height : 100 :
-                                        typeof image.desktopStyles.height === 'number' ? image.desktopStyles.height : 200
-                                    }
-                                    className="w-full h-full object-cover"
-                                />}
-                            </div>
-                        ))}
+                        {imageArray.map((image, index) => {
+                            const finalStyle = isMobile ? image.mobileStyles : image.desktopStyles;
+
+                            const initialStyle: CSSProperties = {
+                                position: "absolute",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%) scale(0.8)",
+                                zIndex: finalStyle.zIndex,
+                                width: finalStyle.width,
+                                height: finalStyle.height,
+                                transition: "all 1s ease-in-out",
+                            };
+
+                            const animatedStyle: CSSProperties = {
+                                ...finalStyle,
+                                position: "absolute",
+                                transition: "all 1s ease-in-out"
+                            };
+
+                            return (
+                                <div
+                                    key={index}
+                                    className="shadow-lg rounded-lg overflow-hidden"
+                                    style={animateIn ? animatedStyle : initialStyle}
+                                >
+                                    {images && images.length >= 5 && (
+                                        <Image
+                                            src={images[index]?.url as string}
+                                            alt={images[index].alt}
+                                            width={typeof finalStyle.width === 'number' ? finalStyle.width : 200}
+                                            height={typeof finalStyle.height === 'number' ? finalStyle.height : 200}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

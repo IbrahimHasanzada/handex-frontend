@@ -20,7 +20,7 @@ const BlogCard = ({ item }) => {
                 <Image src='/assets/img/calendar.svg' alt='Blogs calendar' width={16} height={16} />
                 <p>{formatDateClient(item.createdAt)}</p>
             </button>
-            <div className='text-xs text-[#666] font-normal line-clamp-2' dangerouslySetInnerHTML={{ __html: item.description || '' }} />
+            <div className='text-xs text-[#666] font-normal line-clamp-2 mb-3' dangerouslySetInnerHTML={{ __html: item.description || '' }} />
             <div className='w-full mt-auto h-[232px] rounded-[12px] relative'>
                 <img className='w-full h-full object-cover rounded-[12px]' src={item.image.url} alt={item?.image?.alt} />
                 <div className='absolute bg-white top-0 right-0  pb-2 pl-2 border-b-l-5'>

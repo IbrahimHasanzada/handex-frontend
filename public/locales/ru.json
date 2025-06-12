@@ -57,6 +57,7 @@
         }
     },
     "home": {
+        "topCompanies": "Топ-компании, где работают наши выпускники",
         "preference": "Преимущества Handex",
         "headSection": {
             "button": "Выключатель"
@@ -233,5 +234,9 @@
                 "link": "/contact"
             }
         ]
+    },
+    "corporate": {
+        "corporatePartnersTitle": "Корпоративные партнёры",
+        "corporatePartnersDescription": "На основе доверительных корпоративных партнёрств мы объединяем ценности и формируем решения будущего."
     }
 }

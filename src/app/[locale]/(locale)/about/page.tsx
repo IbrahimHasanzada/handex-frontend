@@ -73,7 +73,7 @@ const AboutPage = async () => {
                     </div>
                 ))}
             </div>
-            <div className='md:my-25 lg:hidden block'>
+            <div className='md:mt-25 mb-9 lg:hidden block'>
                 <FeaturesSlider features={features} />
             </div>
         </div >

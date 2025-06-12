@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from '../Modal';
 
 const Groups: React.FC<any> = ({ study, groups, color }) => {
-    
+
     const t = useTranslations('study-area.groups');
     const months = t.raw('months');
     const [flag, setFlag] = useState<boolean>(false);
@@ -18,14 +18,18 @@ const Groups: React.FC<any> = ({ study, groups, color }) => {
         });
 
         useEffect(() => {
-            const interval = setInterval(() => {
+            const calculateTimeLeft = () => {
                 const now = new Date();
                 const target = new Date(targetDate);
                 const difference = target.getTime() - now.getTime();
 
                 if (difference <= 0) {
-                    clearInterval(interval);
-                    return;
+                    return {
+                        days: 0,
+                        hours: 0,
+                        minutes: 0,
+                        seconds: 0
+                    };
                 }
 
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -33,13 +37,14 @@ const Groups: React.FC<any> = ({ study, groups, color }) => {
                 const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-                setTimeLeft({
-                    days,
-                    hours,
-                    minutes,
-                    seconds
-                });
-            }, 1000);
+                return { days, hours, minutes, seconds };
+            };
+
+            setTimeLeft(calculateTimeLeft());
+
+            const interval = setInterval(() => {
+                setTimeLeft(calculateTimeLeft());
+            }, 60000);
 
             return () => clearInterval(interval);
         }, [targetDate]);
@@ -64,7 +69,7 @@ const Groups: React.FC<any> = ({ study, groups, color }) => {
                             className='box-shadow md:w-1/2 p-6 lg:p-12 rounded-[20px] text-white'
                         >
                             <div className='lg:flex justify-between'>
-                                <div className='text-center md:mb-0 mb-6'>
+                                <div className={`${i % 2 ? 'text-[#141414]' : 'text-white'} text-center md:mb-0 mb-6`}>
                                     <p>{item?.table[0]?.value}</p>
                                 </div>
                                 <div
@@ -97,7 +102,7 @@ const Groups: React.FC<any> = ({ study, groups, color }) => {
                                 style={{ color: i % 2 ? '#141414' : 'white' }}
                                 className='text-center lg:text-xl font-normal'
                             >
-                                {item?.table[0]?.value}
+                                {item?.text[0]?.value}
                             </p>
                             <button onClick={() => setFlag(!flag)}
                                 style={{

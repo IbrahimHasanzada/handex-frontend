@@ -62,7 +62,7 @@ const page = async () => {
           </div>
           <div className='mt-30 md:mt-40 md:mb-10 py-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.07),_0px_0px_10px_0px_rgba(0,0,0,0.03)] bg-white rounded-[20px]'>
             <div className='text-center'>
-              <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>Məzunlarımızın işlədiyi top şirkətlər</h2>
+              <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>{t('topCompanies')}</h2>
             </div>
             <TopCompanies data={general && general[0]?.company} index={0} page='home' />
           </div>

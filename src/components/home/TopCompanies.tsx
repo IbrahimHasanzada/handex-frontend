@@ -4,7 +4,6 @@ import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ page, index, data }) => {
-    console.log(page);
 
     const createSlides = (data: any[]) => {
         if (!data) return [];
