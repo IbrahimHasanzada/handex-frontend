@@ -8,7 +8,7 @@ const Share = () => {
 
     useEffect(() => {
         setShareUrl(location.href);
-    }, []);
+    }, [])
 
     const t = useTranslations();
 
