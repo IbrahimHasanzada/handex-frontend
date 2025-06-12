@@ -12,7 +12,17 @@ const FooterSlider: React.FC<any> = ({ study }) => {
     return (
         <div className='h-9/10 rounded-[20px] bg-[#E8E8E8] mt-8 px-8 pb-15'>
             <p className='text-center text-2xl font-normal text-[#141414] select-none pt-6'>{t('discover')}</p>
-            <Swiper pagination={true} modules={[Pagination, Autoplay]} autoplay={true} className="mySwiper h-full">
+            <Swiper
+                pagination={{
+                    clickable: true,
+                    renderBullet: (index, className) => {
+                        return `<span class="${className} custom-dot"></span>`;
+                    },
+                }}
+                modules={[Pagination, Autoplay]}
+                autoplay={true}
+                className="mySwiper h-full"
+            >
                 {study?.map((item: any) => {
                     return (
                         <SwiperSlide className='w-full h-full mt-10'>

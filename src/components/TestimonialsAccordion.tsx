@@ -82,7 +82,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                                 </div>
                             </div>
                         </div>
-                        <div className={page === 'corporate' ? (index % 2 ? 'absolute -bottom-10 -left-3 -right-3 h-15 z-3 bg-[#282828] blur-[12px]' : 'hidden') : 'hidden'}></div>
+                        <div className={page === 'corporate' ? (index % 2 ? 'absolute -bottom-10 -left-3 -right-3 h-10 z-3 bg-[#282828] blur-[12px]' : 'hidden') : 'hidden'}></div>
                     </SwiperSlide>
                 ))}
             </Swiper>

@@ -247,7 +247,6 @@ const Footer = async ({ theme = '', study }: any) => {
                     />
                   </svg>
                 </Link>
-
                 <Top />
               </div>
             </div>

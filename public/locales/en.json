@@ -57,6 +57,7 @@
               }
        },
        "home": {
+              "topCompanies": "Top companies where our graduates work",
               "preference": "Handex’s Preferences",
               "headSection": {
                      "button": "Switch"
@@ -66,8 +67,8 @@
                      "button": "More"
               },
               "testimonials": {
-                     "heading": "Məmnun müştərilərimizin rəylərini oxuyun.",
-                     "title": "Onların məmnuniyyəti bizim öhdəliyimizdir"
+                     "heading": "Read the reviews of our satisfied customers.",
+                     "title": "Their satisfaction is our commitment"
               },
               "statistics": {
                      "title": "Statistics prove: Success is not a coincidence, but the result of the right decisions!",
@@ -233,5 +234,9 @@
                             "link": "/contact"
                      }
               ]
+       },
+       "corporate": {
+              "corporatePartnersTitle": "Corporate Partners",
+              "corporatePartnersDescription": "With trust-based corporate partnerships, we unite values to shape the solutions of the future."
        }
 }
