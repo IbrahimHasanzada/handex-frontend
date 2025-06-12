@@ -11,7 +11,6 @@ const Share = () => {
     }, [])
 
     const t = useTranslations();
-
     return (
         <div className='w-max rounded-[48px] flex gap-4 items-center justify-center bg-white py-2 px-6'>
             <p className='text-lg text-[#141414]'>{t('news.details.share')}</p>
