@@ -211,7 +211,7 @@ export const getAbout = async () => {
     try {
         const res = await fetch('https://api.drafts.az/api/about', {
             headers: {
-                'accespt-language': lang
+                'accept-language': lang
             }
         });
         const data = await res.json();

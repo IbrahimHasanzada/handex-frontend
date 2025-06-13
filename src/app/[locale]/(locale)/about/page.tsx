@@ -35,7 +35,6 @@ const AboutPage = async () => {
     const about: any = await getAbout();
     const t = await getTranslations('home');
     const features = await getContent('corporate-features');
-    console.log(about);
     
 
     return (
