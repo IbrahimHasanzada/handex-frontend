@@ -5,34 +5,36 @@ import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
 export async function generateMetadata({ params }: any) {
-  const { locale } = await params;
-  let data: any = await getMeta('contact');
+    const { locale } = await params;
+    let data: any = await getMeta('contact');
 
-  const canonicalUrl = `${baseUrl}/${locale}/contact`;
-  if (data.error) {
+    const canonicalUrl = `${baseUrl}/${locale}/contact`;
+    if (data.error) {
+        return {
+            alternates: {
+                canonical: canonicalUrl,
+            },
+        };
+    }
+    let meta: any = {};
+    data.forEach((item: any) => {
+        meta[item.name] = item.value;
+    });
+
     return {
-      alternates: {
-        canonical: canonicalUrl,
-      },
+        title: meta.title || undefined,
+        description: meta.description || undefined,
+        alternates: {
+            canonical: canonicalUrl,
+        },
     };
-  }
-  let meta: any = {};
-  data.forEach((item: any) => {
-    meta[item.name] = item.value;
-  });
 
-  return {
-    title: meta.title || undefined,
-    description: meta.description || undefined,
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  };
 }
+
 
 const page = async () => {
     const data = await getGeneral();
-    
+    console.log(data)
     const t = await getTranslations('contact');
     return (
         <div className='wrapper pt-45'>

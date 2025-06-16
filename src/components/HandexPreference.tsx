@@ -2,7 +2,7 @@ import { getContent } from '@/service';
 import React from 'react';
 
 const HandexPreference = async ({ theme = '' }) => {
-    const handex = await getContent('corporate-features');
+    const handex = await getContent('corporate-informations');
     return (
         <div className='flex flex-wrap justify-center gap-6 mt-12'>
             {handex?.map((item: any, i: number) => (

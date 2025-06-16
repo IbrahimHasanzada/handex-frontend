@@ -13,7 +13,7 @@ import React from 'react';
 export async function generateMetadata({ params }: any) {
     const { locale, slug } = await params;
     const item = await getStudyArea(slug);
-    
+
     const canonicalUrl = `${baseUrl}/${locale}/study-area/${slug}`;
     if (item.error) {
         return {
@@ -41,7 +41,6 @@ const page = async ({ params }: any) => {
     const { slug } = await params;
     const t = await getTranslations('study-area');
     const item = await getStudyArea(slug);
-    
     const study = await getStudyAreas();
 
 
@@ -58,7 +57,10 @@ const page = async ({ params }: any) => {
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
             <Program program={item.program} color={color} />
-            <Groups study={study} groups={item.groups} color={color} />
+            {item.groups.length > 0
+                &&
+                <Groups study={study} groups={item.groups} color={color} />
+            }
             <h2 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h2>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
             <HandexPreference />
