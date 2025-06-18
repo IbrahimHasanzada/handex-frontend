@@ -108,7 +108,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 <Link
                   href='https://www.instagram.com/handex.edu.az/'
                   target='_blank'
-                  className='size-10 rounded-full bg-[#E8E8E8] flex justify-center items-center'
+                  className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
                 >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -121,21 +121,21 @@ const Footer = async ({ theme = '', study }: any) => {
                       fillRule='evenodd'
                       clipRule='evenodd'
                       d='M7.496 3H16.505C18.987 3 21 5.012 21 7.496V16.505C21 18.987 18.988 21 16.504 21H7.496C5.013 21 3 18.988 3 16.504V7.496C3 5.013 5.012 3 7.496 3V3Z'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
                     />
                     <path
                       d='M16.9492 6.71279C16.7632 6.71379 16.6122 6.86479 16.6122 7.05079C16.6122 7.23679 16.7642 7.38779 16.9502 7.38779C17.1362 7.38779 17.2872 7.23679 17.2872 7.05079C17.2882 6.86379 17.1362 6.71279 16.9492 6.71279'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
                     />
                     <path
                       d='M14.5455 9.45432C15.9514 10.8602 15.9514 13.1396 14.5455 14.5455C13.1396 15.9514 10.8602 15.9514 9.45432 14.5455C8.04843 13.1396 8.04843 10.8602 9.45432 9.45432C10.8602 8.04843 13.1396 8.04843 14.5455 9.45432'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -146,7 +146,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 <Link
                   href='https://www.facebook.com/handex.edu'
                   target='_blank'
-                  className='size-10 rounded-full bg-[#E8E8E8] flex justify-center items-center'
+                  className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
                 >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -159,7 +159,7 @@ const Footer = async ({ theme = '', study }: any) => {
                       fillRule='evenodd'
                       clipRule='evenodd'
                       d='M8.5 12H11.2498C11.4792 12 11.6792 11.8439 11.7348 11.6213L12.4848 8.62127C12.5222 8.4719 12.4886 8.31365 12.3939 8.1923C12.2991 8.07094 12.1537 8 11.9998 8H8.5V6C8.5 5.44772 8.94772 5 9.5 5H12C12.2761 5 12.5 4.77614 12.5 4.5V1.5C12.5 1.22386 12.2761 1 12 1H9.5C6.73858 1 4.5 3.23858 4.5 6V8H2C1.72386 8 1.5 8.22386 1.5 8.5V11.5C1.5 11.7761 1.72386 12 2 12H4.5V18.5C4.5 18.7761 4.72386 19 5 19H8C8.27614 19 8.5 18.7761 8.5 18.5V12Z'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -170,7 +170,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 <Link
                   href='https://www.linkedin.com/company/handexeduaz/'
                   target='_blank'
-                  className='size-10 rounded-full bg-[#E8E8E8] flex justify-center items-center'
+                  className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
                 >
                   {/* LinkedIn SVG */}
                   <svg
@@ -184,28 +184,28 @@ const Footer = async ({ theme = '', study }: any) => {
                       fillRule='evenodd'
                       clipRule='evenodd'
                       d='M7.5 3H16.504C18.987 3 21 5.013 21 7.496V16.505C21 18.987 18.987 21 16.504 21H7.496C5.013 21 3 18.987 3 16.504V7.5C3 5.015 5.015 3 7.5 3V3Z'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
                     />
                     <path
                       d='M8.12012 11.1001V16.5001'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
                     />
                     <path
                       d='M11.7192 16.5001V13.3501C11.7192 12.1071 12.7262 11.1001 13.9692 11.1001V11.1001C15.2122 11.1001 16.2192 12.1071 16.2192 13.3501V16.5001'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
                     />
                     <path
                       d='M8.11814 7.83799C7.99414 7.83799 7.89314 7.93899 7.89414 8.06299C7.89414 8.18699 7.99514 8.28799 8.11914 8.28799C8.24314 8.28799 8.34414 8.18699 8.34414 8.06299C8.34414 7.93799 8.24314 7.83799 8.11814 7.83799'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -216,7 +216,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 <Link
                   href='https://www.youtube.com/@HandexEdu'
                   target='_blank'
-                  className='size-10 rounded-full bg-[#E8E8E8] flex justify-center items-center'
+                  className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
                 >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -229,7 +229,7 @@ const Footer = async ({ theme = '', study }: any) => {
                       fillRule='evenodd'
                       clipRule='evenodd'
                       d='M21.583 6.37287C21.354 5.36887 20.676 4.57687 19.814 4.30487C18.255 3.81787 12 3.81787 12 3.81787C12 3.81787 5.748 3.81787 4.186 4.30487C3.327 4.57287 2.649 5.36487 2.417 6.37287C2 8.19487 2 11.9999 2 11.9999C2 11.9999 2 15.8049 2 17.6269C2.646 18.6309 3.324 19.4229 4.186 19.6949C5.748 20.1819 12 20.1819 12 20.1819C12 20.1819 18.255 20.1819 19.814 19.6949C20.673 19.4269 21.351 18.6349 21.583 17.6269C22 15.8049 22 11.9999 22 11.9999C22 11.9999 22 8.19487 21.583 6.37287Z'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -238,14 +238,14 @@ const Footer = async ({ theme = '', study }: any) => {
                       fillRule='evenodd'
                       clipRule='evenodd'
                       d='M10.002 15L15.198 12L10.002 9V15Z'
-                      stroke='#141414'
+                      stroke={theme ? '#fff' : '#141414'}
                       strokeWidth='1.5'
                       strokeLinecap='round'
                       strokeLinejoin='round'
                     />
                   </svg>
                 </Link>
-                <Top />
+                <Top theme={theme} />
               </div>
             </div>
           </div>

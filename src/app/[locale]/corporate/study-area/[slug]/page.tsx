@@ -63,7 +63,7 @@ const page = async ({ params }: any) => {
             }
             <h2 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold text-center mt-30`}>{t('why.title')}</h2>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
-            <HandexPreference  model={item.model === 'corporate' ? true : false}/>
+            <HandexPreference model={item.model === 'corporate' ? true : false} />
             <div className={`${item.model === 'corporate' ? 'bg-[#282828]' : 'bg-white'} mt-30 box-shadow pb-6 rounded-[20px] lg:px-0 px-3 lg:text-start text-center lg:flex justify-between items-center`}>
                 <img src="/assets/Photo (13).svg" alt="Birbank image" />
                 <div className='lg:w-1/2'>
@@ -74,7 +74,7 @@ const page = async ({ params }: any) => {
             <div className='mt-30 mb-40'>
                 <h2 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold`}>{t('instructors')}</h2>
                 <div className='mt-12'>
-                    <Instructors students={item?.profile} />
+                    <Instructors model={item.model === 'corporate' ? true : false} students={item?.profile} />
                 </div>
             </div>
             <div className='py-20'>
