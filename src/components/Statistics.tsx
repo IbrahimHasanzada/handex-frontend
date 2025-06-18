@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import React from 'react';
 import ClientCountUp from './ClientCountUp';
 
-const Statistics: React.FC<StatisticsDto> = async ({ page, data }) => {
+const Statistics: React.FC<StatisticsDto> = async ({ page, data, model }) => {
     const t = await getTranslations('home');
 
     return (
@@ -13,11 +13,11 @@ const Statistics: React.FC<StatisticsDto> = async ({ page, data }) => {
                     {data?.map((item: any, i: number) => {
                         const prefix = i % 2 ? '+' : '';
                         return (
-                            <div key={i} className={`${page === 'home' && 'max-w-54'} ${page === 'studyArea' && 'bg-white rounded-[20px] box-shadow flex-col-reverse px-4 py-10'} text-center flex flex-col`}>
-                                <div className={`${page === 'corporate' ? 'bg-gradient-to-r from-[#F4F5F5] to-[#666] text-transparent bg-clip-text' : 'text-[#141414]'} font-bold text-3xl md:text-[5rem] pb-2`}>
+                            <div key={i} className={`${page === 'home' && 'max-w-54'} ${page === 'studyArea' && `${model ? 'bg-[#2B2B2B]' : 'bg-white'} rounded-[20px] box-shadow flex-col-reverse px-4 py-10`} text-center flex flex-col`}>
+                                <div className={`${page === 'corporate' ? 'bg-gradient-to-r from-[#F4F5F5] to-[#666] text-transparent bg-clip-text' : model ? 'text-white' : 'text-[#141414]'} font-bold text-3xl md:text-[5rem] pb-2`}>
                                     <ClientCountUp end={Number(item.count)} prefix={prefix} />
                                 </div>
-                                <p className={page === 'corporate' ? 'text-white/45 ' : page === 'studyArea' ? 'text-[#AAA]' : 'text-[#60606080] text-xs md:text-base'}>{item.text}</p>
+                                <p className={page === 'corporate' ? 'text-white/45 ' : page === 'studyArea' ? 'text-[#909090]' : 'text-[#60606080] text-xs md:text-base'}>{item.text}</p>
                             </div>
                         );
                     })}

@@ -5,11 +5,11 @@ import Button from '../ui/Button';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 
-const StudyCards: React.FC<any> = ({ item, theme }) => {
+const StudyCards: React.FC<any> = ({ item, theme, model }) => {
     const locale = useLocale();
-    
+
     return (
-        <Link href={'/' + locale + `/study-area/${item.slug}`} className={`${theme ? 'bg-[#282828]' : 'bg-[#fff]'} block group relative rounded-3xl w-full sm:h-65  xl:h-76 max-w-76 p-6 flex flex-col justify-between`}>
+        <Link href={model === 'corporate' ? ('/' + locale + `/corporate/study-area/${item.slug}`) : ('/' + locale + `/study-area/${item.slug}`)} className={`${theme ? 'bg-[#282828]' : 'bg-[#fff]'} block group relative rounded-3xl w-full sm:h-65  xl:h-76 max-w-76 p-6 flex flex-col justify-between`}>
             <p className={`${theme ? 'text-white' : 'text-black'} font-medium text-xl xl:text-2xl md:max-w-20 lg:max-w-47`}>{item.name}</p>
             <div className='relative flex justify-center items-center'>
                 <Image src={item?.image?.url} alt='Handex study area icons' width={240} height={140} className='object-cover duration-500 group-hover:scale-110 h-35 w-50 xl:h-45 xl:w-60' quality={80} priority={true} sizes='100%' />

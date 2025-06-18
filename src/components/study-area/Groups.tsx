@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import React, { useState, useEffect } from 'react';
 import Modal from '../Modal';
 
-const Groups: React.FC<any> = ({ study, groups, color }) => {
+const Groups: React.FC<any> = ({ study, groups, color, model }) => {
 
     const t = useTranslations('study-area.groups');
     const months = t.raw('months');
@@ -54,8 +54,8 @@ const Groups: React.FC<any> = ({ study, groups, color }) => {
 
     return (
         <div className='mt-30'>
-            <h2 className='text-[38px] font-bold'>{t('title')}</h2>
-            <p className='mt-4 text-xl'>{t('desc')}</p>
+            <h2 className={`text-[38px] font-bold ${model && 'text-white'}`}>{t('title')}</h2>
+            <p className={`${model && 'text-[#909090]'} mt-4 text-xl`}>{t('desc')}</p>
             <div className='flex items-center justify-center gap-6 mt-12'>
                 {groups?.map((item: any, i: number) => {
                     const month = parseInt(item?.startDate.split('-')[1], 10);
