@@ -32,7 +32,7 @@ const Footer = async ({ theme = '', study }: any) => {
               className='w-32 h-10 select-none'
             />
             <div className='w-full h-full'>
-              <FooterSlider study={study} />
+              <FooterSlider theme={theme} study={study} />
             </div>
           </div>
 
