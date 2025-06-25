@@ -148,7 +148,8 @@
               "search": {
                      "title": "Read, think, discover",
                      "placeholder": "Search blog..."
-              }
+              },
+              "description": "Content"
        },
        "project": {
               "title": "Our Projects"

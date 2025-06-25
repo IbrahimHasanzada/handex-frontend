@@ -148,7 +148,8 @@
         "search": {
             "title": "Oxu düşün, kəşf et",
             "placeholder": "Blog axtar..."
-        }
+        },
+        "description": "Mündəricat"
     },
     "project": {
         "title": "Layihələrimiz"

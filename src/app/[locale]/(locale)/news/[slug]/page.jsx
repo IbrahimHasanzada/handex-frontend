@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   const { slug } = params;
 
   const newsItem = await getNews(slug);
-  
+
   const metaArray = newsItem?.meta ?? [];
   const metaMap = {};
   metaArray.forEach(item => {
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   const title = metaMap['title'] || 'Handex.az';
   const description = metaMap['description'] || '';
 
-  const lang = await getLocale(); 
+  const lang = await getLocale();
   const canonicalUrl = `${baseUrl}/${lang}/news/${slug}`;
 
   return {
@@ -45,7 +45,7 @@ const page = async ({ params }) => {
       <div className='wrapper pt-30'>
         <div className='text-center mt-15'>
           <h1 className='md:text-[38px] text-[24px] font-bold'>{item.title}</h1>
-          <p className='text-base my-6'>{t('news.details.from')} | {formatDate(item.createdAt)}</p>
+          <p className='text-base my-6'>{formatDate(item.createdAt)}</p>
         </div>
         <div className='md:w-3/5 w-full mx-auto flex flex-col items-center justify-center'>
           <img className='w-full mb-15 rounded-[20px] object-cover' src={item.image.url} alt={item.title} />
