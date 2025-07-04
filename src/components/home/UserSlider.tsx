@@ -69,10 +69,10 @@ const UserSlider = () => {
               <img src={item.image?.url} alt={item.image?.alt} className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
             </div>
             <div style={{
-              background: 'linear-gradient(rgba(232, 232, 232, 0.2), rgba(231, 231, 231, 0.2))',
               backdropFilter: 'blur(10px)',
+              background: 'linear-gradient(90deg, rgba(144, 144, 144, 0.40) 0%, rgba(144, 144, 144, 0.40) 100%)',
               WebkitBackdropFilter: 'blur(50px)'
-            }} className='h-14 px-6 pt-1 rounded-[50px] absolute left-6 bottom-6  w-[80%] text-white'>
+            }} className='h-14 px-6 pt-1 text-white rounded-[50px] absolute left-6 bottom-6  w-[80%]'>
               <p className='font-bold'>{item.name}</p>
               <p className='text-sm'>{item.speciality}</p>
             </div>

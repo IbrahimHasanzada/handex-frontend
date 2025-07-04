@@ -37,7 +37,6 @@ export const getCustomers = async () => {
 export const getGeneral = async () => {
     try {
         const res = await fetch('https://backend.handex.edu.az/api/general', {
-            next: { revalidate: 3600 },
         });
         const data = await res.json();
         return data;
@@ -49,7 +48,6 @@ export const getGeneral = async () => {
 export const getProfiles = async (model: string) => {
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/profiles?model=${model}`, {
-            next: { revalidate: 3600 },
         });
         const data = await res.json();
         return data;
@@ -225,7 +223,6 @@ export const getMeta = async (field: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/meta/${field}`, {
-            next: { revalidate: 3600 },
             cache: 'no-store',
             headers: {
                 'accept-language': lang

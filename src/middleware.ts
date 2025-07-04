@@ -51,9 +51,10 @@ export default async function middleware(request: NextRequest) {
     );
 
     if (!hasLocale && pathname !== '/') {
-        const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
-        newUrl.search = search;
-        return NextResponse.redirect(newUrl);
+        // const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
+        // newUrl.search = search;
+        // return NextResponse.redirect(newUrl);
+        return intlMiddleware(request);
     }
 
     return intlMiddleware(request);

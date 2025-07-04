@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ['api.drafts.az'],
+    domains: ['api.drafts.az', 'backend.handex.edu.az'],
   },
 };
 

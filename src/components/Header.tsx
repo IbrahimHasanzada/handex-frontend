@@ -45,7 +45,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
     <header className="relative">
       <div className={`wrapper z-99 max-md:box-shadow base:bg-transparent ${theme === 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'} fixed left-0 right-0`}>
         <div className={`base:px-6 w-full rounded-b-[20px] ${theme === 'dark' ? 'base:bg-[#2b2b2b]' : 'base:bg-white base:border border-[#DDD]'} h-25 flex items-center justify-between base:shadow-md`}>
-          <Link href={'/' + local} className='relative flex items-center'>
+          <Link href={'/'} className='relative flex items-center'>
             <Image
               src='/assets/img/handex_logo.png'
               alt='Handex Logo'
@@ -56,64 +56,62 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
               className='w-38 h-10'
             />
           </Link>
-          <div className='hidden base:block'>
-            <div className='flex items-center gap-18'>
-              <ul className='flex gap-6'>
-                {headerLists.map(({ title, subItems }, index) => (
-                  <li
-                    key={index}
-                    className={`group relative cursor-pointer flex z-50 py-3 ${theme ? 'text-white' : 'text-black'}`}
-                  >
-                    <p className='group-hover:border-b border-b-primary-corporate text-sm lg:text-base'>{title}</p>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <div className='absolute z-50 top-12 hidden group-hover:block pt-5'>
-                      <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
-                        {subItems.map((item, idx) => (
-                          <li className='text-black' key={idx}>
-                            <Link className='whitespace-nowrap' href={'/' + local + item.link}>
-                              {item.text}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </li>
-                ))}
-                <li
-                  className={`group relative cursor-pointer flex z-50 py-3 ${theme ? 'text-white' : 'text-black'}`}
-                >
-                  <p className='group-hover:border-b border-b-primary-corporate text-sm lg:text-base'>{t('study-area')}</p>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <div className='absolute z-50 top-12 hidden group-hover:block pt-5'>
-                    <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
-                      {study?.map((item: any, idx: number) => (
-                        <li className='text-black' key={idx}>
-                          <Link className='whitespace-nowrap' href={'/' + local + `/study-area/${item.slug}`}>
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-                <li className='group cursor-pointer py-3'>
-                  <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                    <Link href={'/' + local + '/corporate'}>{t('coorporate')}</Link>
-                  </p>
-                </li>
-                <li className='group cursor-pointer py-3'>
-                  <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                    <Link href={'/' + local + '/contact'}>{t('contact')}</Link>
-                  </p>
-                </li>
-              </ul>
-              <div className='flex items-center gap-4'>
-                <div className='py-1'>
-                  <div className='relative select-none'>
+           <ul className='absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 base:flex hidden gap-6 z-40'>
+            {headerLists.map(({ title, subItems }, index) => (
+              <li
+                key={index}
+                className={`group relative cursor-pointer flex z-50 py-3 ${theme ? 'text-white' : 'text-black'}`}
+              >
+                <p className='group-hover:border-b border-b-primary-corporate text-sm lg:text-base'>{title}</p>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <div className='absolute z-50 top-12 hidden group-hover:block pt-5'>
+                  <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
+                    {subItems.map((item, idx) => (
+                      <li className='text-black' key={idx}>
+                        <Link className='whitespace-nowrap' href={'/' + local + item.link}>
+                          {item.text}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+            <li
+              className={`group relative cursor-pointer flex z-50 py-3 ${theme ? 'text-white' : 'text-black'}`}
+            >
+              <p className='group-hover:border-b border-b-primary-corporate text-sm lg:text-base'>{t('study-area')}</p>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className='absolute z-50 top-12 hidden group-hover:block pt-5'>
+                <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
+                  {study?.map((item: any, idx: number) => (
+                    <li className='text-black' key={idx}>
+                      <Link className='whitespace-nowrap' href={'/' + local + `/study-area/${item.slug}`}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+            <li className='group cursor-pointer py-3'>
+              <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
+                <Link href={'/' + local + '/corporate'}>{t('coorporate')}</Link>
+              </p>
+            </li>
+            <li className='group cursor-pointer py-3'>
+              <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
+                <Link href={'/' + local + '/contact'}>{t('contact')}</Link>
+              </p>
+            </li>
+          </ul>
+          <div className='base:flex hidden items-center gap-4'>
+            <div className='py-1'>
+              {/* <div className='relative select-none'>
                     <div
                       onClick={() => setLangSwitch(!langSwitch)}
                       className='flex gap-2 justify-center cursor-pointer items-center'
@@ -150,12 +148,10 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                         </div>
                       ))}
                     </div>
-                  </div>
-                </div>
-                <div className='h-12 w-40 text-sm lg:text-base lg:w-60'>
-                  <HeaderModal study={study} theme={theme ? theme : 'home'} />
-                </div>
-              </div>
+                  </div> */}
+            </div>
+            <div className='h-12 ml-auto w-40 text-sm lg:text-base lg:w-60'>
+              <HeaderModal study={study} theme={theme ? theme : 'home'} />
             </div>
           </div>
           <div className='w-8 h-8 block base:hidden'>
@@ -222,7 +218,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
         <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
           <Link href={'/' + local + '/contact'}>{t('contact')}</Link>
         </li>
-        <div className='w-full h-[1px] bg-[#ABABAB] mt-10 mb-5'></div>
+        {/* <div className='w-full h-[1px] bg-[#ABABAB] mt-10 mb-5'></div>
         <div className='flex items-center gap-2 mb-4'>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path stroke={theme ? 'white' : '#222222'} d="M7.5 4V7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -234,16 +230,16 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           <p className={`text-[#141414] text-base ${theme ? 'text-white' : 'text-[#141414]'} font-medium`}>Language</p>
         </div>
         <div className='grid grid-cols-3 gap-3 justify-between px-1'>
-          <div onClick={() => handleChange('az')} className={`flex ${currentLocale === 'az' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white' } items-center rounded-2xl px-3 py-1.5 `}>
+          <div onClick={() => handleChange('az')} className={`flex ${currentLocale === 'az' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white'} items-center rounded-2xl px-3 py-1.5 `}>
             <p>AZ</p>
           </div>
-          <div onClick={() => handleChange('en')} className={`flex ${currentLocale === 'en' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white' } items-center rounded-2xl px-3 py-1.5 `}>
+          <div onClick={() => handleChange('en')} className={`flex ${currentLocale === 'en' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white'} items-center rounded-2xl px-3 py-1.5 `}>
             <p>EN</p>
           </div>
-          <div onClick={() => handleChange('ru')} className={`flex ${currentLocale === 'ru' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white' } items-center rounded-2xl px-3 py-1.5 `}>
+          <div onClick={() => handleChange('ru')} className={`flex ${currentLocale === 'ru' ? 'bg-[linear-gradient(225deg,_#73CCD8_4.87%,_#2B6B9F_96.04%)] text-white' : 'bg-transparent border border-[#ABABAB] text-[#141414]'} justify-center ${theme && '!text-white'} items-center rounded-2xl px-3 py-1.5 `}>
             <p>RU</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </header>
   );

@@ -21,8 +21,17 @@ const ServiceCard = (params) => {
                 <div>
                     <h2 className='md:text-2xl text-sm font-bold line-clamp-2 mb-3'>{item.title}</h2>
                     <div
-                        dangerouslySetInnerHTML={{ __html: item.description }}
-                        className='text-[#909090] font-medium md:text-base text-[10px] line-clamp-3'
+                        className='
+                         text-[#666] text-xs font-normal line-clamp-2 mb-3
+                         [&_p]:inline
+                         [&_a]:inline [&_a]:text-xs [&_a]:font-normal [&_a]:text-[#0070f3]
+                         [&_h1]:inline [&_h1]:text-xs [&_h1]:font-normal [&_h1]:mb-0
+                         [&_h2]:inline [&_h2]:text-xs [&_h2]:font-normal [&_h2]:mb-0
+                         [&_h3]:inline [&_h3]:text-xs [&_h3]:font-normal [&_h3]:mb-0
+                         [&_h4]:inline [&_h4]:text-xs [&_h4]:font-normal [&_h4]:mb-0
+                         [&_h5]:inline [&_h5]:text-xs [&_h5]:font-normal [&_h5]:mb-0
+                         [&_h6]:inline [&_h6]:text-xs [&_h6]:font-normal [&_h6]:mb-0'
+                        dangerouslySetInnerHTML={{ __html: item.description || '' }}
                     />
                 </div>
                 <div className='mt-6 flex items-center gap-2 cursor-pointer'>

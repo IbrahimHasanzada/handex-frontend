@@ -155,11 +155,9 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                                     style={animateIn ? animatedStyle : initialStyle}
                                 >
                                     {images && images.length >= 5 && (
-                                        <Image
+                                        <img
                                             src={images[index]?.url as string}
                                             alt={images[index].alt}
-                                            width={typeof finalStyle.width === 'number' ? finalStyle.width : 200}
-                                            height={typeof finalStyle.height === 'number' ? finalStyle.height : 200}
                                             className="w-full h-full object-cover"
                                         />
                                     )}

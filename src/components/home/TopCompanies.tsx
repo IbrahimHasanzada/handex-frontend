@@ -36,9 +36,6 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ p
                 {data && data.length && createSlides(data).map((item: any, index: number) => (
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
-                            {page === 'corporate' && (
-                                <p>{item?.title}</p>
-                            )}
                             <img src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
                         </div>
                     </SwiperSlide>
@@ -46,9 +43,6 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ p
                 {data && data.length && createSlides(data).map((item: any, index: number) => (
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
-                            {page === 'corporate' && (
-                                <p>{item?.title}</p>
-                            )}
                             <img src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'h-13 w-13' : 'object-cover'} />
                         </div>
                     </SwiperSlide>
