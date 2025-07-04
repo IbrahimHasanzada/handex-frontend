@@ -1,20 +1,10 @@
 "use client";
-import { getProfiles } from '@/service';
+import { getContent, getProfiles } from '@/service';
 import React, { useEffect, useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const UserSlider = () => {
-  const [students, setStudents] = useState<any>();
-  useEffect(() => {
-    async function getData() {
-      let result = await getProfiles('student');
-
-      result && setStudents(result);
-    }
-    getData()
-  }, []);
-
+const UserSlider: React.FC<any> = ({ result }) => {
   const [isBeginning, setIsBeginning] = useState(true);
   return (
     <div className='relative'>
@@ -59,22 +49,22 @@ const UserSlider = () => {
           nextEl: ".swiper-button-next-custom",
         }}
         modules={[Navigation]}
-        onReachBeginning={() => students && setIsBeginning(true)}
-        onReachEnd={() => students && setIsBeginning(false)}
+        onReachBeginning={() => result && setIsBeginning(true)}
+        onReachEnd={() => result && setIsBeginning(false)}
         className='h-90 transition ease-linear duration-300 relative'
       >
-        {students && students.length && students?.map((item: any, i: number) => (
+        {result && result.length && result?.map((item: any, i: number) => (
           <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
             <div className='w-full h-full relative'>
-              <img src={item.image?.url} alt={item.image?.alt} className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
+              <img src={item.images[0]?.url} alt={item?.images[0]?.alt} className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
             </div>
             <div style={{
               backdropFilter: 'blur(10px)',
               background: 'linear-gradient(90deg, rgba(144, 144, 144, 0.40) 0%, rgba(144, 144, 144, 0.40) 100%)',
               WebkitBackdropFilter: 'blur(50px)'
             }} className='h-14 px-6 pt-1 text-white rounded-[50px] absolute left-6 bottom-6  w-[80%]'>
-              <p className='font-bold'>{item.name}</p>
-              <p className='text-sm'>{item.speciality}</p>
+              <p className='font-bold'>{item.title}</p>
+              <p className='text-sm'>{item.desc}</p>
             </div>
           </SwiperSlide>
         ))}

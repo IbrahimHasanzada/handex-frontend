@@ -38,6 +38,8 @@ const page = async () => {
   const t = await getTranslations('home');
   const general = await getGeneral();
   const statistic = await getStatistic('home');
+  const result = await getContent('graduates');
+  
   return (
     <div>
       <div className='pt-30'>
@@ -58,7 +60,7 @@ const page = async () => {
           </div>
           <div className='py-12.5 md:py-15'>
             <h2 className='font-bold text-4xl leading-12 mb-12'>{t("graduates.title")}</h2>
-            <UserSlider />
+            <UserSlider result={result} />
           </div>
           <div className='mt-30 md:mt-40 md:mb-10 py-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.07),_0px_0px_10px_0px_rgba(0,0,0,0.03)] bg-white rounded-[20px]'>
             <div className='text-center'>
