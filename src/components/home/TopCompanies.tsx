@@ -3,7 +3,7 @@ import React from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ page, index, data }) => {
+const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderIndex: number }> = ({ page, index, data, sliderIndex }) => {
 
     const createSlides = (data: any[]) => {
         if (!data) return [];
@@ -20,7 +20,7 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ p
                 }}
                 spaceBetween={page === 'corporate' ? 24 : 62}
                 initialSlide={0}
-                key={data ? 'loaded' : 'loading'}
+                key={index}
                 freeMode={true}
                 loop={true}
                 slidesPerView={3}
@@ -29,9 +29,12 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any; }> = ({ p
                     disableOnInteraction: false,
                     waitForTransition: true,
                 }}
-                dir={index % 2 ? "rtl" : 'ltr'}
+                allowTouchMove={false}
+                dir={sliderIndex % 2 ? "rtl" : 'ltr'}
                 centerInsufficientSlides={true}
-                speed={index % 2 ? 3000 : 4000}
+                observer={true}
+                loopAdditionalSlides={page === 'corporate' && data && 7}
+                speed={sliderIndex % 2 ? 3000 : 4000}
                 modules={[Autoplay]}>
                 {data && data.length && createSlides(data).map((item: any, index: number) => (
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>

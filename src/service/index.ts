@@ -18,10 +18,10 @@ export const getContent = async (slug: string) => {
     }
 };
 
-export const getCustomers = async () => {
+export const getCustomers = async (slug: string) => {
     const lang = await getLocale();
     try {
-        const res = await fetch('https://backend.handex.edu.az/api/customers', {
+        const res = await fetch(`https://backend.handex.edu.az/api/customers/${slug}`, {
             cache: 'no-store',
             headers: {
                 'accept-language': lang!

@@ -63,7 +63,7 @@ const page = async ({ params }: any) => {
             }
             <h2 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h2>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
-            <HandexPreference />
+            <HandexPreference slug='why-handex' />
             <div className='mt-30 box-shadow pb-6 rounded-[20px] bg-white lg:px-0 px-3 lg:text-start text-center lg:flex justify-between items-center'>
                 <img src="/assets/Photo (13).svg" alt="Birbank image" />
                 <div className='lg:w-1/2'>

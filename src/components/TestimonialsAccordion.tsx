@@ -14,7 +14,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
         <div className={`relative ${page !== 'corporate' ? 'linear-slider' : ''}`}>
             <Swiper
                 key={data.length}
-                spaceBetween={32}
+                spaceBetween={page === 'corporate' ? 64 : 32}
                 initialSlide={start}
                 direction={page === "corporate" ? "vertical" : "horizontal"}
                 loop={page !== 'corporate' && true}
@@ -49,7 +49,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                         className={`relative !flex justify-center items-center ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '' : '!h-[268px]'}`}
                         key={item.id || index}
                     >
-                        <div className={`${page === 'corporate' && '!h-full'} border-1 w-90 bg-white border-[#DDD] rounded-[20px] p-6 h-auto`}>
+                        <div className={`border-1 w-90 bg-white border-[#DDD] rounded-[20px] p-6 h-auto`}>
                             <div className={`flex flex-col !px-6`}>
                                 <div className='flex justify-between pb-4 border-b border-b-[#DDD]'>
                                     <div className='flex items-center gap-4.5'>
@@ -82,7 +82,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                                 </div>
                             </div>
                         </div>
-                        <div className={page === 'corporate' ? (index % 2 ? 'absolute -bottom-10 -left-3 -right-3 h-10 z-3 bg-[#282828] blur-[12px]' : 'hidden') : 'hidden'}></div>
+                        <div className={page === 'corporate' ? (index % 2 ? 'absolute -bottom-18 -left-3 -right-3 h-10 z-3 bg-[#282828] blur-[12px]' : 'hidden') : 'hidden'}></div>
                     </SwiperSlide>
                 ))}
             </Swiper>

@@ -6,36 +6,36 @@ import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
 export async function generateMetadata({ params }: any) {
-  const { locale } = await params;
-  let data: any = await getMeta('about');
+    const { locale } = await params;
+    let data: any = await getMeta('about');
 
-  const canonicalUrl = `${baseUrl}/${locale}/about`;
-  if (data.error) {
+    const canonicalUrl = `${baseUrl}/${locale}/about`;
+    if (data.error) {
+        return {
+            alternates: {
+                canonical: canonicalUrl,
+            },
+        };
+    }
+    let meta: any = {};
+    data.forEach((item: any) => {
+        meta[item.name] = item.value;
+    });
+
     return {
-      alternates: {
-        canonical: canonicalUrl,
-      },
+        title: meta.title || undefined,
+        description: meta.description || undefined,
+        alternates: {
+            canonical: canonicalUrl,
+        },
     };
-  }
-  let meta: any = {};
-  data.forEach((item: any) => {
-    meta[item.name] = item.value;
-  });
-
-  return {
-    title: meta.title || undefined,
-    description: meta.description || undefined,
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  };
 }
 
 const AboutPage = async () => {
     const about: any = await getAbout();
     const t = await getTranslations('home');
-    const features = await getContent('corporate-features');
-    
+    const features = await getContent('about-features');
+
 
     return (
         <div className="wrapper w-full pt-30">
