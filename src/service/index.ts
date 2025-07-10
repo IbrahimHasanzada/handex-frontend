@@ -292,6 +292,51 @@ export const getStudyArea = async (slug: string) => {
     }
 };
 
+export const getStudyAreaProgram = async (locale: string, slug: string) => {
+    try {
+        const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/programs`, {
+            cache: 'no-store',
+            headers: {
+                'accept-language': locale
+            }
+        });
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
+export const getStudyAreaGroups = async (locale: string, slug: string) => {
+    try {
+        const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/groups`, {
+            cache: 'no-store',
+            headers: {
+                'accept-language': locale
+            }
+        });
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
+export const getStudyAreaFaq = async (locale: string, slug: string) => {
+    try {
+        const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/faq`, {
+            cache: 'no-store',
+            headers: {
+                'accept-language': locale
+            }
+        });
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
 export const addContact = async (params: any, locale: string) => {
     try {
         const res = await fetch('https://backend.handex.edu.az/api/contact', {

@@ -25,26 +25,28 @@ const BlogContentWithTOC = ({ description }) => {
     }
   }, [description]);
 
-  const t = useTranslations()
+  const t = useTranslations();
 
   return (
     <div className="flex flex-col lg:flex-row gap-10">
-      <aside className="lg:w-1/4 w-full">
-        <h2 className="text-xl font-semibold mb-3">{t("blog.description")}</h2>
-        <ul className=" flex flex-col gap-1 rounded-l-lg">
-          {headings.map((h) => (
-            <li
-              className='flex gap-3'
-              key={h.id}>
-              <span className='bg-gradient-to-br from-[#73CCD8] to-[#2B6B9F] rounded-tl-xs rounded-bl-xs w-1'></span>
-              <a
-                href={`#${h.id}`}
-                className="bg-gradient-to-br font-bold hover:underline from-[#73CCD8] to-[#2B6B9F] bg-clip-text text-transparent"
-              >{h.text}</a>
-            </li>
-          ))}
-        </ul>
-      </aside>
+      <div className="lg:w-1/4 w-full">
+        <div className="sticky top-30">
+          <h2 className="text-xl font-semibold mb-3">{t('blog.description')}</h2>
+          <ul className="flex flex-col gap-1 rounded-l-lg">
+            {headings.map((h) => (
+              <li className="flex gap-3" key={h.id}>
+                <span className="bg-gradient-to-br from-[#73CCD8] to-[#2B6B9F] rounded-tl-xs rounded-bl-xs w-1"></span>
+                <a
+                  href={`#${h.id}`}
+                  className="bg-gradient-to-br font-bold hover:underline from-[#73CCD8] to-[#2B6B9F] bg-clip-text text-transparent"
+                >
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
       <article id="blog-content" className="prose lg:w-3/4 w-full"></article>
     </div>
