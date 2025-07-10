@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 const TestimonialsCorporate = async () => {
     const t = await getTranslations('home')
-    const result = await getCustomers();
+    const result = await getCustomers('corporate');
     return (
         <div className="wrapper flex gap-10 flex-col-reverse md:flex-row">
             <div className="base:flex-1/4 xl:flex-1/2 flex items-center">

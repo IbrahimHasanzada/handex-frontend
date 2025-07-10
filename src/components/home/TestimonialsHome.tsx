@@ -1,9 +1,8 @@
-import { getTranslations } from "next-intl/server";
 import { getCustomers } from "@/service";
 import TestimonialsAccordion from "../TestimonialsAccordion";
 
 const TestimonialsHome = async ({ t }: any) => {
-    const result = await getCustomers();
+    const result = await getCustomers('home');
 
     const testimonialsData = result || [];
     return (

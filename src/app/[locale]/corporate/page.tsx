@@ -50,7 +50,7 @@ const page = async () => {
         </div>
         <div className="mb-30 mt-17.5">
           <h3 className="text-center text-white text-2xl md:text-[38px] font-bold">{t('preference')}</h3>
-          <HandexPreference theme="dark" />
+          <HandexPreference slug='corporate-informations' theme="dark" />
         </div>
         <div className='my-12.5 md:my-15 bg-[#282828] rounded-[20px]'>
           <TestimonialsCorporate />
