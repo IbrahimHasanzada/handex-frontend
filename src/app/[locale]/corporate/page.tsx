@@ -38,7 +38,6 @@ export async function generateMetadata({ params }: any) {
 
 const page = async () => {
   const t = await getTranslations('home');
-  const statistic = await getStatistic('corporate');
   return (
     <div className='pt-30'>
       <div className="wrapper">
@@ -56,7 +55,7 @@ const page = async () => {
           <TestimonialsCorporate />
         </div>
         <div className='py-12.5 md:py-15'>
-          <Statistics data={statistic} page='corporate' />
+          <Statistics slug='corporate' page='corporate' />
         </div>
         <div className='py-12.5 md:py-15'>
           <Partners page='corporate' />
