@@ -1,5 +1,5 @@
 export interface StatisticsDto {
     page: string
-    data: any
+    slug: string
     model?: boolean
 }

@@ -1,10 +1,19 @@
 "use client";
+import { getStudyAreaProgram } from '@/service';
 import { useTranslations } from 'next-intl';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Program: React.FC<any> = ({ program, color, model }) => {
+const Program: React.FC<any> = ({ slug, locale, color, model }) => {
     const t = useTranslations('study-area.program');
     const [count, setCount] = useState<number>(0);
+    const [program, setProgram] = useState<any>();
+
+    useEffect(() => {
+        (async function fetchData() {
+            setProgram(await getStudyAreaProgram(locale, slug));
+        }
+        )();
+    }, []);
     return (
         <div className={`${model ? 'bg-[#282828]' : 'bg-white'} md:flex gap-15 rounded-[20px] py-12 px-6 mt-30 box-shadow`}>
             <div className='md:w-2/5'>

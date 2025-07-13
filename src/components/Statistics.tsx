@@ -2,14 +2,16 @@ import { StatisticsDto } from '@/types/Statistics.dto';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
 import ClientCountUp from './ClientCountUp';
+import { getStatistic } from '@/service';
 
-const Statistics: React.FC<StatisticsDto> = async ({ page, data, model }) => {
+const Statistics: React.FC<StatisticsDto> = async ({ slug, page, model }) => {
     const t = await getTranslations('home');
+    const data = await getStatistic(slug);
 
     return (
         <div className={`${page === 'corporate' || page === 'studyArea' ? 'bg-transparent border-none' : 'bg-white border-[#DDD] p-6 md:px-20 md:py-14'} w-full rounded-[20px] border`}>
-            <div className={`flex ${page === 'corporate' || page === 'studyArea' ? 'flex-col-reverse md:justify-between' : 'flex-col-reverse lg:flex-row md:gap-20'} justify-between ${page === 'studyArea' ? 'gap-6' : 'gap-10'} items-center`}>
-                <div className={`grid ${page === 'corporate' || page === 'studyArea' ? 'base:grid-cols-4' : ' md:grid-cols-2'} grid-cols-2 ${page === 'studyArea' ? 'gap-6' : 'gap-10 md:gap-20'}`}>
+            <div className={`flex ${page === 'corporate' || page === 'studyArea' ? 'flex-col-reverse md:justify-between' : 'flex-col-reverse lg:flex-row md:gap-20'} w-full justify-between ${page === 'studyArea' ? 'gap-6' : 'gap-10'} items-center`}>
+                <div className={`grid ${page === 'corporate' || page === 'studyArea' ? 'base:grid-cols-4' : ' md:grid-cols-2'} grid-cols-2 ${page === 'studyArea' ? 'gap-6' : 'gap-10 w-full md:gap-20'}`}>
                     {data?.map((item: any, i: number) => {
                         const prefix = i % 2 ? '+' : '';
                         return (

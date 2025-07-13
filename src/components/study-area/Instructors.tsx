@@ -1,14 +1,20 @@
 "use client";
+import { getStudyAreaProfile } from '@/service';
 import React, { useEffect, useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const Instructors = ({ students, model }: any) => {
+const Instructors = ({ slug, locale, model }: any) => {
     const [isBeginning, setIsBeginning] = useState(true);
-
     const [flag, setFlag] = useState<number>(0);
-
     const [student, setStudent] = useState<any>();
+    const [students, setStudents] = useState<any>();
+    
+    useEffect(() => {
+        (async function fetchData() {
+            setStudents(await getStudyAreaProfile(locale, slug));
+        })();
+    }, []);
 
     useEffect(() => {
         if (flag) {

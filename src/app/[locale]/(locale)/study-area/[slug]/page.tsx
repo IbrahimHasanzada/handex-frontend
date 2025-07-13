@@ -5,14 +5,14 @@ import Groups from '@/components/study-area/Groups';
 import Instructors from '@/components/study-area/Instructors';
 import Program from '@/components/study-area/Program';
 import StudyAreaModal from '@/components/study-area/StudyAreaModal';
-import { getProfiles, getStudyArea, getStudyAreas } from '@/service';
+import { getStudyAreaItem, getStudyAreas } from '@/service';
 import { baseUrl } from '@/utils/url';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
 export async function generateMetadata({ params }: any) {
     const { locale, slug } = await params;
-    const item = await getStudyArea(slug);
+    const item = await getStudyAreaItem(slug);
 
     const canonicalUrl = `${baseUrl}/${locale}/study-area/${slug}`;
     if (item.error) {
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: any) {
             },
         };
     }
-    const data = item.meta
+    const data = item.meta;
 
     let meta: any = {};
     data.forEach((item: any) => {
@@ -38,12 +38,10 @@ export async function generateMetadata({ params }: any) {
 }
 
 const page = async ({ params }: any) => {
-    const { slug } = await params;
+    const { slug, locale } = await params;
     const t = await getTranslations('study-area');
-    const item = await getStudyArea(slug);
+    const item = await getStudyAreaItem(slug);
     const study = await getStudyAreas();
-
-
     const color = item?.color;
 
     return (
@@ -56,11 +54,8 @@ const page = async ({ params }: any) => {
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
-            <Program program={item.program} color={color} />
-            {item.groups.length > 0
-                &&
-                <Groups study={study} groups={item.groups} color={color} />
-            }
+            <Program slug={slug} locale={locale} program={item.program} color={color} />
+            <Groups locale={locale} slug={slug} study={study} groups={item.groups} color={color} />
             <h2 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h2>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
             <HandexPreference slug='why-handex' />
@@ -74,15 +69,15 @@ const page = async ({ params }: any) => {
             <div className='mt-30 mb-40'>
                 <h2 className='text-[38px] font-bold'>{t('instructors')}</h2>
                 <div className='mt-12'>
-                    <Instructors students={item?.profile} />
+                    <Instructors locale={locale} slug={slug} />
                 </div>
             </div>
-            <div className='py-20'>
-                <Statistics data={item.statistic} page='studyArea' />
+            <div className='pt-10 pb-15 w-full'>
+                <Statistics slug={slug} page='studyArea' />
             </div>
             <div className='mt-30'>
                 <h2 className='font-bold mb-6'>{t('faq')}</h2>
-                <Faq faq={item && item.faq} />
+                <Faq locale={locale} slug={slug} />
             </div>
         </div>
     );
