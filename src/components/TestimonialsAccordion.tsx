@@ -29,7 +29,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                                 slidesPerView: 3,
                             },
                             1280: {
-                                slidesPerView: 4,
+                                slidesPerView: 5,
                             }
                         }
                 }
@@ -38,8 +38,8 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                     delay: page === 'corporate' ? 1500 : 0,
                     disableOnInteraction: false,
                     waitForTransition: true,
-                    pauseOnMouseEnter: true
                 }}
+                allowTouchMove={false}
                 speed={page === 'corporate' ? 2000 : 4000}
                 modules={[Autoplay, FreeMode, EffectFade]}
                 className={`${page === 'corporate' ? 'h-100' : 'h-75'} transition ease-linear duration-300 `}

@@ -5,7 +5,7 @@ import Groups from '@/components/study-area/Groups';
 import Instructors from '@/components/study-area/Instructors';
 import Program from '@/components/study-area/Program';
 import StudyAreaModal from '@/components/study-area/StudyAreaModal';
-import { getStudyAreaItem, getStudyAreas } from '@/service';
+import { getBrochure, getStudyAreaItem, getStudyAreas } from '@/service';
 import { baseUrl } from '@/utils/url';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
@@ -13,7 +13,7 @@ import React from 'react';
 export async function generateMetadata({ params }: any) {
     const { locale, slug } = await params;
     const item = await getStudyAreaItem(slug);
-        
+
 
     const canonicalUrl = `${baseUrl}/${locale}/study-area/${slug}`;
     if (item.error) {
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: any) {
         };
     }
     const data = item.meta;
-    
+
 
     let meta: any = {};
     data.forEach((item: any) => {
@@ -44,8 +44,8 @@ const page = async ({ params }: any) => {
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug);
     const study = await getStudyAreas();
+    const brochure = await getBrochure(item?.id)
     const color = item?.color;
-
     return (
         <div className='wrapper pt-45'>
             <div className='lg:bg-white lg:text-start text-center lg:shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_6px_10px_0px_rgba(0,0,0,0.07)] flex lg:flex-row flex-col justify-center lg:justify-between lg:px-9 py-8 rounded-[20px] items-center'>
@@ -56,7 +56,7 @@ const page = async ({ params }: any) => {
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
-            <Program slug={slug} locale={locale} program={item.program} color={color} />
+            <Program brochure={brochure} slug={slug} locale={locale} program={item.program} color={color} />
             <Groups locale={locale} slug={slug} study={study} groups={item.groups} color={color} />
             <h2 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h2>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>

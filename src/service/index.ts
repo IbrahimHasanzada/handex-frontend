@@ -415,3 +415,18 @@ export const getStatistic = async (field: string) => {
         return err;
     }
 };
+
+export const getBrochure = async (studyAreaId: number) => {
+    const locale = await getLocale();
+    try {
+        const res = await fetch(`https://backend.handex.edu.az/api/brochure/${studyAreaId}`, {
+            headers: {
+                'accept-language': locale
+            }
+        });
+        const data = res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
