@@ -13,6 +13,7 @@ import React from 'react';
 export async function generateMetadata({ params }: any) {
     const { locale, slug } = await params;
     const item = await getStudyAreaItem(slug);
+        
 
     const canonicalUrl = `${baseUrl}/${locale}/study-area/${slug}`;
     if (item.error) {
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: any) {
         };
     }
     const data = item.meta;
+    
 
     let meta: any = {};
     data.forEach((item: any) => {

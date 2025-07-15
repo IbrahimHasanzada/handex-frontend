@@ -235,6 +235,22 @@ export const getMeta = async (field: string) => {
     }
 };
 
+export const getMetaStudyArea = async (field: string) => {
+    const lang = await getLocale();
+    try {
+        const res = await fetch(`https://backend.handex.edu.az/api/meta/${field}`, {
+            cache: 'no-store',
+            headers: {
+                'accept-language': lang
+            }
+        });
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        return err;
+    }
+};
+
 export const getStudyAreas = async (model?: string) => {
     const locale = await getLocale();
     try {
@@ -295,7 +311,7 @@ export const getStudyArea = async (slug: string) => {
 export const getStudyAreaItem = async (slug: string) => {
     const locale = await getLocale();
     try {
-        const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}`, {
+        const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/item`, {
             cache: 'no-store',
             headers: {
                 'accept-language': locale
