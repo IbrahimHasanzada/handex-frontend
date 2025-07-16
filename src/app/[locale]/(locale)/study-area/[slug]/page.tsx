@@ -51,7 +51,7 @@ const page = async ({ params }: any) => {
             <div className='lg:bg-white lg:text-start text-center lg:shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_6px_10px_0px_rgba(0,0,0,0.07)] flex lg:flex-row flex-col justify-center lg:justify-between lg:px-9 py-8 rounded-[20px] items-center'>
                 <div className='lg:w-1/2'>
                     <h1 className='lg:text-[72px] text-[30px] text-start font-bold lg:whitespace-nowrap'>{item?.name}</h1>
-                    <p className='mt-2 my-7 text-start'>{item?.course_detail}</p>
+                    <div dangerouslySetInnerHTML={{ __html: item?.course_detail }} />
                     <StudyAreaModal study={study} />
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
@@ -65,7 +65,7 @@ const page = async ({ params }: any) => {
                 <img src="/assets/Photo (13).svg" alt="Birbank image" />
                 <div className='lg:w-1/2'>
                     <h3 className='lg:text-[68px] text-[24px] leading-[65px] lg:w-4/5 font-bold mb-5'>{t('ads.title')}</h3>
-                    <p className='text-[#979797] mb-7 lg:text-xl'>{t('ads.desc')}</p>
+                    <p className='text-[#979797] mb-7 lg:text-xl max-w-[500px]'>{t('ads.desc')}</p>
                 </div>
             </div>
             <div className='mt-30 mb-40'>

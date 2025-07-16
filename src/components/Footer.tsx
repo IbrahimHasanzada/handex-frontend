@@ -5,6 +5,7 @@ import React from 'react';
 import FooterSlider from './FooterSlider';
 import Link from 'next/link';
 import Top from './Top';
+import { formatPhoneNumber } from '@/utils/format-phone';
 
 const Footer = async ({ theme = '', study }: any) => {
   const [t, general, locale] = await Promise.all([
@@ -86,7 +87,7 @@ const Footer = async ({ theme = '', study }: any) => {
                   <div>
                     <p className='text-[#909090] text-xs font-bold'>{t('footer.number')}</p>
                     <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                      {general.length && general[0].phone && general[0]?.phone[0]}
+                      {general.length && general[0].phone && formatPhoneNumber(general[0]?.phone[0])}
                     </p>
                   </div>
                   <div>

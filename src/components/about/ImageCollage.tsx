@@ -35,8 +35,8 @@ const ImageCollage: React.FC<any> = ({ images }) => {
             desktopStyles: {
                 top: 30,
                 left: 56,
-                width: 270,
-                height: 140,
+                width: 300,
+                height: 170,
                 transform: "rotate(-2deg)",
                 zIndex: 2
             },
@@ -51,10 +51,10 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         },
         {
             desktopStyles: {
-                left: 62,
-                top: 150,
-                width: 400,
-                height: 272,
+                left: 22,
+                top: 200,
+                width: 450,
+                height: 292,
                 transform: "rotate(-20deg)",
                 zIndex: 1
             },
@@ -69,11 +69,11 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         },
         {
             desktopStyles: {
-                top: 300,
+                top: 400,
                 left: "50%",
                 transform: "translateX(-50%) rotate(2deg)",
-                width: 212,
-                height: 110,
+                width: 252,
+                height: 150,
                 zIndex: 0
             },
             mobileStyles: {
@@ -88,9 +88,9 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         {
             desktopStyles: {
                 top: 8,
-                right: 250,
-                width: 400,
-                height: 220,
+                right: 230,
+                width: 450,
+                height: 270,
                 transform: "rotate(8deg)",
                 zIndex: 3
             },
@@ -105,10 +105,10 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         },
         {
             desktopStyles: {
-                top: 216,
+                top: 306,
                 right: 12,
-                width: 320,
-                height: 180,
+                width: 370,
+                height: 230,
                 transform: "rotate(1deg)",
                 zIndex: 2
             },

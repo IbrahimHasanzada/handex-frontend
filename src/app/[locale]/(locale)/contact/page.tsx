@@ -1,5 +1,6 @@
 import ContactForm from '@/components/contact/ContactForm';
 import { getGeneral, getMeta } from '@/service';
+import { formatPhoneNumber } from '@/utils/format-phone';
 import { baseUrl } from '@/utils/url';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: any) {
     };
 
 }
+
 
 
 const page = async () => {
@@ -72,7 +74,7 @@ const page = async () => {
                     </svg>
                     <div>
                         {data[0]?.phone?.map((item: string, i: number) => (
-                            <p key={i} className='text-base md:text-lg'>{item}</p>
+                            <p key={i} className='text-base md:text-lg'>{formatPhoneNumber(item)}</p>
                         ))}
                     </div>
                 </div>

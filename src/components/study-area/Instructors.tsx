@@ -9,7 +9,7 @@ const Instructors = ({ slug, locale, model }: any) => {
     const [flag, setFlag] = useState<number>(0);
     const [student, setStudent] = useState<any>();
     const [students, setStudents] = useState<any>();
-    
+
     useEffect(() => {
         (async function fetchData() {
             setStudents(await getStudyAreaProfile(locale, slug));
@@ -101,7 +101,7 @@ const Instructors = ({ slug, locale, model }: any) => {
                 </div>
                 <div className='lg:w-3/5 w-full'>
                     <h2 className={`font-bold mb-6 ${model ? 'text-white' : 'text-black'}`}>{student?.name}</h2>
-                    <p className={`lg:line-clamp-17 line-clamp-8 ${model ? 'text-white' : 'text-black'}`}>{student?.description}</p>
+                    <div dangerouslySetInnerHTML={{ __html: student?.description }} className={`lg:line-clamp-17 line-clamp-8 ${model ? 'text-white' : 'text-black'}`} />
                 </div>
             </div>
         </div>
