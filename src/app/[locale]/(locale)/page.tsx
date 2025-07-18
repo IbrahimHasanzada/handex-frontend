@@ -67,7 +67,7 @@ const page = async () => {
               <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>{t('topCompanies')}</h2>
             </div>
             {/* <PartnersClient data={general && general[0]?.company} page='home' title={t('topCompanies')} description='' /> */}
-            <TopCompanies data={general && general[0]?.company} index={1} sliderIndex={1} page='home' />
+            <TopCompanies initialSlide={0} data={general && general[0]?.company} index={1} sliderIndex={1} page='home' />
           </div>
         </div>
       </div>

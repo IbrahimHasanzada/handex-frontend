@@ -3,12 +3,13 @@ import React from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderIndex: number }> = ({ page, index, data, sliderIndex }) => {
+const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderIndex: number, initialSlide: number }> = ({ page, index, data, sliderIndex, initialSlide }) => {
 
     const createSlides = (data: any[]) => {
         if (!data) return [];
         return [...data, ...data];
     };
+    console.log(initialSlide)
     return (
         <div className={`linear-slider ${page === 'corporate' && 'mt-6'}`}>
             <Swiper
@@ -19,7 +20,7 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderInd
 
                 }}
                 spaceBetween={page === 'corporate' ? 24 : 62}
-                initialSlide={0}
+                initialSlide={initialSlide}
                 key={index}
                 freeMode={true}
                 loop={true}
