@@ -51,7 +51,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                     >
                         <div className={`${page === 'corporate' ? 'bg-[#181818] border-[#2B2B2B] text-white' : 'bg-white border-[#DDD]'} border-1 w-90   rounded-[20px] p-6 h-auto`}>
                             <div className={`flex flex-col !px-6`}>
-                                <div className='flex justify-between pb-4 border-b border-b-[#DDD]'>
+                                <div className={`${page === 'corporate' ? 'border-b-[#2B2B2B]' : 'border-b-[#DDD]'} flex justify-between pb-4 border-b `}>
                                     <div className='flex items-center gap-4.5'>
                                         <img
                                             src={item.customer_profile?.url}
