@@ -8,8 +8,7 @@ const ServiceClient = ({ service, locale }) => {
     const t = useTranslations('service');
 
     let [project, setProject] = useState(service.data);
-    console.log(project);
-    
+
     let [total, setTotal] = useState();
 
     useEffect(() => {
@@ -22,7 +21,6 @@ const ServiceClient = ({ service, locale }) => {
         setLoading(true);
         let nextPage = ++count;
         let extraProject = await getServices(locale, nextPage);
-            console.log(project);
             
         setProject(prev => project?.length ? [...prev, ...extraProject.data] : extraProject.data);
         setCount(nextPage);

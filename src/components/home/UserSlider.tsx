@@ -6,6 +6,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const UserSlider: React.FC<any> = ({ result }) => {
   const [isBeginning, setIsBeginning] = useState(true);
+  const [shuffledResult, setShuffledResult] = useState<any[]>([]);
+
+  useEffect(() => {
+    if (result && result.length) {
+      const shuffled = [...result].sort(() => Math.random() - 0.5);
+      setShuffledResult(shuffled);
+      setIsBeginning(true)
+    }
+  }, [result]);
+
   return (
     <div className='relative'>
       <div className="navigation-buttons absolute left-0 right-0 flex justify-center space-x-2 z-10 -bottom-30">
@@ -40,7 +50,6 @@ const UserSlider: React.FC<any> = ({ result }) => {
             slidesPerView: 4,
             spaceBetween: 24
           }
-
         }}
         spaceBetween={24}
         slidesPerView={1}
@@ -49,11 +58,11 @@ const UserSlider: React.FC<any> = ({ result }) => {
           nextEl: ".swiper-button-next-custom",
         }}
         modules={[Navigation]}
-        onReachBeginning={() => result && setIsBeginning(true)}
-        onReachEnd={() => result && setIsBeginning(false)}
+        onReachBeginning={() => setIsBeginning(true)}
+        onReachEnd={() => setIsBeginning(false)}
         className='h-90 transition ease-linear duration-300 relative'
       >
-        {result && result.length && result?.map((item: any, i: number) => (
+        {shuffledResult && shuffledResult.map((item: any, i: number) => (
           <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
             <div className='w-full h-full relative'>
               <img src={item.images[0]?.url} alt={item?.images[0]?.alt} className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
@@ -64,11 +73,10 @@ const UserSlider: React.FC<any> = ({ result }) => {
               WebkitBackdropFilter: 'blur(50px)'
             }} className='h-14 px-6 pt-1 text-white rounded-[50px] absolute left-6 bottom-6  w-[80%]'>
               <p className='font-bold'>{item.title}</p>
-              <p className='text-sm'>{item.desc}</p>
+              <p className='text-xs'>{item.desc}</p>
             </div>
           </SwiperSlide>
         ))}
-
       </Swiper>
     </div>
   );

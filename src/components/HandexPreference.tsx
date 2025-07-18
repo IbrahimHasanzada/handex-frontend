@@ -3,7 +3,6 @@ import React from 'react';
 
 const HandexPreference = async ({ theme = '', model, slug }: any) => {
     const handex = await getContent(slug);
-    console.log(handex);
     
     return (
         <div className='flex flex-wrap justify-center gap-6 mt-12'>

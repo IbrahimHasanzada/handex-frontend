@@ -9,7 +9,6 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderInd
         if (!data) return [];
         return [...data, ...data];
     };
-    console.log(initialSlide)
     return (
         <div className={`linear-slider ${page === 'corporate' && 'mt-6'}`}>
             <Swiper
