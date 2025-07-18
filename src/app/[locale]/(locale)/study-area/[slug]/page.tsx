@@ -44,10 +44,8 @@ const page = async ({ params }: any) => {
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug);
     const study = await getStudyAreas();
-    console.log(study);
     
     const brochure = await getBrochure(item?.id);
-    console.log(brochure);
     
     const color = item?.color;
     return (
