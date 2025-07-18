@@ -157,7 +157,7 @@ export const getProject = async (slug: string) => {
 
 export const getServices = async (lang: string, page: number = 0) => {
     try {
-        const res = await fetch(`https://backend.handex.edu.az/api/service`, {
+        const res = await fetch(`https://backend.handex.edu.az/api/service?page=${page}`, {
             cache: 'no-store',
             headers: {
                 'accept-language': lang
@@ -424,9 +424,13 @@ export const getBrochure = async (studyAreaId: number) => {
                 'accept-language': locale
             }
         });
-        const data = res.json();
+        console.log(res);
+        
+        const data = await res.json();
+        console.log(data);
+        
         return data;
     } catch (err) {
-        return err;
+        return null;
     }
 };

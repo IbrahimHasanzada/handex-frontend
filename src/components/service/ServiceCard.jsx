@@ -22,17 +22,19 @@ const ServiceCard = (params) => {
                     <h2 className='md:text-2xl text-sm font-bold line-clamp-2 mb-3'>{item.title}</h2>
                     <div
                         className='
-                         text-[#666] text-xs font-normal line-clamp-5 mb-3
-                         [&_p]:inline
-                         [&_a]:inline [&_a]:text-xs [&_a]:font-normal [&_a]:text-[#0070f3]
-                         [&_h1]:inline [&_h1]:text-xs [&_h1]:font-normal [&_h1]:mb-0
-                         [&_h2]:inline [&_h2]:text-xs [&_h2]:font-normal [&_h2]:mb-0
-                         [&_h3]:inline [&_h3]:text-xs [&_h3]:font-normal [&_h3]:mb-0
-                         [&_h4]:inline [&_h4]:text-xs [&_h4]:font-normal [&_h4]:mb-0
-                         [&_h5]:inline [&_h5]:text-xs [&_h5]:font-normal [&_h5]:mb-0
-                         [&_h6]:inline [&_h6]:text-xs [&_h6]:font-normal [&_h6]:mb-0'
+                                text-[#666] text-xs font-normal line-clamp-5 mb-3
+                                [&_p]:inline [&_p]:text-xs [&_p]:font-normal
+                                [&_span]:!inline [&_span]:!text-xs [&_span]:!font-normal
+                                [&_a]:inline [&_a]:text-xs [&_a]:font-normal [&_a]:text-[#0070f3]
+                                [&_h1]:inline [&_h1]:text-xs [&_h1]:font-normal [&_h1]:mb-0
+                                [&_h2]:inline [&_h2]:text-xs [&_h2]:font-normal [&_h2]:mb-0
+                                [&_h3]:inline [&_h3]:text-xs [&_h3]:font-normal [&_h3]:mb-0
+                                [&_h4]:inline [&_h4]:text-xs [&_h4]:font-normal [&_h4]:mb-0
+                                [&_h5]:inline [&_h5]:text-xs [&_h5]:font-normal [&_h5]:mb-0
+                                [&_h6]:inline [&_h6]:text-xs [&_h6]:font-normal [&_h6]:mb-0'
                         dangerouslySetInnerHTML={{ __html: item.description || '' }}
                     />
+
                 </div>
                 <div className='mt-6 flex items-center gap-2 cursor-pointer'>
                     <p className='text-[#141414] font-bold text-base leading-[30px]'>

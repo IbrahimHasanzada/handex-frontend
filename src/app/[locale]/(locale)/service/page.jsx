@@ -35,7 +35,7 @@ const data = async ({ params }) => {
     const { locale } = await params;
     const service = await getServices(locale);
 
-    return <ServiceClient service={service} />;
+    return <ServiceClient service={service} locale={locale} />;
 };
 
 export default data;
