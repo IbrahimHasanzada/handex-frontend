@@ -13,6 +13,8 @@ const ClientCountUp: React.FC<ClientCountUpProps> = ({ end, prefix = '' }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
   const [startCount, setStartCount] = useState(false);
 
+  const decimals = end % 1 !== 0 ? 1 : 0;
+
   useEffect(() => {
     if (inView) {
       setStartCount(true);
@@ -21,7 +23,7 @@ const ClientCountUp: React.FC<ClientCountUpProps> = ({ end, prefix = '' }) => {
 
   return (
     <div ref={ref}>
-      {startCount ? <CountUp end={end} duration={2} separator="," prefix={prefix} /> : '0'}
+      {startCount ? <CountUp  end={end} suffix={prefix} decimals={decimals} duration={2} separator="," /> : '0'}
     </div>
   );
 };
