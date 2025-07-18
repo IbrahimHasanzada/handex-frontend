@@ -21,7 +21,6 @@ const ServiceClient = ({ service, locale }) => {
         setLoading(true);
         let nextPage = ++count;
         let extraProject = await getServices(locale, nextPage);
-            console.log(project);
             
         setProject(prev => project?.length ? [...prev, ...extraProject.data] : extraProject.data);
         setCount(nextPage);

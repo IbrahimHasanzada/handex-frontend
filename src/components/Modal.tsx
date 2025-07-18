@@ -20,8 +20,6 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
 
     const handleClick = async () => {
         let data = await addConsultation(messages, locale);
-        console.log(data, messages);
-        
         if (data.error) toast.error(Array.isArray(data.message) ? data.message[0] : data.message);
         else toast.success(t('modal.success'));
         if (!data.error) {

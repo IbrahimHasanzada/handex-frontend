@@ -36,7 +36,6 @@ export async function generateMetadata({ params }: any) {
 
 const page = async () => {
     const data = await getGeneral();
-    console.log(data)
     const t = await getTranslations('contact');
     return (
         <div className='wrapper pt-45'>

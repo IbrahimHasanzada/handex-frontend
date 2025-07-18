@@ -6,8 +6,6 @@ const NewsSearch = () => {
     let search: string = ''
     const handleChange = (e: string) => {
         search = e
-        console.log(search);
-        
     }
     const t = useTranslations();
     return (

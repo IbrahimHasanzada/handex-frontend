@@ -424,10 +424,8 @@ export const getBrochure = async (studyAreaId: number) => {
                 'accept-language': locale
             }
         });
-        console.log(res);
         
         const data = await res.json();
-        console.log(data);
         
         return data;
     } catch (err) {

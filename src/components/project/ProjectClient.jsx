@@ -17,7 +17,6 @@ const ProjectClient = ({ locale }) => {
       const data = await getProjects(locale);
 
       setProject(data?.data);
-      console.log(data);
       setTotal(data?.totalItems)
     }
     getData();
