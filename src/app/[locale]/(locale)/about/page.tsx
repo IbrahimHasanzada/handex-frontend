@@ -36,7 +36,6 @@ const AboutPage = async () => {
     const t = await getTranslations('home');
     const features = await getContent('about-features');
 
-
     return (
         <div className="wrapper w-full pt-30">
             <div className='relative'>
@@ -49,7 +48,8 @@ const AboutPage = async () => {
                             {item?.left_side?.type === 'image' ? (
                                 <img src={item?.left_side?.url} alt='' className='object-cover pt-10 h-100 w-full rounded-[20px]' />
                             ) : (
-                                <div dangerouslySetInnerHTML={{ __html: item?.left_side?.translations[0]?.value }}></div>
+                                <div className='!text-[#666] [&_h2]:text-black' dangerouslySetInnerHTML={{ __html: item?.left_side?.translations[0]?.value }}></div>
+
                             )}
                         </div>
                         <div className='flex-1/2 rounded-[20px]'>
