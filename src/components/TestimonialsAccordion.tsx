@@ -49,7 +49,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                         className={`relative !flex justify-center items-center ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '' : '!h-[268px]'}`}
                         key={item.id || index}
                     >
-                        <div className={`border-1 w-90 bg-white border-[#DDD] rounded-[20px] p-6 h-auto`}>
+                        <div className={`${page === 'corporate' ? 'bg-[#181818] border-[#2B2B2B] text-white' : 'bg-white border-[#DDD]'} border-1 w-90   rounded-[20px] p-6 h-auto`}>
                             <div className={`flex flex-col !px-6`}>
                                 <div className='flex justify-between pb-4 border-b border-b-[#DDD]'>
                                     <div className='flex items-center gap-4.5'>
@@ -78,7 +78,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                                     </div>
                                 </div>
                                 <div className='mt-2.5 flex-grow overflow-y-auto' style={{ minHeight: '120px' }}>
-                                    <p className='text-sm line-clamp-5 break-words'>{item.comment}</p>
+                                    <p className='text-sm font-light line-clamp-5 break-words'>{item.comment}</p>
                                 </div>
                             </div>
                         </div>
