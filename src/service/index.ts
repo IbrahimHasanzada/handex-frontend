@@ -424,9 +424,13 @@ export const getBrochure = async (studyAreaId: number) => {
                 'accept-language': locale
             }
         });
-        const data = res.json();
+        console.log(res);
+        
+        const data = await res.json();
+        console.log(data);
+        
         return data;
     } catch (err) {
-        return err;
+        return null;
     }
 };

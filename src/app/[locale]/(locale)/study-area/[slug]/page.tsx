@@ -44,7 +44,11 @@ const page = async ({ params }: any) => {
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug);
     const study = await getStudyAreas();
-    const brochure = await getBrochure(item?.id)
+    console.log(study);
+    
+    const brochure = await getBrochure(item?.id);
+    console.log(brochure);
+    
     const color = item?.color;
     return (
         <div className='wrapper pt-45'>
@@ -56,7 +60,7 @@ const page = async ({ params }: any) => {
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
-            <Program brochure={brochure} slug={slug} locale={locale} program={item.program} color={color} />
+            <Program brochure={brochure ? brochure : null} slug={slug} locale={locale} program={item.program} color={color} />
             <Groups locale={locale} slug={slug} study={study} groups={item.groups} color={color} />
             <h2 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h2>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
