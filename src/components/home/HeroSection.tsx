@@ -9,7 +9,7 @@ const HeadSection: React.FC<HeroSectionDto> = async ({ page, t }) => {
     const study = await getStudyAreas();
     const data = response && response[0];
     return (
-        <div className='flex flex-col-reverse md:flex-row gap-6'>
+        <div className='flex flex-col-reverse md:flex-row  gap-6'>
             <div className='md:flex-1/2 md:py-32'>
                 <h1 className={`font-bold sm:text-2xl base:!text-4xl leading-12 mb-6 max-w-120 ${page === 'corporate' ? 'text-white' : 'text-black'}`}>{data?.title}</h1>
                 <p className='mb-10 max-w-150 md:text-sm base:text-base text-[#909090]'>{data?.desc}</p>

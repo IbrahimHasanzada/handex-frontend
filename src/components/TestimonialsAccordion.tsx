@@ -5,10 +5,21 @@ import 'swiper/css/effect-fade';
 import { Autoplay, FreeMode, EffectFade } from 'swiper/modules';
 import { TestimonialsDto } from '@/types/Testimonials.dto';
 import { SwiperOptions } from 'swiper/types';
+import ModalUsers from './ModalUsers';
+import { useState } from 'react';
 
 const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start }) => {
+    const [flag, setFlag] = useState(0)
+    const [student, setStudent] = useState()
     let a: SwiperOptions
     if (!data.length) return <div>Loading...</div>
+
+    const handleOpenModal = (item: any) => {
+        setFlag(1)
+        setStudent(item)
+    }
+
+    console.log(student)
 
     return (
         <div className={`relative ${page !== 'corporate' ? 'linear-slider' : ''}`}>
@@ -46,6 +57,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
             >
                 {data.map((item: any, index: number) => (
                     <SwiperSlide
+                        onClick={() => handleOpenModal(item)}
                         className={`relative !flex justify-center items-center ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '' : '!h-[268px]'}`}
                         key={item.id || index}
                     >
@@ -86,6 +98,8 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                     </SwiperSlide>
                 ))}
             </Swiper>
+
+            <ModalUsers setFlag={setFlag} flag={flag} student={student} model={page === 'corporate' ? true : false} />
         </div>
     );
 };
