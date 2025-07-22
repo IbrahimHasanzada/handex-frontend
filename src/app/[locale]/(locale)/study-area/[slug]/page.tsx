@@ -70,15 +70,14 @@ const page = async ({ params }: any) => {
                     <p className='text-[#979797] mb-7 lg:text-xl max-w-[500px]'>{t('ads.desc')}</p>
                 </div>
             </div>
-            <div className='mt-30 mb-40'>
+            <div className='mt-30'>
                 <h2 className='text-[38px] font-bold'>{t('instructors')}</h2>
                 <div className='mt-12'>
                     <Instructors locale={locale} slug={slug} />
                 </div>
             </div>
-            <div className='pt-10 pb-15 w-full'>
                 <Statistics slug={slug} page='studyArea' />
-            </div>
+            
             <div className='mt-30'>
                 <h2 className='font-bold mb-6'>{t('faq')}</h2>
                 <Faq locale={locale} slug={slug} />
