@@ -42,6 +42,7 @@ const page = async ({ params }: any) => {
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug);
     const study = await getStudyAreas();
+    console.log(item);
 
     const color = item?.color;
 
@@ -56,10 +57,7 @@ const page = async ({ params }: any) => {
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
             <Program locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} color={color} />
-            {item.groups.length > 0
-                &&
-                <Groups locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} study={study} color={color} />
-            }
+            <Groups locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} study={study} color={color} />
             <h2 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold text-center mt-30`}>{t('why.title')}</h2>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
             <HandexPreference model={item.model === 'corporate' ? true : false} />
