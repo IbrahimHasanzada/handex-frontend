@@ -19,17 +19,17 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
         setStudent(item)
     }
 
-    console.log(student)
+    console.log(data)
 
     return (
         <div className={`relative ${page !== 'corporate' ? 'linear-slider' : ''}`}>
             <Swiper
                 key={data.length}
-                spaceBetween={page === 'corporate' ? 64 : 32}
+                spaceBetween={page === 'corporate' ? 10 : 32}
                 initialSlide={start}
                 direction={page === "corporate" ? "vertical" : "horizontal"}
                 loop={page !== 'corporate' && true}
-                slidesPerView={page !== 'corporate' ? 1 : 2}
+                slidesPerView={page !== 'corporate' ? 1 : 'auto'}
                 breakpoints={
                     page == 'corporate' ? undefined :
                         {
@@ -53,12 +53,12 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 allowTouchMove={false}
                 speed={page === 'corporate' ? 2000 : 4000}
                 modules={[Autoplay, FreeMode, EffectFade]}
-                className={`${page === 'corporate' ? 'h-100' : 'h-75'} transition ease-linear duration-300 `}
+                className={`${page === 'corporate' ? 'h-90' : 'h-75'} transition ease-linear duration-300 `}
             >
                 {data.map((item: any, index: number) => (
                     <SwiperSlide
                         onClick={() => handleOpenModal(item)}
-                        className={`relative !flex justify-center items-center ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '' : '!h-[268px]'}`}
+                        className={`relative !flex justify-center items-center ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '!h-auto' : '!h-[268px]'}`}
                         key={item.id || index}
                     >
                         <div className={`${page === 'corporate' ? 'bg-[#181818] border-[#2B2B2B] text-white' : 'bg-white border-[#DDD]'} border-1 w-90   rounded-[20px] p-6 h-auto`}>
@@ -94,7 +94,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                                 </div>
                             </div>
                         </div>
-                        <div className={page === 'corporate' ? (index % 2 ? 'absolute -bottom-18 -left-3 -right-3 h-10 z-3 bg-[#282828] blur-[12px]' : 'hidden') : 'hidden'}></div>
+                        {/* <div className={page === 'corporate' ? (index % 2 !== 1 ? 'absolute top-60 -left-5 -right-5 h-25 z-3 bg-[#282828] blur-[12px]' : '') : 'hidden'}></div> */}
                     </SwiperSlide>
                 ))}
             </Swiper>

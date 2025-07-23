@@ -25,7 +25,7 @@ const TestimonialsCorporate = async () => {
                         <TestimonialsAccordion start={0} data={result} page="corporate" />
                     </div>
                     <div className="h-full">
-                        <TestimonialsAccordion start={1} data={result} page="corporate" />
+                        <TestimonialsAccordion start={3} data={result} page="corporate" />
                     </div>
                 </div>
 
