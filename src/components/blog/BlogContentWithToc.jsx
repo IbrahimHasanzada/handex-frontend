@@ -57,7 +57,7 @@ const BlogContentWithTOC = ({ description }) => {
         </div>
       </div>
 
-      <article id="blog-content" className="prose lg:w-3/4 text-xl w-full"></article>
+      <article id="blog-content" className="prose lg:w-3/4 text-xl w-full !text-[#666] [&_h1]:text-black [&_h2]:text-black [&_h3]:text-black [&_h4]:text-black [&_h5]:text-black"></article>
     </div>
   );
 };
