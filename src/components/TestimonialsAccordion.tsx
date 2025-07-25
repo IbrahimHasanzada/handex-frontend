@@ -19,7 +19,6 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
         setStudent(item)
     }
 
-    console.log(data)
 
     return (
         <div className={`relative ${page !== 'corporate' ? 'linear-slider' : ''}`}>

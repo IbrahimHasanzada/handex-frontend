@@ -42,7 +42,6 @@ const page = async ({ params }: any) => {
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug);
     const study = await getStudyAreas();
-    console.log(item);
 
     const color = item?.color;
 
