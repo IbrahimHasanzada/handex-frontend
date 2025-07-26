@@ -112,7 +112,7 @@ const Footer = async ({ theme = '', study }: any) => {
                       </li>
                     ))}
                     <li className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                      <Link href={'/kontakt'}>Əlaqə</Link>
+                      <Link href={'/elaqe'}>Əlaqə</Link>
                     </li>
                   </ul>
                 </div>

@@ -140,7 +140,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             </li>
             <li className='group cursor-pointer py-3'>
               <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                <Link href={'/' + local + '/kontakt'}>{t('contact')}</Link>
+                <Link href={'/' + local + '/elaqe'}>{t('contact')}</Link>
               </p>
             </li>
           </ul>
@@ -240,7 +240,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
             {study?.map((item: any, idx: number) => (
               <li onClick={() => handleClose()} className='text-[#909090]' key={idx}>
-                <Link className='whitespace-nowrap' href={'/' + local + `/study-area/${item.slug}`}>
+                <Link className='whitespace-nowrap' href={'/' + local + `/tedris/${item.slug}`}>
                   {item.name}
                 </Link>
               </li>
@@ -248,10 +248,10 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           </ul>
         </div>
         <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-          <Link href={'/' + local + '/corporate'}>{t('coorporate')}</Link>
+          <Link href={'/' + local + '/korporativ'}>{t('coorporate')}</Link>
         </li>
         <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-          <Link href={'/' + local + '/contact'}>{t('contact')}</Link>
+          <Link href={'/' + local + '/elaqe'}>{t('contact')}</Link>
         </li>
         {/* <div className='w-full h-[1px] bg-[#ABABAB] mt-10 mb-5'></div>
         <div className='flex items-center gap-2 mb-4'>

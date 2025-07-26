@@ -4,6 +4,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import localFont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
+import Head from 'next/head';
 
 const SFPro = localFont({
   src: '../../public/font/sf-pro/SFPRODISPLAYMEDIUM.otf',
@@ -14,8 +15,10 @@ const SFPro = localFont({
 export const metadata = {
   title: 'Handex.az',
   icons: {
-    icon: '/favicon.ico',
-  },
+    icon: [
+      { url: '/favicon.ico' }
+    ]
+  }
 };
 
 export default function RootLayout({
@@ -40,6 +43,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`antialiased ${SFPro.variable}`}>
         <noscript
@@ -50,7 +54,9 @@ export default function RootLayout({
             `,
           }}
         />
-
+        <Head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+        </Head>
         <Toaster position="top-center" />
         {children}
       </body>

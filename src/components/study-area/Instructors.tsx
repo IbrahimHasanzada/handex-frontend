@@ -101,7 +101,7 @@ const Instructors = ({ slug, locale, model }: any) => {
                 </div>
                 <div className='lg:w-3/5 w-full'>
                     <h2 className={`font-bold mb-0 ${model ? 'text-white' : 'text-black'}`}>{student?.name}</h2>
-                    <p className='font-medium pl-1 mb-6'>{student?.speciality}</p>
+                    <p className={`${ model ? 'text-white' : 'text-black' } font-medium pl-1 mb-6 `}>{student?.speciality}</p>
                     <div dangerouslySetInnerHTML={{ __html: student?.description }} className={`lg:line-clamp-17 line-clamp-8 ${model ? 'text-white' : 'text-black'}`} />
                 </div>
             </div>

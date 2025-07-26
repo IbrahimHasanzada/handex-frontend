@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackgroundLayout from "@/components/BackgroundLayout";
 import { getStudyAreas } from "@/service";
+import Head from "next/head";
 export default async function RootLayout({
   children,
   params,
