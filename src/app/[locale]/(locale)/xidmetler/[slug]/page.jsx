@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
     const description = metaMap['description'] || '';
 
     const lang = await getLocale();
-    const canonicalUrl = `${baseUrl}/service/${slug}`;
+    const canonicalUrl = `${baseUrl}/xidmetler/${slug}`;
 
     return {
         title,

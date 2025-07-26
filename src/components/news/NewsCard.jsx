@@ -10,7 +10,7 @@ const NewsCard = ({ item }) => {
 
 
   return (
-    <Link href={`/${local}/news/${item.slug}`} className='bg-white pt-5 flex flex-col justify-between py-8 px-3 rounded-2xl'>
+    <Link href={`/${local}/xeberler/${item.slug}`} className='bg-white pt-5 flex flex-col justify-between py-8 px-3 rounded-2xl'>
       <div className='w-full h-60 rounded-[12px]'>
         <img
           quality={100}

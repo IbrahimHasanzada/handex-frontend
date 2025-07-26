@@ -1,13 +1,14 @@
 import dynamic from 'next/dynamic';
 import { baseUrl } from '@/utils/url';
 import { getLocale } from 'next-intl/server';
-import { getMeta } from '@/service';
+import { getMeta, getProjects } from '@/service';
+import { useLocale } from 'next-intl';
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  let data = await getMeta('news');
+export async function generateMetadata() {
+  const locale = await getLocale();
+  let data = await getMeta('project');
 
-  const canonicalUrl = `${baseUrl}/news`;
+  const canonicalUrl = `${baseUrl}/layihe`;
   if (data.error) {
     return {
       alternates: {
@@ -30,13 +31,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const NewsClient = dynamic(() => import('@/components/news/NewsClient'), {
+const ProjectClient = dynamic(() => import('@/components/project/ProjectClient'), {
   ssr: true,
 });
 
 
 const NewsPage = ({ params }) => {
-  return <NewsClient locale={params.locale} />;
+  return (
+    <ProjectClient />
+  );
 };
 
 export default NewsPage;

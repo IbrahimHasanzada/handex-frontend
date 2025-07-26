@@ -10,7 +10,7 @@ const BlogCard = ({ item }) => {
     const router = useRouter();
     const locale = useLocale();
     const handleClick = () => {
-        router.push(`/${locale}/blog/${item.slug}`);
+        router.push(`/${locale}/bloq/${item.slug}`);
     };
 
     return (

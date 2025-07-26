@@ -7,7 +7,7 @@ const ServiceCard = (params) => {
     const t = useTranslations();
     return (
         <Link
-            href={`/${locale}/service/${item.slug}`}
+            href={`/${locale}/xidmetler/${item.slug}`}
             className='flex md:flex-row flex-col bg-white box-shadow rounded-[20px] w-full overflow-hidden'
         >
             <div className='md:w-1/2 w-full md:h-[316px] h-[200px]'>

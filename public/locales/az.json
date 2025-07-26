@@ -11,23 +11,23 @@
                 "subItems": [
                     {
                         "text": "Haqqımızda",
-                        "link": "/about"
+                        "link": "/haqqimizda"
                     },
                     {
                         "text": "Xidmətlərimiz",
-                        "link": "/service"
+                        "link": "/xidmetler"
                     },
                     {
                         "text": "Layihələrimiz",
-                        "link": "/project"
+                        "link": "/layihe"
                     },
                     {
                         "text": "Xəbərlər",
-                        "link": "/news"
+                        "link": "/xeberler"
                     },
                     {
                         "text": "Bloqlar",
-                        "link": "/blog"
+                        "link": "/bloq"
                     }
                 ]
             }
@@ -224,15 +224,11 @@
         "site": [
             {
                 "text": "Haqqımızda",
-                "link": "/about"
+                "link": "/haqqimizda"
             },
             {
                 "text": "Korporativ",
-                "link": "/corporate"
-            },
-            {
-                "text": "Əlaqə",
-                "link": "/contact"
+                "link": "/korporativ"
             }
         ]
     },

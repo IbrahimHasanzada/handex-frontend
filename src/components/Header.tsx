@@ -125,7 +125,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                 <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
                   {study?.map((item: any, idx: number) => (
                     <li className='text-black' key={idx}>
-                      <Link className='whitespace-nowrap' href={theme ? '/corporate/' + `/study-area/${item.slug}` : '/' + local + `/study-area/${item.slug}`}>
+                      <Link className='whitespace-nowrap' href={theme ? '/corporate/' + `/tedris/${item.slug}` : '/' + local + `/tedris/${item.slug}`}>
                         {item.name}
                       </Link>
                     </li>
@@ -135,12 +135,12 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             </li>
             <li className='group cursor-pointer py-3'>
               <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                <Link href={'/' + local + '/corporate'}>{t('coorporate')}</Link>
+                <Link href={'/' + local + '/korporativ'}>{t('coorporate')}</Link>
               </p>
             </li>
             <li className='group cursor-pointer py-3'>
               <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                <Link href={'/' + local + '/contact'}>{t('contact')}</Link>
+                <Link href={'/' + local + '/kontakt'}>{t('contact')}</Link>
               </p>
             </li>
           </ul>
