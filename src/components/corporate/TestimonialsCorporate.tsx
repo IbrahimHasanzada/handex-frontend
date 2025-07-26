@@ -20,12 +20,12 @@ const TestimonialsCorporate = async () => {
                 </div>
             </div>
             <div className="flex base:flex-3/4  xl:flex-1/2 gap-6">
-                <div className="grid grid-cols-1 base:grid-cols-2 gap-5 h-full">
+                <div className="grid grid-cols-1 base:grid-cols-2 gap-5 h-full ">
                     <div className="hidden base:block  h-full">
-                        <TestimonialsAccordion start={0} data={result} page="corporate" />
+                        <TestimonialsAccordion index={0} start={0} data={result} page="corporate" />
                     </div>
                     <div className="h-full">
-                        <TestimonialsAccordion start={3} data={result} page="corporate" />
+                        <TestimonialsAccordion index={1} start={3} data={result} page="corporate" />
                     </div>
                 </div>
 

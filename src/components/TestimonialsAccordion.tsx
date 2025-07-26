@@ -8,7 +8,7 @@ import { SwiperOptions } from 'swiper/types';
 import ModalUsers from './ModalUsers';
 import { useState } from 'react';
 
-const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start }) => {
+const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start, index }) => {
     const [flag, setFlag] = useState(0)
     const [student, setStudent] = useState()
     let a: SwiperOptions
@@ -24,7 +24,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
         <div className={`relative ${page !== 'corporate' ? 'linear-slider' : ''}`}>
             <Swiper
                 key={data.length}
-                spaceBetween={page === 'corporate' ? 10 : 32}
+                spaceBetween={page === 'corporate' ? 5 : 32}
                 initialSlide={start}
                 direction={page === "corporate" ? "vertical" : "horizontal"}
                 loop={page !== 'corporate' && true}
@@ -52,12 +52,12 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 allowTouchMove={false}
                 speed={page === 'corporate' ? 2000 : 4000}
                 modules={[Autoplay, FreeMode, EffectFade]}
-                className={`${page === 'corporate' ? 'h-90' : 'h-75'} transition ease-linear duration-300 `}
+                className={`${page === 'corporate' ? 'h-120' : 'h-75'}  transition ease-linear duration-300 `}
             >
                 {data.map((item: any, index: number) => (
                     <SwiperSlide
                         onClick={() => handleOpenModal(item)}
-                        className={`relative !flex justify-center items-center ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '!h-auto' : '!h-[268px]'}`}
+                        className={`relative !flex justify-center items-center py-5 ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '!h-auto' : '!h-[268px]'}`}
                         key={item.id || index}
                     >
                         <div className={`${page === 'corporate' ? 'bg-[#181818] border-[#2B2B2B] text-white' : 'bg-white border-[#DDD]'} border-1 w-90   rounded-[20px] p-6 h-auto`}>
@@ -98,7 +98,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 ))}
             </Swiper>
 
-            {flag && <ModalUsers setFlag={setFlag} flag={flag} student={student} model={page === 'corporate' ? true : false} />}
+            {flag ? <ModalUsers setFlag={setFlag} flag={flag} student={student} model={page === 'corporate' ? true : false} /> : undefined}
         </div>
     );
 };

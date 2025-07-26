@@ -13,7 +13,7 @@ const TestimonialsHome = async ({ t }: any) => {
                     <p className='text-[#787878] text-sm md:text-2xl leading-8'>{t("testimonials.title")}</p>
                 </div>
             </div>
-            <TestimonialsAccordion start={0} data={testimonialsData} page='home' />
+            <TestimonialsAccordion index={0} start={0} data={testimonialsData} page='home' />
 
         </div>
     );
