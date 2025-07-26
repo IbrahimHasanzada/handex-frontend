@@ -12,7 +12,7 @@ export default async function CorporateLayout({
     params: any;
 }>) {
     const messagese = await getMessages();
-    const study = await getStudyAreas()
+    const study = await getStudyAreas('corporate');
     return (
         <>
             <BackgroundLayout pathname={'corporate'}>

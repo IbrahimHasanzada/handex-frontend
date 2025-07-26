@@ -81,7 +81,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                   {study?.map((item: any, index: number) => (
                     <li key={index} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                      <Link href={'/' + locale + `/study-area/${item.slug}`}>{item.name}</Link>
+                      <Link href={theme ? '/corporate/' + `/study-area/${item.slug}` : `/study-area/${item.slug}`}>{item.name}</Link>
                     </li>
                   ))}
                 </ul>

@@ -125,7 +125,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                 <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
                   {study?.map((item: any, idx: number) => (
                     <li className='text-black' key={idx}>
-                      <Link className='whitespace-nowrap' href={'/' + local + `/study-area/${item.slug}`}>
+                      <Link className='whitespace-nowrap' href={theme ? '/corporate/' + `/study-area/${item.slug}` : '/' + local + `/study-area/${item.slug}`}>
                         {item.name}
                       </Link>
                     </li>

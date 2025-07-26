@@ -14,7 +14,7 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
   const messages = await getMessages({ locale });
-  const study = await getStudyAreas();
+  const study = await getStudyAreas('home');
 
   return (
     <BackgroundLayout pathname="">
