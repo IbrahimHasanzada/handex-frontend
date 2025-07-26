@@ -16,7 +16,7 @@ export const metadata = {
   title: 'Handex.az',
   icons: {
     icon: [
-      { url: '/favicon.ico' }
+      { url: '/icon.ico' }
     ]
   }
 };
@@ -43,7 +43,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/x-icon" href="/icon.ico" sizes="any" />
       </head>
       <body className={`antialiased ${SFPro.variable}`}>
         <noscript
@@ -55,7 +55,7 @@ export default function RootLayout({
           }}
         />
         <Head>
-          <link rel="icon" href="/favicon.ico" sizes="any" />
+          <link rel="icon" type="image/x-icon" href="/icon.ico" sizes="any" />
         </Head>
         <Toaster position="top-center" />
         {children}

@@ -55,7 +55,7 @@ const page = async ({ params }: any) => {
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
-            <Program locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} color={color} />
+            <Program locale={locale} brochure={item.brochure || null} slug={slug} model={item.model === 'corporate' ? true : false} color={color} />
             <Groups locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} study={study} color={color} />
             <h2 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold text-center mt-30`}>{t('why.title')}</h2>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
