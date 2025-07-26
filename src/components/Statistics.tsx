@@ -14,7 +14,6 @@ const Statistics: React.FC<StatisticsDto> = async ({ slug, page, model }) => {
             <div className={`flex ${page === 'corporate' || page === 'studyArea' ? 'flex-col-reverse md:justify-between' : 'flex-col-reverse lg:flex-row md:gap-20'} w-full justify-between ${page === 'studyArea' ? 'gap-6' : 'gap-10'} items-center`}>
                 <div className={`grid ${page === 'corporate' || page === 'studyArea' ? 'base:grid-cols-4' : ' md:grid-cols-2'} grid-cols-2 ${page === 'studyArea' ? 'gap-6' : 'gap-10 w-full md:gap-20'}`}>
                     {data?.map((item: any, i: number) => {
-                        console.log(item.count);
 
                         const prefix = i % 2 ? '+' : '';
                         return (

@@ -19,7 +19,6 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
         setStudent(item)
     }
 
-    console.log(data)
 
     return (
         <div className={`relative ${page !== 'corporate' ? 'linear-slider' : ''}`}>
@@ -75,18 +74,18 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                                         />
                                         <div>
                                             <p className='text-sm font-semibold'>{item.name}</p>
-                                            <p className='text-xs'>{item.bank_name}</p>
+                                            {item.bank_name != 'HANDEX' && <p className='text-xs'>{item.bank_name}</p>}
                                         </div>
                                     </div>
                                     <div>
-                                        <img
+                                        {item.bank_name != 'HANDEX' && <img
                                             src={item.bank_logo?.url}
                                             className='md:size-12 !size-10 object-contain w-[40px] h-[40px]'
                                             alt={`${item.bank_name} logo`}
                                             loading='lazy'
                                             width={40}
                                             height={40}
-                                        />
+                                        />}
                                     </div>
                                 </div>
                                 <div className='mt-2.5 flex-grow overflow-y-auto' style={{ minHeight: '120px' }}>

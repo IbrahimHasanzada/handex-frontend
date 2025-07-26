@@ -42,7 +42,6 @@ const page = async ({ params }: any) => {
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug);
     const study = await getStudyAreas();
-    console.log(item);
 
     const color = item?.color;
 
@@ -51,7 +50,7 @@ const page = async ({ params }: any) => {
             <div className='lg:bg-[#282828] lg:text-start text-center lg:shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_6px_10px_0px_rgba(0,0,0,0.07)] flex lg:flex-row flex-col justify-center lg:justify-between lg:px-9 py-8 rounded-[20px] items-center'>
                 <div className='lg:w-1/2'>
                     <h1 className='lg:text-[72px] text-[30px] text-start font-bold lg:whitespace-nowrap text-white'>{item?.name}</h1>
-                    <p className='mt-2 my-7 text-start text-[#909090]'>{item?.course_detail}</p>
+                    <div className='mt-2 my-7 text-start text-[#909090]' dangerouslySetInnerHTML={{ __html: item?.course_detail }} />
                     <StudyAreaModal model={item.model === 'corporate' ? true : false} study={study} />
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />

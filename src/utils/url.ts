@@ -1,1 +1,1 @@
-export const baseUrl = 'https://handex-frontend.vercel.app';
+export const baseUrl = 'https://handex.edu.az/';
