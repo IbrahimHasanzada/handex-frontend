@@ -14,8 +14,8 @@ const ModalUsers = ({ setFlag, student, model, flag }: any) => {
                         <img className='h-full w-full md:w-150 !object-cover rounded-[20px]' src={student?.customer_profile.url} alt={student?.customer_profile.alt} />
                     </div>
                     <div className='flex-4/6'>
-                        <h2 className={`font-bold mb-0 ${model ? 'text-white' : 'text-black'}`}>{student?.name}</h2>
-                        {student != 'HANDEX' && <div className='flex gap-4 items-center my-6'>
+                        <h2 className={`font-bold ${student.bank_name == 'HANDEX' ? "mb-6" : "mb-0"} ${model ? 'text-white' : 'text-black'}`}>{student?.name}</h2>
+                        {student.bank_name != 'HANDEX' && <div className='flex gap-4 items-center my-6'>
                             <img className='h-10 w-10 !object-cover rounded-[20px]' src={student?.bank_logo.url} alt={student?.bank_logo.alt} />
                             <p className={`font-medium pl-1 ${model ? 'text-white' : 'text-black'}`}>{student?.bank_name}</p>
                         </div>}
