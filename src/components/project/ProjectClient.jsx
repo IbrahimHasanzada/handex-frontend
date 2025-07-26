@@ -15,7 +15,8 @@ const ProjectClient = ({ locale }) => {
   useEffect(() => {
     async function getData() {
       const data = await getProjects(locale);
-
+      console.log(data);
+      
       setProject(data?.data);
       setTotal(data?.totalItems)
     }
@@ -26,6 +27,8 @@ const ProjectClient = ({ locale }) => {
     setLoading(true);
     let nextPage = count + 1;
     let extraProject = await getProjects(locale, nextPage);
+    console.log(extraProject);
+    
     setProject(prev => [...prev, ...extraProject.data]);
     setCount(nextPage);
     setLoading(false);
@@ -39,7 +42,7 @@ const ProjectClient = ({ locale }) => {
           <ProjectCard key={i} item={item} />
         ))}
       </div>
-      {total > (count + 1) * 12 && (
+      {total > (count + 1) * 8 && (
         <button onClick={() => handlePagination()} className='flex bg-handle-gray mx-auto rounded-full items-center px-6 gap-2 h-12 my-15'>
           <p className='text-base'>{loading ? 'Loading' : 'Daha çox'}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
