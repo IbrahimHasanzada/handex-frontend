@@ -98,7 +98,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start })
                 ))}
             </Swiper>
 
-            <ModalUsers setFlag={setFlag} flag={flag} student={student} model={page === 'corporate' ? true : false} />
+            {flag && <ModalUsers setFlag={setFlag} flag={flag} student={student} model={page === 'corporate' ? true : false} />}
         </div>
     );
 };

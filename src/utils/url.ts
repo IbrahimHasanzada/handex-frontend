@@ -1,1 +1,1 @@
-export const baseUrl = 'https://handex.edu.az/';
+export const baseUrl = 'https://handex.edu.az';

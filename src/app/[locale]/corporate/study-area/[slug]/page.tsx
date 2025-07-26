@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: any) {
     const { locale, slug } = await params;
     const item = await getStudyAreaItem(slug);
 
-    const canonicalUrl = `${baseUrl}/${locale}/study-area/${slug}`;
+    const canonicalUrl = `${baseUrl}/study-area/${slug}`;
     if (item.error) {
         return {
             alternates: {
