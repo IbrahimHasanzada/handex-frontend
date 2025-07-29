@@ -2,11 +2,12 @@
 import { getStudyAreaProgram } from '@/service';
 import { useTranslations } from 'next-intl';
 import React, { useEffect, useState } from 'react';
-
+import { Loader2 } from 'lucide-react'
 const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
     const t = useTranslations('study-area.program');
     const [count, setCount] = useState<number>(0);
     const [program, setProgram] = useState<any>();
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         (async function fetchData() {
@@ -15,7 +16,9 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
         )();
     }, []);
     const downloadFile = async () => {
+        setIsLoading(true)
         const response = await fetch(`https://backend.handex.edu.az${brochure?.url}`);
+        response && setIsLoading(false)
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -39,11 +42,22 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                     </div>
                 ))}
                 {brochure && (
+
                     <div style={{ backgroundColor: count === program?.length + 1 ? color : model ? '#E8E8E833' : '#1818181A' }} onClick={downloadFile} className={`cursor-pointer w-full flex gap-3 items-center rounded-[20px] px-5 py-2.5 my-3`}>
-                        <div className={`${model ? 'bg-[#282828]' : 'bg-white'} overflow-hidden rounded-full p-1.5`}>
-                            <img className='size-9' src='/assets/brochure.svg' alt={slug + ' brochure'} />
-                        </div>
-                        <p className={`${!model ? (count === program?.length + 1 ? 'text-white' : 'text-[#141414]') : 'text-white'}`}>Broşür yüklə</p>
+                        {isLoading ?
+
+
+                            <div className='w-full flex justify-center items-center'>
+                                <Loader2 className='h-10 w-10 animate-spin' />
+                            </div>
+                            :
+                            <>
+                                <div className={`${model ? 'bg-[#282828]' : 'bg-white'} overflow-hidden rounded-full p-1.5`}>
+                                    <img className='size-9' src='/assets/brochure.svg' alt={slug + ' brochure'} />
+                                </div>
+                                <p className={`${!model ? (count === program?.length + 1 ? 'text-white' : 'text-[#141414]') : 'text-white'}`}>Broşür yüklə</p>
+                            </>
+                        }
                     </div>
                 )}
             </div>
