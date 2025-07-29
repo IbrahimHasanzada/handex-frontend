@@ -10,6 +10,7 @@ const intlMiddleware = createMiddleware(routing);
 async function fetchRedirects() {
     const redirectMap: Record<string, { to: string; permanent: boolean; }> = {};
 
+
     try {
         const res = await fetch('https://backend.handex.edu.az/api/redirect');
         if (!res.ok) throw new Error('Redirect data fetch failed');
@@ -33,6 +34,10 @@ export default async function middleware(request: NextRequest) {
         pathname.startsWith('/api') ||
         /\.(png|jpe?g|svg|gif|webp)$/.test(pathname)
     ) {
+        return NextResponse.next();
+    }
+
+    if (pathname.startsWith('/sitemap.xml') || pathname.startsWith('/robots.txt') || pathname.startsWith('/favicon') || pathname.startsWith('/icon')) {
         return NextResponse.next();
     }
 
