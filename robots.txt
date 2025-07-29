@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /layihe/
+Disallow: /xeberler/
+Disallow: /haqqimizda/
+Disallow: /en/
+Disallow: /ru/
+Allow: /
+
+Sitemap: https://handex.edu.az/sitemap.xml

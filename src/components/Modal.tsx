@@ -10,22 +10,34 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
 
     const regEx = /^[\d+]*$/;
 
-    const form: { name: string, placeholder: string; }[] = t.raw('modal.form');
+    let form: { name: string, placeholder: string; }[] = t.raw('modal.form');
+    form = page === 'home' 
+    ? form.filter((_, index) => index !== 3 && index !== 4)
+    : form;
     const [messages, setMessages] = useState({
         name: '',
         surname: '',
         phone: '',
+        company: '',
+        email: '',
         course: 0
     });
 
     const handleClick = async () => {
-        let data = await addConsultation(messages, locale);
+        if(page !== 'home' && !messages.company) return toast.error('Şirkət adı boş ola bilməz');
+        if(page !== 'home' && !messages.email) return  toast.error('Email boş ola bilməz');
+        if(!messages.phone) return toast.error('Telefon boş ola bilməz');
+        
+        const message = page === 'home' ? { ...messages, email: undefined, company: undefined } : messages;
+        let data = await addConsultation(message, locale);
         if (data.error) toast.error(Array.isArray(data.message) ? data.message[0] : data.message);
         else toast.success(t('modal.success'));
         if (!data.error) {
             setMessages({
                 name: '',
                 surname: '',
+                company: '',
+                email: '',
                 phone: '',
                 course: 0
             });

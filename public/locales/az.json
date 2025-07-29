@@ -49,6 +49,14 @@
                     "name": "phone"
                 },
                 {
+                    "placeholder": "Şirkət",
+                    "name": "company"
+                },
+                {
+                    "placeholder": "Email",
+                    "name": "email"
+                },
+                {
                     "placeholder": "Tədris sahəsi",
                     "name": "course"
                 }
