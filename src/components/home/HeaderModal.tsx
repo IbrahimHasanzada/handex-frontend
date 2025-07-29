@@ -18,7 +18,7 @@ const HeaderModal: React.FC<HeaderModalProps> = ({ theme = 'home', study }) => {
         <>
             <div onClick={() => setFlag(!flag)} className='h-full'>
                 <Button theme={theme === 'dark'} flag={false} link=''>
-                    {t('consultation')}
+                    {theme === 'dark' ? 'Müraciət et' : t('consultation')}
                 </Button>
             </div>
             <Modal page={theme} study={study} flag={flag} setFlag={setFlag} />
