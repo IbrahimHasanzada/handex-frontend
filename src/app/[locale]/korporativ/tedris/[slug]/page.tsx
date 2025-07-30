@@ -67,15 +67,14 @@ const page = async ({ params }: any) => {
                     <p className='text-[#979797] mb-7 lg:text-xl'>{t('ads.desc')}</p>
                 </div>
             </div>
-            <div className='mt-30 mb-40'>
+            <div className='mt-30'>
                 <h2 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold`}>{t('instructors')}</h2>
                 <div className='mt-12'>
                     <Instructors locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} />
                 </div>
             </div>
-            <div className='py-20'>
-                <Statistics slug={slug} model={item.model === 'corporate' ? true : false} page='studyArea' />
-            </div>
+            <Statistics slug={slug} model={item.model === 'corporate' ? true : false} page='studyArea' />
+
             <div className='mt-30'>
                 <h2 className={`font-bold mb-6 ${item.model === 'corporate' && 'text-white'}`}>{t('faq')}</h2>
                 <Faq locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} />
