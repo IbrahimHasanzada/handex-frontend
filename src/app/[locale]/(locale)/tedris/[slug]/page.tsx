@@ -12,7 +12,7 @@ import React from 'react';
 
 export async function generateMetadata({ params }: any) {
     const { locale, slug } = await params;
-    const item = await getStudyAreaItem(slug);
+    const item = await getStudyAreaItem(slug, 'home');
 
 
     const canonicalUrl = `${baseUrl}/tedris/${slug}`;
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: any) {
 const page = async ({ params }: any) => {
     const { slug, locale } = await params;
     const t = await getTranslations('study-area');
-    const item = await getStudyAreaItem(slug);
+    const item = await getStudyAreaItem(slug, 'home');
     const study = await getStudyAreas();
     
     const brochure = await getBrochure(item?.id);

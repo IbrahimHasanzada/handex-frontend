@@ -14,7 +14,7 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
     useEffect(() => {
         const observer = new IntersectionObserver(async ([entry]) => {
             if (entry.isIntersecting && !hasFetched) {
-                const fetchedGroups = await getStudyAreaGroups(locale, slug);
+                const fetchedGroups = await getStudyAreaGroups(locale, slug, model ? 'corporate' : 'home');
 
                 const calculateTimeLeft = (targetDate: string) => {
                     const now = new Date();

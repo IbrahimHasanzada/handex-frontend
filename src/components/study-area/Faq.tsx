@@ -15,7 +15,7 @@ const Faq: React.FC<any> = ({ locale, slug, model }) => {
         const observer = new IntersectionObserver(
             async ([entry]) => {
                 if (entry.isIntersecting && !hasFetched) {
-                    const data = await getStudyAreaFaq(locale, slug);
+                    const data = await getStudyAreaFaq(locale, slug, model ? 'corporate' : 'home');
                     setFaq(data);
                     setHasFetched(true);
                     observer.disconnect();

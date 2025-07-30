@@ -12,7 +12,7 @@ const Instructors = ({ slug, locale, model }: any) => {
 
     useEffect(() => {
         (async function fetchData() {
-            setStudents(await getStudyAreaProfile(locale, slug));
+            setStudents(await getStudyAreaProfile(locale, slug, model ? 'corporate' : 'home'));
         })();
     }, []);
 

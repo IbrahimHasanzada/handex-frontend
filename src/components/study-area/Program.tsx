@@ -11,7 +11,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
 
     useEffect(() => {
         (async function fetchData() {
-            setProgram(await getStudyAreaProgram(locale, slug));
+            setProgram(await getStudyAreaProgram(locale, slug, model ? 'corporate' : 'home'));
         }
         )();
     }, []);
