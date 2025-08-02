@@ -5,7 +5,7 @@ import Groups from '@/components/study-area/Groups';
 import Instructors from '@/components/study-area/Instructors';
 import Program from '@/components/study-area/Program';
 import StudyAreaModal from '@/components/study-area/StudyAreaModal';
-import { getBrochure, getStudyAreaItem, getStudyAreas } from '@/service';
+import { getBrochure, getStudyAreaFaq, getStudyAreaItem, getStudyAreaProgram, getStudyAreas } from '@/service';
 import { baseUrl } from '@/utils/url';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
@@ -44,6 +44,8 @@ const page = async ({ params }: any) => {
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug, 'home');
     const study = await getStudyAreas();
+    const programs = await getStudyAreaProgram(locale, slug, 'home');
+    const faq = await getStudyAreaFaq(locale, slug, 'home');
     
     const brochure = await getBrochure(item?.id);
     
@@ -58,6 +60,7 @@ const page = async ({ params }: any) => {
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
+            { programs?.map((item: any) => <h3 className='hidden'>{item.name}</h3>) }
             <Program brochure={brochure ? brochure : null} slug={slug} locale={locale} program={item.program} color={color} />
             <Groups locale={locale} slug={slug} study={study} groups={item.groups} color={color} />
             <h2 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h2>
@@ -71,7 +74,7 @@ const page = async ({ params }: any) => {
                 </div>
             </div>
             <div className='mt-30'>
-                <h2 className='text-[38px] font-bold'>{t('instructors')}</h2>
+                <h4 className='text-[38px] font-bold'>{t('instructors')}</h4>
                 <div className='mt-12'>
                     <Instructors locale={locale} slug={slug} />
                 </div>
@@ -79,7 +82,8 @@ const page = async ({ params }: any) => {
                 <Statistics slug={slug} page='studyArea' />
             
             <div className='mt-30'>
-                <h2 className='font-bold mb-6'>{t('faq')}</h2>
+                <p className='font-bold mb-6'>{t('faq')}</p>
+                { faq?.map((item: any) => <h2 className='hidden'>{item.title}</h2>) }
                 <Faq locale={locale} slug={slug} />
             </div>
         </div>

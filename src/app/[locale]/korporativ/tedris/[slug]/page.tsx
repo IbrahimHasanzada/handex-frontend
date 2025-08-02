@@ -5,7 +5,7 @@ import Groups from '@/components/study-area/Groups';
 import Instructors from '@/components/study-area/Instructors';
 import Program from '@/components/study-area/Program';
 import StudyAreaModal from '@/components/study-area/StudyAreaModal';
-import { getStudyAreaItem, getStudyAreas } from '@/service';
+import { getStudyAreaItem, getStudyAreaProgram, getStudyAreas } from '@/service';
 import { baseUrl } from '@/utils/url';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
@@ -42,7 +42,7 @@ const page = async ({ params }: any) => {
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug, 'corporate');
     const study = await getStudyAreas();
-
+    
     const color = item?.color;
 
     return (

@@ -7,7 +7,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
     const t = useTranslations('study-area.program');
     const [count, setCount] = useState<number>(0);
     const [program, setProgram] = useState<any>();
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         (async function fetchData() {
@@ -38,7 +38,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                             <img className='size-9' src={item?.image?.url} alt={item?.image?.alt} />
                         </div>
                         <p className={`${!model ? (count === i ? 'text-white' : 'text-[#141414]') : 'text-white'}`}>{item.name}</p>
-                        <h2 className={`${!model ? (count === i ? 'text-white' : 'text-[#141414]') : 'text-white'} text-base font-medium `}>{item.title}</h2>
+                        <p className={`${!model ? (count === i ? 'text-white' : 'text-[#141414]') : 'text-white'} text-base font-medium `}>{item.title}</p>
                     </div>
                 ))}
                 {brochure && (

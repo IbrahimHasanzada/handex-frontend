@@ -51,7 +51,7 @@ const Faq: React.FC<any> = ({ locale, slug, model }) => {
                     }}
                 >
                     <div className='flex items-center justify-between py-4'>
-                        <h2 className={`text-base select-none ${model ? 'text-white' : 'text-[#141414]'}`}>{item.title}</h2>
+                        <p className={`text-base select-none ${model ? 'text-white' : 'text-[#141414]'}`}>{item.title}</p>
                         <div className={`size-6 rounded-full text-sm md:text-base flex items-center justify-center ${model ? 'bg-[#909090]' : 'bg-[#DDDDDD]'}`}>
                             <svg className={`${flag === item.id ? 'rotate-180' : ''} duration-300`} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path
