@@ -64,12 +64,12 @@ const Faq: React.FC<any> = ({ locale, slug, model }) => {
                             </svg>
                         </div>
                     </div>
-                    <h3
+                    <p
                         className={`pb-4 text-sm select-none ${model ? 'text-white' : 'text-[#555]'}`}
                         ref={el => contentRefs.current[item.id] = el as any}
                     >
                         {item.description}
-                    </h3>
+                    </p>
                 </div>
             ))}
         </div>

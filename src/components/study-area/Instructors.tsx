@@ -77,7 +77,7 @@ const Instructors = ({ slug, locale, model }: any) => {
                                 <img src={item.image?.url} alt='Handexeducation slider images' className='object-cover h-full w-full rounded-[20px] duration-500' />
                             </div>
                             <div className='flex justify-between items-center pt-4'>
-                                <h2 className={`${model ? 'text-white' : 'text-black'} text-base font-bold`}>{item.name}</h2>
+                                <h5 className={`${model ? 'text-white' : 'text-black'} text-base font-bold`}>{item.name}</h5>
                                 <div className={`${model ? 'bg-[#909090]' : 'bg-[#E8E8E8] '} size-8 rounded-full flex justify-center items-center`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                         <path d="M6.66699 10.6668L9.33366 8.00016L6.66699 5.3335" stroke={model ? '#fff' : '#141414'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

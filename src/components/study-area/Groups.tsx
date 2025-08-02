@@ -51,7 +51,7 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
         <div ref={groupsRef} className='mt-30'>
             {groups.length > 0 && (
                 <>
-                    <h2 className={`text-[38px] font-bold ${model && 'text-white'}`}>Növbəti qruplarımız</h2>
+                    <p className={`text-[38px] font-bold ${model && 'text-white'}`}>Növbəti qruplarımız</p>
                     <p className={`${model && 'text-[#909090]'} mt-4 text-xl`}>
                         Aşağıdakı bölmədən tezliklə başlayacaq qruplarımızla tanış ol və tədris başlamadan yerini tut.
                     </p>
@@ -96,12 +96,12 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <h3
+                                    <p
                                         style={{ color: i % 2 ? '#141414' : 'white' }}
                                         className='lg:text-[58px] text-[34px] font-bold text-center my-8'
                                     >
                                         {day} {months[month - 1]}
-                                    </h3>
+                                    </p>
                                     <p
                                         style={{ color: i % 2 ? '#141414' : 'white' }}
                                         className='text-center lg:text-xl font-normal'

@@ -75,9 +75,9 @@ const Footer = async ({ theme = '', study }: any) => {
           <div className='flex flex-col justify-between md:w-2/3'>
             <div className='flex justify-between pr-15 md:justify-baseline pb-12'>
               <div className='md:order-3'>
-                <h2 className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
+                <p className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
                   {title[2]}
-                </h2>
+                </p>
                 <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                   {study?.map((item: any, index: number) => (
                     <li key={index} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
@@ -89,9 +89,9 @@ const Footer = async ({ theme = '', study }: any) => {
 
               <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 md:flex-row md:flex-2/4'>
                 <div className='md:order-1'>
-                  <h2 className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
+                  <p className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
                     {title[1]}
-                  </h2>
+                  </p>
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                     {about.map((item: { text: string; link: string; }, index: number) => (
                       <li key={index} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
@@ -102,9 +102,9 @@ const Footer = async ({ theme = '', study }: any) => {
                 </div>
 
                 <div>
-                  <h2 className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
+                  <p className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
                     {title[0]}
-                  </h2>
+                  </p>
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                     {site.map((item: { text: string; link: string; }, i: number) => (
                       <li key={i} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>

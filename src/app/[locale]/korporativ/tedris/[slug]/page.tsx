@@ -57,18 +57,11 @@ const page = async ({ params }: any) => {
             </div>
             <Program locale={locale} brochure={item.brochure || null} slug={slug} model={item.model === 'corporate' ? true : false} color={color} />
             <Groups locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} study={study} color={color} />
-            <h2 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold text-center mt-30`}>{t('why.title')}</h2>
+            <h3 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold text-center mt-30`}>{t('why.title')}</h3>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
             <HandexPreference model={item.model === 'corporate' ? true : false} />
-            <div className={`${item.model === 'corporate' ? 'bg-[#282828]' : 'bg-white'} mt-30 box-shadow pb-6 rounded-[20px] lg:px-0 px-3 lg:text-start text-center lg:flex justify-between items-center`}>
-                <img src="/assets/Photo (13).svg" alt="Birbank image" />
-                <div className='lg:w-1/2'>
-                    <h3 className={`${item.model === 'corporate' ? 'text-white' : 'text-black'} lg:text-[68px] text-[24px] leading-[65px] lg:w-4/5 font-bold mb-5`}>{t('ads.title')}</h3>
-                    <p className='text-[#979797] mb-7 lg:text-xl'>{t('ads.desc')}</p>
-                </div>
-            </div>
             <div className='mt-30'>
-                <h2 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold`}>{t('instructors')}</h2>
+                <h4 className={`${item.model === 'corporate' && 'text-white'} text-[38px] font-bold`}>{t('instructors')}</h4>
                 <div className='mt-12'>
                     <Instructors locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} />
                 </div>
