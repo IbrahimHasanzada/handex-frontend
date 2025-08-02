@@ -185,10 +185,10 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                     </div>
                   </div> */}
             </div>
-            <div className='h-12 ml-auto w-40 text-sm lg:text-base lg:w-60'>
-              <HeaderModal study={study} theme={theme ? theme : 'home'} />
-            </div>
           </div>
+            <div className='h-12 ml-auto w-25 md:w-40 text-sm mr-4 lg:text-base lg:w-60'>
+              <HeaderModal study={study} theme={theme ? theme : 'home'} />
+            </div>  
           <div className='w-8 h-8 block base:hidden'>
             <button onClick={() => setFlag(!flag)} className='cursor-pointer'>
               <Image
