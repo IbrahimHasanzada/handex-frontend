@@ -63,13 +63,13 @@ const page = async ({ params }: any) => {
             { programs?.map((item: any) => <h3 className='hidden'>{item.name}</h3>) }
             <Program brochure={brochure ? brochure : null} slug={slug} locale={locale} program={item.program} color={color} />
             <Groups locale={locale} slug={slug} study={study} groups={item.groups} color={color} />
-            <h2 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h2>
+            <h3 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h3>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
             <HandexPreference slug='why-handex' />
             <div className='mt-30 box-shadow pb-6 md:pb-0 rounded-[20px] bg-white lg:px-0 px-3 lg:text-start text-center lg:flex justify-between items-center'>
                 <img src="/assets/Photo (13).svg" alt="Birbank image" />
                 <div className='lg:w-1/2'>
-                    <h3 className='lg:text-[68px] text-[24px] leading-[65px] lg:w-4/5 font-bold mb-5'>{t('ads.title')}</h3>
+                    <p className='lg:text-[68px] text-[24px] leading-[65px] lg:w-4/5 font-bold mb-5'>{t('ads.title')}</p>
                     <p className='text-[#979797] mb-7 lg:text-xl max-w-[500px]'>{t('ads.desc')}</p>
                 </div>
             </div>
