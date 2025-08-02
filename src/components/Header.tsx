@@ -206,9 +206,11 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
       {/*  H A M B U R G ER  */}
       <div onClick={() => setFlag(!flag)} className={`top-0 left-0 ${flag ? 'fixed' : 'hidden'} z-80 w-screen h-screen bg-black opacity-50`}></div>
       <div className={`fixed ${flag ? 'translate-x-0' : 'translate-x-full'} overflow-y-auto duration-300 right-0 h-screen w-4/5 sm:w-1/2 z-80 ${theme ? 'bg-[#181818]' : 'bg-white'} pt-35 list-none p-7`}>
-        <li onClick={() => handleClose()} className={`${theme ? 'text-white' : 'text-[#141414]'} cursor-pointer font-medium text-xl pb-1`}>
-          <Link href={'/' + local}>{t('home')}</Link>
-        </li>
+        <ul>
+          <li onClick={() => handleClose()} className={`${theme ? 'text-white' : 'text-[#141414]'} cursor-pointer font-medium text-xl pb-1`}>
+            <Link href={'/' + local}>{t('home')}</Link>
+          </li>
+        </ul>
         {headerLists.map(({ title, subItems }, index) => (
           <div key={index}>
             <div>
@@ -253,12 +255,14 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             ))}
           </ul>
         </div>
-        <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-          <Link href={'/' + local + '/korporativ'}>{t('coorporate')}</Link>
-        </li>
-        <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-          <Link href={'/' + local + '/elaqe'}>{t('contact')}</Link>
-        </li>
+        <ul>
+          <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
+            <Link href={'/' + local + '/korporativ'}>{t('coorporate')}</Link>
+          </li>
+          <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
+            <Link href={'/' + local + '/elaqe'}>{t('contact')}</Link>
+          </li>
+        </ul>
         {/* <div className='w-full h-[1px] bg-[#ABABAB] mt-10 mb-5'></div>
         <div className='flex items-center gap-2 mb-4'>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
