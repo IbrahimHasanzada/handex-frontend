@@ -3,6 +3,7 @@ import { getContent, getStudyAreas } from '@/service';
 import { HeroSectionDto } from '@/types/HeroSection.dto';
 import React from 'react';
 import HeroModal from './HeroModal';
+import Image from 'next/image';
 
 const HeadSection: React.FC<HeroSectionDto> = async ({ page, t }) => {
     const response = await getContent(page === 'corporate' ? 'corporate' : page === 'home' ? 'hero' : '');
@@ -18,11 +19,15 @@ const HeadSection: React.FC<HeroSectionDto> = async ({ page, t }) => {
                 </div>
             </div>
             <div className=' md:h-130 md:w-150 relative'>
-                <img
+                <Image
+                    width={600}
+                    height={600}
+                    priority
                     src={data?.images?.[0]?.url}
                     alt={data?.images?.[0]?.alt}
+                    quality={100}
                     fetchPriority='high'
-                    className='object-cover md:object-contain'
+                    className="object-contain"
                 />
             </div>
         </div>

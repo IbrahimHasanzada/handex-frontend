@@ -6,7 +6,6 @@ export const getContent = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/content/${slug}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -22,7 +21,6 @@ export const getCustomers = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/customers/${slug}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -62,7 +60,6 @@ export const getAllNews = async (lang: string, page: number = 0, query?: string)
         const url = query ? `${baseUrl}&q=${encodeURIComponent(query)}` : baseUrl;
 
         const res = await fetch(url, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -78,7 +75,6 @@ export const getNews = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/news/${slug}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -96,7 +92,6 @@ export const getAllBlogs = async (lang: string, page: number = 0, query?: string
         const url = query ? `${baseUrl}&query=${encodeURIComponent(query)}` : baseUrl;
 
         const res = await fetch(url, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -112,7 +107,6 @@ export const getBlogs = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/blogs/${slug}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang!
             }
@@ -127,7 +121,6 @@ export const getBlogs = async (slug: string) => {
 export const getProjects = async (lang: string, page: number = 0) => {
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/project?page=${page}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -143,7 +136,6 @@ export const getProject = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/project/${slug}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -158,7 +150,6 @@ export const getProject = async (slug: string) => {
 export const getServices = async (lang: string, page: number = 0) => {
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/service?page=${page}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -174,7 +165,6 @@ export const getService = async (slug: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/service/${slug}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -223,7 +213,6 @@ export const getMeta = async (field: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/meta/${field}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -239,7 +228,6 @@ export const getMetaStudyArea = async (field: string) => {
     const lang = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/meta/${field}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': lang
             }
@@ -259,7 +247,6 @@ export const getStudyAreas = async (model?: string) => {
             : 'https://backend.handex.edu.az/api/study-area';
 
         const res = await fetch(url, {
-            cache: 'no-store',
             headers: {
                 'accept-language': locale,
             },
@@ -279,7 +266,6 @@ export const getStudyAreasClient = async (locale: string, model?: string) => {
             : 'https://backend.handex.edu.az/api/study-area';
 
         const res = await fetch(url, {
-            cache: 'no-store',
             headers: {
                 'accept-language': locale,
             },
@@ -296,7 +282,6 @@ export const getStudyArea = async (slug: string) => {
     const locale = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': locale
             }
@@ -312,7 +297,6 @@ export const getStudyAreaItem = async (slug: string, model: string) => {
     const locale = await getLocale();
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/item/${model}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': locale
             }
@@ -327,7 +311,6 @@ export const getStudyAreaItem = async (slug: string, model: string) => {
 export const getStudyAreaProgram = async (locale: string, slug: string, model: string) => {
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/programs/${model}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': locale
             }
@@ -342,7 +325,6 @@ export const getStudyAreaProgram = async (locale: string, slug: string, model: s
 export const getStudyAreaGroups = async (locale: string, slug: string, model: string) => {
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/groups/${model}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': locale
             }
@@ -357,7 +339,6 @@ export const getStudyAreaGroups = async (locale: string, slug: string, model: st
 export const getStudyAreaFaq = async (locale: string, slug: string, model: string) => {
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/faq/${model}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': locale
             }
@@ -372,7 +353,6 @@ export const getStudyAreaFaq = async (locale: string, slug: string, model: strin
 export const getStudyAreaProfile = async (locale: string, slug: string, model: string) => {
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/profile/${model}`, {
-            cache: 'no-store',
             headers: {
                 'accept-language': locale
             }
