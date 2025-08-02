@@ -38,7 +38,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                             <img className='size-9' src={item?.image?.url} alt={item?.image?.alt} />
                         </div>
                         <p className={`${!model ? (count === i ? 'text-white' : 'text-[#141414]') : 'text-white'}`}>{item.name}</p>
-                        <h3 className={`${!model ? (count === i ? 'text-white' : 'text-[#141414]') : 'text-white'} text-base font-medium `}>{item.title}</h3>
+                        <h2 className={`${!model ? (count === i ? 'text-white' : 'text-[#141414]') : 'text-white'} text-base font-medium `}>{item.title}</h2>
                     </div>
                 ))}
                 {brochure && (
@@ -62,7 +62,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                 )}
             </div>
             <div className='md:mt-0 mt-6 md:w-3/5'>
-                <h2 className={`${model ? 'text-white' : 'text-[#111827]'} text-[30px] font-bold mb-6`}>{t('about')}</h2>
+                <p className={`${model ? 'text-white' : 'text-[#111827]'} text-[30px] font-bold mb-6`}>{t('about')}</p>
                 <div className={model && 'text-[#909090]'} dangerouslySetInnerHTML={{ __html: program && program[count]?.description }} />
             </div>
         </div>

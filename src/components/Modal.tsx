@@ -84,7 +84,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
                     </svg>
                 </div>
 
-                <h2 className={`${page === 'home' ? 'text-[#141414]' : 'text-white'} mb-4 text-[34px] font-bold`}>{ page === 'home' ? t('modal.title') : 'Təklif al'}</h2>
+                <p className={`${page === 'home' ? 'text-[#141414]' : 'text-white'} mb-4 text-[34px] font-bold`}>{ page === 'home' ? t('modal.title') : 'Təklif al'}</p>
                 {form.map((item, i) => (
                     i + 1 !== form.length && <input value={messages[item.name as keyof typeof messages] || ''} onChange={(e) => handleChange(e.target.value, item.name)} key={i} className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} placeholder={item.placeholder} type='text' />
                 ))}
