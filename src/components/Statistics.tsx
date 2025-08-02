@@ -21,7 +21,7 @@ const Statistics: React.FC<StatisticsDto> = async ({ slug, page, model }) => {
                                 <div className={`${page === 'corporate' ? 'bg-gradient-to-r from-[#F4F5F5] to-[#666] text-transparent bg-clip-text' : model ? 'text-white' : 'text-[#141414]'} font-bold text-3xl md:text-[5rem] pb-2`}>
                                     <ClientCountUp end={item.count} prefix={prefix} />
                                 </div>
-                                <p className={page === 'corporate' ? 'text-white/45 ' : page === 'studyArea' ? 'text-[#909090]' : 'text-[#60606080] text-xs md:text-base'}>{item.text}</p>
+                                <p className={page === 'corporate' ? 'text-white/45 ' : page === 'studyArea' ? 'text-[#909090]' : 'text-[#595959] text-xs md:text-base'}>{item.text}</p>
                             </div>
                         );
                     })}

@@ -29,7 +29,7 @@ export default function RootLayout({
   params: any;
 }) {
   return (
-    <html lang={params.locale}>
+    <html lang='az'>
       <head>
         <script
           dangerouslySetInnerHTML={{

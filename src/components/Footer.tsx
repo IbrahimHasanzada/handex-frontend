@@ -75,7 +75,7 @@ const Footer = async ({ theme = '', study }: any) => {
           <div className='flex flex-col justify-between md:w-2/3'>
             <div className='flex justify-between pr-15 md:justify-baseline pb-12'>
               <div className='md:order-3'>
-                <h2 className='text-[#909090] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
+                <h2 className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
                   {title[2]}
                 </h2>
                 <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
@@ -89,7 +89,7 @@ const Footer = async ({ theme = '', study }: any) => {
 
               <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 md:flex-row md:flex-2/4'>
                 <div className='md:order-1'>
-                  <h2 className='text-[#909090] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
+                  <h2 className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
                     {title[1]}
                   </h2>
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
@@ -102,7 +102,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 </div>
 
                 <div>
-                  <h2 className='text-[#909090] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
+                  <h2 className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
                     {title[0]}
                   </h2>
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
@@ -123,13 +123,13 @@ const Footer = async ({ theme = '', study }: any) => {
               <div>
                 <div className='flex gap-11'>
                   <div>
-                    <p className='text-[#909090] text-xs font-bold'>{t('footer.number')}</p>
+                    <p className='text-[#595959] text-xs font-bold'>{t('footer.number')}</p>
                     <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                       {general.length && general[0].phone && formatPhoneNumber(general[0]?.phone[0])}
                     </p>
                   </div>
                   <div>
-                    <p className='text-[#909090] text-xs font-bold'>{t('footer.mail')}</p>
+                    <p className='text-[#595959] text-xs font-bold'>{t('footer.mail')}</p>
                     <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                       {general.length && general[0]?.email}
                     </p>
@@ -137,7 +137,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 </div>
 
                 <div className='pt-4'>
-                  <p className='text-[#909090] text-xs font-bold'>{t('footer.location')}</p>
+                  <p className='text-[#595959] text-xs font-bold'>{t('footer.location')}</p>
                   <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                     {general.length && general[0]?.location}
                   </p>

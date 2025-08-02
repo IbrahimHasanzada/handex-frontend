@@ -21,6 +21,7 @@ const HeadSection: React.FC<HeroSectionDto> = async ({ page, t }) => {
                 <img
                     src={data?.images?.[0]?.url}
                     alt={data?.images?.[0]?.alt}
+                    fetchPriority='high'
                     className='object-cover md:object-contain'
                 />
             </div>

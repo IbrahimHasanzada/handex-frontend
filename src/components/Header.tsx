@@ -211,12 +211,16 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
         </li>
         {headerLists.map(({ title, subItems }, index) => (
           <div key={index}>
-            <li onClick={() => setCount(count === 1 ? 0 : 1)} className={`relative group cursor-pointer flex justify-between items-center z-50 pt-4 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
-              <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{title}</p>
-              <svg className={`${count === 1 && 'rotate-180'} duration-300`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </li>
+            <div>
+              <ul>
+                <li onClick={() => setCount(count === 1 ? 0 : 1)} className={`relative group cursor-pointer flex justify-between items-center z-50 pt-4 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
+                  <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{title}</p>
+                  <svg className={`${count === 1 && 'rotate-180'} duration-300`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </li>
+              </ul>
+            </div>
             <div className={`${count === 1 ? 'max-h-[600px] mb-6' : 'max-h-0'} overflow-hidden duration-500 z-50 top-12 pt-5`}>
               <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
                 {subItems.map((item: any, idx: number) => (
@@ -230,12 +234,14 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             </div>
           </div>
         ))}
-        <li onClick={() => setCount(count === 2 ? 0 : 2)} className={`relative group cursor-pointer flex justify-between items-center z-50 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
-          <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{t('study-area')}</p>
-          <svg className={`${count === 2 && 'rotate-180'} duration-500`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path stroke={theme ? 'white' : 'black'} d="M8 10L12 14L16 10" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </li>
+        <ul>
+          <li onClick={() => setCount(count === 2 ? 0 : 2)} className={`relative group cursor-pointer flex justify-between items-center z-50 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
+            <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{t('study-area')}</p>
+            <svg className={`${count === 2 && 'rotate-180'} duration-500`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path stroke={theme ? 'white' : 'black'} d="M8 10L12 14L16 10" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </li>
+        </ul>
         <div className={`${count === 2 ? 'max-h-[500px]' : 'max-h-0'} overflow-hidden duration-500 z-50 top-12`}>
           <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
             {study?.map((item: any, idx: number) => (
