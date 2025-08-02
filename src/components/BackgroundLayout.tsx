@@ -16,7 +16,7 @@ export default function BackgroundLayout({
             <div className={`
             ${isDarkBackground
                     ? "bg-[url('/assets/img/Pattern.png')]"
-                    : "bg-[url('/assets/img/background.png')] z-[-2]"
+                    : "bg-[url('/assets/img/background.webp')] z-[-2]"
                 }
             absolute inset-0  opacity-50  bg-[length:100%]`
             }></div>

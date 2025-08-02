@@ -55,6 +55,7 @@ export default function RootLayout({
           }}
         />
         <Head>
+          <title>Handex.edu.az</title>
           <link rel="icon" type="image/x-icon" href="/icon.ico" sizes="any" />
         </Head>
         <Toaster position="top-center" />

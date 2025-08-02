@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import Modal from '../Modal';
 
 const HeroModal = ({ page, study }: any) => {
+    
     const t = useTranslations('home');
     const [flag, setFlag] = useState<boolean>(false);
     return (
