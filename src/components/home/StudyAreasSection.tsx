@@ -5,6 +5,7 @@ import StudyCards from './StudyCards';
 import { StudyAreaSectionDto } from '@/types/StudyAreaSection.dto';
 import { getStudyAreasClient } from '@/service';
 import { useLocale, useTranslations } from 'use-intl';
+import { useWindowSize } from '@/utils/useWindowSize';
 
 const StudyAreasSection: React.FC<StudyAreaSectionDto> = ({ model, page }) => {
   const [study, setStudy] = useState<any>();
@@ -13,17 +14,22 @@ const StudyAreasSection: React.FC<StudyAreaSectionDto> = ({ model, page }) => {
 
   const [count, setCount] = useState<number>(1);
 
+
+  const { width } = useWindowSize()
   const t = useTranslations('home');
   const locale = useLocale();
+  const perPage = width < 768 ? 4 : 8;
+
   useEffect(() => {
     async function getData() {
-      let data = await getStudyAreasClient(locale, model);
-      setStudy(data.slice(0, count * 8));
-      setTotal(data?.length);
+      const data = await getStudyAreasClient(locale, model)
+      setTotal(data?.length || 0);
+      setStudy(data.slice(0, count * perPage))
     }
-    getData();
-  }, [count]);
-
+    if (width > 0) {
+      getData();
+    }
+  }, [count, width, locale, model])
 
   return (
     <div>
