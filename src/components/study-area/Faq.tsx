@@ -49,7 +49,7 @@ const Faq: React.FC<any> = ({ locale, slug, model }) => {
 
                     {/* DESCRIPTION */}
                     <div
-                        ref={el => (contentRefs.current[item.id] = el)}
+                        ref={el => (contentRefs.current[item.id] = el) as any}
                         className={`overflow-hidden px-6 transition-all duration-500 ease-in-out rounded-b-[20px] 
                         ${model ? 'bg-[#282828]' : ''} 
                         ${flag === item.id ? 'max-h-[500px] py-4' : 'max-h-0 py-0'}`}
