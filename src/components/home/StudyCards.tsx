@@ -12,7 +12,7 @@ const StudyCards: React.FC<any> = ({ item, theme, model }) => {
         <Link href={model === 'corporate' ? ('/' + locale + `/korporativ/tedris/${item.slug}`) : ('/' + locale + `/tedris/${item.slug}`)} className={`${theme ? 'bg-[#282828]' : 'bg-[#fff]'} block group relative rounded-3xl w-full sm:h-65  xl:h-76 max-w-76 p-6 flex flex-col justify-between`}>
             <p className={`${theme ? 'text-white' : 'text-black'} font-medium text-xl xl:text-2xl md:max-w-20 lg:max-w-47`}>{item.name}</p>
             <div className='relative flex justify-center items-center'>
-                <Image src={item?.image?.url} alt='Handex study area icons' width={240} height={140} className='object-cover duration-500 group-hover:scale-110 h-35 w-50 xl:h-45 xl:w-60' quality={80} priority={true} sizes='100%' />
+                <Image src={item?.image?.url} alt='Handex study area icons' width={240} height={140} className='object-cover duration-500 group-hover:scale-110 h-35 w-46 xl:h-45 xl:w-60' quality={80} priority={true} sizes='100%' />
             </div>
             <div className={` ${theme ? 'bg-[#181818]' : 'bg-primary-bg'} absolute -top-2 -right-4 md:-top-3 md:-right-8 xl:-top-5 xl:-right-7  w-20 h-20 md:w-25 md:h-25 xl:w-28 xl:h-28 p-2 md:p-3 xl:p-5 rounded-full flex items-center justify-center`}>
                 <Button theme={theme ? true : false} flag={true} link=''>
