@@ -73,8 +73,8 @@ const Instructors = ({ slug, locale, model }: any) => {
                 {students && students?.map((item: any, i: number) => (
                     <SwiperSlide onClick={() => setFlag(item.id)} key={i} className={`${model ? 'bg-[#282828]' : '!bg-white'} cursor-pointer group  rounded-[20px] p-3`}>
                         <div>
-                            <div className='w-full rounded-[20px] h-68'>
-                                <img src={item.image?.url} alt='Handexeducation slider images' className='object-cover h-full w-full rounded-[20px] duration-500' />
+                            <div className='w-full rounded-[20pxh-68'>
+                                <img src={item.image?.url} alt='Handexeducation slider images' className=' md:object-cover h-full w-full rounded-[20px] duration-500' />
                             </div>
                             <div className='flex justify-between items-center pt-4'>
                                 <h5 className={`${model ? 'text-white' : 'text-black'} text-base font-bold`}>{item.name}</h5>
