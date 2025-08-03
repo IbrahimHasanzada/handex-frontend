@@ -12,7 +12,7 @@ const HeadSection: React.FC<HeroSectionDto> = async ({ page, t }) => {
     return (
         <div className='flex flex-col-reverse md:flex-row  gap-6'>
             <div className='md:flex-1/2 md:py-32'>
-                <h1 className={`font-bold text-2xl base:!text-4xl leading-12 mb-6 max-w-120 ${page === 'corporate' ? 'text-white' : 'text-black'}`}>{data?.title}</h1>
+                <h1 className={`font-bold text-2xl base:!text-4xl  mb-6 max-w-120 ${page === 'corporate' ? 'text-white' : 'text-black'}`}>{data?.title}</h1>
                 <p className='mb-10 max-w-150 md:text-sm base:text-base text-[#909090]'>{data?.desc}</p>
                 <div className='w-35 h-12 '>
                     <HeroModal study={study} page={page} />
