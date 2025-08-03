@@ -104,7 +104,7 @@ const UserSlider: React.FC<any> = ({ result }) => {
           </Swiper>
         </div>
       ) : (
-        <div style={{ height: 400 }} /> // Placeholder space
+        <div style={{ height: 400 }} />
       )}
     </div>
   );
