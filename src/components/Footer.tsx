@@ -68,7 +68,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 <path d="M132.512 20.6649L138.248 12.7711H135.058L130.998 19.4729L126.938 12.7711H123.749L129.484 20.6649L123.265 29.2366H126.455L130.998 22.1792L135.542 29.2366H138.731L132.512 20.6649Z" fill="white" />
               </svg>
             )}
-            <div className='w-full h-full'>
+            <div className='w-full h-full md:block hidden'>
               <FooterSlider theme={theme} study={study} />
             </div>
           </div>

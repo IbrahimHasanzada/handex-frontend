@@ -30,7 +30,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
         window.URL.revokeObjectURL(url);
     };
     return (
-        <div className={`${model ? 'bg-[#282828]' : 'bg-white'} md:flex gap-15 rounded-[20px] py-12 px-6 mt-30 box-shadow`}>
+        <div className={`${model ? 'bg-[#282828]' : 'bg-white'} md:flex gap-15 rounded-[20px] py-12 px-6 mt-10 md:mt-30 box-shadow`}>
             <div className='md:w-2/5'>
                 {program?.map((item: any, i: number) => (
                     <div style={{ backgroundColor: count === i ? color : model ? '#E8E8E833' : '#1818181A' }} onClick={() => setCount(i)} key={i} className={`cursor-pointer w-full flex gap-3 items-center rounded-[20px] px-5 py-2.5 my-3`}>

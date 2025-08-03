@@ -51,12 +51,12 @@ const page = async ({ params }: any) => {
 
     const color = item?.color;
     return (
-        <div className='wrapper pt-45'>
+        <div className='wrapper pt-20 md:pt-45'>
             <div className='lg:bg-white lg:text-start text-center lg:shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_6px_10px_0px_rgba(0,0,0,0.07)] flex lg:flex-row flex-col justify-center lg:justify-between lg:px-9 py-8 rounded-[20px] items-center'>
                 <div className='lg:w-1/2'>
                     <h1 className='lg:text-[72px] text-[30px] text-start font-bold lg:whitespace-nowrap'>{item?.name}</h1>
                     { item.hidden && <h2 className='hidden'>{item?.hidden}</h2> }
-                    <div dangerouslySetInnerHTML={{ __html: item?.course_detail }} />
+                    <div className='text-start' dangerouslySetInnerHTML={{ __html: item?.course_detail }} />
                     <StudyAreaModal study={study} />
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
@@ -82,7 +82,7 @@ const page = async ({ params }: any) => {
             </div>
             <Statistics slug={slug} page='studyArea' />
 
-            <div className='mt-30'>
+            <div className='mt-6 md:mt-30'>
                 <p className='font-bold text-2xl md:text-4xl mb-6'>{t('faq')}</p>
                 {faq?.map((item: any) => <h2 className='hidden'>{item.title}</h2>)}
                 <Faq locale={locale} slug={slug} />

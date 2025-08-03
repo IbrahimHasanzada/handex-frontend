@@ -43,18 +43,18 @@ const AboutPage = async () => {
             </div>
             <div className='base:mt-30'>
                 {about.sections.map((item: any, index: number) => (
-                    <div key={index} className={`mt-30 grid md:grid-cols-2 justify-between gap-7 base:gap-33 flex-col  ${index % 2 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
-                        <div className='flex-1/2 rounded-[20px]'>
+                    <div key={index} className={`md:mt-30 grid md:grid-cols-2 justify-between gap-7 base:gap-33 ${index % 2 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                        <div className={`flex-1/2 rounded-[20px] ${ index % 2 && '-order-1' }`}>
                             {item?.left_side?.type === 'image' ? (
-                                <img src={item?.left_side?.url} alt='' className='object-cover pt-10 h-100 w-full rounded-[20px]' />
+                                <img  src={item?.left_side?.url} alt='' className='object-cover md:block hidden pt-10 h-100 w-full rounded-[20px]' /> 
                             ) : (
                                 <div className='!text-[#666] [&_h2]:text-black' dangerouslySetInnerHTML={{ __html: item?.left_side?.translations[0]?.value }}></div>
 
                             )}
                         </div>
-                        <div className='flex-1/2 rounded-[20px]'>
+                        <div className={`flex-1/2 rounded-[20px]`}>
                             {item?.right_side?.type === 'image' ? (
-                                <img src={item?.right_side?.url} alt='' className='object-cover pt-10 h-100 w-full rounded-[20px]' />
+                                <img src={item?.right_side?.url} alt='' className='object-cover md:block hidden pt-10 h-100 w-full rounded-[20px]' />
                             ) : (
                                 <div dangerouslySetInnerHTML={{ __html: item?.right_side?.translations[0]?.value }}></div>
                             )}

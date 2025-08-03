@@ -42,7 +42,7 @@ const page = async () => {
   return (
     <div className='pt-30'>
       <div className="wrapper">
-        <div className='py-12.5 md:py-15'>
+        <div className='md:py-15'>
           <HeadSection t={t} page='corporate' />
         </div>
         <div className='py-12.5 md:py-15'>

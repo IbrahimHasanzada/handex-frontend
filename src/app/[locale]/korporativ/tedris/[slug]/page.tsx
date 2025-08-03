@@ -57,7 +57,7 @@ const page = async ({ params }: any) => {
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
-            {programs?.map((item: any) => <h2 className='hidden'>{item.name}</h2>)}
+            {programs?.map((item: any) => <h3 className='hidden'>{item.name}</h3>)}
             <Program locale={locale} brochure={item.brochure || null} slug={slug} model={item.model === 'corporate' ? true : false} color={color} />
             <Groups locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} study={study} color={color} />
             <h3 className={`${item.model === 'corporate' && 'text-white'} text-2xl md:text-[38px] font-bold text-center mt-30`}>{t('why.title')}</h3>
@@ -71,7 +71,7 @@ const page = async ({ params }: any) => {
             </div>
             <Statistics slug={slug} model={item.model === 'corporate' ? true : false} page='studyArea' />
 
-            <div className='mt-30'>
+            <div className='mt-6 md:mt-30'>
                 <p className={`font-bold text-2xl md:text-4xl mb-6 ${item.model === 'corporate' && 'text-white'}`}>{t('faq')}</p>
                 {faq?.map((item: any) => <h2 className='hidden'>{item.title}</h2>)}
                 <Faq locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} />
