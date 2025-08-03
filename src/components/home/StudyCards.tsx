@@ -33,7 +33,6 @@ const StudyCards: React.FC<any> = ({ item, theme, model }) => {
                     /* Tablet/Desktop hover position */
                     md:group-hover:left-13 md:group-hover:-top-9'
                             quality={80}
-                            priority={true}
                             sizes="100%"
                         />
 

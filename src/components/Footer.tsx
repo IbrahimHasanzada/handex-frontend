@@ -210,6 +210,16 @@ const Footer = async ({ theme = '', study }: any) => {
                 </Link>
 
                 <Link
+                  href='https://www.tiktok.com/@handex.edu.az'
+                  target='_blank'
+                  className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
+                >
+                  {/* Tiktok SVG */}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 13.5664C13.5038 16.8676 10.8401 19.5518 7.53898 19.5732C4.23784 19.5947 1.53949 16.9453 1.50043 13.6443C1.46137 10.3433 4.09628 7.63089 7.397 7.57422H7.50379V11.0742H7.45707C6.69127 11.0868 5.9734 11.4494 5.50878 12.0583C5.04416 12.6671 4.88396 13.4553 5.074 14.1972C5.28477 15.0496 5.93307 15.7256 6.77594 15.9717C7.53443 16.1974 8.35496 16.052 8.98968 15.5794C9.6244 15.1067 9.99888 14.3623 10 13.5709H10.0038V2.07422C10.0038 1.79808 10.2276 1.57422 10.5038 1.57422H13.5038V1.7463C13.5038 3.77312 15.021 5.47901 17.034 5.71556C17.293 5.73616 17.4944 5.94947 17.5 6.20922V8.78922C17.5015 8.92786 17.4452 9.06086 17.3445 9.15621C17.2439 9.25155 17.108 9.3006 16.9696 9.29154C15.7162 9.1761 14.518 8.72115 13.5038 7.97562V13.5742L13.5 13.5664Z" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </Link>
+                <Link
                   href='https://www.linkedin.com/company/handexeduaz/'
                   target='_blank'
                   className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
