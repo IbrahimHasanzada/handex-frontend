@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='az'>
-      <head>
+      {/* <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -44,16 +44,16 @@ export default function RootLayout({
           }}
         />
         <link rel="icon" type="image/x-icon" href="/icon.ico" sizes="any" />
-      </head>
+      </head> */}
       <body className={`antialiased ${SFPro.variable}`}>
-        <noscript
+        {/* <noscript
           dangerouslySetInnerHTML={{
             __html: `
               <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHLC52SM"
               height="0" width="0" style="display:none;visibility:hidden"></iframe>
             `,
           }}
-        />
+        /> */}
         <Head>
           <title>Handex.edu.az</title>
           <link rel="icon" type="image/x-icon" href="/icon.ico" sizes="any" />
