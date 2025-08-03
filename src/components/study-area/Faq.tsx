@@ -21,7 +21,7 @@ const Faq: React.FC<any> = ({ locale, slug, model }) => {
     return (
         <div>
             {faq.map((item: any, index: number) => (
-                <div id={slug + 'faq' + index} key={item.id} className="mt-4 !bg-[#fff] rounded-[20px] box-shadow">
+                <div id={slug + 'faq' + index} key={item.id} className={`mt-4  rounded-[20px] ${ !model ? '!bg-[#fff]' : 'bg-[#282828]' } box-shadow`}>
                     {/* TITLE */}
                     <div
                         onClick={() => toggleFaq(item.id)}

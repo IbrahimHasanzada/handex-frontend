@@ -55,6 +55,7 @@ const page = async ({ params }: any) => {
             <div className='lg:bg-white lg:text-start text-center lg:shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_6px_10px_0px_rgba(0,0,0,0.07)] flex lg:flex-row flex-col justify-center lg:justify-between lg:px-9 py-8 rounded-[20px] items-center'>
                 <div className='lg:w-1/2'>
                     <h1 className='lg:text-[72px] text-[30px] text-start font-bold lg:whitespace-nowrap'>{item?.name}</h1>
+                    { item.hidden && <h2 className='hidden'>{item?.hidden}</h2> }
                     <div dangerouslySetInnerHTML={{ __html: item?.course_detail }} />
                     <StudyAreaModal study={study} />
                 </div>

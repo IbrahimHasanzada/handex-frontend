@@ -38,7 +38,7 @@ const BlogContentWithTOC = ({ description }) => {
     <div className="flex flex-col lg:flex-row gap-10">
       <div className="lg:w-1/4 w-full">
         <div className="sticky top-30">
-          <h2 className="text-xl font-semibold mb-3">{t('blog.description')}</h2>
+          <p className="text-xl font-semibold mb-3">{t('blog.description')}</p>
           <ul className="flex flex-col gap-1 rounded-l-lg">
             {headings.map((h, idx) => (
               <li onClick={() => setIndex(idx)} className="flex gap-3 text-xl" key={h.id}>
