@@ -1,5 +1,6 @@
 "use client";
 import { getContent, getProfiles } from '@/service';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -65,7 +66,7 @@ const UserSlider: React.FC<any> = ({ result }) => {
         {shuffledResult && shuffledResult.map((item: any, i: number) => (
           <SwiperSlide key={i} className='group relative !h-90 rounded-[20px] overflow-hidden'>
             <div className='w-full h-full relative'>
-              <img src={item.images[0]?.url} alt={item?.images[0]?.alt} className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
+              <Image width={300} height={300} src={item.images[0]?.url} alt={item?.images[0]?.alt} className='object-cover w-full group-hover:scale-120 duration-500 h-full' />
             </div>
             <div style={{
               backdropFilter: 'blur(10px)',

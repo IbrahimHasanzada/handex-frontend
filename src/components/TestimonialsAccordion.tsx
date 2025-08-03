@@ -7,6 +7,7 @@ import { TestimonialsDto } from '@/types/Testimonials.dto';
 import { SwiperOptions } from 'swiper/types';
 import ModalUsers from './ModalUsers';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start, index }) => {
     const [flag, setFlag] = useState(0)
@@ -64,7 +65,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start, i
                             <div className={`flex flex-col !px-6`}>
                                 <div className={`${page === 'corporate' ? 'border-b-[#2B2B2B]' : 'border-b-[#DDD]'} flex justify-between pb-4 border-b `}>
                                     <div className='flex items-center gap-4.5'>
-                                        <img
+                                        <Image
                                             src={item.customer_profile?.url}
                                             alt={item.name}
                                             className='rounded-full size-17 w-[68px] h-[68px] object-cover'
@@ -78,7 +79,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start, i
                                         </div>
                                     </div>
                                     <div>
-                                        {item.bank_name != 'HANDEX' && <img
+                                        {item.bank_name != 'HANDEX' && <Image
                                             src={item.bank_logo?.url}
                                             className='md:size-12 !size-10 object-contain w-[40px] h-[40px]'
                                             alt={`${item.bank_name} logo`}

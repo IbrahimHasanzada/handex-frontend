@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 
 const ModalUsers = ({ setFlag, student, model, flag }: any) => {
@@ -11,7 +12,7 @@ const ModalUsers = ({ setFlag, student, model, flag }: any) => {
                 </svg>
                 <div className='flex item-start justify-start flex-col md:flex-row gap-16'>
                     <div className='flex-2/6'>
-                        <img className='h-full w-full md:w-150 !object-cover rounded-[20px]' src={student?.customer_profile.url} alt={student?.customer_profile.alt} />
+                        <Image width={68} height={40} className='h-full w-full md:w-150 !object-cover rounded-[20px]' src={student?.customer_profile.url} alt={student?.customer_profile.alt} />
                     </div>
                     <div className='flex-4/6'>
                         <h2 className={`font-bold ${student.bank_name == 'HANDEX' ? "mb-6" : "mb-0"} ${model ? 'text-white' : 'text-black'}`}>{student?.name}</h2>

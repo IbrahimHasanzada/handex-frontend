@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import React from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -39,7 +40,7 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderInd
                 {data && data.length && createSlides(data).map((item: any, index: number) => (
                     <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
-                            <img src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? '!w-22 object-cover' : 'object-cover'} />
+                            <Image width={200} height={200} src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? '!w-22 object-cover' : 'object-cover'} />
                         </div>
                     </SwiperSlide>
                 ))}

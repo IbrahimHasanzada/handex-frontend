@@ -1,13 +1,17 @@
-import HeadSection from '@/components/home/HeroSection';
-import Statistics from '@/components/Statistics';
-import StudyAreasSection from '@/components/home/StudyAreasSection';
-import TestimonialsHome from '@/components/home/TestimonialsHome';
-import TopCompanies from '@/components/home/TopCompanies';
-import UserSlider from '@/components/home/UserSlider';
 import { getTranslations } from 'next-intl/server';
 import { baseUrl } from '@/utils/url';
 import { getContent, getGeneral, getMeta, getStatistic } from '@/service';
-import PartnersClient from '@/components/corporate/PartnersClient';
+
+
+import dynamic from 'next/dynamic';
+
+const HeadSection = dynamic(() => import('@/components/home/HeroSection'));
+const Statistics = dynamic(() => import('@/components/Statistics'));
+const StudyAreasSection = dynamic(() => import('@/components/home/StudyAreasSection'));
+const TestimonialsHome = dynamic(() => import('@/components/home/TestimonialsHome'));
+const TopCompanies = dynamic(() => import('@/components/home/TopCompanies'));
+const UserSlider = dynamic(() => import('@/components/home/UserSlider'));
+
 
 export async function generateMetadata({ params }: any) {
   const { locale } = await params;
