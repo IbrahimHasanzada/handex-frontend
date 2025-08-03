@@ -10,9 +10,10 @@ const ProjectCard = ({ item }) => {
         <Link href={`/${local}/layihe/${item.slug}`} className='w-full'>
             <div className='p-6 w-4/5 box-shadow bg-white rounded-[20px] h-auto md:h-81 flex items-end relative'>
                 <div>
-                    <h2 className='mb-2 text-xl max-[450px]:text-sm whitespace-normal max-w-[300px] md:text-[30px] font-bold'>{item.title}</h2>
+                    <h2 className='mb-2 text-base  whitespace-normal max-w-[300px] md:text-[30px] font-bold'>{item.title}</h2>
                     <div
                         className='
+                        description-wrapper
                         md:max-w-md
                         text-[#666] !text-xs w-[80%]  font-normal line-clamp-4 mb-3
                         [&_p]:inline

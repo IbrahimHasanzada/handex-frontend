@@ -10,16 +10,16 @@ const ServiceCard = (params) => {
             href={`/${locale}/xidmetler/${item.slug}`}
             className='flex md:flex-row flex-col bg-white box-shadow rounded-[20px] w-full overflow-hidden'
         >
-            <div className='md:w-1/2 w-full md:h-[316px] h-[200px]'>
+            <div className='flex justify-center md:w-1/2 w-full md:h-[316px] h-[200px]'>
                 <img
-                    className='w-full h-full object-cover'
+                    className='md:w-full h-full object-cover'
                     src={item?.image?.url}
                     alt={item?.image?.alt}
                 />
             </div>
             <div className='p-4 md:w-1/2 w-full flex flex-col justify-between'>
                 <div>
-                    <h2 className='md:text-2xl text-sm font-bold line-clamp-2 mb-3'>{item.title}</h2>
+                    <h2 className='md:text-2xl text-base font-bold line-clamp-2 mb-3'>{item.title}</h2>
                     <div
                         className='
                                 text-[#666] text-xs font-normal line-clamp-5 mb-3
