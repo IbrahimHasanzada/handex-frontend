@@ -18,6 +18,7 @@ const StudyCards: React.FC<any> = ({ item, theme, model }) => {
                 <Button theme={theme ? true : false} flag={true} link=''>
                     <div className='w-full h-full relative'>
                         <Image
+                            loading='lazy'
                             src='/assets/img/Arrow.png'
                             alt='Handex study area arrow icon'
                             width={48}
