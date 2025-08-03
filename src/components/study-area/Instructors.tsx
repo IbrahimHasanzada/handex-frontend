@@ -26,7 +26,7 @@ const Instructors = ({ slug, locale, model }: any) => {
     return (
         <div className={`relative ${student && student.length <= 4 ? "!mb-0" : "!mb-30"}`}>
             <div className={`${student && student.length < 4 ? "hidden" : "flex"} navigation-buttons absolute left-0 right-0  justify-center space-x-2 z-10 -bottom-30`}>
-                <button aria-label="prev button" className={`overflow-hidden group swiper-button-prev-custom rounded-full w-20 h-20 flex items-center justify-center  ${isBeginning ? (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]') : (model ? 'bg-white' : 'bg-black')}`}>
+                <button aria-label="prev button" className={`overflow-hidden group swiper-button-prev-instructors rounded-full w-20 h-20 flex items-center justify-center  ${isBeginning ? (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]') : (model ? 'bg-white' : 'bg-black')}`}>
                     <svg className='group-hover:translate-x-4.5 duration-300 translate-x-24 rotate-90' width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'white' : 'black') : (model ? 'black' : 'white')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -34,7 +34,7 @@ const Instructors = ({ slug, locale, model }: any) => {
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'white' : 'black') : (model ? 'black' : 'white')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
-                <button aria-label="next button" className={`overflow-hidden group swiper-button-next-custom rounded-full w-20 h-20 flex items-center justify-center ${isBeginning ? (model ? 'bg-white' : 'bg-black') : (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]')}`}>
+                <button aria-label="next button" className={`overflow-hidden group swiper-button-next-instructors rounded-full w-20 h-20 flex items-center justify-center ${isBeginning ? (model ? 'bg-white' : 'bg-black') : (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]')}`}>
                     <svg className='group-hover:translate-x-24 duration-300 translate-x-5 -rotate-90' width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'black' : 'white') : (model ? 'white' : 'black')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -62,8 +62,8 @@ const Instructors = ({ slug, locale, model }: any) => {
                 spaceBetween={24}
                 slidesPerView={1}
                 navigation={{
-                    prevEl: ".swiper-button-prev-custom",
-                    nextEl: ".swiper-button-next-custom",
+                    prevEl: ".swiper-button-prev-instructors",
+                    nextEl: ".swiper-button-next-instructors",
                 }}
                 modules={[Navigation]}
                 onReachBeginning={() => students && setIsBeginning(true)}

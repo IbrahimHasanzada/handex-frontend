@@ -13,6 +13,7 @@ const Footer = async ({ theme = '', study }: any) => {
     getGeneral(),
     getLocale(),
   ]);
+
   const header = t.raw('header.headerLists');
   const about = header[0].subItems;
   const title = t.raw('footer.title');
@@ -124,8 +125,10 @@ const Footer = async ({ theme = '', study }: any) => {
                 <div className='flex gap-11'>
                   <div>
                     <p className='text-[#595959] text-xs font-bold'>{t('footer.number')}</p>
-                    <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                      {general.length && general[0].phone && formatPhoneNumber(general[0]?.phone[0])}
+                    <p className={`text-sm md:text-base flex flex-col ${theme ? 'text-white' : 'text-black'}`}>
+                      {general.length && general[0].phone && general?.[0].phone.map((item: string, index: number) => (
+                        theme ? (index === 0 ? formatPhoneNumber(item) : '') : (index !== 0 ? <span>{formatPhoneNumber(item)}</span> : '')
+                      ))}
                     </p>
                   </div>
                   <div>

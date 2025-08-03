@@ -17,7 +17,7 @@ const HeaderModal: React.FC<HeaderModalProps> = ({ theme = 'home', study }) => {
     return (
         <>
             <div onClick={() => setFlag(!flag)} className='h-full'>
-                <Button className='!rounded-[12px]' theme={theme === 'dark'} flag={false} link=''>
+                <Button className='!rounded-full' theme={theme === 'dark'} flag={false} link=''>
                     {theme === 'dark' ? 'Müraciət et' : 'Müraciət et'}
                 </Button>
             </div>

@@ -5,7 +5,7 @@ import Groups from '@/components/study-area/Groups';
 import Instructors from '@/components/study-area/Instructors';
 import Program from '@/components/study-area/Program';
 import StudyAreaModal from '@/components/study-area/StudyAreaModal';
-import { getBrochure, getStudyAreaFaq, getStudyAreaItem, getStudyAreaProgram, getStudyAreas } from '@/service';
+import { getBrochure, getContent, getStudyAreaFaq, getStudyAreaItem, getStudyAreaProgram, getStudyAreas } from '@/service';
 import { baseUrl } from '@/utils/url';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
@@ -13,7 +13,7 @@ import React from 'react';
 export async function generateMetadata({ params }: any) {
     const { locale, slug } = await params;
     const item = await getStudyAreaItem(slug, 'home');
-
+    const handex = await getContent('');
 
     const canonicalUrl = `${baseUrl}/tedris/${slug}`;
     if (item.error) {
@@ -43,12 +43,12 @@ const page = async ({ params }: any) => {
     const { slug, locale } = await params;
     const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug, 'home');
-    const study = await getStudyAreas();
+    const study = await getStudyAreas('home');
     const programs = await getStudyAreaProgram(locale, slug, 'home');
     const faq = await getStudyAreaFaq(locale, slug, 'home');
-    
+
     const brochure = await getBrochure(item?.id);
-    
+
     const color = item?.color;
     return (
         <div className='wrapper pt-45'>
@@ -60,13 +60,13 @@ const page = async ({ params }: any) => {
                 </div>
                 <img className='lg:order-0 -order-1 md:size-100' src={item?.image?.url} alt="Study area image" />
             </div>
-            { programs?.map((item: any) => <h3 className='hidden'>{item.name}</h3>) }
+            {programs?.map((item: any) => <h3 className='hidden'>{item.name}</h3>)}
             <Program brochure={brochure ? brochure : null} slug={slug} locale={locale} program={item.program} color={color} />
             <Groups locale={locale} slug={slug} study={study} groups={item.groups} color={color} />
-            <h3 className='text-[38px] font-bold text-center mt-30'>{t('why.title')}</h3>
+            <h3 className='text-2xl md:text-[38px] font-bold text-center mt-30'>{t('why.title')}</h3>
             <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
             <HandexPreference slug='why-handex' />
-            <div className='mt-30 box-shadow pb-6 md:pb-0 rounded-[20px] bg-white lg:px-0 px-3 lg:text-start text-center lg:flex justify-between items-center'>
+            <div className='mt-44 box-shadow pb-6 md:pb-0 rounded-[20px] bg-white lg:px-0 px-3 lg:text-start text-center lg:flex justify-between items-center'>
                 <img src="/assets/Photo (13).svg" alt="Birbank image" />
                 <div className='lg:w-1/2'>
                     <p className='lg:text-[68px] text-[24px] leading-[65px] lg:w-4/5 font-bold mb-5'>{t('ads.title')}</p>
@@ -74,16 +74,16 @@ const page = async ({ params }: any) => {
                 </div>
             </div>
             <div className='mt-30'>
-                <h4 className='text-[38px] font-bold'>{t('instructors')}</h4>
+                <h4 className='text-2xl md:text-[38px] font-bold'>{t('instructors')}</h4>
                 <div className='mt-12'>
                     <Instructors locale={locale} slug={slug} />
                 </div>
             </div>
-                <Statistics slug={slug} page='studyArea' />
-            
+            <Statistics slug={slug} page='studyArea' />
+
             <div className='mt-30'>
-                <p className='font-bold mb-6'>{t('faq')}</p>
-                { faq?.map((item: any) => <h2 className='hidden'>{item.title}</h2>) }
+                <p className='font-bold text-2xl md:text-4xl mb-6'>{t('faq')}</p>
+                {faq?.map((item: any) => <h2 className='hidden'>{item.title}</h2>)}
                 <Faq locale={locale} slug={slug} />
             </div>
         </div>

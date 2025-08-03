@@ -1,59 +1,41 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { getStudyAreaFaq } from '@/service';
 
 const Faq: React.FC<any> = ({ locale, slug, model }) => {
-    const [faq, setFaq] = useState<any>();
+    const [faq, setFaq] = useState<any[]>([]);
     const [flag, setFlag] = useState<number>(0);
     const contentRefs = useRef<any>({});
-    const faqRef = useRef<HTMLDivElement | null>(null);
-    const [hasFetched, setHasFetched] = useState(false);
 
     useEffect(() => {
-        if (!faqRef.current) return;
-
-        const observer = new IntersectionObserver(
-            async ([entry]) => {
-                if (entry.isIntersecting && !hasFetched) {
-                    const data = await getStudyAreaFaq(locale, slug, model ? 'corporate' : 'home');
-                    setFaq(data);
-                    setHasFetched(true);
-                    observer.disconnect();
-                }
-            },
-            {
-                rootMargin: '0px',
-                threshold: 0.1,
-            }
-        );
-
-        observer.observe(faqRef.current);
-
-        return () => observer.disconnect();
-    }, [locale, slug, hasFetched]);
+        (async () => {
+            const data = await getStudyAreaFaq(locale, slug, model ? 'corporate' : 'home');
+            setFaq(data || []);
+        })();
+    }, [locale, slug, model]);
 
     const toggleFaq = (id: number) => {
         setFlag(prev => (prev === id ? 0 : id));
     };
 
     return (
-        <div ref={faqRef}>
-            {faq?.map((item: any, i: number) => (
-                <div
-                    key={i}
-                    onClick={() => toggleFaq(item.id)}
-                    className={`${model ? 'bg-[#282828]' : 'bg-white'} mt-4 px-6 overflow-hidden duration-500  box-shadow rounded-[20px] cursor-pointer`}
-                    style={{
-                        maxHeight: flag === item.id
-                            ? `${contentRefs.current[item.id]?.scrollHeight + 60}px`
-                            : '56px',
-                        transition: 'max-height 0.5s ease',
-                    }}
-                >
-                    <div className='flex items-center justify-between py-4'>
-                        <p className={`text-base select-none ${model ? 'text-white' : 'text-[#141414]'}`}>{item.title}</p>
-                        <div className={`size-6 rounded-full text-sm md:text-base flex items-center justify-center ${model ? 'bg-[#909090]' : 'bg-[#DDDDDD]'}`}>
-                            <svg className={`${flag === item.id ? 'rotate-180' : ''} duration-300`} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <div>
+            {faq.map((item: any) => (
+                <div key={item.id} className="mt-4 !bg-[#fff] rounded-[20px] box-shadow">
+                    {/* TITLE */}
+                    <div
+                        onClick={() => toggleFaq(item.id)}
+                        className={`flex items-center justify-between px-6 py-4   
+                        ${flag === item.id ? 'rounded-[20px]' : 'rounded-[20px]'} 
+                        cursor-pointer transition-colors duration-300
+                        ${model ? 'bg-[#282828]' : 'bg-white'}`}
+                    >
+                        <p className={`text-base select-none ${model ? 'text-white' : 'text-[#141414]'}`}>
+                            {item.title}
+                        </p>
+                        <div className={`size-6 rounded-full text-sm flex items-center justify-center 
+                            ${model ? 'bg-[#909090]' : 'bg-[#DDDDDD]'}`}>
+                            <svg className={`${flag === item.id ? 'rotate-180' : ''} duration-300`} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
                                 <path
                                     d="M8 10L12 14L16 10"
                                     stroke={model ? 'white' : '#141414'}
@@ -64,12 +46,18 @@ const Faq: React.FC<any> = ({ locale, slug, model }) => {
                             </svg>
                         </div>
                     </div>
-                    <p
-                        className={`pb-4 text-sm select-none ${model ? 'text-white' : 'text-[#555]'}`}
-                        ref={el => contentRefs.current[item.id] = el as any}
+
+                    {/* DESCRIPTION */}
+                    <div
+                        ref={el => (contentRefs.current[item.id] = el)}
+                        className={`overflow-hidden px-6 transition-all duration-500 ease-in-out rounded-b-[20px] 
+                        ${model ? 'bg-[#282828]' : ''} 
+                        ${flag === item.id ? 'max-h-[500px] py-4' : 'max-h-0 py-0'}`}
                     >
-                        {item.description}
-                    </p>
+                        <p className={`text-sm select-none ${model ? 'text-white' : 'text-[#555]'}`}>
+                            {item.description}
+                        </p>
+                    </div>
                 </div>
             ))}
         </div>

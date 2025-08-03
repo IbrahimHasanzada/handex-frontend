@@ -51,8 +51,8 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
         <div ref={groupsRef} className='mt-30'>
             {groups.length > 0 && (
                 <>
-                    <p className={`text-[38px] font-bold ${model && 'text-white'}`}>Növbəti qruplarımız</p>
-                    <p className={`${model && 'text-[#909090]'} mt-4 text-xl`}>
+                    <p className={`text-2xl md:text-[38px] font-bold ${model && 'text-white'}`}>Növbəti qruplarımız</p>
+                    <p className={`${model && 'text-[#909090]'} mt-4 hidden md:block text-xl`}>
                         Aşağıdakı bölmədən tezliklə başlayacaq qruplarımızla tanış ol və tədris başlamadan yerini tut.
                     </p>
 
@@ -60,7 +60,7 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
                         <p className='text-center mt-10 text-[#909090]'>Yüklənir...</p>
                     )}
 
-                    <div className='flex items-center justify-center gap-6 mt-12 flex-wrap'>
+                    <div className='flex items-center justify-center gap-6 mt-7 md:mt-12 flex-wrap'>
                         {groupsWithCountdown.map((item: any, i: number) => {
                             const month = parseInt(item?.startDate.split('-')[1], 10);
                             const day = item?.startDate.split('-')[2];
@@ -72,25 +72,25 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
                                     style={{ backgroundColor: i % 2 ? 'white' : color }}
                                     className='box-shadow md:w-[48%] w-full p-6 lg:p-12 rounded-[20px] text-white'
                                 >
-                                    <div className='lg:flex justify-between'>
-                                        <div className={`${i % 2 ? 'text-[#141414]' : 'text-white'} text-center md:mb-0 mb-6`}>
+                                    <div className='lg:flex justify-between '>
+                                        <div className={`${i % 2 ? 'text-[#141414]' : 'text-white'} text-[22px] md:text-lg lg:max-w-32 text-center md:mb-0 mb-6`}>
                                             <p>{item?.table[0]?.value}</p>
                                         </div>
                                         <div
                                             style={{ backgroundColor: i % 2 ? '#E8E8E8' : 'white' }}
-                                            className='rounded-[20px] text-[#141414] flex items-center lg:w-auto w-full justify-between py-2 px-6'
+                                            className='rounded-[20px] text-[#141414] lg:max-w-[235px] flex items-center  w-full justify-between py-2 px-6'
                                         >
-                                            <div className='text-center'>
+                                            <div className='text-center flex-1/3'>
                                                 <p className='text-base font-bold'>{days}</p>
                                                 <p className='text-sm'>gün</p>
                                             </div>
-                                            <div className='h-4 mx-5 w-[1px] bg-[#909090]'></div>
-                                            <div className='text-center'>
+                                            <div className='h-8  w-[1px] bg-[#909090] mx-5'></div>
+                                            <div className='text-center flex-1/3'>
                                                 <p className='text-base font-bold'>{hours}</p>
                                                 <p className='text-sm'>saat</p>
                                             </div>
-                                            <div className='h-4 mx-5 w-[1px] bg-[#909090]'></div>
-                                            <div className='text-center'>
+                                            <div className='h-8  w-[1px]  bg-[#909090] mx-5'></div>
+                                            <div className='text-center flex-1/3'>
                                                 <p className='text-base font-bold'>{minutes}</p>
                                                 <p className='text-sm'>dəqiqə</p>
                                             </div>
@@ -98,7 +98,7 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
                                     </div>
                                     <p
                                         style={{ color: i % 2 ? '#141414' : 'white' }}
-                                        className='lg:text-[58px] text-[34px] font-bold text-center my-8'
+                                        className='lg:text-[58px] text-[34px] font-bold text-center my-5 md:my-8'
                                     >
                                         {day} {months[month - 1]}
                                     </p>
@@ -114,7 +114,7 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
                                             backgroundColor: i % 2 ? '#383838' : 'white',
                                             color: i % 2 ? 'white' : '#141414'
                                         }}
-                                        className='cursor-pointer bg-white w-full h-12 rounded-full mt-10 text-[#141414]'
+                                        className='cursor-pointer bg-white w-full h-12 rounded-full md:mt-10 mt-5 text-[#141414]'
                                     >
                                         Müraciət et
                                     </button>

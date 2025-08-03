@@ -6,16 +6,16 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
-        const { width } = useWindowSize();
+    const { width } = useWindowSize();
     const t = useTranslations('header');
     const locale = useLocale();
 
     const regEx = /^[\d+]*$/;
 
     let form: { name: string, placeholder: string; }[] = t.raw('modal.form');
-    form = page === 'home' 
-    ? form.filter((_, index) => index !== 3 && index !== 4)
-    : form;
+    form = page === 'home'
+        ? form.filter((_, index) => index !== 3 && index !== 4)
+        : form;
     const [messages, setMessages] = useState({
         name: '',
         surname: '',
@@ -26,9 +26,9 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
     });
 
     const handleClick = async () => {
-        if(page !== 'home' && !messages.company) return toast.error('Şirkət adı boş ola bilməz');
-        if(page !== 'home' && !messages.email) return  toast.error('Email boş ola bilməz');
-        if(!messages.phone) return toast.error('Telefon boş ola bilməz');
+        if (page !== 'home' && !messages.company) return toast.error('Şirkət adı boş ola bilməz');
+        if (page !== 'home' && !messages.email) return toast.error('Email boş ola bilməz');
+        if (!messages.phone) return toast.error('Telefon boş ola bilməz');
 
         const message = page === 'home' ? { ...messages, email: undefined, company: undefined } : messages;
         let data = await addConsultation(message, locale);
@@ -76,7 +76,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
         <>
             <div onClick={() => setFlag(!flag)} className={`${flag ? 'block' : 'hidden'} z-105 top-0 left-0 opacity-50 fixed w-screen h-screen bg-black`}></div>
             <div className={`${page === 'home' ? 'bg-white' : 'bg-[#181818]'} z-106 px-7 overflow-y-auto md:px-14 w-[90%] md:w-140 ${flag ? 'block' : 'hidden'} rounded-[20px] py-14 text-center fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2`}>
-            { width > 768 && <img className='mb-6 mx-auto' src="/assets/img/contact (1).webp" alt="Modal icon" /> }
+                {width > 768 && <img className='mb-6 mx-auto' src="/assets/img/contact (1).webp" alt="Modal icon" />}
                 <div onClick={() => setFlag(!flag)}>
                     <svg className='absolute top-8 right-8 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M1 18.9985L19 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -84,7 +84,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
                     </svg>
                 </div>
 
-                <p className={`${page === 'home' ? 'text-[#141414]' : 'text-white'} mb-4 text-[34px] font-bold`}>{ page === 'home' ? t('modal.title') : 'Təklif al'}</p>
+                <p className={`${page === 'home' ? 'text-[#141414]' : 'text-white'} mb-4 text-[34px] font-bold`}>{page === 'home' ? t('modal.title') : 'Təklif al'}</p>
                 {form.map((item, i) => (
                     i + 1 !== form.length && <input value={messages[item.name as keyof typeof messages] || ''} onChange={(e) => handleChange(e.target.value, item.name)} key={i} className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} placeholder={item.placeholder} type='text' />
                 ))}
