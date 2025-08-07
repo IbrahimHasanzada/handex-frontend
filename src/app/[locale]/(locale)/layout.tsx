@@ -2,10 +2,11 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+const Footer = dynamic(() => import('@/components/Footer'));
 import BackgroundLayout from "@/components/BackgroundLayout";
 import { getStudyAreas } from "@/service";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 export default async function RootLayout({
   children,
   params,
