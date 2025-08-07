@@ -9,11 +9,6 @@ export async function generateMetadata() {
 
   const canonicalUrl = `${baseUrl}/layihe`;
 
-  let meta = {};
-  data.forEach(item => {
-    meta[item.name] = item.value;
-  });
-
   return {
     title: 'Handex layihələri təlim və tədris, inkişaf və məşğulluq imkanları.',
     description: 'Handex təlim mərkəzində həyata keçirilən layihələr peşəkar biliklərin artırılması, real iş imkanları və fərdi inkişaf üçün nəzərdə tutulub. Karyeranı qur!',

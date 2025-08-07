@@ -8,10 +8,6 @@ export async function generateMetadata({ params }) {
 
   const canonicalUrl = `${baseUrl}/xeberler`;
 
-  let meta = {};
-  data.forEach(item => {
-    meta[item.name] = item.value;
-  });
 
   return {
     title: 'Handexdə baş tutan xəbərlər, yeni təlimlər, tədbirlər və yeniliklər.',
