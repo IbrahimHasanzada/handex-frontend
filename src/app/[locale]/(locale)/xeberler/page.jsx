@@ -5,16 +5,8 @@ import { getMeta } from '@/service';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  let data = await getMeta('news');
 
   const canonicalUrl = `${baseUrl}/xeberler`;
-  if (data.error) {
-    return {
-      alternates: {
-        canonical: canonicalUrl,
-      },
-    };
-  }
 
   let meta = {};
   data.forEach(item => {
@@ -22,8 +14,8 @@ export async function generateMetadata({ params }) {
   });
 
   return {
-    title: meta.title || undefined,
-    description: meta.description || undefined,
+    title: 'Handexdə baş tutan xəbərlər, yeni təlimlər, tədbirlər və yeniliklər.',
+    description: 'Handex təlim mərkəzində keçirilən seminarlar, master‑klaslar və tədris yenilikləri barədə xəbərlər bölməsindən xəbərdar olun. Karyeranı burada qur!',
     alternates: {
       canonical: canonicalUrl,
     },

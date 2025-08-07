@@ -7,24 +7,14 @@ import React from 'react';
 
 export async function generateMetadata({ params }: any) {
     const { locale } = await params;
-    let data: any = await getMeta('contact');
 
     const canonicalUrl = `${baseUrl}/kontakt`;
-    if (data.error) {
-        return {
-            alternates: {
-                canonical: canonicalUrl,
-            },
-        };
-    }
     let meta: any = {};
-    data.forEach((item: any) => {
-        meta[item.name] = item.value;
-    });
+    
 
     return {
-        title: meta.title || undefined,
-        description: meta.description || undefined,
+        title: 'Handex ilə əlaqə – Suallarınız üçün bizimlə əlaqə saxlayın.',
+        description: 'Handex təlim mərkəzi ilə əlaqə qurmaq üçün formu doldurun və ya bizə birbaşa yazın. Sual və müraciətlərinizi cavablandırmaq üçün buradayıq. Əlaqə saxla!',
         alternates: {
             canonical: canonicalUrl,
         },
