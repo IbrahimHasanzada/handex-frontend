@@ -8,7 +8,7 @@ import React from 'react';
 export async function generateMetadata({ params }: any) {
     const { locale } = await params;
 
-    const canonicalUrl = `${baseUrl}/kontakt`;
+    const canonicalUrl = `${baseUrl}/elaqe`;
     let meta: any = {};
     
 
