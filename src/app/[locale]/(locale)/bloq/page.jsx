@@ -4,25 +4,12 @@ import BlogClient from '@/components/blog/BlogClient';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  let data = await getMeta('blog');
 
   const canonicalUrl = `${baseUrl}/bloq`;
-  if (data.error) {
-    return {
-      alternates: {
-        canonical: canonicalUrl,
-      },
-    };
-  }
-
-  let meta = {};
-  data.forEach(item => {
-    meta[item.name] = item.value;
-  });
 
   return {
-    title: meta.title || undefined,
-    description: meta.description || undefined,
+    title: 'Handex bloq ekspert məqalələr, təlim tövsiyələri və yeniliklər.',
+    description: 'Data Analitika, Excel, Power BI, MOSE, SMM, PL-300 və digər təlim sahələrində ekspert məqalələri, praktiki tövsiyələr və yenilikləri burada əldə edin.',
     alternates: {
       canonical: canonicalUrl,
     },

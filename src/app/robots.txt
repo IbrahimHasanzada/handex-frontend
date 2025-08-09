@@ -4,6 +4,8 @@ Disallow: /xeberler/
 Disallow: /haqqimizda/
 Disallow: /en/
 Disallow: /ru/
+Allow: /korporativ$
+Disallow: /korporativ/
 Allow: /
 
-Sitemap: https://handex.edu.az/sitemap.xml
+Sitemap: https://handex.edu.az/sitemap.xml 

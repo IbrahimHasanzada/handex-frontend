@@ -6,25 +6,12 @@ import { useLocale } from 'next-intl';
 
 export async function generateMetadata() {
   const locale = await getLocale();
-  let data = await getMeta('project');
 
   const canonicalUrl = `${baseUrl}/layihe`;
-  if (data.error) {
-    return {
-      alternates: {
-        canonical: canonicalUrl,
-      },
-    };
-  }
-
-  let meta = {};
-  data.forEach(item => {
-    meta[item.name] = item.value;
-  });
 
   return {
-    title: meta.title || undefined,
-    description: meta.description || undefined,
+    title: 'Handex layihələri təlim və tədris, inkişaf və məşğulluq imkanları.',
+    description: 'Handex təlim mərkəzində həyata keçirilən layihələr peşəkar biliklərin artırılması, real iş imkanları və fərdi inkişaf üçün nəzərdə tutulub. Karyeranı qur!',
     alternates: {
       canonical: canonicalUrl,
     },
