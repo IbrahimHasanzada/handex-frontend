@@ -43,7 +43,7 @@ const ProjectClient = ({ locale }) => {
         ))}
       </div>
       {total > (count + 1) * 8 && (
-        <button onClick={() => handlePagination()} className='flex bg-handle-gray mx-auto rounded-full items-center px-6 gap-2 h-12 my-15'>
+        <button id='more-button' onClick={() => handlePagination()} className='flex bg-handle-gray mx-auto rounded-full items-center px-6 gap-2 h-12 my-15'>
           <p className='text-base'>{loading ? 'Loading' : 'Daha çox'}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
             <path d="M8.5 10L12.5 14L16.5 10" stroke="#141414" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

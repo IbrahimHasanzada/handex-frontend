@@ -21,9 +21,10 @@ const Faq: React.FC<any> = ({ locale, slug, model }) => {
     return (
         <div>
             {faq.map((item: any, index: number) => (
-                <div id={slug + 'faq' + index} key={item.id} className={`mt-4  rounded-[20px] ${ !model ? '!bg-[#fff]' : 'bg-[#282828]' } box-shadow`}>
+                <div id={slug + 'faq' + index} key={item.id} className={`mt-4  rounded-[20px] ${!model ? '!bg-[#fff]' : 'bg-[#282828]'} box-shadow`}>
                     {/* TITLE */}
                     <div
+                        id='faq-title-button'
                         onClick={() => toggleFaq(item.id)}
                         className={`flex items-center justify-between px-6 py-4   
                         ${flag === item.id ? 'rounded-[20px]' : 'rounded-[20px]'} 

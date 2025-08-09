@@ -4,9 +4,9 @@ import React from 'react'
 const ModalUsers = ({ setFlag, student, model, flag }: any) => {
     return (
         <div>
-            <div onClick={() => setFlag(0)} className={`fixed inset-0 bg-black opacity-50 w-screen h-screen z-101 ${flag ? '!block' : '!hidden'}`}></div>
-            <div className={`fixed lg:w-[70vw] w-[95vw] justify-between rounded-[20px] gap-4 ${model ? 'bg-[#282828]' : 'bg-white '} z-102 p-12 top-1/2 left-1/2 ${flag !== 0 ? 'block lg:flex' : 'hidden'} -translate-x-1/2 -translate-y-1/2 `}>
-                <svg onClick={() => setFlag(0)} className='absolute cursor-pointer top-5 right-5' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <div id='user-modal' onClick={() => setFlag(0)} className={`fixed inset-0 bg-black opacity-50 w-screen h-screen z-101 ${flag ? '!block' : '!hidden'}`}></div>
+            <div className={`fixed lg:w-[70vw] w-[95vw] overflow-y-auto h-[80vh] md:h-auto justify-between rounded-[20px] gap-4 ${model ? 'bg-[#282828]' : 'bg-white '} z-102 p-12 top-1/2 left-1/2 ${flag !== 0 ? 'block lg:flex' : 'hidden'} -translate-x-1/2 -translate-y-1/2 `}>
+                <svg id='handle-modal' onClick={() => setFlag(0)} className='absolute cursor-pointer top-5 right-5' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M1 18.9985L19 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M19 18.9985L1 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

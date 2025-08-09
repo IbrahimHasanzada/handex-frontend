@@ -14,7 +14,7 @@ const BlogCard = ({ item }) => {
     };
 
     return (
-        <div onClick={() => handleClick()} className='rounded-2xl cursor-pointer box-shadow bg-white py-5 px-3'>
+        <div id='handle-blog' onClick={() => handleClick()} className='rounded-2xl cursor-pointer box-shadow bg-white py-5 px-3'>
             <h2 className='text-[#141414] text-base font-bold line-clamp-2'>{item.title}</h2>
             <button className='my-3 p-2 rounded-[12px] flex items-center gap-2 bg-[#DDD] text-xs'>
                 <Image src='/assets/img/calendar.svg' alt='Blogs calendar' width={16} height={16} />

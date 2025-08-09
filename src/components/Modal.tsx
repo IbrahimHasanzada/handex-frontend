@@ -74,10 +74,10 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
     }, [flag]);
     return (
         <>
-            <div onClick={() => setFlag(!flag)} className={`${flag ? 'block' : 'hidden'} z-105 top-0 left-0 opacity-50 fixed w-screen h-screen bg-black`}></div>
+            <div id='handle-modal' onClick={() => setFlag(!flag)} className={`${flag ? 'block' : 'hidden'} z-105 top-0 left-0 opacity-50 fixed w-screen h-screen bg-black`}></div>
             <div className={`${page === 'home' ? 'bg-white' : 'bg-[#181818]'} z-106 px-7 overflow-y-auto md:px-14 w-[90%] md:w-140 ${flag ? 'block' : 'hidden'} rounded-[20px] py-14 text-center fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2`}>
                 {width > 768 && <img className='mb-6 mx-auto' src="/assets/img/contact (1).webp" alt="Modal icon" />}
-                <div onClick={() => setFlag(!flag)}>
+                <div id='handle-flag' onClick={() => setFlag(!flag)}>
                     <svg className='absolute top-8 right-8 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M1 18.9985L19 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M19 18.9985L1 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -99,7 +99,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
                         ))}
                     </select>
                 </div>
-                <button onClick={() => handleClick()} className='mt-8 w-full md:w-51 h-12 rounded-full bg-[#323232] text-white'>{t('modal.button')}</button>
+                <button id='modal-button' onClick={() => handleClick()} className='mt-8 w-full md:w-51 h-12 rounded-full bg-[#323232] text-white'>{t('modal.button')}</button>
             </div>
         </>
     );

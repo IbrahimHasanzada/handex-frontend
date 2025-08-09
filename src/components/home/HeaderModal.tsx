@@ -18,7 +18,7 @@ const HeaderModal: React.FC<HeaderModalProps> = ({ theme = 'home', study }) => {
     const { width } = useWindowSize()
     return (
         <>
-            <div onClick={() => setFlag(!flag)} className='h-full'>
+            <div  id='consultation' onClick={() => setFlag(!flag)} className='h-full'>
                 <Button className='!rounded-full' theme={theme === 'dark'} flag={false} link=''>
                     {theme === 'dark' ? 'Müraciət et' : (width > 768 ? 'Ödənişsiz konsultasiya' : "Müraciət et")}
                 </Button>

@@ -41,7 +41,7 @@ const BlogContentWithTOC = ({ description }) => {
           <p className="text-xl font-semibold mb-3">{t('blog.description')}</p>
           <ul className="flex flex-col gap-1 rounded-l-lg">
             {headings.map((h, idx) => (
-              <li onClick={() => setIndex(idx)} className="flex gap-3 text-xl" key={h.id}>
+              <li id='heading-blog-content' onClick={() => setIndex(idx)} className="flex gap-3 text-xl" key={h.id}>
                 {
                   index === idx && <span className="bg-gradient-to-br from-[#73CCD8] to-[#2B6B9F] rounded-tl-xs rounded-bl-xs w-1"></span>
                 }
@@ -57,7 +57,7 @@ const BlogContentWithTOC = ({ description }) => {
         </div>
       </div>
 
-      <article id="blog-content" className="prose lg:w-3/4 text-xl w-full !text-[#666] [&_h1]:text-black [&_h2]:text-black [&_h3]:text-black [&_h4]:text-black [&_h5]:text-black"></article>
+      <article id="blog-content" className=" prose lg:w-3/4 text-xl w-full !text-[#666] [&_a]:!text-blue-600  [&_h1]:text-black [&_h2]:text-black [&_h3]:text-black [&_h4]:text-black [&_h5]:text-black"></article>
     </div>
   );
 };

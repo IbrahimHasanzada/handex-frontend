@@ -68,7 +68,7 @@ const ContactForm = () => {
                     <label className='block mb-1'>{textarea.label}</label>
                     <textarea value={form[textarea.name as keyof typeof form] || ''} onChange={(e) => handleChange(e.target.value, 'message')} className='py-2.5 px-4 h-40 w-full rounded-[20px] border border-[#909090] outline-none' placeholder={textarea.placeholder}></textarea>
                 </div>
-                <button onClick={() => handleClick()} className='mt-19 md:w-auto w-full px-8 rounded-full py-3 bg-[#1818181A]'>{t('contact.send')}</button>
+                <button id='handle-contact-form' onClick={() => handleClick()} className='mt-19 md:w-auto w-full px-8 rounded-full py-3 bg-[#1818181A]'>{t('contact.send')}</button>
             </div>
             <div className='md:ml-30 md:mt-0 mt-8'>
                 <iframe className='rounded-[20px] w-full h-full' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.41787074395!2d49.851465412187444!3d40.37743037132686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307df1224c72af%3A0xe8a74dd0d6a8cf13!2sHandex!5e0!3m2!1saz!2saz!4v1747217743032!5m2!1saz!2saz" loading="lazy"></iframe>

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { CSSProperties } from 'react';
+import Modal from '../Modal';
 
 interface ImageData {
     desktopStyles: CSSProperties;
@@ -11,7 +12,8 @@ interface ImageData {
 const ImageCollage: React.FC<any> = ({ images }) => {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [animateIn, setAnimateIn] = useState<boolean>(false);
-
+    const [open, setOpen] = useState(false)
+    const [imageIndex, setImageIndex] = useState<number>()
     useEffect(() => {
         const checkIfMobile = () => {
             setIsMobile(window.innerWidth < 768);
@@ -156,6 +158,11 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                                 >
                                     {images && images.length >= 5 && (
                                         <img
+                                            id={images[index]?.alt}
+                                            onClick={() => {
+                                                setOpen(true);
+                                                setImageIndex(index)
+                                            }}
                                             src={images[index]?.url as string}
                                             alt={images[index].alt}
                                             className="w-full h-full object-cover"
@@ -167,6 +174,21 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                     </div>
                 </div>
             </div>
+
+            {open &&
+                <>
+                    <div className='fixed inset-0 z-200 opacity-50 bg-black h-screen w-screen'></div>
+                    <div className='fixed   left-[50%] top-[50%] h-[20vh] w-[80vw] md:h-[50vh] md:w-[50vw] lg:h-[50vh] lg:w-[50vw] -translate-y-[50%] z-300 -translate-x-[50%]'>
+                        <div id='handleimages-modal' onClick={() => setOpen(!open)}>
+                            <svg className='absolute right-4 top-4 md:top-8 md:right-8 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M1 18.9985L19 0.998474" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M19 18.9985L1 0.998474" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </div>
+                        <img className='rounded-xl w-full object-cover h-full' src={images[imageIndex as number].url} alt="" />
+                    </div>
+                </>
+            }
         </div>
     );
 };

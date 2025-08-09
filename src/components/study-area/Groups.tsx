@@ -109,6 +109,7 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
                                         {item?.text[0]?.value}
                                     </p>
                                     <button
+                                        id={item?.text[0].value + 'group-button'}
                                         onClick={() => setFlag(!flag)}
                                         style={{
                                             backgroundColor: i % 2 ? '#383838' : 'white',

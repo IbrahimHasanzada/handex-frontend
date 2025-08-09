@@ -190,7 +190,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
               <HeaderModal study={study} theme={theme ? theme : 'home'} />
             </div>  
           <div className='w-8 h-8 block base:hidden'>
-            <button onClick={() => setFlag(!flag)} className='cursor-pointer'>
+            <button id='burger-menu' onClick={() => setFlag(!flag)} className='cursor-pointer'>
               <Image
                 src='/assets/img/menu-burger-square.svg'
                 alt='Handex burger menu icon'
@@ -204,10 +204,10 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
         </div>
       </div>
       {/*  H A M B U R G ER  */}
-      <div onClick={() => setFlag(!flag)} className={`top-0 left-0 ${flag ? 'fixed' : 'hidden'} z-80 w-screen h-screen bg-black opacity-50`}></div>
+      <div id='mobile-menu' onClick={() => setFlag(!flag)} className={`top-0 left-0 ${flag ? 'fixed' : 'hidden'} z-80 w-screen h-screen bg-black opacity-50`}></div>
       <div className={`fixed ${flag ? 'translate-x-0' : 'translate-x-full'} overflow-y-auto duration-300 right-0 h-screen w-4/5 sm:w-1/2 z-80 ${theme ? 'bg-[#181818]' : 'bg-white'} pt-35 list-none p-7`}>
         <ul>
-          <li onClick={() => handleClose()} className={`${theme ? 'text-white' : 'text-[#141414]'} cursor-pointer font-medium text-xl pb-1`}>
+          <li id='home-link' onClick={() => handleClose()} className={`${theme ? 'text-white' : 'text-[#141414]'} cursor-pointer font-medium text-xl pb-1`}>
             <Link href={'/' + local}>{t('home')}</Link>
           </li>
         </ul>
@@ -215,7 +215,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           <div key={index}>
             <div>
               <ul>
-                <li onClick={() => setCount(count === 1 ? 0 : 1)} className={`relative group cursor-pointer flex justify-between items-center z-50 pt-4 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
+                <li id={title + '- page'} onClick={() => setCount(count === 1 ? 0 : 1)} className={`relative group cursor-pointer flex justify-between items-center z-50 pt-4 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
                   <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{title}</p>
                   <svg className={`${count === 1 && 'rotate-180'} duration-300`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -226,7 +226,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             <div className={`${count === 1 ? 'max-h-[600px] mb-6' : 'max-h-0'} overflow-hidden duration-500 z-50 top-12 pt-5`}>
               <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
                 {subItems.map((item: any, idx: number) => (
-                  <li onClick={() => handleClose()} className='text-[#909090]' key={idx}>
+                  <li id={item.link} onClick={() => handleClose()} className='text-[#909090]' key={idx}>
                     <Link className='whitespace-nowrap' href={'/' + local + item.link}>
                       {item.text}
                     </Link>
@@ -237,7 +237,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           </div>
         ))}
         <ul>
-          <li onClick={() => setCount(count === 2 ? 0 : 2)} className={`relative group cursor-pointer flex justify-between items-center z-50 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
+          <li id='header-list' onClick={() => setCount(count === 2 ? 0 : 2)} className={`relative group cursor-pointer flex justify-between items-center z-50 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
             <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{t('study-area')}</p>
             <svg className={`${count === 2 && 'rotate-180'} duration-500`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path stroke={theme ? 'white' : 'black'} d="M8 10L12 14L16 10" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -247,7 +247,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
         <div className={`${count === 2 ? 'max-h-[500px]' : 'max-h-0'} overflow-hidden duration-500 z-50 top-12`}>
           <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
             {study?.map((item: any, idx: number) => (
-              <li onClick={() => handleClose()} className='text-[#909090]' key={idx}>
+              <li id={item.name} onClick={() => handleClose()} className='text-[#909090]' key={idx}>
                 <Link className='whitespace-nowrap' href={'/' + local + `/tedris/${item.slug}`}>
                   {item.name}
                 </Link>
@@ -256,10 +256,10 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           </ul>
         </div>
         <ul>
-          <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
+          <li id='coporate-page' onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
             <Link href={'/' + local + '/korporativ'}>{t('coorporate')}</Link>
           </li>
-          <li onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
+          <li id='contact-page' onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
             <Link href={'/' + local + '/elaqe'}>{t('contact')}</Link>
           </li>
         </ul>

@@ -33,7 +33,8 @@ const ProjectCard = ({ item }) => {
                         </svg>
                     </div>
                 </div>
-                <div className='absolute -right-[25%] md:-right-1/5 md:w-50 xs:w-35.5 md:h-55 h-3/5 xs:h-4/5 md:h-3/5 top-1/2 -translate-y-1/2'>
+                <div className='absolute -right-1/5 md:-right-1/5 w-[100px] md:w-50 h-[100px] md:h-3/5 top-1/2 -translate-y-1/2'>
+
                     <img className='w-full h-full object-cover rounded-[14px]' src={item?.image?.url} alt={item?.image?.alt} />
                 </div>
             </div>

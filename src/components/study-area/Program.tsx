@@ -33,7 +33,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
         <div className={`${model ? 'bg-[#282828]' : 'bg-white'} md:flex gap-15 rounded-[20px] py-12 px-6 mt-10 md:mt-30 box-shadow`}>
             <div className='md:w-2/5'>
                 {program?.map((item: any, i: number) => (
-                    <div style={{ backgroundColor: count === i ? color : model ? '#E8E8E833' : '#1818181A' }} onClick={() => setCount(i)} key={i} className={`cursor-pointer w-full flex gap-3 items-center rounded-[20px] px-5 py-2.5 my-3`}>
+                    <div style={{ backgroundColor: count === i ? color : model ? '#E8E8E833' : '#1818181A' }} id={'program - ' + item.name} onClick={() => setCount(i)} key={i} className={`cursor-pointer w-full flex gap-3 items-center rounded-[20px] px-5 py-2.5 my-3`}>
                         <div className={`${model ? 'bg-[#282828]' : 'bg-white'} overflow-hidden rounded-full p-1.5`}>
                             <img className='size-9' src={item?.image?.url} alt={item?.image?.alt} />
                         </div>
@@ -43,7 +43,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                 ))}
                 {brochure && (
 
-                    <div style={{ backgroundColor: count === program?.length + 1 ? color : model ? '#E8E8E833' : '#1818181A' }} onClick={downloadFile} className={`cursor-pointer w-full flex gap-3 items-center rounded-[20px] px-5 py-2.5 my-3`}>
+                    <div style={{ backgroundColor: count === program?.length + 1 ? color : model ? '#E8E8E833' : '#1818181A' }} id='download-brochure' onClick={downloadFile} className={`cursor-pointer w-full flex gap-3 items-center rounded-[20px] px-5 py-2.5 my-3`}>
                         {isLoading ?
 
 

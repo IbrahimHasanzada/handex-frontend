@@ -90,9 +90,9 @@ const Instructors = ({ slug, locale, model }: any) => {
 
             </Swiper>
             {/*  M O D A L  */}
-            <div onClick={() => setFlag(0)} className={`fixed inset-0 bg-black opacity-50 w-screen h-screen z-101 ${flag ? '!block' : '!hidden'}`}></div>
-            <div className={`fixed lg:w-[70vw] w-[95vw] justify-between rounded-[20px] gap-15 ${model ? 'bg-[#282828]' : 'bg-white '} z-102 p-12 top-1/2 left-1/2 ${flag !== 0 ? 'block lg:flex' : 'hidden'} -translate-x-1/2 -translate-y-1/2 `}>
-                <svg onClick={() => setFlag(0)} className='absolute cursor-pointer top-5 right-5' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <div id='handle-instructor-modal' onClick={() => setFlag(0)} className={`fixed inset-0 bg-black opacity-50 w-screen z-101 ${flag ? '!block' : '!hidden'}`}></div>
+            <div className={`fixed lg:w-[70vw] h-[80vh]  overflow-y-auto w-[95vw] justify-between rounded-[20px] gap-15 ${model ? 'bg-[#282828]' : 'bg-white '} z-102 p-12 top-1/2 left-1/2 ${flag !== 0 ? 'block lg:flex' : 'hidden'} -translate-x-1/2 -translate-y-1/2 `}>
+                <svg id='handle-instructor-modal-icon' onClick={() => setFlag(0)} className='absolute cursor-pointer top-5 right-5' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M1 18.9985L19 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M19 18.9985L1 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -100,9 +100,9 @@ const Instructors = ({ slug, locale, model }: any) => {
                     <img className='h-full w-full md:w-112 !object-cover rounded-[20px]' src={student?.image.url} alt="" />
                 </div>
                 <div className='lg:w-3/5 w-full'>
-                    <p className={`font-bold mb-0 ${model ? 'text-white' : 'text-black'}`}>{student?.name}</p>
+                    <p className={`font-bold mb-0 text-xl mt-5 ${model ? 'text-white' : 'text-black'}`}>{student?.name}</p>
                     <p className={`${ model ? 'text-white' : 'text-black' } font-medium pl-1 mb-6 `}>{student?.speciality}</p>
-                    <div dangerouslySetInnerHTML={{ __html: student?.description }} className={`lg:line-clamp-17 line-clamp-8 ${model ? 'text-white' : 'text-black'}`} />
+                    <div dangerouslySetInnerHTML={{ __html: student?.description }} className={` ${model ? 'text-white' : 'text-black'}  md:h-auto`} />
                 </div>
             </div>
         </div>
