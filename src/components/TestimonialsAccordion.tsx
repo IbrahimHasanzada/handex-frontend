@@ -57,12 +57,11 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start, i
             >
                 {data.map((item: any, index: number) => (
                     <SwiperSlide
-                        id={item.name}
                         onClick={() => handleOpenModal(item)}
-                        className={`relative !flex justify-center items-center py-5 ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-90' : '-rotate-5 max-w-90') : index % 2 ? '!h-auto' : '!h-[268px]'}`}
+                        className={`relative !flex justify-center items-center py-5 ${page !== 'corporate' ? (index % 2 ? 'rotate-5 max-w-180 md:max-w-90' : '-rotate-5 max-w-180 md:max-w-90') : index % 2 ? '!h-auto' : '!h-[268px]'}`}
                         key={item.id || index}
                     >
-                        <div className={`${page === 'corporate' ? 'bg-[#181818] border-[#2B2B2B] text-white' : 'bg-white border-[#DDD]'} border-1 w-90   rounded-[20px] p-6 h-auto`}>
+                        <div className={`${page === 'corporate' ? 'bg-[#181818] border-[#2B2B2B] text-white' : 'bg-white border-[#DDD]'} border-1 w-full md:w-90   rounded-[20px] p-6 h-auto`}>
                             <div className={`flex flex-col !px-6`}>
                                 <div className={`${page === 'corporate' ? 'border-b-[#2B2B2B]' : 'border-b-[#DDD]'} flex justify-between pb-4 border-b `}>
                                     <div className='flex items-center gap-4.5'>

@@ -24,7 +24,7 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderInd
                 key={index}
                 freeMode={true}
                 loop={true}
-                slidesPerView={2}
+                slidesPerView={3}
                 autoplay={{
                     delay: 0,
                     disableOnInteraction: false,
