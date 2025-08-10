@@ -10,7 +10,6 @@ const intlMiddleware = createMiddleware(routing);
 async function fetchRedirects() {
     const redirectMap: Record<string, { to: string; permanent: boolean; }> = {};
 
-
     try {
         const res = await fetch('https://backend.handex.edu.az/api/redirect');
         if (!res.ok) throw new Error('Redirect data fetch failed');
@@ -29,6 +28,7 @@ async function fetchRedirects() {
 
 export default async function middleware(request: NextRequest) {
     const { pathname, search } = request.nextUrl;
+    
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
@@ -43,11 +43,19 @@ export default async function middleware(request: NextRequest) {
 
     const redirects = await fetchRedirects();
 
-    const match = redirects[request.url];
+    // Debug məlumatları
+    console.log('Request URL:', request.url);
+    console.log('Pathname:', pathname);
+    console.log('Available redirects:', Object.keys(redirects));
 
-
+    // Həm tam URL həm də pathname ilə redirect yoxla
+    const match = redirects[request.url] || redirects[pathname];
+    console.log('Matchs:',match);
+    
     if (match) {
+        console.log('Redirect found:', match);
         const destination = new URL(match.to, request.url);
+        destination.search = search;
         return NextResponse.redirect(destination, match.permanent ? 308 : 307);
     }
 
@@ -56,9 +64,6 @@ export default async function middleware(request: NextRequest) {
     );
 
     if (!hasLocale && pathname !== '/') {
-        // const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
-        // newUrl.search = search;
-        // return NextResponse.redirect(newUrl);
         return intlMiddleware(request);
     }
 

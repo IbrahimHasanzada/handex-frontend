@@ -96,13 +96,13 @@ const Instructors = ({ slug, locale, model }: any) => {
                     <path d="M1 18.9985L19 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M19 18.9985L1 0.998474" stroke="#DDDDDD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <div className='lg:w-2/5 w-full'>
+                <div className='lg:h-full lg:w-2/5 w-full'>
                     <img className='h-full w-full md:w-112 !object-cover rounded-[20px]' src={student?.image.url} alt="" />
                 </div>
                 <div className='lg:w-3/5 w-full'>
-                    <p className={`font-bold mb-0 text-xl mt-5 ${model ? 'text-white' : 'text-black'}`}>{student?.name}</p>
-                    <p className={`${ model ? 'text-white' : 'text-black' } font-medium pl-1 mb-6 `}>{student?.speciality}</p>
-                    <div dangerouslySetInnerHTML={{ __html: student?.description }} className={` ${model ? 'text-white' : 'text-black'}  md:h-auto`} />
+                    <p className={`font-bold mb-0 text-[30px] mt-5 ${model ? 'text-white' : 'text-black'}`}>{student?.name}</p>
+                    <p className={`${ model ? 'text-white' : 'text-[#909090]' } pl-[1px] font-medium mb-6 `}>{student?.speciality}</p>
+                    <div dangerouslySetInnerHTML={{ __html: student?.description }} className={`text-base ${model ? 'text-white' : 'text-[#141414]'}  md:h-auto`} />
                 </div>
             </div>
         </div>
