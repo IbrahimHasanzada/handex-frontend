@@ -27,7 +27,7 @@ const PartnersClient: React.FC<{
                         <p className="text-[#DDD] text-lg mt-3">{description}</p></>
                 }
             </div>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-2 md:gap-6">
                 {Array.from({ length: 3 }).map((item, index) => (
                     <TopCompanies key={index} initialSlide={index * 10} data={data} sliderIndex={index} index={activeIndex} page={page} />
                 ))}

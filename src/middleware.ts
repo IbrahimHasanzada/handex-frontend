@@ -43,15 +43,8 @@ export default async function middleware(request: NextRequest) {
 
     const redirects = await fetchRedirects();
 
-    // Debug məlumatları
-    console.log('Request URL:', request.url);
-    console.log('Pathname:', pathname);
-    console.log('Available redirects:', Object.keys(redirects));
-
     // Yalnız pathname ilə redirect yoxla
     const match = redirects[pathname];
-
-    console.log('Match:', match);
 
     if (match) {
         const destination = new URL(match.to, request.url);

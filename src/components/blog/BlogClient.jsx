@@ -39,7 +39,6 @@ const page = () => {
 
   const handleChange = async (e) => {
     let data = await getAllBlogs(local, count, e);
-    console.log(data)
 
     setBlog(data.data);
   };

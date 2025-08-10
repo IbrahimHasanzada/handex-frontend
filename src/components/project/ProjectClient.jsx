@@ -15,7 +15,6 @@ const ProjectClient = ({ locale }) => {
   useEffect(() => {
     async function getData() {
       const data = await getProjects(locale);
-      console.log(data);
       
       setProject(data?.data);
       setTotal(data?.totalItems)
@@ -27,7 +26,6 @@ const ProjectClient = ({ locale }) => {
     setLoading(true);
     let nextPage = count + 1;
     let extraProject = await getProjects(locale, nextPage);
-    console.log(extraProject);
     
     setProject(prev => [...prev, ...extraProject.data]);
     setCount(nextPage);
