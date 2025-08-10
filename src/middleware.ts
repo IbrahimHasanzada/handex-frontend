@@ -48,12 +48,12 @@ export default async function middleware(request: NextRequest) {
     console.log('Pathname:', pathname);
     console.log('Available redirects:', Object.keys(redirects));
 
-    // Həm tam URL həm də pathname ilə redirect yoxla
-    const match = redirects[request.url] || redirects[pathname];
-    console.log('Matchs:',match);
-    
+    // Yalnız pathname ilə redirect yoxla
+    const match = redirects[pathname];
+
+    console.log('Match:', match);
+
     if (match) {
-        console.log('Redirect found:', match);
         const destination = new URL(match.to, request.url);
         destination.search = search;
         return NextResponse.redirect(destination, match.permanent ? 308 : 307);
