@@ -13,7 +13,7 @@ const PartnersClient: React.FC<{
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % 3);
-        }, 60000);
+        }, data.length * 3000);
 
         return () => clearInterval(interval);
     }, []);

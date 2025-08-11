@@ -27,8 +27,7 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderInd
                 slidesPerView={3}
                 autoplay={{
                     delay: 0,
-                    disableOnInteraction: false,
-                    waitForTransition: true,
+                    disableOnInteraction: false
                 }}
                 allowTouchMove={false}
                 dir={sliderIndex % 2 ? "rtl" : 'ltr'}
@@ -38,16 +37,16 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderInd
                 speed={sliderIndex % 2 ? 3000 : 4000}
                 modules={[Autoplay]}>
                 {data && data.length && createSlides(data).map((item: any, index: number) => (
-                    <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-15 md:!h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
+                    <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-15 md:!h-19 px-4' : 'bg-transparent h-36 w-36'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
-                            <img loading='lazy' src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'w-15 md:!w-22 object-cover' : 'object-cover'} />
+                            <img loading='lazy' src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'w-15 md:!w-22 object-cover' : ''} />
                         </div>
                     </SwiperSlide>
                 ))}
                 {data && data.length && createSlides(data).map((item: any, index: number) => (
-                    <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-15 md:!h-19 px-4' : 'bg-transparent h-38 w-38'} key={index}>
+                    <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-15 md:!h-19 px-4' : 'bg-transparent h-36 w-36'} key={index}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
-                            <img loading='lazy' src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'md:w-22 w-15 object-cover' : 'object-cover'} />
+                            <img loading='lazy' src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'md:w-22 w-15 object-cover' : ''} />
                         </div>
                     </SwiperSlide>
                 ))}
