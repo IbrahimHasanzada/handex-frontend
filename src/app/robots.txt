@@ -3,9 +3,13 @@ Disallow: /layihe/
 Disallow: /xeberler/
 Disallow: /haqqimizda/
 Disallow: /en/
+Disallow: /en
+Disallow: /az/
+Disallow: /az
 Disallow: /ru/
+Disallow: /ru
 Allow: /korporativ$
 Disallow: /korporativ/
 Allow: /
 
-Sitemap: https://handex.edu.az/sitemap.xml 
+Sitemap: https://handex.edu.az/sitemap.xml
