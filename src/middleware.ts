@@ -1,5 +1,11 @@
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+
+const locales = ['az', 'en', 'ru'];
+const defaultLocale = routing.defaultLocale || 'az';
+const intlMiddleware = createMiddleware(routing);
 
 async function fetchRedirects() {
     const redirectMap: Record<string, { to: string; permanent: boolean; }> = {};
@@ -22,33 +28,41 @@ async function fetchRedirects() {
 
 export default async function middleware(request: NextRequest) {
     const { pathname, search } = request.nextUrl;
-
-    // Statik faylları ötür
+    
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
-        /\.(png|jpe?g|svg|gif|webp|ico|css|js)$/.test(pathname) ||
-        pathname.startsWith('/sitemap.xml') ||
-        pathname.startsWith('/robots.txt') ||
-        pathname.startsWith('/favicon') ||
-        pathname.startsWith('/icon')
+        /\.(png|jpe?g|svg|gif|webp)$/.test(pathname)
     ) {
         return NextResponse.next();
     }
 
-    // API redirect-lər
+    if (pathname.startsWith('/sitemap.xml') || pathname.startsWith('/robots.txt') || pathname.startsWith('/favicon') || pathname.startsWith('/icon')) {
+        return NextResponse.next();
+    }
+
     const redirects = await fetchRedirects();
+
+    // Yalnız pathname ilə redirect yoxla
     const match = redirects[pathname];
+
     if (match) {
         const destination = new URL(match.to, request.url);
         destination.search = search;
-        return NextResponse.redirect(destination, match.permanent ? 301 : 302);
+        return NextResponse.redirect(destination, match.permanent ? 308 : 307);
     }
 
-    // Normal sorğular üçün - heç bir locale müdaxiləsi yoxdur
-    return NextResponse.next();
+    const hasLocale = locales.some(
+        (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
+    );
+
+    if (!hasLocale && pathname !== '/') {
+        return intlMiddleware(request);
+    }
+
+    return intlMiddleware(request);
 }
 
 export const config = {
-    matcher: ['/((?!_next|api|.*\\..*).*)', '/'],
+    matcher: ['/(.*)', '/'],
 };
