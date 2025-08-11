@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
   compress: true,
   images: {
     domains: ['backend.handex.edu.az'],
-  }
+  },
 };
 
 // Pluginləri zəncir formasında birləşdir
