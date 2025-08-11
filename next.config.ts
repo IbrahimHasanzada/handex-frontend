@@ -21,8 +21,8 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   images: {
-    domains: ['api.drafts.az', 'backend.handex.edu.az'],
-  },
+    domains: ['backend.handex.edu.az'],
+  }
 };
 
 // Pluginləri zəncir formasında birləşdir
