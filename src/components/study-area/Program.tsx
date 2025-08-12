@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import React, { useEffect, useState } from 'react';
 import { Loader2 } from 'lucide-react'
 const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
-    const t = useTranslations('study-area.program');
+    // const t = useTranslations('study-area.program');
     const [count, setCount] = useState<number>(0);
     const [program, setProgram] = useState<any>();
     const [isLoading, setIsLoading] = useState(false);
@@ -62,7 +62,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                 )}
             </div>
             <div className='md:mt-0 mt-6 md:w-3/5'>
-                <p className={`${model ? 'text-white' : 'text-[#111827]'} text-[30px] font-bold mb-6`}>{t('about')}</p>
+                <p className={`${model ? 'text-white' : 'text-[#111827]'} text-[30px] font-bold mb-6`}>Program haqqında</p>
                 <div className={model && 'text-[#909090]'} dangerouslySetInnerHTML={{ __html: program && program[count]?.description }} />
             </div>
         </div>

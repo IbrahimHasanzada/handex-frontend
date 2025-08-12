@@ -4,7 +4,7 @@ import React from 'react';
 
 const ProjectCard = ({ item }) => {
     const local = useLocale();
-    const t = useTranslations();
+    // const t = useTranslations();
 
     return (
         <Link href={`/${local}/layihe/${item.slug}`} className='w-full'>
@@ -29,7 +29,7 @@ const ProjectCard = ({ item }) => {
                         dangerouslySetInnerHTML={{ __html: item.description || '' }}
                     />
                     <div className='flex items-center mt-7 md:mt-11 cursor-pointer'>
-                        <p className='font-bold'>{t('news.card.more')}</p>
+                        <p className='font-bold'>Daha çox</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M10 16L14 12L10 8" stroke="#141414" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>

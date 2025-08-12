@@ -14,10 +14,43 @@ const Footer = async ({ theme = '', study }: any) => {
     getLocale(),
   ]);
 
-  const header = t.raw('header.headerLists');
-  const about = header[0].subItems;
-  const title = t.raw('footer.title');
-  const site = t.raw('footer.site');
+  // const header = t.raw('header.headerLists');
+  // const about = header[0].subItems;
+  // const title = t.raw('footer.title');
+  // const site = t.raw('footer.site');
+  const about = [
+    {
+      "text": "Haqqımızda",
+      "link": "/haqqimizda"
+    },
+    {
+      "text": "Xidmətlərimiz",
+      "link": "/xidmetler"
+    },
+    {
+      "text": "Layihələrimiz",
+      "link": "/layihe"
+    },
+    {
+      "text": "Xəbərlər",
+      "link": "/xeberler"
+    },
+    {
+      "text": "Bloqlar",
+      "link": "/bloq"
+    }
+  ]
+  const site = [
+    {
+      "text": "Haqqımızda",
+      "link": "/haqqimizda"
+    },
+    {
+      "text": "Korporativ",
+      "link": "/korporativ"
+    }
+  ]
+
 
   return (
     <footer className='wrapper py-16'>
@@ -77,7 +110,7 @@ const Footer = async ({ theme = '', study }: any) => {
             <div className='flex justify-between pr-15 md:justify-baseline pb-12'>
               <div className='md:order-3'>
                 <p className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
-                  {title[2]}
+                  Tədris sahələri
                 </p>
                 <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                   {study?.map((item: any, index: number) => (
@@ -91,7 +124,7 @@ const Footer = async ({ theme = '', study }: any) => {
               <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 md:flex-row md:flex-2/4'>
                 <div className='md:order-1'>
                   <p className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
-                    {title[1]}
+                    Haqqımızda
                   </p>
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                     {about.map((item: { text: string; link: string; }, index: number) => (
@@ -104,7 +137,7 @@ const Footer = async ({ theme = '', study }: any) => {
 
                 <div>
                   <p className='text-[#595959] text-xs font-medium md:font-bold md:border-b border-b-[#DDD] md:pb-4'>
-                    {title[0]}
+                    Sayt
                   </p>
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                     {site.map((item: { text: string; link: string; }, i: number) => (

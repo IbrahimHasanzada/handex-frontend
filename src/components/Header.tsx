@@ -14,7 +14,34 @@ const langArr = ['az', 'en', 'ru'];
 const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
   const local = useLocale();
   const t = useTranslations('header');
-  const headerLists = t.raw('headerLists') as HeaderItem[];
+  // const headerLists = t.raw('headerLists') as HeaderItem[];
+  const headerLists = [
+    {
+      "title": "Haqqımızda",
+      "subItems": [
+        {
+          "text": "Haqqımızda",
+          "link": "/haqqimizda"
+        },
+        {
+          "text": "Xidmətlərimiz",
+          "link": "/xidmetler"
+        },
+        {
+          "text": "Layihələrimiz",
+          "link": "/layihe"
+        },
+        {
+          "text": "Xəbərlər",
+          "link": "/xeberler"
+        },
+        {
+          "text": "Bloqlar",
+          "link": "/bloq"
+        }
+      ]
+    }
+  ]
   const [langSwitch, setLangSwitch] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -117,7 +144,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             <li
               className={`group relative cursor-pointer flex z-50 py-3 ${theme ? 'text-white' : 'text-black'}`}
             >
-              <p className='group-hover:border-b border-b-primary-corporate text-sm lg:text-base'>{t('study-area')}</p>
+              <p className='group-hover:border-b border-b-primary-corporate text-sm lg:text-base'>Tədris sahələri</p>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -135,12 +162,12 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             </li>
             <li className='group cursor-pointer py-3'>
               <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                <Link href={'/' + local + '/korporativ'}>{t('coorporate')}</Link>
+                <Link href={'/' + local + '/korporativ'}>Korporativ</Link>
               </p>
             </li>
             <li className='group cursor-pointer py-3'>
               <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                <Link href={'/' + local + '/elaqe'}>{t('contact')}</Link>
+                <Link href={'/' + local + '/elaqe'}>Əlaqə</Link>
               </p>
             </li>
           </ul>
@@ -186,9 +213,9 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                   </div> */}
             </div>
           </div>
-            <div className='h-12 ml-auto w-25 md:w-40 text-sm mr-4 lg:text-base lg:w-60'>
-              <HeaderModal study={study} theme={theme ? theme : 'home'} />
-            </div>  
+          <div className='h-12 ml-auto w-25 md:w-40 text-sm mr-4 lg:text-base lg:w-60'>
+            <HeaderModal study={study} theme={theme ? theme : 'home'} />
+          </div>
           <div className='w-8 h-8 block base:hidden'>
             <button id='burger-menu' onClick={() => setFlag(!flag)} className='cursor-pointer'>
               <Image
@@ -208,7 +235,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
       <div className={`fixed ${flag ? 'translate-x-0' : 'translate-x-full'} overflow-y-auto duration-300 right-0 h-screen w-4/5 sm:w-1/2 z-80 ${theme ? 'bg-[#181818]' : 'bg-white'} pt-35 list-none p-7`}>
         <ul>
           <li id='home-link' onClick={() => handleClose()} className={`${theme ? 'text-white' : 'text-[#141414]'} cursor-pointer font-medium text-xl pb-1`}>
-            <Link href={'/' + local}>{t('home')}</Link>
+            <Link href={'/' + local}>Ana səhifə</Link>
           </li>
         </ul>
         {headerLists.map(({ title, subItems }, index) => (
@@ -238,7 +265,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
         ))}
         <ul>
           <li id='header-list' onClick={() => setCount(count === 2 ? 0 : 2)} className={`relative group cursor-pointer flex justify-between items-center z-50 pb-2 ${theme ? 'text-white' : 'text-black'}`}>
-            <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>{t('study-area')}</p>
+            <p className='group-hover:border-b border-b-primary-corporate text-xl lg:text-base'>Tədris sahələri</p>
             <svg className={`${count === 2 && 'rotate-180'} duration-500`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path stroke={theme ? 'white' : 'black'} d="M8 10L12 14L16 10" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -257,10 +284,10 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
         </div>
         <ul>
           <li id='coporate-page' onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-            <Link href={'/' + local + '/korporativ'}>{t('coorporate')}</Link>
+            <Link href={'/' + local + '/korporativ'}>Korporativ</Link>
           </li>
           <li id='contact-page' onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-            <Link href={'/' + local + '/elaqe'}>{t('contact')}</Link>
+            <Link href={'/' + local + '/elaqe'}>Əlaqə</Link>
           </li>
         </ul>
         {/* <div className='w-full h-[1px] bg-[#ABABAB] mt-10 mb-5'></div>

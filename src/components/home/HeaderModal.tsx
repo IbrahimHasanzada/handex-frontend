@@ -13,7 +13,7 @@ interface HeaderModalProps {
 }
 
 const HeaderModal: React.FC<HeaderModalProps> = ({ theme = 'home', study }) => {
-    const t = useTranslations('header');
+    // const t = useTranslations('header');
     const [flag, setFlag] = useState<boolean>(false);
     const { width } = useWindowSize()
     return (

@@ -4,7 +4,7 @@ import Link from 'next/link';
 const ServiceCard = (params) => {
     const locale = useLocale();
     const { item } = params;
-    const t = useTranslations();
+    // const t = useTranslations();
     return (
         <Link
             href={`/${locale}/xidmetler/${item.slug}`}
@@ -38,7 +38,7 @@ const ServiceCard = (params) => {
                 </div>
                 <div className='mt-6 flex items-center gap-2 cursor-pointer'>
                     <p className='text-[#141414] font-bold text-base leading-[30px]'>
-                        {t('news.card.more')}
+                        Daha çox
                     </p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
                         <path d="M10.9004 16.1L14.9004 12.1L10.9004 8.09998" stroke="#141414" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

@@ -10,7 +10,7 @@ const ProjectClient = ({ locale }) => {
   let [total, setTotal] = useState();
   let [count, setCount] = useState(0);
   let [loading, setLoading] = useState(false);
-  const t = useTranslations('project');
+  // const t = useTranslations('project');
 
   useEffect(() => {
     async function getData() {
@@ -34,7 +34,7 @@ const ProjectClient = ({ locale }) => {
 
   return (
     <div className='wrapper pt-25'>
-      <h1 className='mt-20 mb-12 text-[38px] text-[#141414] font-bold'>{t('title')}</h1>
+      <h1 className='mt-20 mb-12 text-[38px] text-[#141414] font-bold'>Layihələrimiz</h1>
       <div className='grid gap-y-6 lg:grid-cols-2 justify-between'>
         {project?.map((item, i) => (
           <ProjectCard key={i} item={item} />

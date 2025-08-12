@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 
 const ServiceClient = ({ service, locale }) => {
 
-    const t = useTranslations('service');
+    // const t = useTranslations('service');
 
     let [project, setProject] = useState(service.data);
     
@@ -30,7 +30,7 @@ const ServiceClient = ({ service, locale }) => {
 
     return (
         <div className='wrapper pt-25'>
-            <h1 className='text-[38px] mt-15 text-[#141414] font-bold mb-12'>{t('title')}</h1>
+            <h1 className='text-[38px] mt-15 text-[#141414] font-bold mb-12'>Xidmətlərimiz</h1>
             <div className='grid lg:grid-cols-2 gap-6'>
                 {project?.map((item, i) => (
                     <ServiceCard key={i} item={item} />

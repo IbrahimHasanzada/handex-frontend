@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: any) {
 
 const page = async () => {
     const data = await getGeneral();
-    const t = await getTranslations('contact');
+    // const t = await getTranslations('contact');
     return (
         <div className='wrapper pt-45'>
-            <h1 className='text-[40px] font-bold'>{t('title')}</h1>
+            <h1 className='text-[40px] font-bold'>Bizimlə əlaqə</h1>
             <div className='grid md:grid-cols-3 gap-8 mt-15'>
                 <div className='bg-white rounded-[20px] py-6 px-12 box-shadow flex gap-4 items-center'>
                     <svg className='size-12' xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">

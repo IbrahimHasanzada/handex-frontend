@@ -59,12 +59,12 @@ const page = async () => {
             <Statistics page='home' slug='home' />
           </div>
           <div className='py-12.5 md:py-15'>
-            <h2 className='font-bold text-4xl leading-12 mb-12'>{t("graduates.title")}</h2>
+            <h2 className='font-bold text-4xl leading-12 mb-12'>Məzunlar</h2>
             <UserSlider result={result} />
           </div>
           <div className='mt-30 md:mt-40 md:mb-10 py-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.07),_0px_0px_10px_0px_rgba(0,0,0,0.03)] bg-white rounded-[20px]'>
             <div className='text-center'>
-              <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>{t('topCompanies')}</h2>
+              <h2 className='font-bold text-2xl md:text-3xl leading-8 md:leading-11'>Məzunlarımızın işlədiyi top şirkətlər</h2>
             </div>
             {/* <PartnersClient data={general && general[0]?.company} page='home' title={t('topCompanies')} description='' /> */}
             <TopCompanies initialSlide={0} data={general && general[0]?.company} index={1} sliderIndex={1} page='home' />

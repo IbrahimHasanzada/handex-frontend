@@ -32,13 +32,13 @@ const BlogContentWithTOC = ({ description }) => {
     }
   }, [description]);
 
-  const t = useTranslations();
+  // const t = useTranslations();
 
   return (
     <div className="flex flex-col lg:flex-row gap-10">
       <div className="lg:w-1/4 w-full">
         <div className="sticky top-30">
-          <p className="text-xl font-semibold mb-3">{t('blog.description')}</p>
+          <p className="text-xl font-semibold mb-3">Mündəricat</p>
           <ul className="flex flex-col gap-1 rounded-l-lg">
             {headings.map((h, idx) => (
               <li id='heading-blog-content' onClick={() => setIndex(idx)} className="flex gap-3 text-xl" key={h.id}>

@@ -6,7 +6,7 @@ import React from 'react';
 import './../../styles/reset.css';
 
 const BlogCard = ({ item }) => {
-    const t = useTranslations();
+    // const t = useTranslations();
     const router = useRouter();
     const locale = useLocale();
     const handleClick = () => {
@@ -40,7 +40,7 @@ const BlogCard = ({ item }) => {
                         <path d="M0,300 Q0,20 150,0 L150,0 L0,0 Z" fill="#fff" />
                     </svg>
                     <button className='flex cursor-pointer items-center p-2 rounded-[20px] border border-primary-corporate'>
-                        <p className='text-xs text-primary-corporate '>{t('news.card.more')}</p>
+                        <p className='text-xs text-primary-corporate '>Daha çox</p>
                         <Image src='/assets/img/news-arrow.svg' width={16} alt='News arrow icon' height={16} />
                     </button>
                     <svg className='size-4 absolute -bottom-4 min-[465px]:right-[5px] right-0 md:right-0 rotate-90' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">

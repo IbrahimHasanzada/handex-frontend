@@ -5,16 +5,16 @@ import { getTranslations } from 'next-intl/server';
 
 const Partners: React.FC<{ page: string }> = async ({ page }) => {
     const data = await getContent('partners');
-    const t = await getTranslations('corporate');
+    // const t = await getTranslations('corporate');
 
-    const title = t('corporatePartnersTitle');
-    const description = t('corporatePartnersDescription');
+    const title = "Korporativ Tərəfdaşlar"
+    const description = "Güvənə əsaslanan korporativ tərəfdaşlıqlarımızla, dəyərləri birləşdirərək gələcəyin həllərini formalaşdırırıq."
 
     return (
         <PartnersClient
             data={data}
-            title={title} 
-            description={description} 
+            title={title}
+            description={description}
             page={page}
         />
     );

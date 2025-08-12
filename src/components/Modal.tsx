@@ -7,12 +7,37 @@ import toast from 'react-hot-toast';
 
 const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
     const { width } = useWindowSize();
-    const t = useTranslations('header');
+    // const t = useTranslations('header');
     const locale = useLocale();
 
     const regEx = /^[\d+]*$/;
 
-    let form: { name: string, placeholder: string; }[] = t.raw('modal.form');
+    let form: { name: string, placeholder: string; }[] = [
+        {
+            "placeholder": "Ad",
+            "name": "name"
+        },
+        {
+            "placeholder": "Soyad",
+            "name": "surname"
+        },
+        {
+            "placeholder": "Telefon",
+            "name": "phone"
+        },
+        {
+            "placeholder": "Şirkət",
+            "name": "company"
+        },
+        {
+            "placeholder": "Email",
+            "name": "email"
+        },
+        {
+            "placeholder": "Tədris sahəsi",
+            "name": "course"
+        }
+    ]
     form = page === 'home'
         ? form.filter((_, index) => index !== 3 && index !== 4)
         : form;
@@ -33,7 +58,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
         const message = page === 'home' ? { ...messages, email: undefined, company: undefined } : messages;
         let data = await addConsultation(message, locale);
         if (data.error) toast.error(Array.isArray(data.message) ? data.message[0] : data.message);
-        else toast.success(t('modal.success'));
+        else toast.success("Mesaj uğurla göndərildi");
         if (!data.error) {
             setMessages({
                 name: '',
@@ -84,7 +109,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
                     </svg>
                 </div>
 
-                <p className={`${page === 'home' ? 'text-[#141414]' : 'text-white'} mb-4 text-[34px] font-bold`}>{page === 'home' ? t('modal.title') : 'Təklif al'}</p>
+                <p className={`${page === 'home' ? 'text-[#141414]' : 'text-white'} mb-4 text-[34px] font-bold`}>{page === 'home' ? "Ödənişsiz konsultasiya" : 'Təklif al'}</p>
                 {form.map((item, i) => (
                     i + 1 !== form.length && <input value={messages[item.name as keyof typeof messages] || ''} onChange={(e) => handleChange(e.target.value, item.name)} key={i} className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} placeholder={item.placeholder} type='text' />
                 ))}
@@ -93,13 +118,13 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
                         <path className={`${page === 'home' ? 'stroke-[#141414]' : 'stroke-white'}`} d="M8 9.99997L12 14L16 9.99997" stroke="#141414" strokeWidth="1.24435" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     <select className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} appearance-none my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} onChange={(e) => handleChange(e.target.value, form[form.length - 1].name)}>
-                        <option className='text-[#141414]' value={0}>{t('study-area')}</option>
+                        <option className='text-[#141414]' value={0}>Tədris sahələri</option>
                         {study?.map((item: any, i: number) => (
                             <option className='text-[#141414]' value={item.id} key={i}>{item.name}</option>
                         ))}
                     </select>
                 </div>
-                <button id='modal-button' onClick={() => handleClick()} className='mt-8 w-full md:w-51 h-12 rounded-full bg-[#323232] text-white'>{t('modal.button')}</button>
+                <button id='modal-button' onClick={() => handleClick()} className='mt-8 w-full md:w-51 h-12 rounded-full bg-[#323232] text-white'>Müraciət et</button>
             </div>
         </>
     );

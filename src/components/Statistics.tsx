@@ -5,7 +5,7 @@ import ClientCountUp from './ClientCountUp';
 import { getStatistic } from '@/service';
 
 const Statistics: React.FC<StatisticsDto> = async ({ slug, page, model }) => {
-    const t = await getTranslations('home');
+    // const t = await getTranslations('home');
     const data = await getStatistic(slug);
 
 
@@ -28,7 +28,7 @@ const Statistics: React.FC<StatisticsDto> = async ({ slug, page, model }) => {
                 </div>
                 <div className={page === 'corporate' || page === 'studyArea' ? 'w-auto' : ' lg:max-w-120'}>
                     <p className={`${page === 'corporate' ? 'text-3xl bg-gradient-to-r from-[#F4F5F5] to-[#666] text-transparent bg-clip-text' : page === 'studyArea' ? 'text-[#181818] text-[38px] hidden' : 'text-2xl md:text-3xl xl:text-5xl'} font-bold text-center md:text-start leading-8 md:leading-14`}>
-                        {t("statistics.title")}
+                        Statistika sübut edir: Uğur təsadüf deyil, doğru qərarların nəticəsidir!
                     </p>
                 </div>
             </div>

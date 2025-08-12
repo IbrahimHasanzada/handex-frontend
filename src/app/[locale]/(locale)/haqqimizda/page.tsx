@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: any) {
 
 const AboutPage = async () => {
     const about: any = await getAbout();
-    const t = await getTranslations('home');
+    // const t = await getTranslations('home');
     const features = await getContent('about-features');
 
     return (
@@ -62,7 +62,7 @@ const AboutPage = async () => {
                     </div>
                 ))}
             </div>
-            <h2 className='md:text-center text-2xl md:text-[38px] mt-25 md:mt-30 mb-7 md:mb-12 font-bold'>{t('preference')}</h2>
+            <h2 className='md:text-center text-2xl md:text-[38px] mt-25 md:mt-30 mb-7 md:mb-12 font-bold'>Handex’in üstünlükləri</h2>
             <div className='mb-20 lg:grid hidden gap-11 grid-cols-3'>
                 {features?.map((item: any, i: number) => (
                     <div style={{ marginTop: (i >= 3) ? (i * -52) : (i * 52) + 'px' }} key={i} className={`h-54 ${i < 3 && 'my-72'} bg-white box-shadow p-6 rounded-[20px]`}>

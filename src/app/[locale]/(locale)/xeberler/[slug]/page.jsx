@@ -38,7 +38,7 @@ const page = async ({ params }) => {
   const { slug } = params;
 
   let item = await getNews(slug);
-  const t = await getTranslations();
+  // const t = await getTranslations();
 
   return (
     <Suspense>

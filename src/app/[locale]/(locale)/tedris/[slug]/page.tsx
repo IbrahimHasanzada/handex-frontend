@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: any) {
 
 const page = async ({ params }: any) => {
     const { slug, locale } = await params;
-    const t = await getTranslations('study-area');
+    // const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug, 'home');
     const study = await getStudyAreas('home');
     const programs = await getStudyAreaProgram(locale, slug, 'home');
@@ -64,18 +64,18 @@ const page = async ({ params }: any) => {
             {programs?.map((item: any) => <h3 className='hidden'>{item.name}</h3>)}
             <Program brochure={brochure ? brochure : null} slug={slug} locale={locale} program={item.program} color={color} />
             <Groups locale={locale} slug={slug} study={study} groups={item.groups} color={color} />
-            <h3 className='text-2xl md:text-[38px] font-bold text-center mt-30'>{t('why.title')}</h3>
-            <p className='text-[#909090] text-xl text-center mt-4'>{t('why.desc')}</p>
+            <h3 className='text-2xl md:text-[38px] font-bold text-center mt-30'>Niyə Handex ?</h3>
+            <p className='text-[#909090] text-xl text-center mt-4'>Müasir təhsil metodları və peşəkar dəstəklə karyeranızda yeni səhifə açın!</p>
             <HandexPreference slug='why-handex' />
             <div className='mt-44 box-shadow pb-6 md:pb-0 rounded-[20px] bg-white lg:px-0 px-3 lg:text-start text-center lg:flex justify-between items-center'>
                 <img src="/assets/Photo (13).svg" alt="Birbank image" />
                 <div className='lg:w-1/2'>
-                    <p className='lg:text-[68px] text-[24px] leading-[65px] lg:w-4/5 font-bold mb-5'>{t('ads.title')}</p>
-                    <p className='text-[#979797] mb-7 lg:text-xl max-w-[500px]'>{t('ads.desc')}</p>
+                    <p className='lg:text-[68px] text-[24px] leading-[65px] lg:w-4/5 font-bold mb-5'>Birkart ilə sərfəli fürsət</p>
+                    <p className='text-[#979797] mb-7 lg:text-xl max-w-[500px]'>İstədiyiniz kursa qeydiyyatdan keçərək birkart və daxili kredit imkanlarından yararlana bilersiniz</p>
                 </div>
             </div>
             <div className='mt-30'>
-                <h4 className='text-2xl md:text-[38px] font-bold'>{t('instructors')}</h4>
+                <h4 className='text-2xl md:text-[38px] font-bold'>Təlimçilərimiz</h4>
                 <div className='mt-12'>
                     <Instructors locale={locale} slug={slug} />
                 </div>
@@ -83,7 +83,7 @@ const page = async ({ params }: any) => {
             <Statistics slug={slug} page='studyArea' />
 
             <div className='mt-6 md:mt-30'>
-                <p className='font-bold text-2xl md:text-4xl mb-6'>{t('faq')}</p>
+                <p className='font-bold text-2xl md:text-4xl mb-6'>Tez-tez verilən suallar</p>
                 {faq?.map((item: any) => <h2 className='hidden'>{item.title}</h2>)}
                 <Faq locale={locale} slug={slug} />
             </div>

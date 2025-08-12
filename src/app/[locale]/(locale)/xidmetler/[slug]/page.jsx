@@ -36,12 +36,12 @@ const page = async ({ params }) => {
 
     let item = await getService(slug);
 
-    const t = await getTranslations();
+    // const t = await getTranslations();
 
     return (
         <div className='wrapper pt-30'>
             <div className='w-full gap-6 mt-15 md:flex justify-between'>
-                <p className='text-base text-primary-corporate md:hidden block'>{t('service.title')}</p>
+                <p className='text-base text-primary-corporate md:hidden block'>Xidmətlərimiz</p>
                 <h1 className='text-[24px] md:hidden block mt-3 mb-6'>{item.title}</h1>
                 <div className='md:w-1/2 flex flex-col items-start'>
                     <img className='w-full mb-15 object-cover rounded-[20px]' src={item?.image?.url} alt={item?.image?.alt} />
@@ -50,7 +50,7 @@ const page = async ({ params }) => {
                     </div>
                 </div>
                 <div className='md:w-1/2'>
-                    <p className='text-base text-[#909090] md:block hidden'>{t('service.title')}</p>
+                    <p className='text-base text-[#909090] md:block hidden'>Xidmətlərimiz</p>
                     <h1 className='md:block hidden text-[30px] font-bold'>{item.title}</h1>
                     <div className='text-base break-words' dangerouslySetInnerHTML={{ __html: item.description }} />
                 </div>

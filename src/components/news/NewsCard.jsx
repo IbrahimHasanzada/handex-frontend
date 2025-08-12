@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const NewsCard = ({ item }) => {
   const local = useLocale();
-  const t = useTranslations();
+  // const t = useTranslations();
 
 
   return (
@@ -40,7 +40,7 @@ const NewsCard = ({ item }) => {
         <div href={`/${local}/news/${item.slug}`}
           className='flex cursor-pointer items-end px-2 py-1.5 border border-primary-corporate rounded-[18px]'
         >
-          <p className='text-primary-blue text-sm text-primary-corporate'>{t('news.card.more')}</p>
+          <p className='text-primary-blue text-sm text-primary-corporate'>Daha çox</p>
           <Image src='/assets/img/news-arrow.svg' width={16} alt='News arrow icon' height={16} />
         </div>
       </div>

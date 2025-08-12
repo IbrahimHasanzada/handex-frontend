@@ -16,7 +16,7 @@ const StudyAreasSection: React.FC<StudyAreaSectionDto> = ({ model, page }) => {
 
 
   const { width } = useWindowSize()
-  const t = useTranslations('home');
+  // const t = useTranslations('home');
   const locale = useLocale();
   const perPage = width < 768 ? 4 : 8;
 
@@ -33,7 +33,7 @@ const StudyAreasSection: React.FC<StudyAreaSectionDto> = ({ model, page }) => {
 
   return (
     <div>
-      <h2 className={`font-bold leading-12 text-4xl ${page === 'corporate' ? 'text-white' : 'text-black'}`}>{t("studyOfArea.title")}</h2>
+      <h2 className={`font-bold leading-12 text-4xl ${page === 'corporate' ? 'text-white' : 'text-black'}`}>Tədris sahələri</h2>
       <div className='mt-12 grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6'>
         {study && study?.length && study?.map((item: any, index: number) => (
           <StudyCards model={model} key={index} item={item && item} index={index} theme={page === 'corporate' ? true : false} />
@@ -44,7 +44,7 @@ const StudyAreasSection: React.FC<StudyAreaSectionDto> = ({ model, page }) => {
           <div id='study-button' onClick={() => setCount(count + 1)} className={`${total > perPage * count ? 'block' : 'hidden'}`}>
             <Button theme={page === 'corporate' ? true : false} flag={true} link=''>
               <div className='h-12 w-38 flex items-center justify-center gap-2'>
-                {t("studyOfArea.button")}
+                Daha çox
                 <div>
                   <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.5 10L12.5 14L16.5 10" stroke={page === 'corporate' ? '#fff' : '#141414'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
