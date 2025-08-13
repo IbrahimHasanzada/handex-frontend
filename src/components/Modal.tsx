@@ -1,14 +1,12 @@
 "use client";
 import { addConsultation, getStudyAreas } from '@/service';
 import { useWindowSize } from '@/utils/useWindowSize';
-import { useLocale, useTranslations } from 'next-intl';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
     const { width } = useWindowSize();
     // const t = useTranslations('header');
-    const locale = useLocale();
 
     const regEx = /^[\d+]*$/;
 
@@ -56,7 +54,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
         if (!messages.phone) return toast.error('Telefon boş ola bilməz');
 
         const message = page === 'home' ? { ...messages, email: undefined, company: undefined } : messages;
-        let data = await addConsultation(message, locale);
+        let data = await addConsultation(message, 'az');
         if (data.error) toast.error(Array.isArray(data.message) ? data.message[0] : data.message);
         else toast.success("Mesaj uğurla göndərildi");
         if (!data.error) {

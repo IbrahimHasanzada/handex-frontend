@@ -4,7 +4,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import localFont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
-import Head from 'next/head';
 
 const SFPro = localFont({
   src: '../../public/font/sf-pro/SFPRODISPLAYMEDIUM.otf',
@@ -13,24 +12,22 @@ const SFPro = localFont({
 });
 
 export const metadata = {
-  title: 'Handex.az',
+  title: 'Handex.edu.az',
+  description: 'Handex.edu.az - Təhsil və karyera platforması',
   icons: {
-    icon: [
-      { url: '/icon.ico' }
-    ]
+    icon: [{ url: '/icon.ico' }]
   }
 };
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: any;
 }) {
   return (
-    <html lang='az'>
-      <head>
+    <html lang="az">
+      <body className={`antialiased ${SFPro.variable}`}>
+        {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -40,25 +37,22 @@ export default function RootLayout({
               j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
               f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GTM-NHLC52SM');
-            `,
+            `
           }}
         />
-        <link rel="icon" type="image/x-icon" href="/icon.ico" sizes="any" />
-      </head>
-      <body className={`antialiased ${SFPro.variable}`}>
+
+        {/* GTM Noscript */}
         <noscript
           dangerouslySetInnerHTML={{
             __html: `
               <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHLC52SM"
               height="0" width="0" style="display:none;visibility:hidden"></iframe>
-            `,
+            `
           }}
         />
-        <Head>
-          <title>Handex.edu.az</title>
-          <link rel="icon" type="image/x-icon" href="/icon.ico" sizes="any" />
-        </Head>
+
         <Toaster position="top-center" />
+        
         {children}
       </body>
     </html>

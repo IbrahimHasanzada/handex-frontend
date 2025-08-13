@@ -3,18 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { HeaderItem } from '@/types/Header.dto';
 import HeaderModal from './home/HeaderModal';
-import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { usePathname } from 'next/navigation';
-import { useRouter } from '@/i18n/routing';
 
 const langArr = ['az', 'en', 'ru'];
 
 const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
-  const local = useLocale();
-  const t = useTranslations('header');
-  // const headerLists = t.raw('headerLists') as HeaderItem[];
   const headerLists = [
     {
       "title": "Haqqımızda",
@@ -43,9 +38,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
     }
   ]
   const [langSwitch, setLangSwitch] = useState(false);
-  const router = useRouter();
   const pathname = usePathname();
-  const currentLocale = useLocale();
 
   const [flag, setFlag] = useState<boolean>(false);
   const [count, setCount] = useState<number>(0);
@@ -58,19 +51,19 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
       document.body.style.overflow = '';
     };
   }, [flag]);
-  const handleChange = (lang: string) => {
-    Cookies.set('lang', lang, { path: '' });
-    setFlag(false);
-    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '');
-    const newPath = pathWithoutLocale || '/';
-    router.replace(newPath, { locale: lang });
-  };
+  // const handleChange = (lang: string) => {
+  //   Cookies.set('lang', lang, { path: '' });
+  //   setFlag(false);
+  //   const pathWithoutLocale = pathname.replace(`/az`, '');
+  //   const newPath = pathWithoutLocale || '/';
+  //   router.replace(newPath, { locale: lang });
+  // };
   const handleClose = () => {
     setFlag(false);
   };
   return (
     <header className="relative">
-      <div className={`wrapper z-99 max-md:box-shadow base:bg-transparent ${theme === 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'} fixed left-0 right-0`}>
+      <div className={`wrapper z-99 max-md:box-shadow base:bg-transparent ${theme == 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'} fixed left-0 right-0`}>
         <div className={`base:px-6 w-full rounded-b-[20px] ${theme === 'dark' ? 'base:bg-[#2b2b2b]' : 'base:bg-white base:border border-[#DDD]'} h-25 flex items-center justify-between base:shadow-md`}>
           <Link href={'/'} className='relative flex items-center'>
             {!theme ? (
@@ -132,7 +125,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                   <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
                     {subItems.map((item, idx) => (
                       <li className='text-black' key={idx}>
-                        <Link className='whitespace-nowrap' href={'/' + local + item.link}>
+                        <Link className='whitespace-nowrap' href={item.link}>
                           {item.text}
                         </Link>
                       </li>
@@ -152,7 +145,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                 <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
                   {study?.map((item: any, idx: number) => (
                     <li className='text-black' key={idx}>
-                      <Link className='whitespace-nowrap' href={theme ? '/korporativ/' + `/tedris/${item.slug}` : '/' + local + `/tedris/${item.slug}`}>
+                      <Link className='whitespace-nowrap' href={theme ? `/korporativ/tedris/${item.slug}` : `/tedris/${item.slug}`}>
                         {item.name}
                       </Link>
                     </li>
@@ -162,12 +155,12 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             </li>
             <li className='group cursor-pointer py-3'>
               <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                <Link href={'/' + local + '/korporativ'}>Korporativ</Link>
+                <Link href='/korporativ'>Korporativ</Link>
               </p>
             </li>
             <li className='group cursor-pointer py-3'>
               <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                <Link href={'/' + local + '/elaqe'}>Əlaqə</Link>
+                <Link href='/elaqe'>Əlaqə</Link>
               </p>
             </li>
           </ul>
@@ -235,7 +228,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
       <div className={`fixed ${flag ? 'translate-x-0' : 'translate-x-full'} overflow-y-auto duration-300 right-0 h-screen w-4/5 sm:w-1/2 z-80 ${theme ? 'bg-[#181818]' : 'bg-white'} pt-35 list-none p-7`}>
         <ul>
           <li id='home-link' onClick={() => handleClose()} className={`${theme ? 'text-white' : 'text-[#141414]'} cursor-pointer font-medium text-xl pb-1`}>
-            <Link href={'/' + local}>Ana səhifə</Link>
+            <Link href='/'>Ana səhifə</Link>
           </li>
         </ul>
         {headerLists.map(({ title, subItems }, index) => (
@@ -254,7 +247,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
               <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
                 {subItems.map((item: any, idx: number) => (
                   <li id={item.link} onClick={() => handleClose()} className='text-[#909090]' key={idx}>
-                    <Link className='whitespace-nowrap' href={'/' + local + item.link}>
+                    <Link className='whitespace-nowrap' href='item.link'>
                       {item.text}
                     </Link>
                   </li>
@@ -275,7 +268,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
             {study?.map((item: any, idx: number) => (
               <li id={item.name} onClick={() => handleClose()} className='text-[#909090]' key={idx}>
-                <Link className='whitespace-nowrap' href={'/' + local + `/tedris/${item.slug}`}>
+                <Link className='whitespace-nowrap' href={`/tedris/${item.slug}`}>
                   {item.name}
                 </Link>
               </li>
@@ -284,10 +277,10 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
         </div>
         <ul>
           <li id='coporate-page' onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-            <Link href={'/' + local + '/korporativ'}>Korporativ</Link>
+            <Link href='/korporativ'>Korporativ</Link>
           </li>
           <li id='contact-page' onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-            <Link href={'/' + local + '/elaqe'}>Əlaqə</Link>
+            <Link href='/elaqe'>Əlaqə</Link>
           </li>
         </ul>
         {/* <div className='w-full h-[1px] bg-[#ABABAB] mt-10 mb-5'></div>

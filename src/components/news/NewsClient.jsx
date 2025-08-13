@@ -1,12 +1,9 @@
 "use client";
 import NewsCard from '@/components/news/NewsCard';
 import { getAllNews } from '@/service';
-import { useLocale, useTranslations } from 'next-intl';
 import React, { useEffect, useState } from 'react';
 
 const page = () => {
-  // let t = useTranslations();
-  const local = useLocale();
 
   let [news, setNews] = useState();
   
@@ -15,7 +12,7 @@ const page = () => {
   let [loading, setLoading] = useState(false);
   useEffect(() => {
     async function getData() {
-      let data = await getAllNews(local);
+      let data = await getAllNews('az');
       setNews(data.data);
       setTotal(data.totalItems);
     }
@@ -25,14 +22,14 @@ const page = () => {
   const handlePagination = async () => {
     setLoading(true);
     let nextPage = count + 1;
-    let extraNews = await getAllNews(local, nextPage);
+    let extraNews = await getAllNews('az', nextPage);
     setNews(prev => [...prev, ...extraNews.data]);
     setCount(nextPage);
     setLoading(false);
   };
 
   const handleChange = async (e) => {
-    let data = await getAllNews(local, count, e);
+    let data = await getAllNews('az', count, e);
 
     setNews(data.data);
   };

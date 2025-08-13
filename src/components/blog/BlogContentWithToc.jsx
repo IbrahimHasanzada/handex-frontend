@@ -1,6 +1,5 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 const BlogContentWithTOC = ({ description }) => {
@@ -31,8 +30,6 @@ const BlogContentWithTOC = ({ description }) => {
       if (contentEl) contentEl.innerHTML = doc.body.innerHTML;
     }
   }, [description]);
-
-  // const t = useTranslations();
 
   return (
     <div className="flex flex-col lg:flex-row gap-10">

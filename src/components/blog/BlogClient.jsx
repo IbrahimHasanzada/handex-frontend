@@ -1,15 +1,9 @@
 "use client";
 import BlogCard from '@/components/blog/BlogCard';
 import { getAllBlogs } from '@/service';
-import { useLocale, useTranslations } from 'next-intl';
-import { getLocale } from 'next-intl/server';
 import React, { useEffect, useState } from 'react';
 
 const page = () => {
-  const lang = useLocale();
-  // let t = useTranslations();
-  const local = useLocale();
-
   let [blog, setBlog] = useState();
   
 
@@ -20,7 +14,7 @@ const page = () => {
   let [loading, setLoading] = useState(false);
   useEffect(() => {
     async function getData() {
-      let data = await getAllBlogs(local);
+      let data = await getAllBlogs('az');
 
       setBlog(data.data);
       setTotal(data.totalItems);
@@ -31,14 +25,14 @@ const page = () => {
   const handlePagination = async () => {
     setLoading(true);
     let nextPage = count + 1;
-    let extraBlog = await getAllBlogs(lang, nextPage);
+    let extraBlog = await getAllBlogs('az', nextPage);
     setBlog(prev => [...prev, ...extraBlog.data]);
     setCount(nextPage);
     setLoading(false);
   };
 
   const handleChange = async (e) => {
-    let data = await getAllBlogs(local, count, e);
+    let data = await getAllBlogs('az', count, e);
 
     setBlog(data.data);
   };

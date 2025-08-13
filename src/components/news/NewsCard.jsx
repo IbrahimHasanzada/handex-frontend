@@ -1,16 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
-import { useLocale, useTranslations } from 'next-intl';
-import { formatDateClient } from '@/utils/form-data-client';
 import Link from 'next/link';
+import { formatDate } from '@/utils/form-data';
 
 const NewsCard = ({ item }) => {
-  const local = useLocale();
-  // const t = useTranslations();
 
 
   return (
-    <Link href={`/${local}/xeberler/${item.slug}`} className='bg-white pt-5 flex flex-col justify-between py-8 px-3 rounded-2xl'>
+    <Link href={`/xeberler/${item.slug}`} className='bg-white pt-5 flex flex-col justify-between py-8 px-3 rounded-2xl'>
       <div className='w-full h-60 rounded-[12px]'>
         <img
           quality={100}
@@ -36,8 +33,8 @@ const NewsCard = ({ item }) => {
         dangerouslySetInnerHTML={{ __html: item.description || '' }}
       />
       <div className='flex items-center justify-between'>
-        <p>{formatDateClient(item.createdAt)}</p>
-        <div href={`/${local}/news/${item.slug}`}
+        <p>{formatDate(item.createdAt)}</p>
+        <div href={`/news/${item.slug}`}
           className='flex cursor-pointer items-end px-2 py-1.5 border border-primary-corporate rounded-[18px]'
         >
           <p className='text-primary-blue text-sm text-primary-corporate'>Daha çox</p>

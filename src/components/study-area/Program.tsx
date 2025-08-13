@@ -1,10 +1,8 @@
 "use client";
 import { getStudyAreaProgram } from '@/service';
-import { useTranslations } from 'next-intl';
 import React, { useEffect, useState } from 'react';
 import { Loader2 } from 'lucide-react'
 const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
-    // const t = useTranslations('study-area.program');
     const [count, setCount] = useState<number>(0);
     const [program, setProgram] = useState<any>();
     const [isLoading, setIsLoading] = useState(false);

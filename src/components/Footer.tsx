@@ -1,4 +1,3 @@
-import { getTranslations, getLocale } from 'next-intl/server';
 import { getGeneral } from '@/service';
 import Image from 'next/image';
 import React from 'react';
@@ -8,10 +7,8 @@ import Top from './Top';
 import { formatPhoneNumber } from '@/utils/format-phone';
 
 const Footer = async ({ theme = '', study }: any) => {
-  const [t, general, locale] = await Promise.all([
-    getTranslations(),
+  const [general] = await Promise.all([
     getGeneral(),
-    getLocale(),
   ]);
 
   // const header = t.raw('header.headerLists');
@@ -142,7 +139,7 @@ const Footer = async ({ theme = '', study }: any) => {
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                     {site.map((item: { text: string; link: string; }, i: number) => (
                       <li key={i} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                        <Link href={'/' + locale + item.link}>{item.text}</Link>
+                        <Link href={'/' + item.link}>{item.text}</Link>
                       </li>
                     ))}
                     <li className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
@@ -157,7 +154,7 @@ const Footer = async ({ theme = '', study }: any) => {
               <div>
                 <div className='flex gap-11'>
                   <div>
-                    <p className='text-[#595959] text-xs font-bold'>{t('footer.number')}</p>
+                    <p className='text-[#595959] text-xs font-bold'>ƏLAQƏ NÖMRƏSİ</p>
                     <p className={`text-sm md:text-base flex flex-col ${theme ? 'text-white' : 'text-black'}`}>
                       {general.length && general[0].phone && general?.[0].phone.map((item: string, index: number) => (
                         theme ? (index === 0 ? formatPhoneNumber(item) : '') : (index !== 0 ? <span>{formatPhoneNumber(item)}</span> : '')
@@ -165,7 +162,7 @@ const Footer = async ({ theme = '', study }: any) => {
                     </p>
                   </div>
                   <div>
-                    <p className='text-[#595959] text-xs font-bold'>{t('footer.mail')}</p>
+                    <p className='text-[#595959] text-xs font-bold'>E-POÇT</p>
                     <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                       {general.length && general[0]?.email}
                     </p>
@@ -173,7 +170,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 </div>
 
                 <div className='pt-4'>
-                  <p className='text-[#595959] text-xs font-bold'>{t('footer.location')}</p>
+                  <p className='text-[#595959] text-xs font-bold'>ÜNVAN</p>
                   <p className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                     {general.length && general[0]?.location}
                   </p>

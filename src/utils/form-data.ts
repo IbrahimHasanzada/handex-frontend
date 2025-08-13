@@ -1,13 +1,24 @@
-import { getTranslations } from "next-intl/server";
 
-export const formatDate = async (isoDate: string) => {
-    const t =  await getTranslations();
+export function formatDate(isoDate: string): string {
+  const months = [
+    "Yanvar",
+    "Fevral",
+    "Mart",
+    "Aprel",
+    "May",
+    "İyun",
+    "İyul",
+    "Avqust",
+    "Sentyabr",
+    "Oktyabr",
+    "Noyabr",
+    "Dekabr"
+  ];
 
-    const date = new Date(isoDate);
-    const day = date.getDate();
-    const year = date.getFullYear();
-    
-    const month = t(`months.${date.getMonth()}`);
+  const date = new Date(isoDate);
+  const day = date.getDate();
+  const year = date.getFullYear();
+  const month = months[date.getMonth()];
 
-    return `${day} ${month} ${year}`;
-};
+  return `${day} ${month} ${year}`;
+}

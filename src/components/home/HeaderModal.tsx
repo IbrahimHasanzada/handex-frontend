@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Button from '../ui/Button';
-import { useTranslations } from 'next-intl';
 import toast from 'react-hot-toast';
 import { addConsultation } from '@/service';
 import Modal from '../Modal';

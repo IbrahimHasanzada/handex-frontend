@@ -1,13 +1,10 @@
-import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import React from 'react';
 
 const ProjectCard = ({ item }) => {
-    const local = useLocale();
-    // const t = useTranslations();
 
     return (
-        <Link href={`/${local}/layihe/${item.slug}`} className='w-full'>
+        <Link href={`/layihe/${item.slug}`} className='w-full'>
             <div className='p-6 w-4/5 box-shadow bg-white rounded-[20px] h-auto md:h-81 flex items-end relative'>
                 <div>
                     <h2 className='mb-2 text-base  whitespace-normal max-w-[300px] md:text-2xl font-bold'>{item.title}</h2>

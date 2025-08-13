@@ -1,14 +1,9 @@
 import type { NextConfig } from "next";
-import createNextIntlPlugin from "next-intl/plugin";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 
-// Bundle analyzer-i aktivləşdir (yalnız lazım olduqda)
 const bundleAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
-
-// next-intl plugin
-const withNextIntl = createNextIntlPlugin();
 
 // Əsas konfiqurasiya
 const nextConfig: NextConfig = {
@@ -25,5 +20,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-// Pluginləri zəncir formasında birləşdir
-export default bundleAnalyzer(withNextIntl(nextConfig));
+export default bundleAnalyzer(nextConfig);
+

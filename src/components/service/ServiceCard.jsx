@@ -1,13 +1,10 @@
-import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 const ServiceCard = (params) => {
-    const locale = useLocale();
     const { item } = params;
-    // const t = useTranslations();
     return (
         <Link
-            href={`/${locale}/xidmetler/${item.slug}`}
+            href={`/xidmetler/${item.slug}`}
             className='flex md:flex-row flex-col bg-white box-shadow rounded-[20px] w-full overflow-hidden'
         >
             <div className='flex justify-center md:w-1/2 w-full md:h-[316px] h-[200px]'>

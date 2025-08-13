@@ -3,14 +3,12 @@ import Image from 'next/image';
 import React from 'react';
 import Button from '../ui/Button';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
 
 const StudyCards: React.FC<any> = ({ item, theme, model }) => {
-    const locale = useLocale();
 
     return (
         <div className='relative group'>
-            <Link href={model === 'corporate' ? ('/' + locale + `/korporativ/tedris/${item.slug}`) : ('/' + locale + `/tedris/${item.slug}`)}>
+            <Link href={model === 'corporate' ? (`/korporativ/tedris/${item.slug}`) : (`/tedris/${item.slug}`)}>
                 <img className='w-full' src={theme ? "/assets/cardBlack.svg" : "/assets/cardWhite.svg"} alt={item?.image?.alt} />
 
                 <div className={` absolute -top-1 -right-1 md:-top-1 md:-right-2 xl:-top-4 xl:-right-5  w-20 h-20 md:w-25 md:h-25 xl:w-28 xl:h-28 p-2 md:p-3 xl:p-5 rounded-full flex items-center justify-center`}>

@@ -1,7 +1,7 @@
 import { getCustomers } from "@/service";
 import TestimonialsAccordion from "../TestimonialsAccordion";
 
-const TestimonialsHome = async ({ t }: any) => {
+const TestimonialsHome = async () => {
     const result = await getCustomers('home');
 
     const testimonialsData = result || [];
