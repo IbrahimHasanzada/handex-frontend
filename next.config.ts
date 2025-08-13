@@ -11,9 +11,6 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   reactStrictMode: true,
-  experimental: {
-    optimizeCss: true,
-  },
   compress: true,
   images: {
     domains: ['backend.handex.edu.az'],
