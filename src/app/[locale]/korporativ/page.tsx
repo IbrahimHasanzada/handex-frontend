@@ -49,7 +49,7 @@ const page = async () => {
           <StudyAreasSection model='corporate' page="corporate" />
         </div>
         <div className="mb-30 mt-17.5">
-          <h3 className="text-center text-white text-2xl md:text-[38px] font-bold">Handex’in üstünlükləri</h3>
+          <p className="text-center text-white text-2xl md:text-[38px] font-bold">Handex’in üstünlükləri</p>
           <HandexPreference model={true} slug='corporate-informations' theme="dark" />
         </div>
         <div className='mt-45 mb-10 md:mb-0 md:my-15 bg-[#282828] rounded-[20px]'>

@@ -58,7 +58,7 @@ const StudyCards: React.FC<any> = ({ item, theme, model }) => {
                     </Button>
                 </div>
                 <div className=''>
-                    <p className={`${theme ? 'text-white' : 'text-black'} absolute z-50 top-7 left-7 font-medium text-xl xl:text-2xl max-w-30 lg:max-w-44`}>{item.name}</p>
+                    <h3 className={`${theme ? 'text-white' : 'text-black'} absolute z-50 top-7 left-7 font-medium text-xl xl:text-2xl max-w-30 lg:max-w-44`}>{item.name}</h3>
                     <div className='absolute top-3/5 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full  flex justify-center h-full items-center'>
                         <Image src={item?.image?.url} alt='Handex study area icons' width={240} height={140} className='object-cover z-999 duration-500 group-hover:scale-110 w-58 h-46 md:h-35 md:w-46 xl:h-43 xl:w-56' quality={80} priority={true} sizes='100%' />
                     </div>

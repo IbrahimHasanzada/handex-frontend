@@ -50,7 +50,7 @@ const page = async ({ params }) => {
         </div>
         <div className='md:w-1/2'>
           <p className='text-base text-[#909090] md:block hidden'>Layihələrimiz</p>
-          <h1 className='md:block hidden text-[30px] font-bold'>{item.title}</h1>
+          <p className='md:block hidden text-[30px] font-bold'>{item.title}</p>
           <div className='text-base' dangerouslySetInnerHTML={{ __html: item.description }} />
         </div>
         <div className='md:hidden block w-max mx-auto mt-10'>
