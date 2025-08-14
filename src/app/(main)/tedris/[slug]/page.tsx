@@ -10,7 +10,7 @@ import { baseUrl } from '@/utils/url';
 import React from 'react';
 
 export async function generateMetadata({ params }: any) {
-    const { locale, slug } = await params;
+    const { slug } = await params;
     const item = await getStudyAreaItem(slug, 'home');
     const handex = await getContent('');
 
@@ -40,12 +40,12 @@ export async function generateMetadata({ params }: any) {
 
 const page = async ({ params }: any) => {
     const { slug, locale } = await params;
-    // const t = await getTranslations('study-area');
     const item = await getStudyAreaItem(slug, 'home');
     const study = await getStudyAreas('home');
-    const programs = await getStudyAreaProgram(locale, slug, 'home');
-    const faq = await getStudyAreaFaq(locale, slug, 'home');
-
+    const programs = await getStudyAreaProgram('az', slug, 'home');
+    const faq = await getStudyAreaFaq('az', slug, 'home');
+    console.log(locale, slug);
+    
     const brochure = await getBrochure(item?.id);
 
     const color = item?.color;
@@ -83,7 +83,7 @@ const page = async ({ params }: any) => {
 
             <div className='mt-6 md:mt-30'>
                 <p className='font-bold text-2xl md:text-4xl mb-6'>Tez-tez verilən suallar</p>
-                {faq?.map((item: any) => <h2 className='hidden'>{item.title}</h2>)}
+                {faq?.map((item: any, i: number) => <h2 key={i} className='hidden'>{item.title}</h2>)}
                 <Faq locale={locale} slug={slug} />
             </div>
         </div>

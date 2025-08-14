@@ -139,7 +139,7 @@ const Footer = async ({ theme = '', study }: any) => {
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                     {site.map((item: { text: string; link: string; }, i: number) => (
                       <li key={i} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
-                        <Link href={'/' + item.link}>{item.text}</Link>
+                        <Link href={item.link}>{item.text}</Link>
                       </li>
                     ))}
                     <li className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>

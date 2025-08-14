@@ -247,7 +247,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
               <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
                 {subItems.map((item: any, idx: number) => (
                   <li id={item.link} onClick={() => handleClose()} className='text-[#909090]' key={idx}>
-                    <Link className='whitespace-nowrap' href='item.link'>
+                    <Link className='whitespace-nowrap' href={item.link}>
                       {item.text}
                     </Link>
                   </li>

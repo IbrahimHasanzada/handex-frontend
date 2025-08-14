@@ -2,12 +2,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { getStudyAreaFaq } from '@/service';
 
-const Faq: React.FC<any> = ({ locale, slug, model }) => {
+const Faq: React.FC<any> = ({ locale, slug = null, model, data = null }) => {
     const [faq, setFaq] = useState<any[]>([]);
     const [flag, setFlag] = useState<number>(0);
     const contentRefs = useRef<any>({});
 
     useEffect(() => {
+        if (!slug) {
+           return data && setFaq(data);
+        };
         (async () => {
             const data = await getStudyAreaFaq(locale, slug, model ? 'corporate' : 'home');
             setFaq(data || []);
