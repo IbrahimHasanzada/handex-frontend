@@ -1,7 +1,6 @@
-// pages/404.tsx
-import Link from "next/link";
+import Link from "next/link"; 
 
-export default function Custom404() {
+export default function NotFound() {
   return (
     <div className="flex h-screen flex-col items-center justify-center bg-gray-50 text-center px-4">
       <h1 className="text-9xl font-extrabold text-gray-800">404</h1>

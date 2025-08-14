@@ -1,13 +1,10 @@
 "use client";
 
-import { useTranslations } from "use-intl";
-
 const NewsSearch = () => {
     let search: string = ''
     const handleChange = (e: string) => {
         search = e
     }
-    const t = useTranslations();
     return (
         <div className='md:py-13 md:px-9 md:bg-white mb-30 md:mt-20 mt-6 rounded-2xl md:flex items-center justify-between'>
             <p className='lg:w-1/4 md:w-1/3 w-full text-[#212121] text-2xl md:text-[38px] md:mb-0 mb-7 font-bold'>Xəbərdar ol, dəyişikliklərə hazırlaş!</p>

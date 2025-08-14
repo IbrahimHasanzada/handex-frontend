@@ -1,10 +1,8 @@
 import { getCustomers } from "@/service";
 import TestimonialsAccordion from "../TestimonialsAccordion"
 import Button from "../ui/Button";
-import { getTranslations } from "next-intl/server";
 
 const TestimonialsCorporate = async () => {
-    const t = await getTranslations('home')
     const result = await getCustomers('corporate');
     return (
         <div className="wrapper flex gap-10 flex-col md:flex-row">

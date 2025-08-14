@@ -1,5 +1,4 @@
 "use client";
-import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { FacebookShareButton, LinkedinShareButton, TelegramShareButton, WhatsappShareButton } from 'react-share';
 
@@ -10,10 +9,9 @@ const Share = () => {
         setShareUrl(location.href);
     }, [])
 
-    const t = useTranslations();
     return (
         <div className='w-max rounded-[48px] flex gap-4 items-center justify-center bg-white py-2 px-6'>
-            <p className='text-lg text-[#141414]'>{t('news.details.share')}</p>
+            <p className='text-lg text-[#141414]'>Paylaş</p>
             <div className='flex gap-2'>
                 <WhatsappShareButton url={shareUrl}>
                     <div className='size-10 cursor-pointer rounded-full bg-[#E8E8E8] flex justify-center items-center'>

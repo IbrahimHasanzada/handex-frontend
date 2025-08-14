@@ -1,9 +1,7 @@
-import { useLocale } from 'next-intl';
-import { getLocale } from 'next-intl/server';
 import toast from 'react-hot-toast';
 
 export const getContent = async (slug: string) => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/content/${slug}`, {
             headers: {
@@ -18,7 +16,7 @@ export const getContent = async (slug: string) => {
 };
 
 export const getCustomers = async (slug: string) => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/customers/${slug}`, {
             headers: {
@@ -72,7 +70,7 @@ export const getAllNews = async (lang: string, page: number = 0, query?: string)
 };
 
 export const getNews = async (slug: string) => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/news/${slug}`, {
             headers: {
@@ -104,7 +102,7 @@ export const getAllBlogs = async (lang: string, page: number = 0, query?: string
 };
 
 export const getBlogs = async (slug: string) => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/blogs/${slug}`, {
             headers: {
@@ -133,7 +131,7 @@ export const getProjects = async (lang: string, page: number = 0) => {
 };
 
 export const getProject = async (slug: string) => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/project/${slug}`, {
             headers: {
@@ -162,7 +160,7 @@ export const getServices = async (lang: string, page: number = 0) => {
 };
 
 export const getService = async (slug: string) => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/service/${slug}`, {
             headers: {
@@ -195,7 +193,7 @@ export const addConsultation = async (params: any, locale: string) => {
 };
 
 export const getAbout = async () => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch('https://backend.handex.edu.az/api/about', {
             headers: {
@@ -210,7 +208,7 @@ export const getAbout = async () => {
 };
 
 export const getMeta = async (field: string) => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/meta/${field}`, {
             headers: {
@@ -225,7 +223,7 @@ export const getMeta = async (field: string) => {
 };
 
 export const getMetaStudyArea = async (field: string) => {
-    const lang = await getLocale();
+    const lang = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/meta/${field}`, {
             headers: {
@@ -240,7 +238,7 @@ export const getMetaStudyArea = async (field: string) => {
 };
 
 export const getStudyAreas = async (model?: string) => {
-    const locale = await getLocale();
+    const locale = 'az';
     try {
         const url = model
             ? `https://backend.handex.edu.az/api/study-area?model=${model}`
@@ -279,7 +277,7 @@ export const getStudyAreasClient = async (locale: string, model?: string) => {
 };
 
 export const getStudyArea = async (slug: string) => {
-    const locale = await getLocale();
+    const locale = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}`, {
             headers: {
@@ -294,7 +292,7 @@ export const getStudyArea = async (slug: string) => {
 };
 
 export const getStudyAreaItem = async (slug: string, model: string) => {
-    const locale = await getLocale();
+    const locale = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/item/${model}`, {
             headers: {
@@ -382,7 +380,7 @@ export const addContact = async (params: any, locale: string) => {
 };
 
 export const getStatistic = async (field: string) => {
-    const locale = await getLocale();
+    const locale = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/statistic?field=${field}`, {
             headers: {
@@ -397,7 +395,7 @@ export const getStatistic = async (field: string) => {
 };
 
 export const getBrochure = async (studyAreaId: number) => {
-    const locale = await getLocale();
+    const locale = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/brochure/${studyAreaId}`, {
             headers: {

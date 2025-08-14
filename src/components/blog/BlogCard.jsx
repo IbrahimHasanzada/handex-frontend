@@ -1,16 +1,13 @@
-import { formatDateClient } from '@/utils/form-data-client';
-import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import './../../styles/reset.css';
+import { formatDate } from '@/utils/form-data';
 
 const BlogCard = ({ item }) => {
-    // const t = useTranslations();
     const router = useRouter();
-    const locale = useLocale();
     const handleClick = () => {
-        router.push(`/${locale}/bloq/${item.slug}`);
+        router.push(`/bloq/${item.slug}`);
     };
 
     return (
@@ -18,7 +15,7 @@ const BlogCard = ({ item }) => {
             <h2 className='text-[#141414] text-base font-bold line-clamp-2'>{item.title}</h2>
             <button className='my-3 p-2 rounded-[12px] flex items-center gap-2 bg-[#DDD] text-xs'>
                 <Image src='/assets/img/calendar.svg' alt='Blogs calendar' width={16} height={16} />
-                <p>{formatDateClient(item.createdAt)}</p>
+                <p>{formatDate(item.createdAt)}</p>
             </button>
             <div
                 className='

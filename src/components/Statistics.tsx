@@ -1,11 +1,9 @@
 import { StatisticsDto } from '@/types/Statistics.dto';
-import { getTranslations } from 'next-intl/server';
 import React from 'react';
 import ClientCountUp from './ClientCountUp';
 import { getStatistic } from '@/service';
 
 const Statistics: React.FC<StatisticsDto> = async ({ slug, page, model }) => {
-    // const t = await getTranslations('home');
     const data = await getStatistic(slug);
 
 

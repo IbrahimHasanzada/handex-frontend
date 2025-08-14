@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import ProjectCard from '@/components/project/ProjectCard';
 import { getProjects } from '@/service';
-import { useTranslations } from 'next-intl';
 
 const ProjectClient = ({ locale }) => {
 

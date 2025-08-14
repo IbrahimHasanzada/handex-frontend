@@ -1,14 +1,10 @@
 "use client";
 import { addContact } from '@/service';
 import { ContactInputsDto } from '@/types/contact.dto';
-import { useLocale, useTranslations } from 'next-intl';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const ContactForm = () => {
-    // const t = useTranslations();
-    // const inputs: ContactInputsDto[] = t.raw('contact.inputs');
-    // const textarea: ContactInputsDto = t.raw('textarea');
     const inputs: ContactInputsDto[] = [
         {
             "label": "Ad və Soyad",
@@ -42,7 +38,6 @@ const ContactForm = () => {
         "placeholder": "Mesaj daxil edin",
         "type": "textarea"
     }
-    const locale = useLocale();
     const regEx = /^[\d+]*$/;
 
     const [form, setForm] = useState<any>({
@@ -70,7 +65,7 @@ const ContactForm = () => {
             phone: form.phone,
             title: form.title,
             message: form.message
-        }, locale);
+        }, 'az');
 
         if (!result.error) {
             toast.success("Mesaj uğurla göndərildi");

@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Button from '../ui/Button';
-import { useTranslations } from 'next-intl';
 import Modal from '../Modal';
 
 const HeroModal = ({ page, study }: any) => {

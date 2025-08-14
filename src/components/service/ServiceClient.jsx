@@ -2,11 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard';
 import { getServices } from '@/service';
-import { useTranslations } from 'next-intl';
 
 const ServiceClient = ({ service, locale }) => {
-
-    // const t = useTranslations('service');
 
     let [project, setProject] = useState(service.data);
     
