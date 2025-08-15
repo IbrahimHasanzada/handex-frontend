@@ -96,7 +96,7 @@ const UserSlider: React.FC<any> = ({ result }) => {
                   background: 'linear-gradient(90deg, rgba(144, 144, 144, 0.40) 0%, rgba(144, 144, 144, 0.40) 100%)',
                   WebkitBackdropFilter: 'blur(50px)'
                 }} className='h-14 px-6 pt-1 text-white rounded-[50px] absolute left-6 bottom-6  w-[80%]'>
-                  <h3 className='font-bold'>{item.title}</h3>
+                  <h3 className='font-bold text-base my-0'>{item.title}</h3>
                   <p className='text-xs'>{item.desc}</p>
                 </div>
               </SwiperSlide>
