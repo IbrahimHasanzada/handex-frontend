@@ -62,9 +62,9 @@ const page = async () => {
         </div>
         {faq.length ? (
           <div className='mt-6 md:mt-30'>
-            <p className='font-bold text-2xl md:text-4xl mb-6'>Tez-tez verilən suallar</p>
-            {faq?.map((item: any, i: number) => <h2 key={i}>{item.title}</h2>)}
-            <Faq locale='az' model='corporate' />
+            <p className='font-bold text-2xl md:text-4xl mb-6 text-white'>Tez-tez verilən suallar</p>
+            {faq?.map((item: any, i: number) => <h2 className="hidden" key={i}>{item.title}</h2>)}
+            <Faq locale='az' model='corporate' data={faq} />
           </div>
         ) : undefined}
       </div>
