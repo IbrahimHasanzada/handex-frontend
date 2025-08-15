@@ -180,7 +180,7 @@ export const addConsultation = async (params: any, locale: string) => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'accept-language': locale
+                'accept-language': 'az'
             },
             body: JSON.stringify(params)
         });
@@ -265,7 +265,7 @@ export const getStudyAreasClient = async (locale: string, model?: string) => {
 
         const res = await fetch(url, {
             headers: {
-                'accept-language': locale,
+                'accept-language': 'az',
             },
         });
 
@@ -277,11 +277,10 @@ export const getStudyAreasClient = async (locale: string, model?: string) => {
 };
 
 export const getStudyArea = async (slug: string) => {
-    const locale = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}`, {
             headers: {
-                'accept-language': locale
+                'accept-language': 'az'
             }
         });
         const data = await res.json();
@@ -292,11 +291,10 @@ export const getStudyArea = async (slug: string) => {
 };
 
 export const getStudyAreaItem = async (slug: string, model: string) => {
-    const locale = 'az';
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/item/${model}`, {
             headers: {
-                'accept-language': locale
+                'accept-language': 'az'
             }
         });
         const data = await res.json();
@@ -307,10 +305,11 @@ export const getStudyAreaItem = async (slug: string, model: string) => {
 };
 
 export const getStudyAreaProgram = async (locale: string, slug: string, model: string) => {
+    
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/programs/${model}`, {
             headers: {
-                'accept-language': locale
+                'accept-language': 'az'
             }
         });
         const data = await res.json();
@@ -324,7 +323,7 @@ export const getStudyAreaGroups = async (locale: string, slug: string, model: st
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/groups/${model}`, {
             headers: {
-                'accept-language': locale
+                'accept-language': 'az'
             }
         });
         const data = await res.json();
@@ -338,7 +337,7 @@ export const getStudyAreaFaq = async (locale: string, slug: string, model: strin
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/faq/${model}`, {
             headers: {
-                'accept-language': locale
+                'accept-language': 'az'
             }
         });
         const data = await res.json();
@@ -352,7 +351,7 @@ export const getStudyAreaProfile = async (locale: string, slug: string, model: s
     try {
         const res = await fetch(`https://backend.handex.edu.az/api/study-area/${slug}/profile/${model}`, {
             headers: {
-                'accept-language': locale
+                'accept-language': 'az'
             }
         });
         const data = await res.json();
@@ -368,7 +367,7 @@ export const addContact = async (params: any, locale: string) => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'accept-language': locale
+                'accept-language': 'az'
             },
             body: JSON.stringify(params)
         });
@@ -402,11 +401,28 @@ export const getBrochure = async (studyAreaId: number) => {
                 'accept-language': locale
             }
         });
-        
+
         const data = await res.json();
-        
+
         return data;
     } catch (err) {
         return null;
+    }
+};
+
+export const getFaqs = async (model: string) => {
+    try {
+        const res = await fetch(`https://backend.handex.edu.az/api/faq?model=${model}`, {
+            headers: {
+                'accept-language': 'az'
+            }
+        });
+
+        const data = await res.json();
+        return data;
+
+    } catch (err) {
+        console.error(err);
+        return err;
     }
 };

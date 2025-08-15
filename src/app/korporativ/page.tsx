@@ -5,8 +5,9 @@ import StudyAreasSection from "@/components/home/StudyAreasSection";
 import Partners from "@/components/corporate/Partners";
 import { Metadata } from "next";
 import { baseUrl } from "@/utils/url";
-import { getContent, getGeneral, getMeta, getStatistic } from "@/service";
+import { getContent, getFaqs, getGeneral, getMeta, getStatistic } from "@/service";
 import HandexPreference from "@/components/HandexPreference";
+import Faq from "@/components/study-area/Faq";
 
 
 export async function generateMetadata({ params }: any) {
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: any) {
 }
 
 const page = async () => {
+  const faq = await getFaqs('corporate');
   return (
     <div className='pt-30'>
       <div className="wrapper">
@@ -58,6 +60,13 @@ const page = async () => {
         <div className='py-12.5 md:py-15'>
           <Partners page='corporate' />
         </div>
+        {faq.length ? (
+          <div className='mt-6 md:mt-30'>
+            <p className='font-bold text-2xl md:text-4xl mb-6'>Tez-tez verilən suallar</p>
+            {faq?.map((item: any, i: number) => <h2 key={i}>{item.title}</h2>)}
+            <Faq locale='az' model='corporate' />
+          </div>
+        ) : undefined}
       </div>
     </div>
 

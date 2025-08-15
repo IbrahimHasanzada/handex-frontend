@@ -5,7 +5,8 @@ import TestimonialsHome from '@/components/home/TestimonialsHome';
 import TopCompanies from '@/components/home/TopCompanies';
 import UserSlider from '@/components/home/UserSlider';
 import { baseUrl } from '@/utils/url';
-import { getContent, getGeneral, getMeta, getStatistic } from '@/service';
+import { getContent, getFaqs, getGeneral, getMeta, getStatistic } from '@/service';
+import Faq from '@/components/study-area/Faq';
 
 export async function generateMetadata({ params }: any) {
   const { locale } = await params;
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: any) {
 const page = async () => {
   const general = await getGeneral();
   const result = await getContent('graduates');
+  const faq = await getFaqs('home');
 
   return (
     <div>
@@ -66,6 +68,13 @@ const page = async () => {
             {/* <PartnersClient data={general && general[0]?.company} page='home' title={t('topCompanies')} description='' /> */}
             <TopCompanies initialSlide={0} data={general && general[0]?.company} index={1} sliderIndex={1} page='home' />
           </div>
+          {faq.length ? (
+            <div className='mt-6 md:mt-30'>
+              <p className='font-bold text-2xl md:text-4xl mb-6'>Tez-tez verilən suallar</p>
+              {faq?.map((item: any, i: number) => <h2 key={i} className='hidden'>{item.title}</h2>)}
+              <Faq locale='az' />
+            </div>
+          ): undefined}
         </div>
       </div>
     </div>
