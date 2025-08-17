@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { HeaderItem } from '@/types/Header.dto';
 import HeaderModal from './home/HeaderModal';
 import { useEffect, useState } from 'react';
-import Cookies from 'js-cookie';
 import { usePathname } from 'next/navigation';
 
 const langArr = ['az', 'en', 'ru'];
