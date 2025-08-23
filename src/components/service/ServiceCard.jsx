@@ -4,6 +4,7 @@ const ServiceCard = (params) => {
     const { item } = params;
     return (
         <Link
+            id={item.slug}
             href={`/xidmetler/${item.slug}`}
             className='flex md:flex-row flex-col bg-white box-shadow rounded-[20px] w-full overflow-hidden'
         >
