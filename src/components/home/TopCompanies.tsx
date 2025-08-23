@@ -8,10 +8,10 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderInd
 
     const createSlides = (data: any[]) => {
         if (!data) return [];
-        return [...data, ...data];
+        return data;
     };
     return (
-        <div className={`linear-slider ${page === 'corporate' && 'mt-6'}`}>
+        <div className={`linear-slider ${page === 'corporate' && 'mt-6'}`} style={{ WebkitTransform: 'translateZ(0)', transform: 'translateZ(0)' }}>
             <Swiper
                 breakpoints={{
                     520: { slidesPerView: 4 },
@@ -33,20 +33,15 @@ const TopCompanies: React.FC<{ page: string, index: number, data: any, sliderInd
                 dir={sliderIndex % 2 ? "rtl" : 'ltr'}
                 centerInsufficientSlides={true}
                 observer={true}
+                observeParents={true}
                 loopAdditionalSlides={page === 'corporate' && data && 7}
                 speed={sliderIndex % 2 ? 3000 : 4000}
-                modules={[Autoplay]}>
+                modules={[Autoplay]}
+                watchSlidesProgress={true}>
                 {data && data.length && createSlides(data).map((item: any, index: number) => (
-                    <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-15 md:!h-19 px-4' : 'bg-transparent h-36 w-36'} key={index}>
+                    <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-15 md:!h-19 px-4' : 'bg-transparent h-36 w-36'} key={`slide-${index}`}>
                         <div className='flex items-center justify-center gap-3 w-full h-full'>
                             <img loading='lazy' src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'w-15 md:!w-22 object-cover' : ''} />
-                        </div>
-                    </SwiperSlide>
-                ))}
-                {data && data.length && createSlides(data).map((item: any, index: number) => (
-                    <SwiperSlide className={page === 'corporate' ? 'bg-white !w-auto rounded-[20px] !h-15 md:!h-19 px-4' : 'bg-transparent h-36 w-36'} key={index}>
-                        <div className='flex items-center justify-center gap-3 w-full h-full'>
-                            <img loading='lazy' src={page === 'home' ? item.url : item?.images[0]?.url} alt={page === 'home' ? 'Company Logos' : item?.images[0]?.alt} className={page === 'corporate' ? 'md:w-22 w-15 object-cover' : ''} />
                         </div>
                     </SwiperSlide>
                 ))}
