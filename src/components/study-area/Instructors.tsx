@@ -24,9 +24,9 @@ const Instructors = ({ slug, locale, model }: any) => {
     }, [flag]);
 
     return (
-        <div className={`relative ${student && student.length <= 4 ? "!mb-0" : "!mb-30"}`}>
+        <div className={`relative ${student && student.length <= 4 ? "!mb-0" : "mb-45 md:!mb-30"}`}>
             <div className={`${student && student.length < 4 ? "hidden" : "flex"} navigation-buttons absolute left-0 right-0  justify-center space-x-2 z-10 -bottom-30`}>
-                <button aria-label="prev button" className={`overflow-hidden group swiper-button-prev-instructors rounded-full w-20 h-20 flex items-center justify-center  ${isBeginning ? (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]') : (model ? 'bg-white' : 'bg-black')}`}>
+                <button id='instructor-prev-button' aria-label="prev button" className={`overflow-hidden group swiper-button-prev-instructors rounded-full w-20 h-20 flex items-center justify-center  ${isBeginning ? (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]') : (model ? 'bg-white' : 'bg-black')}`}>
                     <svg className='group-hover:translate-x-4.5 duration-300 translate-x-24 rotate-90' width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'white' : 'black') : (model ? 'black' : 'white')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -34,7 +34,7 @@ const Instructors = ({ slug, locale, model }: any) => {
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'white' : 'black') : (model ? 'black' : 'white')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
-                <button aria-label="next button" className={`overflow-hidden group swiper-button-next-instructors rounded-full w-20 h-20 flex items-center justify-center ${isBeginning ? (model ? 'bg-white' : 'bg-black') : (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]')}`}>
+                <button id='instructor-next-button' aria-label="next button" className={`overflow-hidden group swiper-button-next-instructors rounded-full w-20 h-20 flex items-center justify-center ${isBeginning ? (model ? 'bg-white' : 'bg-black') : (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]')}`}>
                     <svg className='group-hover:translate-x-24 duration-300 translate-x-5 -rotate-90' width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'black' : 'white') : (model ? 'white' : 'black')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -71,7 +71,7 @@ const Instructors = ({ slug, locale, model }: any) => {
                 className='transition ease-linear duration-300 relative'
             >
                 {students && students?.map((item: any, i: number) => (
-                    <SwiperSlide onClick={() => setFlag(item.id)} key={i} className={`${model ? 'bg-[#282828]' : '!bg-white'} cursor-pointer group  rounded-[20px] p-3`}>
+                    <SwiperSlide id={item.name} onClick={() => setFlag(item.id)} key={i} className={`${model ? 'bg-[#282828]' : '!bg-white'} cursor-pointer group  rounded-[20px] p-3`}>
                         <div>
                             <div className='w-full rounded-[20pxh-68'>
                                 <img src={item.image?.url} alt='Handexeducation slider images' className=' md:object-cover h-full w-full rounded-[20px] duration-500' />
@@ -101,7 +101,7 @@ const Instructors = ({ slug, locale, model }: any) => {
                 </div>
                 <div className='lg:w-3/5 w-full'>
                     <p className={`font-bold mb-0 text-[30px] mt-5 ${model ? 'text-white' : 'text-black'}`}>{student?.name}</p>
-                    <p className={`${ model ? 'text-white' : 'text-[#909090]' } pl-[1px] font-medium mb-6 `}>{student?.speciality}</p>
+                    <p className={`${model ? 'text-white' : 'text-[#909090]'} pl-[1px] font-medium mb-6 `}>{student?.speciality}</p>
                     <div dangerouslySetInnerHTML={{ __html: student?.description }} className={`text-base ${model ? 'text-white' : 'text-[#141414]'}  md:h-auto`} />
                 </div>
             </div>
