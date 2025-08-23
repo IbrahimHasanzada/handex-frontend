@@ -111,7 +111,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 </p>
                 <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                   {study?.map((item: any, index: number) => (
-                    <li key={index} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
+                    <li id={`study-area-footer-${item.name}`} key={index} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                       <Link href={theme ? '/korporativ/' + `/tedris/${item.slug}` : `/tedris/${item.slug}`}>{item.name}</Link>
                     </li>
                   ))}
@@ -125,7 +125,7 @@ const Footer = async ({ theme = '', study }: any) => {
                   </p>
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                     {about.map((item: { text: string; link: string; }, index: number) => (
-                      <li key={index} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
+                      <li id={item.text} key={index} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                         <Link href={item.link}>{item.text}</Link>
                       </li>
                     ))}
@@ -138,11 +138,11 @@ const Footer = async ({ theme = '', study }: any) => {
                   </p>
                   <ul className='flex flex-col gap-1 pt-5 md:pt-8'>
                     {site.map((item: { text: string; link: string; }, i: number) => (
-                      <li key={i} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
+                      <li id={item.text} key={i} className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                         <Link href={item.link}>{item.text}</Link>
                       </li>
                     ))}
-                    <li className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
+                    <li id='elaqe' className={`text-sm md:text-base ${theme ? 'text-white' : 'text-black'}`}>
                       <Link href={'/elaqe'}>Əlaqə</Link>
                     </li>
                   </ul>
@@ -178,6 +178,7 @@ const Footer = async ({ theme = '', study }: any) => {
               </div>
               <div className='flex justify-end items-end gap-2 lg:mt-0 mt-6'>
                 <Link
+                  id='instagram-link-button'
                   href='https://www.instagram.com/handex.edu.az/'
                   target='_blank'
                   className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
@@ -216,6 +217,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 </Link>
 
                 <Link
+                  id='facebook-link-button'
                   href='https://www.facebook.com/handex.edu'
                   target='_blank'
                   className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
@@ -240,6 +242,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 </Link>
 
                 <Link
+                  id='tiktok-link-button'
                   href='https://www.tiktok.com/@handex.edu.az'
                   target='_blank'
                   className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
@@ -296,6 +299,7 @@ const Footer = async ({ theme = '', study }: any) => {
                 </Link>
 
                 <Link
+                  id='youtube-link-button'
                   href='https://www.youtube.com/@HandexEdu'
                   target='_blank'
                   className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
