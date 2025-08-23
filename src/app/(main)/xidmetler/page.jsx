@@ -2,6 +2,8 @@ import { getServices, getMeta } from '@/service';
 import { baseUrl } from '@/utils/url';
 import ServiceClient from '../../../components/service/ServiceClient';
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata() {
     const canonicalUrl = `${baseUrl}/xidmetler`;
     
