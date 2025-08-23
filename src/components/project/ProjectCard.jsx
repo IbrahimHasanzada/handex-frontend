@@ -4,18 +4,19 @@ import React from 'react';
 const ProjectCard = ({ item }) => {
 
     return (
-        <Link href={`/layihe/${item.slug}`} className='w-full'>
+        <Link id={item.slug} href={`/layihe/${item.slug}`} className='w-full'>
             <div className='p-6 w-4/5 box-shadow bg-white rounded-[20px] h-auto md:h-81 flex items-end relative'>
                 <div>
                     <h2 className='mb-2 text-base  whitespace-normal max-w-[300px] md:text-2xl font-bold'>{item.title}</h2>
                     <div
                         className='
+                        leading-0
                         description-wrapper
                         text-[#666]
                         md:max-w-md
-                         !text-sm md:!text-base w-[80%]  font-normal line-clamp-4 mb-3
+                         !text-xs md:!text-sm w-[80%]  font-normal line-clamp-4 mb-3
                         [&_p]:inline
-                        [&_span]:!text-[#666] [&_span]:md:!text-sm [&_span]:!text-xs
+                        [&_span]:!text-[#666] [&_span]:md:!text-xs [&_span]:!text-xs
                         [&_a]:inline [&_a]:!text-xs  [&_a]:md:!text-base [&_a]:font-normal [&_a]:text-[#0070f3]
                         [&_h1]:inline [&_h1]:text-[#666] [&_h1]:md:!text-xs [&_h1]:text-sm [&_h1]:font-normal [&_h1]:mb-0
                         [&_h2]:inline [&_h2]:text-[#666] [&_h2]:md:!text-sm [&_h2]:text-sm [&_h2]:font-normal [&_h2]:mb-0
