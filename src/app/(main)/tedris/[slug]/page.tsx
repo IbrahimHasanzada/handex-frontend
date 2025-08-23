@@ -44,7 +44,6 @@ const page = async ({ params }: any) => {
     const study = await getStudyAreas('home');
     const programs = await getStudyAreaProgram('az', slug, 'home');
     const faq = await getStudyAreaFaq('az', slug, 'home');
-    console.log(locale, slug);
     
     const brochure = await getBrochure(item?.id);
 
