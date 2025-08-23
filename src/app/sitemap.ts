@@ -201,14 +201,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const homeCourseRoutes: MetadataRoute.Sitemap = homeCourses.map((course) => ({
-    url: `${BASE_URL}/tedris/${course.slug}-telimi`,
+    url: `${BASE_URL}/tedris/${course.slug}`,
     lastModified: getValidDate(course.createdAt),
     changeFrequency: 'daily' as const,
     priority: 1,
   }))
 
   const corporateCourseRoutes: MetadataRoute.Sitemap = corporateCourses.map((course) => ({
-    url: `${BASE_URL}/korporativ/tedris/korporativ-${course.slug}-telimi`,
+    url: `${BASE_URL}/korporativ/tedris/korporativ-${course.slug}`,
     lastModified: getValidDate(course.createdAt),
     changeFrequency: 'daily' as const,
     priority: 1,

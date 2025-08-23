@@ -40,7 +40,8 @@ const page = async () => {
   const general = await getGeneral();
   const result = await getContent('graduates');
   const faq = await getFaqs('home');
-
+  console.log(faq);
+  
   return (
     <div>
       <div className='pt-30'>
@@ -74,7 +75,7 @@ const page = async () => {
             <div className='mt-6 md:mt-30'>
               <p className='font-bold text-2xl md:text-4xl mb-6'>Tez-tez verilən suallar</p>
               {faq?.map((item: any, i: number) => <h2 key={i} className='hidden'>{item.title}</h2>)}
-              <Faq locale='az' />
+              <Faq locale='az' data={faq} />
             </div>
           ): undefined}
         </div>
@@ -82,5 +83,4 @@ const page = async () => {
     </div>
   );
 };
-
 export default page;

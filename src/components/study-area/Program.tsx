@@ -1,7 +1,6 @@
 "use client";
 import { getStudyAreaProgram } from '@/service';
 import React, { useEffect, useState } from 'react';
-import { Loader2 } from 'lucide-react'
 const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
     const [count, setCount] = useState<number>(0);
     const [program, setProgram] = useState<any>();
@@ -44,10 +43,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                     <div style={{ backgroundColor: count === program?.length + 1 ? color : model ? '#E8E8E833' : '#1818181A' }} id='download-brochure' onClick={downloadFile} className={`cursor-pointer w-full flex gap-3 items-center rounded-[20px] px-5 py-2.5 my-3`}>
                         {isLoading ?
 
-
-                            <div className='w-full flex justify-center items-center'>
-                                <Loader2 className='h-10 w-10 animate-spin' />
-                            </div>
+                            <p>Loading...</p>
                             :
                             <>
                                 <div className={`${model ? 'bg-[#282828]' : 'bg-white'} overflow-hidden rounded-full p-1.5`}>
