@@ -40,7 +40,7 @@ const page = () => {
   return (
     <div className='wrapper pt-25'>
       <div className='md:py-13 md:px-9 md:bg-white mb-30 md:mt-20 mt-6 rounded-2xl md:flex items-center justify-between'>
-        <p className='lg:w-1/5 md:w-1/3 w-full text-[#212121] text-2xl md:text-[38px] md:mb-0 mb-7 font-bold'>Oxu düşün, kəşf et</p>
+        <p className='lg:w-1/5 md:w-1/3 w-full text-[#212121] text-2xl md:text-[38px] md:mb-0 mb-7 font-bold'>Oxu, düşün və kəşf et</p>
         <div className='lg:w-2/5 md:w-1/2 w-full h-12 px-4 border border-[#909090] rounded-[20px] md:rounded-[30px] relative'>
           <input onChange={(e) => handleChange(e.target.value)} type="text" placeholder="Blog axtar..." className='text-[#909090] outline-none h-full w-full rounded-[20px]' />
           <img className='absolute top-1/2 -translate-y-1/2 right-6' src='/assets/img/search.svg' alt="Blog search icon" />

@@ -13,6 +13,8 @@ export async function generateMetadata({ params }: any) {
   let data: any = await getMeta('home');
 
   const canonicalUrl = `${baseUrl}`;
+  console.log(canonicalUrl);
+  
   if (data.error) {
     return {
       alternates: {

@@ -109,13 +109,13 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
 
                 <p className={`${page === 'home' ? 'text-[#141414]' : 'text-white'} mb-4 text-[34px] font-bold`}>{page === 'home' ? "Ödənişsiz konsultasiya" : 'Təklif al'}</p>
                 {form.map((item, i) => (
-                    i + 1 !== form.length && <input value={messages[item.name as keyof typeof messages] || ''} onChange={(e) => handleChange(e.target.value, item.name)} key={i} className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} placeholder={item.placeholder} type='text' />
+                    i + 1 !== form.length && <input id={`consultation-input-${item.name}`} value={messages[item.name as keyof typeof messages] || ''} onChange={(e) => handleChange(e.target.value, item.name)} key={i} className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} placeholder={item.placeholder} type='text' />
                 ))}
                 <div className='relative'>
                     <svg className='absolute top-1/2 -translate-y-1/2 right-3' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path className={`${page === 'home' ? 'stroke-[#141414]' : 'stroke-white'}`} d="M8 9.99997L12 14L16 9.99997" stroke="#141414" strokeWidth="1.24435" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <select className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} appearance-none my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} onChange={(e) => handleChange(e.target.value, form[form.length - 1].name)}>
+                    <select id='select-study-area-consultation' className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} appearance-none my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} onChange={(e) => handleChange(e.target.value, form[form.length - 1].name)}>
                         <option className='text-[#141414]' value={0}>Tədris sahələri</option>
                         {study?.map((item: any, i: number) => (
                             <option className='text-[#141414]' value={item.id} key={i}>{item.name}</option>

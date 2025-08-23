@@ -8,7 +8,7 @@ const HandexPreferencesSlider = ({ model, theme, handex }: { model: string, them
     return (
         <div className='relative'>
             <div className={`flex navigation-buttons absolute left-0 right-0  justify-center space-x-2 z-10 -bottom-25`}>
-                <button aria-label="prev button" className={`overflow-hidden group swiper-button-prev-custom rounded-full w-20 h-20 flex items-center justify-center  ${isBeginning ? (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]') : (model ? 'bg-white' : 'bg-black')}`}>
+                <button id='prev-button-preferences' aria-label="prev button" className={`overflow-hidden group swiper-button-prev-custom rounded-full w-20 h-20 flex items-center justify-center  ${isBeginning ? (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]') : (model ? 'bg-white' : 'bg-black')}`}>
                     <svg className='group-hover:translate-x-4.5 duration-300 translate-x-24 rotate-90' width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'white' : 'black') : (model ? 'black' : 'white')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -16,7 +16,7 @@ const HandexPreferencesSlider = ({ model, theme, handex }: { model: string, them
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'white' : 'black') : (model ? 'black' : 'white')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
-                <button aria-label="next button" className={`overflow-hidden group swiper-button-next-custom rounded-full w-20 h-20 flex items-center justify-center ${isBeginning ? (model ? 'bg-white' : 'bg-black') : (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]')}`}>
+                <button id='next-button-preferences' aria-label="next button" className={`overflow-hidden group swiper-button-next-custom rounded-full w-20 h-20 flex items-center justify-center ${isBeginning ? (model ? 'bg-white' : 'bg-black') : (model ? 'bg-[#909090]' : 'bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)]')}`}>
                     <svg className='group-hover:translate-x-24 duration-300 translate-x-5 -rotate-90' width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 10L12 14L16 10" stroke={`${isBeginning ? (model ? 'black' : 'white') : (model ? 'white' : 'black')}`} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>

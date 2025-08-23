@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: any) {
 
     const canonicalUrl = `${baseUrl}/elaqe`;
     let meta: any = {};
-    
+
 
     return {
         title: 'Handex ilə əlaqə – Suallarınız üçün bizimlə əlaqə saxlayın.',
@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: any) {
 
 const page = async () => {
     const data = await getGeneral();
+    console.log(data)
     return (
         <div className='wrapper pt-45'>
             <h1 className='text-[40px] font-bold'>Bizimlə əlaqə</h1>
@@ -59,9 +60,7 @@ const page = async () => {
                         </defs>
                     </svg>
                     <div>
-                        {data[0]?.phone?.map((item: string, i: number) => (
-                            <p key={i} className='text-base md:text-lg'>{formatPhoneNumber(item)}</p>
-                        ))}
+                        <p className='text-base md:text-lg'>{formatPhoneNumber(data[0]?.phone?.[1])}</p>
                     </div>
                 </div>
                 <div className='bg-white rounded-[20px] py-6 px-12 box-shadow flex gap-4 items-center'>
