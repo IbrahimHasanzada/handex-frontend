@@ -267,7 +267,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
           <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
             {study?.map((item: any, idx: number) => (
               <li id={item.name} onClick={() => handleClose()} className='text-[#909090]' key={idx}>
-                <Link className='whitespace-nowrap' href={`/tedris/${item.slug}`}>
+                <Link className='whitespace-nowrap' href={theme ? `/korporativ/tedris/${item.slug}` : `/tedris/${item.slug}`}>
                   {item.name}
                 </Link>
               </li>
