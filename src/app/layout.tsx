@@ -4,6 +4,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import localFont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
+import Head from 'next/head';
 
 const SFPro = localFont({
   src: '../../public/font/sf-pro/SFPRODISPLAYMEDIUM.otf',
@@ -26,6 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="az">
+      <Head>
+        <link rel="icon" href="/icon.ico" />
+      </Head>
       <body className={`antialiased ${SFPro.variable}`}>
         {/* Google Tag Manager */}
         <script
