@@ -56,7 +56,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                 )}
             </div>
             <div className='md:mt-0 mt-6 md:w-3/5'>
-                <p className={`${model ? 'text-white' : 'text-[#111827]'} text-[30px] font-bold mb-6`}>Program haqqında</p>
+                <p className={`${model ? 'text-white' : 'text-[#111827]'} text-[30px] font-bold mb-6`}>Proqram haqqında</p>
                 <div className={model && 'text-[#909090]'} dangerouslySetInnerHTML={{ __html: program && program[count]?.description }} />
             </div>
         </div>

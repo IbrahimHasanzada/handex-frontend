@@ -14,6 +14,7 @@ const ImageCollage: React.FC<any> = ({ images }) => {
     const [animateIn, setAnimateIn] = useState<boolean>(false);
     const [open, setOpen] = useState(false)
     const [imageIndex, setImageIndex] = useState<number>()
+    
     useEffect(() => {
         const checkIfMobile = () => {
             setIsMobile(window.innerWidth < 768);
@@ -125,6 +126,12 @@ const ImageCollage: React.FC<any> = ({ images }) => {
         }
     ];
 
+    const handleModalBackdropClick = (e: React.MouseEvent) => {
+        if (e.target === e.currentTarget) {
+            setOpen(false);
+        }
+    };
+
     return (
         <div className="w-full min-h-[300px] md:min-h-[600px] py-8 md:py-12">
             <div className="max-w-6xl mx-auto px-4">
@@ -165,7 +172,7 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                                             }}
                                             src={images[index]?.url as string}
                                             alt={images[index].alt}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover cursor-pointer"
                                         />
                                     )}
                                 </div>
@@ -175,20 +182,40 @@ const ImageCollage: React.FC<any> = ({ images }) => {
                 </div>
             </div>
 
-            {open &&
+            {open && (
                 <>
-                    <div className='fixed inset-0 z-200 opacity-50 bg-black h-screen w-screen'></div>
-                    <div className='fixed   left-[50%] top-[50%] h-[20vh] w-[80vw] md:h-[50vh] md:w-[50vw] lg:h-[50vh] lg:w-[50vw] -translate-y-[50%] z-300 -translate-x-[50%]'>
-                        <div id='handleimages-modal' onClick={() => setOpen(!open)}>
-                            <svg className='absolute right-4 top-4 md:top-8 md:right-8 cursor-pointer' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <div 
+                        className='fixed inset-0 z-200 opacity-50 bg-black h-screen w-screen cursor-pointer'
+                        onClick={() => setOpen(false)}
+                    ></div>
+                    
+                    <div 
+                        className='fixed left-[50%] top-[50%] h-[20vh] w-[80vw] md:h-[50vh] md:w-[50vw] lg:h-[50vh] lg:w-[50vw] -translate-y-[50%] z-300 -translate-x-[50%]'
+                        onClick={handleModalBackdropClick}
+                    >
+                        <div onClick={() => setOpen(false)}>
+                            <svg 
+                                className='absolute right-4 top-4 md:top-8 md:right-8 cursor-pointer z-10 bg-white rounded-full p-1' 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                width="32" 
+                                height="32" 
+                                viewBox="0 0 20 20" 
+                                fill="none"
+                            >
                                 <path d="M1 18.9985L19 0.998474" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 <path d="M19 18.9985L1 0.998474" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </div>
-                        <img className='rounded-xl w-full object-cover h-full' src={images[imageIndex as number].url} alt="" />
+                        
+                        <img 
+                            className='rounded-xl w-full object-cover h-full'
+                            src={images[imageIndex as number]?.url} 
+                            alt=""
+                            onClick={(e) => e.stopPropagation()}
+                        />
                     </div>
                 </>
-            }
+            )}
         </div>
     );
 };
