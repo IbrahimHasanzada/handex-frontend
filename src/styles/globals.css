@@ -124,6 +124,17 @@
     all: unset;
   }
 
+  #blog-content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  #blog-content img {
+    max-width: 100%;
+    height: auto;
+  }
+
   @media (max-width: 767px) {
     .description-wrapper * {
       font-size: 12px !important;
@@ -255,8 +266,3 @@
       @apply bg-background text-foreground;
     }
   }
-
-
-
-
-  
