@@ -6,7 +6,7 @@ const ServiceCard = (params) => {
         <Link
             id={item.slug}
             href={`/xidmetler/${item.slug}`}
-            className='flex md:flex-row flex-col bg-white box-shadow rounded-[20px] w-full overflow-hidden'
+            className='flex md:flex-row items-center flex-col bg-white box-shadow rounded-[20px] w-full overflow-hidden'
         >
             <div className='flex justify-center md:w-1/2 w-full md:h-[316px] h-[200px]'>
                 <img
