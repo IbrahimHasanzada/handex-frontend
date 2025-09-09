@@ -218,7 +218,7 @@ const Footer = async ({ theme = '', study }: any) => {
 
                 <Link
                   id='facebook-link-button'
-                  href='https://www.facebook.com/handex.edu'
+                  href='https://www.facebook.com/handex.edu.az'
                   target='_blank'
                   className={`size-10 rounded-full ${theme ? 'bg-[#e7e7e733]' : 'bg-[#E8E8E8]'} flex justify-center items-center`}
                 >
