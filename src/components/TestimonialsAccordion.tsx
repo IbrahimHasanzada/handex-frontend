@@ -44,6 +44,15 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start, i
                             },
                             1500: {
                                 slidesPerView: 5,
+                            },
+                            2000: {
+                                slidesPerView: 7,
+                            },
+                            2500: {
+                                slidesPerView: 8
+                            },
+                            3000: {
+                                slidesPerView: 9
                             }
                         }
                 }
