@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
 import Script from "next/script";
+import GTMRouteTracker from "./../components/GTMRouteTracker";
 
 const SFPro = localFont({
   src: "../../public/font/sf-pro/SFPRODISPLAYMEDIUM.otf",
@@ -54,6 +55,7 @@ export default function RootLayout({
         </noscript>
 
         <Toaster position="top-center" />
+        <GTMRouteTracker />
 
         {children}
       </body>
