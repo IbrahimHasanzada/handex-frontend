@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
 import Script from "next/script";
 import GTMRouteTracker from "./../components/GTMRouteTracker";
+import { Suspense } from "react";
 
 const SFPro = localFont({
   src: "../../public/font/sf-pro/SFPRODISPLAYMEDIUM.otf",
@@ -55,7 +56,9 @@ export default function RootLayout({
         </noscript>
 
         <Toaster position="top-center" />
-        <GTMRouteTracker />
+        <Suspense fallback={null}>
+          <GTMRouteTracker />
+        </Suspense>
 
         {children}
       </body>
