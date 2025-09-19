@@ -1,27 +1,21 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 export default function GTMRouteTracker() {
-  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   useEffect(() => {
-    const handleRouteChange = () => {
+    if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || []
       window.dataLayer.push({
         event: 'virtual_pageview',
-        page_path: window.location.pathname + window.location.search,
+        page_path: pathname + (searchParams?.toString() ? `?${searchParams}` : ''),
       })
     }
-
-    handleRouteChange()
-    window.addEventListener('popstate', handleRouteChange)
-
-    return () => {
-      window.removeEventListener('popstate', handleRouteChange)
-    }
-  }, [router])
+  }, [pathname, searchParams])
 
   return null
 }
