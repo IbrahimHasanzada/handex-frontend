@@ -38,8 +38,8 @@ const StudyAreasSection: React.FC<StudyAreaSectionDto> = ({ model, page }) => {
       </div>
       <div className='mt-15 w-full flex justify-center'>
         <div className='w-35 h-12'>
-          <div id='study-button' onClick={() => setCount(count + 1)} className={`${total > perPage * count ? 'block' : 'hidden'}`}>
-            <Button theme={page === 'corporate' ? true : false} flag={true} link=''>
+          <div  onClick={() => setCount(count + 1)} className={`${total > perPage * count ? 'block' : 'hidden'}`}>
+            <Button id='study-button' theme={page === 'corporate' ? true : false} flag={true} link=''>
               <div className='h-12 w-38 flex items-center justify-center gap-2'>
                 Daha çox
                 <div>

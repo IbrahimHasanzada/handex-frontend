@@ -2,17 +2,15 @@ import { ButtonProps } from '@/types/Button-props.dto'
 import Link from 'next/link'
 import React from 'react'
 
-const Button: React.FC<any> = ({ children, link, flag, theme, className }) => {
+const Button: React.FC<any> = ({ children, link, flag, theme, className, id = "button" }) => {
     return (
-        <div className={
+        <button id={id} className={
             `overflow-hidden h-full w-full  cursor-pointer ${className}
             ${theme ? (flag ? 'bg-[rgba(232,232,232,0.2)] rounded-full text-white' : 'bg-white text-black  rounded-full flex justify-center items-center')
                 : (flag ? 'rounded-full bg-gradient-to-r from-[rgba(24,24,24,0.1)] to-[rgba(24,24,24,0.1)] text-black'
                     : 'rounded-[100px] flex justify-center items-center bg-gradient-to-b from-[rgba(17,17,17,0.8)] to-[rgba(26,26,26,0.9)] text-white ')}   font-medium`}>
-            <div>
                 {children}
-            </div>
-        </div>
+        </button>
     )
 }
 

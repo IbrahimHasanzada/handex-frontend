@@ -7,7 +7,7 @@ import Link from 'next/link';
 const StudyCards: React.FC<any> = ({ item, theme, model }) => {
 
     return (
-        <div id={`study-area-${item.slug}`} className='relative group'>
+        <button id={`study-area-${item.slug}`} className='relative group'>
             <Link href={model === 'corporate' ? (`/korporativ/tedris/${item.slug}`) : (`/tedris/${item.slug}`)}>
                 <img className='w-full' src={theme ? "/assets/cardBlack.svg" : "/assets/cardWhite.svg"} alt={item?.image?.alt} />
 
@@ -62,7 +62,7 @@ const StudyCards: React.FC<any> = ({ item, theme, model }) => {
                     </div>
                 </div>
             </Link>
-        </div>
+        </button>
 
 
 
