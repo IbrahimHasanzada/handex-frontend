@@ -55,10 +55,9 @@ export default function RootLayout({
           />
         </noscript>
 
+        <GTMRouteTracker />
+
         <Toaster position="top-center" />
-        <Suspense fallback={null}>
-          <GTMRouteTracker />
-        </Suspense>
 
         {children}
       </body>
