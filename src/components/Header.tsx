@@ -121,9 +121,9 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                   <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 <div className='absolute z-50 top-12 hidden group-hover:block pt-5'>
-                  <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
+                  <ul className={`flex flex-col gap-4 py-6 px-8 ${theme ? 'bg-[#181818] text-white' : 'bg-primary-bg text-black'} rounded-[20px]`}>
                     {subItems.map((item, idx) => (
-                      <li className='text-black' key={idx}>
+                      <li key={idx}>
                         <Link className='whitespace-nowrap' href={item.link}>
                           {item.text}
                         </Link>
@@ -141,9 +141,9 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
                 <path d="M8 10L12 14L16 10" stroke={theme ? 'white' : 'black'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <div className='absolute z-50 top-12 hidden group-hover:block pt-5'>
-                <ul className='flex flex-col gap-4 py-6 px-8 bg-primary-bg rounded-[20px]'>
+                <ul className={`flex flex-col gap-4 py-6 px-8 ${theme ? 'bg-[#181818] text-white' : 'bg-primary-bg text-black'} rounded-[20px]`}>
                   {study?.map((item: any, idx: number) => (
-                    <li className='text-black' key={idx}>
+                    <li key={idx}>
                       <Link className='whitespace-nowrap' href={theme ? `/korporativ/tedris/${item.slug}` : `/tedris/${item.slug}`}>
                         {item.name}
                       </Link>
@@ -263,8 +263,8 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             </svg>
           </li>
         </ul>
-        <div className={`${count === 2 ? 'max-h-[500px]' : 'max-h-0'} overflow-hidden duration-500 z-50 top-12`}>
-          <ul className='flex flex-col gap-4 px-1 rounded-[20px]'>
+        <div className={`${count === 2 ? 'max-h-[500px]' : 'max-h-0'} overflow-hidden  duration-500 z-50 top-12`}>
+          <ul className={`flex flex-col gap-4 px-1 rounded-[20px]`}>
             {study?.map((item: any, idx: number) => (
               <li id={item.name} onClick={() => handleClose()} className='text-[#909090]' key={idx}>
                 <Link className='whitespace-nowrap' href={theme ? `/korporativ/tedris/${item.slug}` : `/tedris/${item.slug}`}>
