@@ -6,7 +6,12 @@ import { formatDate } from '@/utils/form-data';
 const NewsCard = ({ item }) => {
   // HTML təqlərini təmizləyib sadə mətn əldə edirik
   const plainTextDescription = item.description
-    ? item.description.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+    ? item.description
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&[a-z]+;/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
     : '';
 
   return (
