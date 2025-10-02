@@ -4,15 +4,17 @@ import Link from 'next/link';
 import { formatDate } from '@/utils/form-data';
 
 const NewsCard = ({ item }) => {
-  // HTML təqlərini təmizləyib sadə mətn əldə edirik
-  const plainTextDescription = item.description
-    ? item.description
-        .replace(/<[^>]*>/g, ' ')
-        .replace(/&nbsp;/g, ' ')
-        .replace(/&[a-z]+;/gi, ' ')
-        .replace(/\s+/g, ' ')
-        .trim()
-    : '';
+  // HTML-i decode edib təmiz mətn əldə edirik
+  const getPlainText = (html) => {
+    if (!html) return '';
+    
+    // Müvəqqəti bir div yaradıb HTML-i decode edirik
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    return tempDiv.textContent || tempDiv.innerText || '';
+  };
+
+  const plainTextDescription = getPlainText(item.description);
 
   return (
     <Link id={item.slug} href={`/xeberler/${item.slug}`} className='bg-white pt-5 flex w-full flex-col justify-between py-8 px-3 rounded-2xl'>
