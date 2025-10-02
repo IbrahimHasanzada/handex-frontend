@@ -4,10 +4,13 @@ import Link from 'next/link';
 import { formatDate } from '@/utils/form-data';
 
 const NewsCard = ({ item }) => {
-
+  // HTML təqlərini təmizləyib sadə mətn əldə edirik
+  const plainTextDescription = item.description
+    ? item.description.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+    : '';
 
   return (
-    <Link id={item.slug} href={`/xeberler/${item.slug}`} className='bg-white pt-5 flex flex-col justify-between py-8 px-3 rounded-2xl'>
+    <Link id={item.slug} href={`/xeberler/${item.slug}`} className='bg-white pt-5 flex w-full flex-col justify-between py-8 px-3 rounded-2xl'>
       <div className='w-full h-60 rounded-[12px]'>
         <img
           quality={100}
@@ -18,20 +21,12 @@ const NewsCard = ({ item }) => {
           height={100}
         />
       </div>
-      <h2 className='font-bold text-base mt-4 mb-2 w-3/5 line-clamp-2'>{item.title}</h2>
-      <div
-        className='
-                 text-[#666] text-xs font-normal line-clamp-2 mb-3
-                 [&_p]:inline
-                 [&_a]:inline [&_a]:text-xs [&_a]:font-normal [&_a]:text-[#0070f3]
-                 [&_h1]:inline [&_h1]:text-xs [&_h1]:font-normal [&_h1]:mb-0
-                 [&_h2]:inline [&_h2]:text-xs [&_h2]:font-normal [&_h2]:mb-0
-                 [&_h3]:inline [&_h3]:text-xs [&_h3]:font-normal [&_h3]:mb-0
-                 [&_h4]:inline [&_h4]:text-xs [&_h4]:font-normal [&_h4]:mb-0
-                 [&_h5]:inline [&_h5]:text-xs [&_h5]:font-normal [&_h5]:mb-0
-                 [&_h6]:inline [&_h6]:text-xs [&_h6]:font-normal [&_h6]:mb-0'
-        dangerouslySetInnerHTML={{ __html: item.description || '' }}
-      />
+      <h2 className='font-bold text-base mt-4 whitespace-normal mb-2 w-full break-words line-clamp-2'>{item.title}</h2>
+      
+      <p className='text-[#666] text-xs font-normal break-words line-clamp-2 mb-3'>
+        {plainTextDescription}
+      </p>
+
       <div className='flex items-center justify-between'>
         <p>{formatDate(item.createdAt)}</p>
         <div href={`/news/${item.slug}`}

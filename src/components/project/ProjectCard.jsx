@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React from 'react';
 
 const ProjectCard = ({ item }) => {
-
     return (
         <Link id={item.slug} href={`/layihe/${item.slug}`} className='w-full'>
             <div className='p-6 w-4/5 box-shadow bg-white rounded-[20px] h-auto md:h-81 flex items-center relative'>
