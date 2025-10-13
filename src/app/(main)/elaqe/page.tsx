@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import ContactForm from '@/components/contact/ContactForm';
 import { getGeneral, getMeta } from '@/service';
 import { formatPhoneNumber } from '@/utils/format-phone';
@@ -24,7 +25,6 @@ export async function generateMetadata({ params }: any) {
 
 const page = async () => {
     const data = await getGeneral();
-    console.log(data)
     return (
         <div className='wrapper pt-45'>
             <h1 className='text-[40px] font-bold'>Bizimlə əlaqə</h1>
