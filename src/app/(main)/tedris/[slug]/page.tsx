@@ -69,7 +69,7 @@ const page = async ({ params }: any) => {
                 <img src="/assets/Photo (13).svg" alt="Birbank image" />
                 <div className='lg:w-1/2'>
                     <p className='lg:text-[68px] text-[24px] leading-[65px] lg:w-4/5 font-bold mb-5'>Birkart ilə sərfəli fürsət</p>
-                    <p className='text-[#979797] mb-7 lg:text-xl max-w-[500px]'>İstədiyiniz kursa qeydiyyatdan keçərək birkart və daxili kredit imkanlarından yararlana bilersiniz</p>
+                    <p className='text-[#979797] mb-7 lg:text-xl max-w-[500px]'>Büdcənizi deyil, gələcəyinizi düşünün! Birkart və hissəli ödənişlə tədrisə indi başlayın!</p>
                 </div>
             </div>
             <div className='mt-30'>
