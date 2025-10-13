@@ -33,6 +33,7 @@ export const getCustomers = async (slug: string) => {
 export const getGeneral = async () => {
     try {
         const res = await fetch('https://backend.handex.edu.az/api/general', {
+            cache: 'no-store'
         });
         const data = await res.json();
         return data;
