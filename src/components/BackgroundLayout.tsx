@@ -1,4 +1,5 @@
 import { getBackgroundConfig } from "@/utils/manage-background";
+import Snowfall from "./Snowfall";
 
 export default function BackgroundLayout({
     children,
@@ -24,6 +25,7 @@ export default function BackgroundLayout({
             <div className="relative z-0">
                 {children}
             </div>
+            <Snowfall isDark={isDarkBackground} />
         </div>
     );
 }
