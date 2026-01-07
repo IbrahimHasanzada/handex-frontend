@@ -16,7 +16,7 @@ const StudyCards: React.FC<any> = ({ item, theme, model }) => {
                         <div className='w-full h-full relative'>
                             <Image
                                 loading='lazy'
-                                src={theme ? '/assets/img/Arrow2.png' : '/assets/img/Arrow.png'}
+                                src={theme ? '/assets/img/arrow-white.png' : '/assets/img/arrow-black.png'}
                                 alt='Handex study area arrow icon'
                                 width={48}
                                 height={48}
@@ -34,7 +34,7 @@ const StudyCards: React.FC<any> = ({ item, theme, model }) => {
                             />
                             {/* Second Arrow */}
                             <Image
-                                src={theme ? '/assets/img/Arrow2.png' : '/assets/img/Arrow.png'}
+                                src={theme ? '/assets/img/arrow-white.png' : '/assets/img/arrow-black.png'}
                                 alt='Handex study area arrow icon'
                                 width={48}
                                 height={48}
