@@ -8,7 +8,7 @@ const TestimonialsCorporate = async () => {
         <div className="wrapper flex gap-10 flex-col md:flex-row">
             <div className="base:flex-1/4 xl:flex-1/2 flex items-center">
                 <div className="max-w-100 mt-5 md:w-auto lg:w-100">
-                    <p className="font-bold text-3xl leading-9 bg-gradient-to-r from-[#F4F5F5] to-[#666] text-transparent bg-clip-text">Məmnun müştərilərimizin rəylərini oxuyun.</p>
+                    <p className="font-bold text-3xl leading-9 bg-gradient-to-r from-[#F4F5F5] to-[#666] text-transparent bg-clip-text">Korporativ tərəfdaşların bizim haqqımızda fikirləri</p>
                     <p className="mt-4 text-white/45">Onların məmnuniyyəti bizim öhdəliyimizdir</p>
                     {/* <div className="h-10 w-34 mt-6">
                         <Button theme={true} link="" flag={false}>
