@@ -25,7 +25,7 @@ export default function BackgroundLayout({
             <div className="relative z-0">
                 {children}
             </div>
-            <Snowfall isDark={isDarkBackground} />
+            {/* <Snowfall isDark={isDarkBackground} /> */}
         </div>
     );
 }

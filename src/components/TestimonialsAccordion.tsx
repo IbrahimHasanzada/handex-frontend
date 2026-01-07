@@ -6,13 +6,25 @@ import { Autoplay, FreeMode, EffectFade } from 'swiper/modules';
 import { TestimonialsDto } from '@/types/Testimonials.dto';
 import { SwiperOptions } from 'swiper/types';
 import ModalUsers from './ModalUsers';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Image from 'next/image';
+
+const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+};
 
 const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start, index }) => {
     const [flag, setFlag] = useState(0)
     const [student, setStudent] = useState()
     let a: SwiperOptions
+
+    const shuffledData = useMemo(() => shuffleArray(data), [data]);
+
     if (!data.length) return <div>Loading...</div>
 
     const handleOpenModal = (item: any) => {
@@ -67,7 +79,7 @@ const TestimonialsAccordion: React.FC<TestimonialsDto> = ({ page, data, start, i
                 modules={[Autoplay, FreeMode, EffectFade]}
                 className={`${page === 'corporate' ? 'h-120' : 'h-75'}  transition ease-linear duration-300 `}
             >
-                {data.map((item: any, index: number) => (
+                {shuffledData.map((item: any, index: number) => (
                     <SwiperSlide
                         id={`${item.name}-testimonials`}
                         onClick={() => handleOpenModal(item)}
