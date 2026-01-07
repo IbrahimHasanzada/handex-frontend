@@ -32,7 +32,6 @@ const StudyCards: React.FC<any> = ({ item, theme, model }) => {
                                 quality={80}
                                 sizes="100%"
                             />
-
                             {/* Second Arrow */}
                             <Image
                                 src={theme ? '/assets/img/Arrow2.png' : '/assets/img/Arrow.png'}
