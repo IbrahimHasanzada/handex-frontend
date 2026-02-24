@@ -64,7 +64,7 @@ const page = async ({ params }: any) => {
             <p className='text-[#909090] text-xl text-center mt-4'>Müasir təhsil metodları və peşəkar dəstəklə karyeranızda yeni səhifə açın!</p>
             <HandexPreference slug='why-handex' model={item.model === 'corporate' ? true : false} />
             <div className='my-45'>
-                <h4 className={`${item.model === 'corporate' && 'text-white'} text-2xl md:text-[38px] font-bold`}>Təlimçilərimiz</h4>
+                <h4 className={`${item.model === 'corporate' && 'text-white'} text-2xl md:text-[38px] font-bold`}>Müəllimlərimiz</h4>
                 <div className='mt-12'>
                     <Instructors locale={locale} slug={slug} model={item.model === 'corporate' ? true : false} />
                 </div>

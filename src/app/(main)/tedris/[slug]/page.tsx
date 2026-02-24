@@ -73,7 +73,7 @@ const page = async ({ params }: any) => {
                 </div>
             </div>
             <div className='mt-30'>
-                <h4 className='text-2xl md:text-[38px] font-bold'>Təlimçilərimiz</h4>
+                <h4 className='text-2xl md:text-[38px] font-bold'>Müəllimlərimiz</h4>
                 <div className='mt-12'>
                     <Instructors locale={locale} slug={slug} />
                 </div>
