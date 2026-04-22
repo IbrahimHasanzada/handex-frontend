@@ -208,7 +208,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const corporateCourseRoutes: MetadataRoute.Sitemap = corporateCourses.map((course) => ({
-    url: `${BASE_URL}/korporativ/tedris/korporativ-${course.slug}`,
+    url: `${BASE_URL}/korporativ/tedris/${course.slug}`,
     lastModified: getValidDate(course.createdAt),
     changeFrequency: 'daily' as const,
     priority: 1,
