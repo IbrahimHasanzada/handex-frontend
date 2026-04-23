@@ -5,7 +5,7 @@ import { getNews } from '@/service';
 import { baseUrl } from '@/utils/url';
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const newsItem = await getNews(slug);
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
 
 
 const page = async ({ params }) => {
-  const { slug } = params;
+  const { slug } = await params;
 
   let item = await getNews(slug);
 
