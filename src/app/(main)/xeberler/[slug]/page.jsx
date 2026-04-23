@@ -37,6 +37,8 @@ const page = async ({ params }) => {
 
   let item = await getNews(slug);
 
+  if (!item) return null;
+
   return (
     <Suspense>
       <div className='wrapper pt-30'>
@@ -45,7 +47,9 @@ const page = async ({ params }) => {
           <p className='text-base my-6'>{formatDate(item.createdAt)}</p>
         </div>
         <div className='md:w-3/5 w-full mx-auto flex flex-col items-center justify-center'>
-          <img className='w-full mb-15 rounded-[20px] object-cover' src={item.image.url} alt={item.title} />
+          {item.image?.url && (
+            <img className='w-full mb-15 rounded-[20px] object-cover' src={item.image.url} alt={item.title} />
+          )}
           <div className='text-base [&_a]:!text-blue-600'  dangerouslySetInnerHTML={{ __html: item.description }} />
         </div>
       </div>

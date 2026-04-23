@@ -64,7 +64,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
     <header className="relative">
       <div className={`wrapper z-99 max-md:box-shadow base:bg-transparent ${theme == 'dark' ? 'bg-[#2b2b2b]' : 'bg-white'} fixed left-0 right-0`}>
         <div className={`base:px-6 w-full rounded-b-[20px] ${theme === 'dark' ? 'base:bg-[#2b2b2b]' : 'base:bg-white base:border border-[#DDD]'} h-25 flex items-center justify-between base:shadow-md`}>
-          <Link id='home-link' href={'/'} className='relative flex items-center'>
+          <a id='home-link' href={'/'} className='relative flex items-center'>
             <Image
               src={theme ? 'https://handex.edu.az/logo-white.svg' : 'https://handex.edu.az/logo.svg'}
               alt="Handex logo"
@@ -73,7 +73,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
               priority
               unoptimized
             />
-          </Link>
+          </a>
           <ul className='absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 base:flex hidden gap-6 z-40'>
             {headerLists.map(({ title, subItems }, index) => (
               <li
