@@ -3,12 +3,8 @@ Allow: /
 Disallow: /xidmetler
 Disallow: /layihe
 Disallow: /xeberler
-Disallow: /haqqimizda
-Disallow: /elaqe
 Allow: /korporativ$
 Disallow: /korporativ/
-Disallow: /admin/
-Disallow: /search/
 Disallow: /?id=
 Disallow: /?lang=
 Disallow: /?_rsc=
