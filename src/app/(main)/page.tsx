@@ -40,7 +40,6 @@ const page = async () => {
   const general = await getGeneral();
   const result = await getContent('graduates');
   const faq = await getFaqs('home');
-  console.log(faq);
   
   return (
     <div>

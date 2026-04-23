@@ -11,6 +11,33 @@ interface APIResponse<T> {
   totalItems: number
 }
 
+interface StaticLastMod {
+  key: string
+  path: string
+  lastmod: string
+}
+
+async function fetchStaticLastMods(): Promise<Map<string, Date>> {
+  const map = new Map<string, Date>()
+  try {
+    const response = await fetch(`${BACKEND_URL}/sitemap/lastmod`, {
+      next: { revalidate: 3600 },
+      headers: { 'Content-Type': 'application/json' },
+    })
+    if (!response.ok) {
+      console.error(`❌ Static lastmod fetch xətası: ${response.status}`)
+      return map
+    }
+    const data: StaticLastMod[] = await response.json()
+    for (const item of data) {
+      map.set(item.path, getValidDate(item.lastmod))
+    }
+  } catch (error) {
+    console.error('💥 Static lastmod fetch xətası:', error)
+  }
+  return map
+}
+
 // Backend API-dən gələn məlumat tipləri  
 interface BlogPost {
   id: number
@@ -37,31 +64,7 @@ function getValidDate(dateString: string): Date {
   return date
 }
 
-interface News {
-  id: number
-  slug: string
-  createdAt: string
-  updatedAt?: string
-  title: string
-}
-
-interface Project {
-  id: number
-  slug: string
-  createdAt: string
-  updatedAt?: string
-  title: string
-}
-
 interface Course {
-  id: number
-  slug: string
-  createdAt: string
-  updatedAt?: string
-  title: string
-}
-
-interface Service {
   id: number
   slug: string
   createdAt: string
@@ -116,72 +119,33 @@ async function fetchAllPaginatedData<T>(endpoint: string, extraParams: string = 
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const staticLastMods = await fetchStaticLastMods()
+  const getStaticLastMod = (path: string) => staticLastMods.get(path) ?? new Date()
+
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
-      lastModified: new Date(),
+      lastModified: getStaticLastMod('/'),
       changeFrequency: 'daily',
       priority: 1.00,
     },
     {
-      url: `${BASE_URL}/haqqimizda`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.80,
-    },
-    {
-      url: `${BASE_URL}/xidmetler`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.80,
-    },
-    {
-      url: `${BASE_URL}/layihe`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.80,
-    },
-    {
-      url: `${BASE_URL}/xeberler`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.80,
-    },
-    {
       url: `${BASE_URL}/bloq`,
-      lastModified: new Date(),
+      lastModified: getStaticLastMod('/bloq'),
       changeFrequency: 'daily',
       priority: 1.00,
     },
     {
       url: `${BASE_URL}/korporativ`,
-      lastModified: new Date(),
+      lastModified: getStaticLastMod('/korporativ'),
       changeFrequency: 'daily',
       priority: 1.00,
     },
-    {
-      url: `${BASE_URL}/elaqe`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.80,
-    }
   ]
 
-  
-  const [
-    blogPosts, 
-    news, 
-    projects, 
-    homeCourses, 
-    corporateCourses, 
-    services
-  ] = await Promise.all([
+  const [blogPosts, homeCourses] = await Promise.all([
     fetchAllPaginatedData<BlogPost>('/blogs'),
-    fetchAllPaginatedData<News>('/news'), 
-    fetchAllPaginatedData<Project>('/project'),
     fetchAllPaginatedData<Course>('/study-area', '&model=home'),
-    fetchAllPaginatedData<Course>('/study-area', '&model=corporate'),
-    fetchAllPaginatedData<Service>('/service')
   ])
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
@@ -191,20 +155,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 1,
   }))
 
-  const newsRoutes: MetadataRoute.Sitemap = news.map((item) => ({
-    url: `${BASE_URL}/xeberler/${item.slug}`,
-    lastModified: getValidDate(item.updatedAt ?? item.createdAt),
-    changeFrequency: 'daily' as const,
-    priority: 0.8,
-  }))
-
-  const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
-    url: `${BASE_URL}/layihe/${project.slug}`,
-    lastModified: getValidDate(project.updatedAt ?? project.createdAt),
-    changeFrequency: 'daily' as const,
-    priority: 0.8,
-  }))
-
   const homeCourseRoutes: MetadataRoute.Sitemap = homeCourses.map((course) => ({
     url: `${BASE_URL}/tedris/${course.slug}`,
     lastModified: getValidDate(course.updatedAt ?? course.createdAt),
@@ -212,29 +162,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 1,
   }))
 
-  const corporateCourseRoutes: MetadataRoute.Sitemap = corporateCourses.map((course) => ({
-    url: `${BASE_URL}/korporativ/tedris/${course.slug}`,
-    lastModified: getValidDate(course.updatedAt ?? course.createdAt),
-    changeFrequency: 'daily' as const,
-    priority: 1,
-  }))
-
-  const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
-    url: `${BASE_URL}/xidmetler/${service.slug}`,
-    lastModified: getValidDate(service.updatedAt ?? service.createdAt),
-    changeFrequency: 'daily' as const,
-    priority: 0.8,
-  }))
-
-  const allRoutes = [
-    ...staticRoutes,
-    ...blogRoutes,
-    ...newsRoutes,
-    ...projectRoutes,
-    ...homeCourseRoutes,
-    ...corporateCourseRoutes,
-    ...serviceRoutes
-  ]
-
-  return allRoutes
+  return [...staticRoutes, ...blogRoutes, ...homeCourseRoutes]
 }
