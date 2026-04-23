@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "backend.handex.edu.az",
       },
+      {
+        protocol: "https",
+        hostname: "handex.edu.az",
+      },
     ],
   },
   async redirects() {
