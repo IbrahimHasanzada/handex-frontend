@@ -1,14 +1,9 @@
 User-agent: *
 Allow: /
-Disallow: /haqqimizda/
-Disallow: /haqqimizda
-Disallow: /xidmetler/
 Disallow: /xidmetler
-Disallow: /layihe/
 Disallow: /layihe
-Disallow: /xeberler/
 Disallow: /xeberler
-Disallow: /elaqe/
+Disallow: /haqqimizda
 Disallow: /elaqe
 Allow: /korporativ$
 Disallow: /korporativ/

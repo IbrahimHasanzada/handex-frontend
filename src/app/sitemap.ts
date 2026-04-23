@@ -118,6 +118,8 @@ async function fetchAllPaginatedData<T>(endpoint: string, extraParams: string = 
   return allData
 }
 
+const ELAQE_LASTMOD = new Date('2026-04-23')
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticLastMods = await fetchStaticLastMods()
   const getStaticLastMod = (path: string) => staticLastMods.get(path) ?? new Date()
@@ -127,19 +129,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: BASE_URL,
       lastModified: getStaticLastMod('/'),
       changeFrequency: 'daily',
-      priority: 1.00,
+      priority: 1.0,
     },
     {
       url: `${BASE_URL}/bloq`,
       lastModified: getStaticLastMod('/bloq'),
       changeFrequency: 'daily',
-      priority: 1.00,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/haqqimizda`,
+      lastModified: getStaticLastMod('/haqqimizda'),
+      changeFrequency: 'daily',
+      priority: 0.1,
+    },
+    {
+      url: `${BASE_URL}/elaqe`,
+      lastModified: ELAQE_LASTMOD,
+      changeFrequency: 'daily',
+      priority: 0.1,
     },
     {
       url: `${BASE_URL}/korporativ`,
       lastModified: getStaticLastMod('/korporativ'),
       changeFrequency: 'daily',
-      priority: 1.00,
+      priority: 0.1,
     },
   ]
 
@@ -152,14 +166,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE_URL}/bloq/${post.slug}`,
     lastModified: getValidDate(post.updatedAt ?? post.createdAt),
     changeFrequency: 'daily' as const,
-    priority: 1,
+    priority: 0.8,
   }))
 
   const homeCourseRoutes: MetadataRoute.Sitemap = homeCourses.map((course) => ({
     url: `${BASE_URL}/tedris/${course.slug}`,
     lastModified: getValidDate(course.updatedAt ?? course.createdAt),
     changeFrequency: 'daily' as const,
-    priority: 1,
+    priority: 0.9,
   }))
 
   return [...staticRoutes, ...blogRoutes, ...homeCourseRoutes]
