@@ -50,7 +50,9 @@ const page = async ({ params }) => {
           {item.image?.url && (
             <img className='w-full mb-15 rounded-[20px] object-cover' src={item.image.url} alt={item.title} />
           )}
-          <div className='text-base [&_a]:!text-blue-600'  dangerouslySetInnerHTML={{ __html: item.description }} />
+          {item.description && (
+            <div className='text-base [&_a]:!text-blue-600' dangerouslySetInnerHTML={{ __html: item.description }} />
+          )}
         </div>
       </div>
       <div className='w-max mx-auto mt-10'>
