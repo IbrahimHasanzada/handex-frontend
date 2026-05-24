@@ -17,12 +17,12 @@ const NewsCard = ({ item }) => {
   const plainTextDescription = getPlainText(item.description);
 
   return (
-    <Link id={item.slug} href={`/xeberler/${item.slug}`} className='bg-white pt-5 flex w-full flex-col justify-between py-8 px-3 rounded-2xl'>
-      <div className='w-full h-60 rounded-[12px]'>
+    <Link id={item.slug} href={`/xeberler/${item.slug}`} className='bg-white pt-5 flex w-full min-w-0 flex-col justify-between py-8 px-3 rounded-2xl'>
+      <div className='w-full h-60 rounded-[12px] overflow-hidden'>
         <img
           quality={100}
           className='w-full object-cover h-full rounded-[12px]'
-          src={item.image.url}
+          src={item?.image?.url}
           alt={item?.image?.alt}
           width={100}
           height={100}

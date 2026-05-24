@@ -35,7 +35,7 @@ const page = () => {
   };
 
   return (
-    <div className='wrapper pt-25'>
+    <div className='wrapper pt-25 overflow-x-hidden'>
       <div className='md:py-13 md:px-9 md:bg-white mb-30 md:mt-20 mt-6 rounded-2xl md:flex items-center justify-between'>
         <p className='lg:w-1/4 md:w-1/3 w-full text-[#212121] text-2xl md:text-[38px] md:mb-0 mb-7 font-bold'>Xəbərdar ol, dəyişikliklərə hazırlaş!</p>
         <div className='lg:w-2/5 md:w-1/2 w-full h-12 px-4 border border-[#909090] rounded-[20px] md:rounded-[30px] relative'>
@@ -44,7 +44,7 @@ const page = () => {
         </div>
         <img className='lg:block hidden' src="/assets/img/news-icon.svg" alt="News search icon" />
       </div>
-      <div className='w-full grid gap-6 md:grid-cols-3 lg:grid-cols-4'>
+      <div className='w-full grid gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
         {news?.map((item, i) => (
           <NewsCard item={item} key={i} />
         ))}
