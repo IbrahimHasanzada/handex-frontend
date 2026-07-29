@@ -1,4 +1,5 @@
-export const formatPhoneNumber = (value: string) => {
+export const formatPhoneNumber = (value?: string | null) => {
+    if (!value) return "";
     let numbers = value.replace(/\D/g, "");
     if (numbers.startsWith("994")) {
         numbers = numbers.substring(3);
