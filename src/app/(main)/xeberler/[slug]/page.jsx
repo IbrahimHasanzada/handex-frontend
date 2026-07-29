@@ -52,7 +52,7 @@ const page = async ({ params }) => {
           )}
           {item.description && (
             <div
-              className='text-base w-full max-w-full break-words [&_*]:max-w-full [&_a]:!text-blue-600 [&_img]:!w-full [&_img]:!h-auto [&_img]:rounded-[20px] [&_img]:my-4 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto'
+              className='text-base w-full max-w-full break-words [&_*]:max-w-full [&_a]:!text-blue-600 [&_img]:!w-full [&_img]:!h-auto [&_img]:rounded-[20px] [&_img]:my-4 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:pl-6 [&_ol]:pl-6 [&_li]:my-1'
               dangerouslySetInnerHTML={{ __html: item.description }}
             />
           )}
