@@ -27,9 +27,16 @@ export async function generateMetadata({ params }: any) {
     data.forEach((item: any) => {
         meta[item.name] = item.value;
     });
+    const seoWord = item?.seoWord ?? '';
+    const seoTitle = seoWord ? `${item?.name} ${seoWord}` : item?.name;
+    const title = seoWord ? `${seoTitle} | Handex` : (meta.title || undefined);
     return {
-        title: meta.title || undefined,
+        title,
         description: meta.description || undefined,
+        openGraph: {
+            title,
+            description: meta.description || undefined,
+        },
         alternates: {
             canonical: canonicalUrl,
         },
@@ -50,7 +57,7 @@ const page = async ({ params }: any) => {
         <div className='wrapper pt-40'>
             <div className='lg:bg-[#282828] lg:text-start text-center lg:shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_6px_10px_0px_rgba(0,0,0,0.07)] flex lg:flex-row flex-col justify-center lg:justify-between lg:px-9 py-8 rounded-[20px] items-center'>
                 <div className='lg:w-1/2'>
-                    <h1 className='lg:text-[72px] text-2xl md:text-[30px] text-start font-bold lg:whitespace-nowrap text-white'>{item?.name}</h1>
+                    <h1 className='lg:text-[72px] text-2xl md:text-[30px] text-start font-bold lg:whitespace-nowrap text-white'>{item?.name}{item?.seoWord ? <span className='sr-only'> {item.seoWord}</span> : null}</h1>
                     {item.hidden && <h2 className='hidden'>{item?.hidden}</h2>}
                     <div className='mt-2 my-7 text-start text-[#909090]' dangerouslySetInnerHTML={{ __html: item?.course_detail }} />
                     <StudyAreaModal model={item.model === 'corporate' ? true : false} study={study} />

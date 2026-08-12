@@ -46,7 +46,7 @@ const page = async ({ params }) => {
           <p className='text-base my-6'>{formatDate(item.createdAt)}</p>
         </div>
         <div className=' w-full mx-auto flex flex-col items-center justify-center'>
-          <img className='w-full mb-15 rounded-[20px] object-cover' src={item.image.url} alt={item.title} />
+          <img className='w-full max-h-[280px] md:max-h-[420px] mb-15 rounded-[20px] object-cover' src={item.image.url} alt={item.title} />
           <BlogContentWithToc description={item.description} />
         </div>
       </div>
