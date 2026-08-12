@@ -1,6 +1,6 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+// Qəsdən NextConfig tipi ilə annotasiya olunmayıb: Next 15 və 16 arasında
+// tipdə olmayan açarlar (məs. 16-da silinən `eslint`) build-i sındırmasın
+const nextConfig = {
   reactStrictMode: true,
   compress: true,
   eslint: {
