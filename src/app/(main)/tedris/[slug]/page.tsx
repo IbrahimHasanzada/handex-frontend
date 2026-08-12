@@ -29,16 +29,9 @@ export async function generateMetadata({ params }: any) {
     data.forEach((item: any) => {
         meta[item.name] = item.value;
     });
-    const seoWord = item?.seoWord ?? '';
-    const seoTitle = seoWord ? `${item?.name} ${seoWord}` : item?.name;
-    const title = seoWord ? `${seoTitle} | Handex` : (meta.title || undefined);
     return {
-        title,
+        title: meta.title || undefined,
         description: meta.description || undefined,
-        openGraph: {
-            title,
-            description: meta.description || undefined,
-        },
         alternates: {
             canonical: canonicalUrl,
         },
