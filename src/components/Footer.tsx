@@ -54,11 +54,19 @@ const Footer = async ({ theme = '', study }: any) => {
       <div className={`${theme ? 'bg-[#2b2b2b]' : 'bg-white border border-[#DDD]'} box-shadow rounded-[20px] overflow-hidden`}>
         <div className='flex flex-col md:flex-row justify-between gap-11 px-6 py-6 md:py-13'>
           <div className='md:w-1/4 flex flex-col items-center md:items-baseline pb-7 md:pb-0'>
+            {/* Köhnə loqo — geri qaytarmaq üçün aşağıdakı yeni Image-i silib bunu açın
             <Image
               src={theme ? 'https://handex.edu.az/logo-white.svg' : 'https://handex.edu.az/logo.svg'}
               alt="Handex logo"
               width={142}
               height={36}
+            />
+            */}
+            <Image
+              src={theme ? '/logo-white-new.svg' : '/logo-new.svg'}
+              alt="Handex logo"
+              width={108}
+              height={64}
             />
             <div className='w-full h-full md:block hidden'>
               <FooterSlider theme={theme} study={study} />
