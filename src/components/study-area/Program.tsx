@@ -49,7 +49,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
                                 <div className={`${model ? 'bg-[#282828]' : 'bg-white'} overflow-hidden rounded-full p-1.5`}>
                                     <img className='size-9' src='/assets/brochure.svg' alt={slug + ' brochure'} />
                                 </div>
-                                <p className={`${!model ? (count === program?.length + 1 ? 'text-white' : 'text-[#141414]') : 'text-white'}`}>Broşür yüklə</p>
+                                <p className={`${!model ? (count === program?.length + 1 ? 'text-white' : 'text-[#141414]') : 'text-white'}`}>Broşürü yüklə</p>
                             </>
                         }
                     </div>
@@ -57,7 +57,7 @@ const Program: React.FC<any> = ({ slug, locale, color, model, brochure }) => {
             </div>
             <div className='md:mt-0 mt-6 md:w-3/5'>
                 <p className={`${model ? 'text-white' : 'text-[#111827]'} text-[30px] font-bold mb-6`}>Proqram haqqında</p>
-                <div className={model && 'text-[#909090]'} dangerouslySetInnerHTML={{ __html: program && program[count]?.description }} />
+                <div className={`${model ? 'text-[#909090]' : ''} [&_a]:!text-blue-600 [&_a]:underline`} dangerouslySetInnerHTML={{ __html: program && program[count]?.description }} />
             </div>
         </div>
     );
