@@ -41,13 +41,14 @@ const page = async ({ params }) => {
   return (
     <div>
       <div className='wrapper pt-30'>
-        <div className='text-center mt-15 mx-auto'>
-          <h1 className='md:text-[38px] text-[24px] font-bold'>{item.title}</h1>
-          <p className='text-base my-6'>{formatDate(item.createdAt)}</p>
-        </div>
-        <div className=' w-full mx-auto flex flex-col items-center justify-center'>
-          <img className='w-full max-h-[280px] md:max-h-[420px] mb-15 rounded-[20px] object-cover' src={item.image.url} alt={item.title} />
-          <BlogContentWithToc description={item.description} />
+        <div className=' w-full mx-auto mt-15 flex flex-col items-center justify-center'>
+          <BlogContentWithToc
+            description={item.description}
+            image={item.image?.url}
+            imageAlt={item.title}
+            title={item.title}
+            date={formatDate(item.createdAt)}
+          />
         </div>
       </div>
       <div className='w-max mx-auto mt-10'>

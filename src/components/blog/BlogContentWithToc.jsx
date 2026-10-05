@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react';
 
-const BlogContentWithTOC = ({ description }) => {
+const BlogContentWithTOC = ({ description, image, imageAlt, title, date }) => {
   const [headings, setHeadings] = useState([]);
   const [index, setIndex] = useState(0);
+  const [html, setHtml] = useState(description);
 
   const scrollToElement = (elementId, idx) => {
     const element = document.getElementById(elementId);
@@ -31,9 +32,7 @@ const BlogContentWithTOC = ({ description }) => {
       });
 
       setHeadings(headingsData);
-
-      const contentEl = document.getElementById('blog-content');
-      if (contentEl) contentEl.innerHTML = doc.body.innerHTML;
+      setHtml(doc.body.innerHTML);
     }
   }, [description]);
 
@@ -61,8 +60,11 @@ const BlogContentWithTOC = ({ description }) => {
 
   return (
     <div className="flex flex-col lg:flex-row gap-10">
-      <div className="lg:w-1/4 w-full">
+      <div className="lg:w-1/3 w-full">
         <div className="sticky top-30">
+          {image && (
+            <img className="w-full rounded-[20px] object-cover mb-8" src={image} alt={imageAlt} />
+          )}
           <p className="text-xl font-semibold mb-3">Mündəricat</p>
           <ul className="flex flex-col gap-1 rounded-l-lg">
             {headings.map((h, idx) => (
@@ -89,13 +91,22 @@ const BlogContentWithTOC = ({ description }) => {
         </div>
       </div>
 
-      <article 
-        id="blog-content" 
-        className="prose lg:w-3/4 text-xl w-full !text-[#666] [&_a]:!text-blue-600 [&_h1]:text-black [&_h2]:text-black [&_h3]:text-black [&_h4]:text-black [&_h5]:text-black [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:pl-6 [&_ol]:pl-6 [&_li]:my-1"
-        style={{
-          scrollMarginTop: '120px'
-        }}
-      ></article>
+      <div className="lg:w-2/3 w-full">
+        {title && (
+          <h1 className="md:text-[38px] text-[24px] font-bold">{title}</h1>
+        )}
+        {date && (
+          <p className="text-base my-6">{date}</p>
+        )}
+        <article
+          id="blog-content"
+          className="prose text-xl w-full !text-[#666] [&_a]:!text-blue-600 [&_h1]:text-black [&_h2]:text-black [&_h3]:text-black [&_h4]:text-black [&_h5]:text-black [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:pl-6 [&_ol]:pl-6 [&_li]:my-1"
+          style={{
+            scrollMarginTop: '120px'
+          }}
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></article>
+      </div>
     </div>
   );
 };
