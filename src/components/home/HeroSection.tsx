@@ -17,7 +17,7 @@ const HeadSection: React.FC<HeroSectionDto> = async ({ page, t }) => {
                 <h1 className={`font-bold text-2xl base:!text-4xl  mb-6 max-w-120 ${page === 'corporate' ? 'text-white' : 'text-black'}`}>{data?.title}</h1>
                 <p className='mb-10 max-w-150 md:text-sm base:text-base text-[#909090]'>{data?.desc}</p>
                 <div className='flex flex-wrap items-center gap-4'>
-                    <div className='w-35 h-12 '>
+                    <div className={`${page === 'corporate' ? 'w-45' : 'w-35'} h-12`}>
                         <HeroModal study={study} page={page} />
                     </div>
                     {page === 'corporate' && Array.isArray(references) && <ReferenceLetters data={references} />}

@@ -11,7 +11,7 @@ const HeroModal = ({ page, study }: any) => {
         <>
             <div className='h-12' onClick={() => setFlag(!flag)}>
                 <Button id="hero-modal" theme={page === 'corporate' ? true : false} flag={true} link='' >
-                        Keçid et
+                        {page === 'corporate' ? 'Təlim təklifi al' : 'Keçid et'}
                 </Button>
             </div>
             <Modal flag={flag} setFlag={setFlag} study={study} page={page} />

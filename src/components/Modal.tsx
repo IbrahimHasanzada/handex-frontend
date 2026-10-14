@@ -116,7 +116,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
                         <path className={`${page === 'home' ? 'stroke-[#141414]' : 'stroke-white'}`} d="M8 9.99997L12 14L16 9.99997" stroke="#141414" strokeWidth="1.24435" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     <select id='select-study-area-consultation' className={`w-full ${page === 'home' ? 'text-[#909090] border-[#909090]' : 'text-white border-white'} appearance-none my-3 px-4 text-base h-12 outline-none rounded-[20px] border`} onChange={(e) => handleChange(e.target.value, form[form.length - 1].name)}>
-                        <option className='text-[#141414]' value={0}>Tədris sahələri</option>
+                        <option className='text-[#141414]' value={0}>{page === 'home' ? 'Tədris sahələri' : 'Təklif almaq istədiyiniz təlim'}</option>
                         {study?.map((item: any, i: number) => (
                             <option className='text-[#141414]' value={item.id} key={i}>{item.name}</option>
                         ))}
