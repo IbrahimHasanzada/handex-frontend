@@ -155,6 +155,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily',
       priority: 0.1,
     },
+    {
+      url: `${BASE_URL}/korporativ/elaqe`,
+      lastModified: ELAQE_LASTMOD,
+      changeFrequency: 'daily',
+      priority: 0.1,
+    },
   ]
 
   const [blogPosts, homeCourses] = await Promise.all([

@@ -123,7 +123,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             </li>
             <li className='group cursor-pointer py-3'>
               <p className={`group-hover:border-b border-b-primary-corporate ${theme ? 'text-white' : 'text-black'}`}>
-                <Link href='/elaqe'>Əlaqə</Link>
+                <Link href={theme ? '/korporativ/elaqe' : '/elaqe'}>Əlaqə</Link>
               </p>
             </li>
           </ul>
@@ -243,7 +243,7 @@ const Header = ({ theme = '', study }: { theme?: string; study: any; }) => {
             <Link href='/korporativ'>Korporativ</Link>
           </li>
           <li id='contact-page' onClick={() => handleClose()} className={`cursor-pointer font-medium text-xl pb-1 my-2.5 ${theme ? 'text-white' : 'text-[#141414]'}`}>
-            <Link href='/elaqe'>Əlaqə</Link>
+            <Link href={theme ? '/korporativ/elaqe' : '/elaqe'}>Əlaqə</Link>
           </li>
         </ul>
         {/* <div className='w-full h-[1px] bg-[#ABABAB] mt-10 mb-5'></div>
