@@ -13,6 +13,18 @@
     --color-primary-bg: #F4F5F5;
     --color-primary-corporate: #2A83AF;
     --breakpoint-base: 968px;
+    --animate-study-fade: study-fade 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+    @keyframes study-fade {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 
   html {

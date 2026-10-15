@@ -258,6 +258,22 @@ export const getStudyAreas = async (model?: string) => {
     }
 };
 
+export const getStudyAreaCategoriesClient = async (model: string) => {
+    try {
+        const res = await fetch(`https://backend.handex.edu.az/api/study-area-category?model=${model}`, {
+            headers: {
+                'accept-language': 'az',
+            },
+        });
+        if (!res.ok) return [];
+
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+    } catch (err) {
+        return [];
+    }
+};
+
 export const getStudyAreasClient = async (locale: string, model?: string) => {
     try {
         const url = model
