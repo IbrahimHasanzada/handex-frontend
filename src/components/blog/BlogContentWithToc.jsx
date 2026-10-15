@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const BlogContentWithTOC = ({ description, image, imageAlt, title, date }) => {
+const BlogContentWithTOC = ({ description, image, imageAlt, title, date, children }) => {
   const [headings, setHeadings] = useState([]);
   const [index, setIndex] = useState(0);
   const [html, setHtml] = useState(description);
@@ -106,6 +106,7 @@ const BlogContentWithTOC = ({ description, image, imageAlt, title, date }) => {
           }}
           dangerouslySetInnerHTML={{ __html: html }}
         ></article>
+        {children}
       </div>
     </div>
   );

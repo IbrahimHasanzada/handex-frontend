@@ -4,6 +4,7 @@ import React from 'react';
 import Share from '@/components/Share';
 import { baseUrl } from '@/utils/url';
 import BlogContentWithToc from '@/components/blog/BlogContentWithToc'
+import BlogCta from '@/components/blog/BlogCta'
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -48,7 +49,14 @@ const page = async ({ params }) => {
             imageAlt={item.title}
             title={item.title}
             date={formatDate(item.createdAt)}
-          />
+          >
+            <BlogCta
+              title={item.cta_title}
+              description={item.cta_description}
+              buttonText={item.cta_button_text}
+              link={item.cta_link}
+            />
+          </BlogContentWithToc>
         </div>
       </div>
       <div className='w-max mx-auto mt-10'>
