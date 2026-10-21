@@ -20,7 +20,7 @@ const page = async () => {
     return (
         <div className='wrapper pt-45'>
             <h1 className='text-[40px] font-bold text-white'>Bizimlə əlaqə</h1>
-            <p className='mt-3 text-[#909090] max-w-150'>Şirkətiniz üçün təlim təklifi almaq üçün formu doldurun, komandamız qısa zamanda sizinlə əlaqə saxlayacaq.</p>
+            <p className='mt-3 text-[#909090] max-w-150'>Komandanızın inkişafına ilk addımı atın. Formu doldurun, ehtiyaclarınıza uyğun korporativ təlim proqramlarını müzakirə etmək üçün sizinlə əlaqə saxlayaq.</p>
             <ContactInfo data={data} dark />
             <ContactForm corporate study={Array.isArray(study) ? study : []} />
         </div>
