@@ -123,7 +123,7 @@ const Groups: React.FC<any> = ({ locale, slug, study, color, model }) => {
                             );
                         })}
                     </div>
-                    <Modal study={study} flag={flag} setFlag={setFlag} />
+                    <Modal study={study} flag={flag} setFlag={setFlag} formName={model ? 'korporativ' : 'muraciet'} />
                 </>
             )}
         </div>

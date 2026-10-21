@@ -1,10 +1,11 @@
 "use client";
 import { addConsultation, getStudyAreas } from '@/service';
 import { useWindowSize } from '@/utils/useWindowSize';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { isSuccessResponse, LeadFormName, trackLead } from '@/utils/track-lead';
 import toast from 'react-hot-toast';
 
-const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
+const Modal = ({ flag, setFlag, study, page = 'home', formName }: any) => {
     const { width } = useWindowSize();
     // const t = useTranslations('header');
 
@@ -48,16 +49,35 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
         course: 0
     });
 
+    const [submitting, setSubmitting] = useState(false);
+    const submittingRef = useRef(false);
+
     const handleClick = async () => {
+        if (submittingRef.current) return;
         if (page !== 'home' && !messages.company) return toast.error('Şirkət adı boş ola bilməz');
         if (page !== 'home' && !messages.email) return toast.error('Email boş ola bilməz');
         if (!messages.phone) return toast.error('Telefon boş ola bilməz');
 
         const message = page === 'home' ? { ...messages, email: undefined, company: undefined } : messages;
+
+        submittingRef.current = true;
+        setSubmitting(true);
         let data = await addConsultation(message, 'az');
-        if (data.error) toast.error(Array.isArray(data.message) ? data.message[0] : data.message);
+        submittingRef.current = false;
+        setSubmitting(false);
+
+        const success = isSuccessResponse(data);
+        if (!success) toast.error(Array.isArray(data?.message) ? data.message[0] : (data?.message || 'Xəta baş verdi'));
         else toast.success("Mesaj uğurla göndərildi");
-        if (!data.error) {
+        if (success) {
+            trackLead({
+                formName: (formName || (page === 'home' ? 'konsultasiya' : 'korporativ')) as LeadFormName,
+                course: study?.find((item: any) => String(item.id) === String(messages.course))?.name,
+                email: page === 'home' ? '' : messages.email,
+                phone: messages.phone,
+                firstName: messages.name,
+                lastName: messages.surname,
+            });
             setMessages({
                 name: '',
                 surname: '',
@@ -122,7 +142,7 @@ const Modal = ({ flag, setFlag, study, page = 'home' }: any) => {
                         ))}
                     </select>
                 </div>
-                <button id='modal-button' onClick={() => handleClick()} className='mt-8 w-full md:w-51 h-12 rounded-full bg-[#323232] text-white'>Müraciət et</button>
+                <button id='modal-button' disabled={submitting} onClick={() => handleClick()} className='mt-8 w-full md:w-51 h-12 rounded-full bg-[#323232] text-white disabled:opacity-60 disabled:cursor-not-allowed'>Müraciət et</button>
             </div>
         </>
     );
